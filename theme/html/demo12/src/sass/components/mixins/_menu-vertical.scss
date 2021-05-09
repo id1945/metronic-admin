@@ -1,0 +1,1282 @@
+//
+// Vertical Menu Generator Helpers
+//
+
+
+
+// Item
+@mixin menu-ver-item-base($item) {
+	// item
+	@include attr(margin, get($item, self, margin));
+	@include attr(padding, get($item, self, padding));
+
+	// item link and heading
+	> .menu-heading,
+	> .menu-link {
+		cursor: pointer;
+		@include border-radius(get($item, link, self, border-radius));
+		// link height
+		min-height: get($item, link, self, height);
+
+		// link margin
+		@include attr(margin, get($item, link, self, margin));
+
+		// menu item link's text part
+		.menu-text {
+			font-weight: get($item, link, text, font-weight);
+			font-size: get($item, link, text, font-size);
+			text-transform: get($item, link, text, font-transform);
+		}
+
+		// menu item link's icon
+		.menu-icon {
+			text-align: get($item, link, icon, align);
+			flex: 0 0 get($item, link, icon, width);
+			font-size: get($item, link, icon, font-size);
+
+			// duo-tone svg icon
+			svg {
+				@include attr(height, get($item, link, icon, svg-width));
+				@include attr(width, get($item, link, icon, svg-width));
+				margin-left: -2px;
+			}
+		}
+
+		// menu item link's bullet
+		.menu-bullet {
+			vertical-align: middle;
+			text-align: left;
+			flex: 0 0 get($item, link, bullet, self, width);
+
+			> span {
+				vertical-align: middle;
+				display: inline-block;
+			}
+
+			&.menu-bullet-dot {
+				> span {
+					width: get($item, link, bullet, dot, size);
+					height: get($item, link, bullet, dot, size);
+					border-radius: 100%;
+				}
+			}
+
+			&.menu-bullet-line {
+				> span {
+					width: get($item, link, bullet, line, width);
+					height: get($item, link, bullet, line, height);
+				}
+			}
+		}
+
+		// menu item link's icon part
+		.menu-label {
+			padding: get($item, link, label, padding);
+			text-align: get($item, link, label, align);
+		}
+
+		// menu item link's arrow part
+		.menu-arrow {
+			text-align: get($item, link, arrow, align);
+			flex: 0 0 get($item, link, arrow, width);
+			font-size: get($item, link, arrow, font-size);
+
+			&:before {
+				transition: get($item, link, arrow, transition);
+				@include ki(get($ki-types, arrowNext));
+
+				[direction="rtl"] & {
+					content: "#{get($ki-types, arrowBack)}" !important;
+				}
+			}
+		}
+
+		// menu root level "here" arrow
+		.menu-item-here {
+			display: none;
+		}
+	}
+
+	// item link open state
+	&.menu-item-open {
+		> .menu-heading,
+		> .menu-link {
+			// menu item link's arrow part
+			.menu-arrow {
+				&:before {
+					transition: get($item, link, arrow, transition);
+				}
+			}
+		}
+	}
+}
+
+@mixin menu-ver-item-theme($item) {
+	// item
+	@include attr(background-color, get($item, self, bg-color, default));
+
+	// item link and heading
+	> .menu-heading,
+	> .menu-link {
+		// menu item link's text part
+		.menu-text {
+			@include attr(color, get($item, link, text, font-color, default));
+			@if has($item, link, text, font-weight) {
+				font-weight: get($item, link, text, font-weight);
+			}
+		}
+
+		// menu item link's icon
+		.menu-icon {
+			@include attr(color, get($item, link, icon, font-color, default));
+
+			// Due-tone icon
+			&.svg-icon {
+				@include svg-icon-color(get($item, link, icon, font-color, default));
+			}
+		}
+
+		// menu item link's bullet
+		.menu-bullet {
+			&.menu-bullet-dot {
+				> span {
+					@include attr(background-color, get($item, link, bullet, dot, bg-color, default));
+				}
+			}
+
+			&.menu-bullet-line {
+				> span {
+					@include attr(background-color, get($item, link, bullet, line, bg-color, default));
+				}
+			}
+		}
+
+		// menu item link's arrow part
+		.menu-arrow {
+			@include attr(color, get($item, link, arrow, font-color, default));
+		}
+	}
+
+	// item link open state
+	&.menu-item-open {
+		transition: background-color 0.3s;
+		@include attr(background-color, get($item, self, bg-color, open));
+
+		> .menu-heading,
+		> .menu-link {
+			@include attr(background-color, get($item, link, self, bg-color, open));
+
+			// menu item link's text part
+			.menu-text {
+				@include attr(color, get($item, link, text, font-color, open));
+			}
+
+			// menu item link's icon part
+			.menu-icon {
+				@include attr(color, get($item, link, icon, font-color, open));
+
+				// Due-tone icon
+				&.svg-icon {
+					@include svg-icon-color(get($item, link, icon, font-color, open));
+				}
+			}
+
+			// menu item link's bullet
+			.menu-bullet {
+				&.menu-bullet-dot {
+					> span {
+						@include attr(background-color, get($item, link, bullet, dot, bg-color, open));
+					}
+				}
+
+				&.menu-bullet-line {
+					> span {
+						@include attr(background-color, get($item, link, bullet, line, bg-color, open));
+					}
+				}
+			}
+
+			// menu item link's arrow part
+			.menu-arrow {
+				@include attr(color, get($item, link, arrow, font-color, open));
+			}
+		}
+	}
+
+	// item link open state
+	&.menu-item-here {
+		transition: background-color 0.3s;
+		@include attr(background-color, get($item, self, bg-color, here));
+
+		> .menu-heading,
+		> .menu-link {
+			@include attr(background-color, get($item, link, self, bg-color, here));
+
+			// menu item link's text part
+			.menu-text {
+				@include attr(color, get($item, link, text, font-color, here));
+			}
+
+			// menu item link's icon part
+			.menu-icon {
+				@include attr(color, get($item, link, icon, font-color, here));
+
+				// Due-tone icon
+				&.svg-icon {
+					@include svg-icon-color(get($item, link, icon, font-color, here));
+				}
+			}
+
+			// menu item link's bullet
+			.menu-bullet {
+				&.menu-bullet-dot {
+					> span {
+						@include attr(background-color, get($item, link, bullet, dot, bg-color, here));
+					}
+				}
+
+				&.menu-bullet-line {
+					> span {
+						@include attr(background-color, get($item, link, bullet, line, bg-color, here));
+					}
+				}
+			}
+
+			// menu item link's arrow part
+			.menu-arrow {
+				@include attr(color, get($item, link, arrow, font-color, here));
+			}
+		}
+	}
+
+	// item link active state
+	&.menu-item-active {
+		transition: background-color 0.3s;
+		@include attr(background-color, get($item, self, bg-color, active));
+
+		> .menu-heading,
+		> .menu-link {
+			@include attr(background-color, get($item, link, self, bg-color, active));
+
+			// menu item link's text part
+			.menu-text {
+				@include attr(color, get($item, link, text, font-color, active));
+			}
+
+			// menu item link's icon part
+			.menu-icon {
+				@include attr(color, get($item, link, icon, font-color, active));
+
+				// Due-tone icon
+				&.svg-icon {
+					@include svg-icon-color(get($item, link, icon, font-color, active));
+				}
+			}
+
+			// menu item link's bullet
+			.menu-bullet {
+				&.menu-bullet-dot {
+					> span {
+						@include attr(background-color, get($item, link, bullet, dot, bg-color, active));
+					}
+				}
+
+				&.menu-bullet-line {
+					> span {
+						@include attr(background-color, get($item, link, bullet, line, bg-color, active));
+					}
+				}
+			}
+
+			// menu item link's arrow part
+			.menu-arrow {
+				@include attr(color, get($item, link, arrow, font-color, active));
+			}
+		}
+	}
+
+	// item link hover state
+	&:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover {
+		transition: background-color 0.3s;
+		@include attr(background-color, get($item, self, bg-color, hover));
+
+		> .menu-heading,
+		> .menu-link {
+			@include attr(background-color, get($item, link, self, bg-color, hover));
+
+			// menu item link's text part
+			.menu-text {
+				@include attr(color, get($item, link, text, font-color, hover));
+			}
+
+			// menu item link's icon part
+			.menu-icon {
+				@include attr(color, get($item, link, icon, font-color, hover));
+
+				// Due-tone icon
+				&.svg-icon {
+					@include svg-icon-color(get($item, link, icon, font-color, hover));
+				}
+			}
+
+			// menu item link's bullet
+			.menu-bullet {
+				&.menu-bullet-dot {
+					> span {
+						@include attr(background-color, get($item, link, bullet, dot, bg-color, hover));
+					}
+				}
+
+				&.menu-bullet-line {
+					> span {
+						@include attr(background-color, get($item, link, bullet, line, bg-color, hover));
+					}
+				}
+			}
+
+			// menu item link's arrow part
+			.menu-arrow {
+				@include attr(color, get($item, link, arrow, font-color, hover));
+			}
+		}
+	}
+}
+
+// Section
+@mixin menu-ver-section-base($section) {
+	margin: get($section, self, margin);
+	height: get($section, self, height);
+
+	.menu-text {
+		font-size: get($section, text, font-size);
+		font-weight: get($section, text, font-weight);
+		text-transform: get($section, text, font-transform);
+		letter-spacing: get($section, text, letter-spacing);
+	}
+
+	@if has($section, icon) {
+		.menu-icon {
+			padding: get($section, icon, padding);
+		}
+	}
+}
+
+@mixin menu-ver-section-theme($section) {
+	.menu-text {
+		@include attr(color, get($section, text, font-color));
+	}
+
+	@if has($section, icon) {
+		.menu-icon {
+			@include attr(color, get($section, icon, font-color));
+		}
+	}
+}
+
+// Separator
+@mixin menu-ver-separator-base($separator) {
+	margin: get($separator, margin);
+
+	.menu-separator-marginless {
+		margin: 0;
+	}
+}
+
+@mixin menu-ver-separator-theme($separator) {
+	@include attr(border-bottom, get($separator, border));
+}
+
+// Minimize Parent Item
+@mixin menu-ver-minimize-parent-item-base($item) {
+	// item
+	margin: get($item, self, margin);
+
+	// item link and heading
+	> .menu-link {
+		height: get($item, link, self, height);
+		padding: get($item, link, self, padding);
+
+		// menu item link's text part
+		.menu-text {
+			font-weight: get($item, link, text, font-weight);
+			font-size: get($item, link, text, font-size);
+			text-transform: get($item, link, text, font-transform);
+			cursor: text !important;
+		}
+
+		// menu item link's icon part
+		.menu-label {
+			padding: get($item, link, label, padding);
+			text-align: get($item, link, label, align);
+		}
+	}
+}
+
+@mixin menu-ver-minimize-parent-item-theme($item) {
+	// item
+	@include attr(background-color, get($item, self, bg-color, default));
+
+	// item link and heading
+	> .menu-link {
+		// menu item link's text part
+		> .menu-text {
+			@include attr(color, get($item, link, text, font-color, default));
+		}
+	}
+}
+
+// Base
+@mixin menu-ver-base($base-config, $layout) {
+	.#{get($base-config, class)} {
+		// menu nav
+		.menu-nav {
+			margin: 0;
+			list-style: none;
+			padding: get($layout, default, self, padding);
+
+			// Base markup
+			.menu-scroll {
+				position: relative;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+			}
+
+			.menu-subnav {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				padding: 0;
+				margin: 0;
+				list-style: none !important;
+			}
+
+			// general submenu
+			.menu-inner,
+			.menu-submenu {
+				display: none;
+				float: none;
+				margin: 0;
+				padding: 0;
+
+				@if get($base-config, mode) == "tablet-and-mobile" or get($base-config, mode) == "mobile" {
+					width: auto !important;
+				}
+
+				// Content
+				.menu-content {
+					padding: 0;
+					margin: 0;
+
+					> .menu-item {
+						padding: 0;
+						margin: 0;
+						list-style: none;
+
+						&.menu-headingless {
+							> .menu-inner {
+								display: flex;
+
+								> li > .menu-link {
+	   								margin: 0;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			// general item
+			.menu-item {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				float: none;
+				padding: 0;
+
+				// item link and heading
+				> .menu-heading,
+				> .menu-link {
+					display: flex;
+					flex-grow: 1;
+					align-items: stretch;
+					margin: 0;
+					padding: 0;
+					text-decoration: none;
+					position: relative;
+					outline: none;
+
+					&:hover {
+						text-decoration: none;
+						cursor: pointer;
+					}
+
+					.menu-text {
+						display: flex;
+						align-items: center;
+						flex-grow: 1;
+						padding: 0;
+					}
+
+					.menu-label {
+						display: flex;
+						align-items: center;
+						white-space: nowrap;
+					}
+
+					// menu item link's icon part
+					.menu-icon {
+						display: flex;
+						align-items: center;
+						line-height: 0;
+					}
+
+					// menu item link's icon part
+					.menu-bullet {
+						display: flex;
+						align-items: center;
+						line-height: 0;
+					}
+
+					// menu item link's arrow part
+					.menu-arrow {
+						display: flex;
+						align-items: center;
+						justify-content: flex-end;
+						line-height: 0;
+
+						&:before {
+							-webkit-transform: translate3d(0,0,0);
+						}
+					}
+				}
+
+				// item link open state
+				&.menu-item-open {
+					> .menu-heading,
+					> .menu-link {
+						// menu item link's arrow part
+						> .menu-arrow {
+							&:before {
+								transform: rotateZ(90deg)#{'/*rtl:ignore*/'};
+
+								[direction="rtl"] & {
+									transform: rotateZ(-90deg)#{'/*rtl:ignore*/'};
+								}
+							}
+						}
+					}
+
+					> .menu-submenu,
+					> .menu-inner {
+						display: flex;
+						flex-grow: 1;
+						flex-direction: column;
+					}
+				}
+
+				// submenu items
+				.menu-submenu {
+					// submenu item
+					.menu-item {
+						// item link and heading
+						> .menu-heading,
+						> .menu-link {
+							padding: get($layout, default, item, submenu, item, link, padding);
+						}
+					}
+
+					// parent item used for minimized menu's dropdown submenus
+					.menu-item-parent {
+						display: none;
+					}
+				}
+			}
+
+			// general section
+			.menu-section {
+				display: flex;
+				padding: get($layout, default, section, self, padding);
+
+				&.menu-section-first {
+					margin-top: 0 !important;
+				}
+
+				.menu-text {
+					display:flex;
+					margin: 0;
+					padding: 0;
+					align-items: center;
+				}
+
+				.menu-icon {
+					display: none;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+
+			// general separator
+			.menu-separator {
+				height: 0;
+				overflow: hidden;
+
+				&.menu-separator-marginless {
+					margin: 0;
+				}
+			}
+
+			// Custom markup
+			// menu item
+			> .menu-item {
+				position: relative;
+				@include menu-ver-item-base(get($layout, default, item));
+
+				.menu-submenu {
+					.menu-subnav {
+						@include attr(margin, get($layout, default, item, submenu, self, margin));
+						@include attr(padding, get($layout, default, item, submenu, self, padding));
+					}
+
+					// menu item
+					.menu-item {
+						@include menu-ver-item-base(get($layout, default, item, submenu, item));
+					}
+
+					// menu section
+					.menu-section {
+						@include menu-ver-section-base(get($layout, default, item, submenu, section));
+					}
+
+					// menu item separator
+					.menu-separator {
+						@include menu-ver-separator-base(get($layout, default, item, submenu, separator));
+					}
+				}
+			}
+
+			// menu section
+			> .menu-section {
+				@include menu-ver-section-base(get($layout, default, section));
+			}
+
+			// menu item separator
+			> .menu-separator {
+				@include menu-ver-separator-base(get($layout, default, separator));
+			}
+
+			// submenu link paddings and indentions
+			// item
+			$item-link-padding: get($layout, default, item, link, self, padding);
+			$item-section-padding: get($layout, default, section, self, padding);
+
+			// item submenu
+			$item-submenu-padding-left: get($layout, default, item, submenu, item, link, self, padding-x);
+
+			$item-submenu-indent: get($layout, default, item, submenu, self, indent);
+			$item-submenu-link-padding: get($layout, default, item, submenu, item, link, self, padding);
+
+			$item-submenu-section-indent: get($layout, default, item, submenu, section, self, indent);
+			$item-submenu-section-padding: get($layout, default, item, submenu, section, padding);
+
+			> .menu-item {
+				> .menu-link {
+					padding: $item-link-padding;
+				}
+
+				> .menu-submenu {
+					.menu-subnav {
+						// item link paddings
+						.menu-content {
+							.menu-heading {
+								padding: $item-submenu-link-padding;
+								padding-left: $item-submenu-padding-left + (1 * $item-submenu-section-indent);
+							}
+
+							.menu-inner {
+								padding: 0;
+								margin: 0;
+
+								.menu-link {
+									padding: $item-submenu-link-padding;
+									padding-left: $item-submenu-padding-left + (2 * $item-submenu-section-indent);
+								}
+							}
+						}
+
+						> .menu-item {
+							> .menu-link {
+								padding: $item-submenu-link-padding;
+								padding-left: $item-submenu-padding-left + (1 * $item-submenu-indent);
+							}
+
+							> .menu-submenu {
+								padding: 0;
+
+								.menu-subnav {
+									padding: 0;
+
+									> .menu-item {
+										> .menu-link {
+											padding: $item-submenu-link-padding;
+											padding-left: $item-submenu-padding-left + (2 * $item-submenu-indent);
+										}
+
+										> .menu-submenu {
+											padding: 0;
+
+											.menu-subnav {
+												> .menu-item {
+													> .menu-link {
+														padding: $item-submenu-link-padding;
+														padding-left: $item-submenu-padding-left + (3 * $item-submenu-indent);
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+						// section paddings
+						> .menu-section {
+							padding: $item-submenu-section-padding;
+							padding-left:$item-submenu-padding-left + (1 * $item-submenu-section-indent);
+						}
+
+						> .menu-item {
+							> .menu-submenu {
+								padding: 0;
+								.menu-subnav {
+									> .menu-section {
+										padding: $item-submenu-section-padding;
+										padding-left: $item-submenu-padding-left + (2 * $item-submenu-section-indent);
+									}
+
+									> .menu-item {
+										> .menu-submenu {
+											padding: 0;
+											.menu-subnav {
+												> .menu-section {
+													padding: $item-submenu-section-padding;
+													padding-left:$item-submenu-padding-left + (3 * $item-submenu-section-indent);
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin menu-ver-theme($base-config, $layout) {
+	.#{get($base-config, class)} {
+		@include attr(background-color, get($layout, default, self, bg-color));
+
+		.menu-nav {
+			// menu item
+			> .menu-item {
+				@include menu-ver-item-theme(get($layout, default, item));
+
+				> .menu-arrow {
+					color: get($layout, default, self, bg-color);
+				}
+			}
+
+			// menu section
+			> .menu-section {
+				@include menu-ver-section-theme(get($layout, default, section));
+			}
+
+			// menu item separator
+			> .menu-separator {
+				@include menu-ver-separator-theme(get($layout, default, separator));
+			}
+
+			// menu item
+			> .menu-item {
+				.menu-submenu {
+					.menu-subnav {
+						@include attr(background-color, get($layout, default, item, submenu, self, bg-color, default));
+					}
+					// menu item
+					.menu-item {
+						@include menu-ver-item-theme(get($layout, default, item, submenu, item));
+					}
+
+					// menu section
+					.menu-section {
+						@include menu-ver-section-theme(get($layout, default, item, submenu, section));
+					}
+
+					// menu item separator
+					.menu-separator {
+						@include menu-ver-separator-theme(get($layout, default, item, submenu, separator));
+					}
+				}
+			}
+		}
+	}
+}
+
+// Dropdown
+@mixin menu-ver-dropdown-base($base-config, $layout) {
+	// base dropdown submenu
+	.#{get($base-config, parent-class)}-minimize:not(.#{get($base-config, parent-class)}-minimize-hover) .#{get($base-config, class)},
+	.#{get($base-config, class)}.#{get($base-config, class)}-dropdown {
+		.menu-nav {
+			.menu-item:not([data-menu-submenu-mode=accordion]) {
+				> .menu-link {
+					> .menu-arrow {
+						&:before {
+							@include fix-animation-lags();
+						}
+					}
+				}
+
+				> .menu-submenu {
+					display: none !important;
+					@include fix-animation-lags();
+				}
+
+				&.menu-item-hover {
+					position: relative;
+
+					> .menu-submenu {
+						top: get($layout, dropdown, item, submenu, self, offset, inner, default);
+						position: absolute;
+						left: 0;
+						z-index: get($layout, dropdown, item, self, zindex);
+						display: flex !important;
+						width: get($layout, dropdown, item, submenu, self, width);
+						margin-left: get($layout, dropdown, item, submenu, self, parent-width);
+						@include border-radius(get($layout, dropdown, item, submenu, self, border-radius));
+
+						&.menu-submenu-up {
+							bottom: 0;
+							top: auto;
+						}
+
+					 	animation:#{get($base-config, class)}-submenu-fade-in .3s ease 1, #{get($base-config, class)}-submenu-move-up .3s ease-out 1;
+
+					 	&.menu-submenu-up {
+					 		top: auto;
+					 		bottom: get($layout, dropdown, item, submenu, self, offset, inner, up);
+					 		animation: #{get($base-config, class)}-submenu-fade-in .3s ease 1, #{get($base-config, class)}-submenu-move-down .3s ease-out 1;
+
+	                    	@include for-ie11 {
+	                        	animation: none;
+	                    	}
+					 	}
+
+						.menu-subnav {
+							padding: get($layout, dropdown, item, submenu, self, padding);
+
+							> .menu-item {
+								.menu-link {
+									justify-content: flex-start;
+									padding: get($layout, dropdown, item, submenu, item, link, self, padding);
+
+									.link-title {
+										display: flex;
+									}
+
+									.menu-text {
+										@include fix-animation-lags();
+									}
+
+									.menu-icon {
+										display: flex;
+									}
+
+									.menu-bullet {
+										display: flex;
+									}
+
+									.menu-label {
+										display: flex;
+									}
+
+									.menu-arrow {
+										display: flex;
+									}
+								}
+
+								.menu-submenu {
+									.menu-subnav {
+										padding: get($layout, dropdown, item, submenu, self, padding);
+
+										> .menu-item {
+											> .menu-link {
+												padding: get($layout, dropdown, item, submenu, item, link, self, padding);
+											}
+
+											.menu-submenu {
+												.menu-subnav {
+													padding: get($layout, dropdown, item, submenu, self, padding);
+
+													> .menu-item {
+														> .menu-link {
+															padding: get($layout, dropdown, item, submenu, item, link, self, padding);
+														}
+													}
+												}
+											}
+										}
+
+										> .menu-section {
+											padding: get($layout, dropdown, item, submenu, section, self, padding);
+										}
+									}
+								}
+
+								@include menu-ver-item-base(get($layout, dropdown, item, submenu, item));
+							}
+
+							> .menu-section {
+								@include menu-ver-section-base( get($layout, dropdown, item, submenu, section) );
+							}
+
+							> .menu-separator {
+								@include menu-ver-separator-base( get($layout, dropdown, item, submenu, separator) );
+							}
+						}
+					}
+				}
+			}
+
+			> .menu-item:not([data-menu-submenu-mode=accordion]) {
+				&.menu-item-hover {
+					> .menu-submenu {
+						margin-left: get($layout, dropdown, item, submenu, self, parent-width);
+						top: get($layout, dropdown, item, submenu, self, offset, root, default);
+
+						&.menu-submenu-up {
+							bottom: get($layout, dropdown, item, submenu, self, offset, root, up);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin menu-ver-dropdown-theme($base-config, $layout) {
+	.#{get($base-config, parent-class)}-minimize:not(.#{get($base-config, parent-class)}-minimize-hover) .#{get($base-config, class)},
+	.#{get($base-config, class)}.#{get($base-config, class)}-dropdown {
+		.menu-nav {
+			.menu-item:not([data-menu-submenu-mode=accordion]) {
+				&.menu-item-hover {
+					> .menu-submenu {
+						background-color: get($layout, dropdown, item, submenu, self, bg-color);
+						box-shadow: get($layout, dropdown, item, submenu, self, box-shadow);
+
+						.menu-subnav {
+							.menu-item {
+								@include menu-ver-item-theme( get($layout, dropdown, item, submenu, item) );
+							}
+
+							.menu-section {
+								@include menu-ver-section-theme( get($layout, dropdown, item, submenu, section) );
+							}
+
+							.menu-separator {
+								@include menu-ver-separator-theme( get($layout, dropdown, item, submenu, separator) );
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Minimize
+@mixin menu-ver-minimize-base($base-config, $layout) {
+	.#{get($base-config, class)} {
+		.menu-nav {
+			padding: get($layout, minimize, self, padding);
+
+			> .menu-item {
+				> .menu-link {
+					.menu-icon {
+						width: 100%;
+					}
+
+					.menu-bullet {
+						display: none;
+					}
+
+					.menu-text {
+						display: none;
+					}
+
+					.menu-label {
+						padding: 0;
+						position: relative;
+						right: get($layout, minimize, item, link, label, right);
+
+						.label {
+							text-indent: -9999px;
+							position: relative;
+							padding: 0;
+							min-width: get($layout, minimize, item, link, label, size);
+							width: get($layout, minimize, item, link, label, size);
+							min-height: get($layout, minimize, item, link, label, size);
+							height: get($layout, minimize, item, link, label, size);
+						}
+					}
+
+					.menu-arrow {
+						display: none;
+					}
+				}
+
+				> .menu-submenu {
+					display: none !important;
+				}
+
+				&.menu-item-here {
+					> .menu-arrow {
+						display: inline-block;
+					}
+				}
+
+				&.menu-item-hover {
+					position: relative;
+					z-index: get($layout, minimize, item, self, zindex);
+					width: get($layout, minimize, item, self, width);
+
+					&.menu-item-open {
+						background: transparent;
+					}
+
+					> .menu-link {
+						width: get($layout, minimize, self, width);
+
+						.link-title {
+							display: none;
+						}
+					}
+
+					> .menu-submenu {
+						top: 0;
+						bottom: auto;
+						display: flex !important;
+						margin-left: get($layout, minimize, item, submenu, self, margin-left) !important;
+
+						@if has($layout, minimize, item, submenu) {
+							.menu-subnav {
+								> .menu-item.menu-item-parent {
+									display: flex;
+									@include menu-ver-minimize-parent-item-base( get($layout, minimize, item, submenu, parent-item) );
+
+									& + .menu-item {
+										margin-top: get($layout, minimize, item, submenu, parent-item, link, self, margin-bottom);
+									}
+								}
+							}
+						}
+					}
+
+					> .menu-arrow {
+						display: none;
+					}
+				}
+			}
+
+			> .menu-section {
+				justify-content: center;
+
+				.menu-text {
+					display: none;
+				}
+
+				.menu-icon {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding: get($layout, minimize, section, icon, padding);
+				}
+			}
+		}
+	}
+}
+
+@mixin menu-ver-minimize-theme($base-config, $layout) {
+	.#{get($base-config, class)} {
+		// base vertical menu
+		.menu-nav {
+			> .menu-item {
+				background: transparent;
+
+				> .menu-link {
+					background-color: get($layout, minimize, item, link, self, bg-color, default);
+
+					> .menu-icon {
+						color: get($layout, minimize, item, link, icon, font-color, default);
+					}
+				}
+
+				&.menu-item-hover,
+				&.menu-item-open {
+					background: transparent !important;
+
+					> .menu-link {
+						background-color: get($layout, minimize, item, link, self, bg-color, open);
+
+						> .menu-icon {
+							@include attr(color, get($layout, minimize, item, link, icon, font-color, open));
+						}
+					}
+				}
+
+				&.menu-item-here,
+				&.menu-item-active {
+					background: transparent !important;
+
+					> .menu-link {
+						background-color: get($layout, minimize, item, link, self, bg-color, active);
+
+						> .menu-icon {
+							@include attr(color, get($layout, minimize, item, link, icon, font-color, active));
+						}
+					}
+				}
+
+				&:hover {
+					background: transparent;
+
+					> .menu-link {
+						background-color: get($layout, minimize, item, link, self, bg-color, hover);
+
+						> .menu-icon {
+							@include attr(color, get($layout, minimize, item, link, icon, font-color, hover), !important);
+						}
+					}
+				}
+
+				@if has($layout, minimize, item, submenu) {
+					&.menu-item-hover > .menu-submenu {
+						.menu-subnav > .menu-item.menu-item-parent {
+							display: flex;
+							@include menu-ver-minimize-parent-item-theme( get($layout, minimize, item, submenu, parent-item) );
+						}
+					}
+				}
+			}
+
+			> .menu-section {
+				.menu-icon {
+					color: get($layout, minimize, section, icon, font-color);
+				}
+			}
+		}
+	}
+}
+
+// Build
+// Custom theme
+@mixin menu-ver-build-theme($config, $theme) {
+	$theme-config: ();
+
+	@if ($theme == default) {
+		$theme-config: get($config, build, theme);
+	} @else {
+		$theme-config: get($config, build, themes, $theme);
+	}
+
+	@if (get($config, base, mode) == general) {
+		@include menu-ver-theme((class: get($config, base, class)), $theme-config);
+	} @else if (get($config, base, mode) == tablet-and-mobile) {
+		// Tablet & Mobile Modes
+		@include media-breakpoint-down(md) {
+			@include menu-ver-theme((class: get($config, base, class)), $theme-config);
+		}
+	} @else if (get($config, base, mode) == mobile) {
+		// Mobile mode
+		@include media-breakpoint-down(sm) {
+			@include menu-ver-theme((class: get($config, base, class)), $theme-config);
+		}
+	}
+
+	@if (has($theme-config, minimize)) {
+		// Desktop Mode
+		@include media-breakpoint-up(lg) {
+			.#{get($config, base, parent-class)}-minimize:not(.#{get($config, base, parent-class)}-minimize-hover) {
+				@include menu-ver-minimize-theme((class: get($config, base, class), parent-class: get($config, base, parent-class)), $theme-config);
+			}
+		}
+	}
+
+	@if (has($theme-config, dropdown)) {
+		// Desktop Mode
+		@include media-breakpoint-up(lg) {
+			@include menu-ver-dropdown-theme((class: get($config, base, class), parent-class: get($config, base, parent-class)), $theme-config);
+		}
+	}
+}
+
+// Build Layout
+@mixin menu-ver-build-layout( $config ) {
+	// Base menu
+	@if (get($config, base, mode) == general) {
+		@include menu-ver-base( get($config, base), get($config, build, layout) );
+	} @else if (get($config, base, mode) == tablet-and-mobile) {
+		// Tablet & Mobile Modes
+		@include media-breakpoint-down(md) {
+			@include menu-ver-base( get($config, base), get($config, build, layout) );
+		}
+	} @else if (get($config, base, mode) == mobile) {
+		// Mobile mode
+		@include media-breakpoint-down(sm) {
+			@include menu-ver-base( get($config, base), get($config, build, layout) );
+		}
+	}
+
+	// Base dropdown menu submenu mode
+	@if (has($config, build, layout, dropdown)) {
+		// Desktop Mode
+		@include media-breakpoint-up(lg) {
+			@include menu-ver-dropdown-base( get($config, base), get($config, build, layout) );
+		}
+
+		// Dropdown Submenu Animations
+		@keyframes #{get($config, base, class)}-submenu-fade-out {
+		    from   { opacity: 1; }
+		    to { opacity: 0; }
+		}
+
+		@keyframes #{get($config, base, class)}-submenu-fade-in {
+		    from   { opacity: 0; }
+		    to { opacity: 1; }
+		}
+
+		@keyframes #{get($config, base, class)}-submenu-move-up {
+		    from   { margin-top: get($config, build, layout, dropdown, item, submenu, self, animation, offset); }
+		    to { margin-top: 0; }
+		}
+
+		@keyframes #{get($config, base, class)}-submenu-move-down {
+		    from   { margin-bottom: get($config, build, layout, dropdown, item, submenu, self, animation, offset); }
+		    to { margin-bottom: 0; }
+		}
+	}
+
+	// Base minimize menu mode
+	@if (has($config, build, layout, minimize)) {
+		// Desktop Mode
+		@include media-breakpoint-up(lg) {
+			.#{get($config, base, parent-class)}-minimize:not(.#{get($config, base, parent-class)}-minimize-hover) {
+				@include menu-ver-minimize-base( get($config, base), get($config, build, layout) );
+			}
+		}
+	}
+}

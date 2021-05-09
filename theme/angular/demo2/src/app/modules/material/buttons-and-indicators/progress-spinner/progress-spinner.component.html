@@ -1,0 +1,105 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/progress-spinner/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasic">
+      <div class="example-preview">
+        <span>
+          <code>&lt;mat-progress-spinner&gt;</code> and
+          <code>&lt;mat-spinner&gt;</code> are a circular indicators of progress
+          and activity.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-spinner></mat-spinner>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleWarn">
+      <div class="example-preview">
+        <span>
+          The color of a progress-spinner can be changed by using the
+          <mark>color</mark> property. By default, progress-spinners use the
+          theme's primary color. This can be changed to <mark>'accent'</mark> or
+          <mark>'warn'</mark>.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-spinner [color]="'accent'"></mat-spinner>
+          <div class="separator separator-dashed my-6"></div>
+          <mat-spinner [color]="'warn'"></mat-spinner>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleConfig">
+      <div class="example-preview">
+        <div>
+          <mat-card>
+            <mat-card-content>
+              <section class="example-section">
+                <label class="example-margin">Color:</label>
+                <mat-radio-group [(ngModel)]="color">
+                  <mat-radio-button class="example-margin" value="primary">
+                    Primary
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    Accent
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="warn">
+                    Warn
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+              <section class="example-section">
+                <label class="example-margin">Mode:</label>
+                <mat-radio-group [(ngModel)]="mode">
+                  <mat-radio-button class="example-margin" value="determinate">
+                    Determinate
+                  </mat-radio-button>
+                  <mat-radio-button
+                    class="example-margin"
+                    value="indeterminate"
+                  >
+                    Indeterminate
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+              <section class="example-section" *ngIf="mode == 'determinate'">
+                <label class="example-margin">Progress:</label>
+                <mat-slider
+                  class="example-margin"
+                  [(ngModel)]="value"
+                ></mat-slider>
+              </section>
+            </mat-card-content>
+          </mat-card>
+          <mat-card>
+            <mat-card-content>
+              <h2 class="example-h2">Result</h2>
+
+              <mat-progress-spinner
+                class="example-margin"
+                [color]="color"
+                [mode]="mode"
+                [value]="value"
+              >
+              </mat-progress-spinner>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

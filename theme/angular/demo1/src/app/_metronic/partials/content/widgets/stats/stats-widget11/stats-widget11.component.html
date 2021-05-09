@@ -1,0 +1,46 @@
+<div class="card card-custom" [ngClass]="cssClass">
+  <!-- Body -->
+  <div class="card-body p-0">
+    <div
+      class="d-flex align-items-center justify-content-between card-spacer flex-grow-1"
+    >
+      <span [ngClass]="symbolCSSClasses">
+        <span class="symbol-label">
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Layout/Layout-4-blocks.svg'"
+            [ngClass]="svgCSSClasses"
+          ></span>
+        </span>
+      </span>
+      <div class="d-flex flex-column text-right">
+        <span class="text-dark-75 font-weight-bolder font-size-h3">750$</span>
+        <span class="text-muted font-weight-bold mt-2">Weekly Income</span>
+      </div>
+    </div>
+    <!--begin::Chart-->
+    <div
+      id="kt_stats_widget_11_chart"
+      class="card-rounded-bottom"
+      [style.height]="'150px'"
+    >
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [yaxis]="chartOptions.yaxis"
+        [dataLabels]="chartOptions.dataLabels"
+        [stroke]="chartOptions.stroke"
+        [legend]="chartOptions.legend"
+        [fill]="chartOptions.fill"
+        [states]="chartOptions.states"
+        [tooltip]="chartOptions.tooltip"
+        [colors]="chartOptions.colors"
+        [markers]="chartOptions.markers"
+        [plotOptions]="chartOptions.plotOptions"
+      >
+      </apx-chart>
+    </div>
+    <!--end::Chart-->
+    <!--end::Stats-->
+  </div>
+</div>

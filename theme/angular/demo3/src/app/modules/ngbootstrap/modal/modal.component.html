@@ -1,0 +1,426 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/alert/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleModalWithDefaultOptions">
+      <div class="example-preview">
+        <span *ngIf="closeResult">
+          <pre>{{ closeResult }}</pre>
+        </span>
+        <div>
+          <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Basic demo</h4>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="d('Cross click')"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="c('Close click')"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </ng-template>
+          <button class="btn btn-primary" (click)="open(content)">
+            Launch demo modal
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleComponentsAsContent">
+      <div class="example-preview">
+        <div>
+          <p>
+            You can pass an existing component as content of the modal window.
+            In this case remember to add content component as an
+            <code>entryComponents</code> section of your <code>NgModule</code>.
+          </p>
+        </div>
+        <div>
+          <button class="btn btn-info" (click)="open2()">
+            Launch demo modal
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleModalWithCustomClass">
+      <div class="example-preview">
+        <div>
+          <ng-template #content3 let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Modal title</h4>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="d('Cross click')"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="c('Close click')"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </ng-template>
+
+          <button class="btn btn-focus" (click)="open3(content3)">
+            Launch demo modal
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleScrollableFixedContent">
+      <div class="example-preview">
+        <div>
+          <ng-template #content4 let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Scrollable fixed content</h4>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="d('Cross click')"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <perfect-scrollbar style="height: 250px;">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </perfect-scrollbar>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="c('Close click')"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </ng-template>
+          <button class="btn btn-metal" (click)="open(content4)">
+            Launch demo modal
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleScrollingLongContent">
+      <div class="example-preview">
+        <div>
+          <ng-template #content5 let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Scrollable long content</h4>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="d('Cross click')"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="c('Close click')"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </ng-template>
+          <button class="btn btn-brand" (click)="open(content5)">
+            Launch demo modal
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleLargeModal">
+      <div class="example-preview">
+        <div>
+          <ng-template #content6 let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Modal title</h4>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="d('Cross click')"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="c('Close click')"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </ng-template>
+          <button class="btn btn-success" (click)="openLarge(content6)">
+            Launch demo modal
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleSmallModal">
+      <div class="example-preview">
+        <div>
+          <ng-template #content7 let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Modal title</h4>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="d('Cross click')"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="c('Close click')"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </ng-template>
+          <button class="btn btn-warning" (click)="openSmall(content7)">
+            Launch demo modal
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleVerticallyCentered">
+      <div class="example-preview">
+        <div>
+          <ng-template #content8 let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">Modal title</h4>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="d('Cross click')"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros. Cras mattis
+                consectetur purus sit amet fermentum. Cras justo odio, dapibus
+                ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="c('Close click')"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </ng-template>
+          <button class="btn btn-danger" (click)="openCentred(content7)">
+            Launch demo modal
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

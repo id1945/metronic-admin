@@ -1,0 +1,168 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Products list</h3>
+    </div>
+    <div class="card-toolbar">
+      <a type="button" class="btn btn-primary" routerLink="/ecommerce/product/add">New Product</a>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- begin: Filtration form -->
+    <div class="form form-label-right">
+      <div class="form-group row">
+        <div class="col-lg-4">
+          <div class="row" [formGroup]="filterGroup">
+            <div class="col-lg-6">
+              <select class="form-control" name="status" placeholder="Filter by Status" formControlName="status">
+                <option value="">All</option>
+                <option value="1">Selling</option>
+                <option value="2">Sold</option>
+              </select><small class="form-text text-muted"><b>Filter</b> by Status</small>
+            </div>
+            <div class="col-lg-6">
+              <select class="form-control" placeholder="Filter by Contition" name="condition"
+                formControlName="condition">
+                <option value="">All</option>
+                <option value="1">New</option>
+                <option value="2">Used</option>
+              </select><small class="form-text text-muted"><b>Filter</b> by Condition</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2" [formGroup]="searchGroup">
+          <input type="text" class="form-control" name="searchText" placeholder="Search" value=""
+            formControlName="searchTerm" /><small class="form-text text-muted"><b>Search</b> in all fields</small>
+        </div>
+      </div>
+    </div>
+    <!-- end: Filtration form -->
+
+    <!-- begin: Grouping -->
+    <ng-container *ngIf="grouping.getSelectedRowsCount()">
+      <div class="form">
+        <div class="row align-items-center form-group-actions margin-top-20 margin-bottom-20">
+          <div class="col-xl-12">
+            <div class="form-group form-group-inline">
+              <div class="form-label form-label-no-wrap">
+                <label class="font-bold font-danger"><span>Selected records count:
+                    <b>{{ grouping.getSelectedRowsCount() }}</b></span></label>
+              </div>
+              <div>
+                <button type="button" class="btn btn-danger font-weight-bolder font-size-sm mr-1"
+                  (click)="deleteSelected()">
+                  <i class="fa fa-trash"></i> Delete All
+                </button>&nbsp;
+                <button type="button" class="btn btn-light-primary font-weight-bolder font-size-sm mr-1"
+                  (click)="fetchSelected()">
+                  <i class="fa fa-stream"></i> Fetch Selected
+                </button>&nbsp;
+                <button type="button" class="btn btn-light-primary font-weight-bolder font-size-sm"
+                  (click)="updateStatusForSelected()">
+                  <i class="fa fa-sync-alt"></i> Update Status
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <!-- end: Grouping -->
+    <!-- begin:Table -->
+    <div class="table-responsive angular-bootstrap-table">
+      <table class="table table-head-custom table-vertical-center overflow-hidden">
+        <thead>
+          <th class="selection-cell-header" data-row-selection="true">
+            <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectAllRows()"
+                [checked]="grouping.checkAreAllRowsSelected()" /><span></span></label>
+          </th>
+          <th>
+            VIN CODE (ID)
+            <app-sort-icon column="VINCode" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+              (sort)="sort($event)"></app-sort-icon>
+          </th>
+          <th>
+            MANUFACTURE
+            <app-sort-icon column="manufacture" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+              (sort)="sort($event)"></app-sort-icon>
+          </th>
+          <th>
+            MODEL
+            <app-sort-icon column="model" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+              (sort)="sort($event)"></app-sort-icon>
+          </th>
+          <th>
+            YEAR
+            <app-sort-icon column="modelYear" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+              (sort)="sort($event)"></app-sort-icon>
+          </th>
+          <th>
+            COLOR
+            <app-sort-icon column="color" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+              (sort)="sort($event)"></app-sort-icon>
+          </th>
+          <th>
+            PRICE
+            <app-sort-icon column="price" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+              (sort)="sort($event)"></app-sort-icon>
+          </th>
+          <th>
+            STATUS
+            <app-sort-icon column="status" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+              (sort)="sort($event)"></app-sort-icon>
+          </th>
+          <th>
+            CONDITION
+            <app-sort-icon column="condition" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+              (sort)="sort($event)"></app-sort-icon>
+          </th>
+          <th>ACTIONS</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of productsService.items$ | async">
+            <td class="selection-cell">
+              <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow(product.id)"
+                  [checked]="grouping.isRowSelected(product.id)" />
+                <span></span>
+              </label>
+            </td>
+            <td>{{ product.VINCode }}</td>
+            <td>{{ product.manufacture }}</td>
+            <td>{{ product.model }}</td>
+            <td>{{ product.modelYear }}</td>
+            <td><span [style.color]="product.color">{{ product.color }}</span></td>
+            <td>$ {{ product.price }}</td>
+            <td>
+              <span class="label label-lg label-inline" [class.label-light-success]="product.status === 1"
+                [class.label-light-primary]="product.status === 2">
+                <ng-container *ngIf="product.status === 1">Selling</ng-container>
+                <ng-container *ngIf="product.status === 2">Sold</ng-container>
+              </span>
+            </td>
+            <td>
+              <ng-container *ngIf="product.condition === 1">NEW</ng-container>
+              <ng-container *ngIf="product.condition === 2">USED</ng-container>
+            </td>
+            <td>
+              <a title="Edit product" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                [routerLink]="'/ecommerce/product/edit/' + product.id">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+              </a>
+              <a title="Delete product" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete(product.id)">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-danger">
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+    <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+      [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+  </div>
+</div>

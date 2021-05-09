@@ -1,0 +1,52 @@
+//
+// Aside
+//
+
+// General Mode(all devices)
+.aside {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: get($spacings, page-y) 0;
+	width: get($aside-config, base, width);
+	z-index: get($aside-config, base, zindex);
+	box-shadow: get($aside-config, base, shadow);
+	background-color: get($aside-config, base, bg-color);
+	@include border-top-right-radius($border-radius-xl);
+	@include border-bottom-right-radius($border-radius-xl);
+
+	// Aside Menu
+	.aside-menu {
+		@include perfect-scrollbar-ver-offset(4px);
+	}
+
+	// Customize buttons(see: src\sass\components\mixins\_buttons.scss)
+	.btn.btn-icon {
+		@include button-custom-variant(
+			null, null, get($sidebar-config, default, btn, default, color), get($sidebar-config, default, btn, default, color), null,
+			get($sidebar-config, default, btn, hover, bg-color), null, get($sidebar-config, default, btn, hover, color), get($sidebar-config, default, btn, hover, color), null,
+			get($sidebar-config, default, btn, hover, bg-color), null, get($sidebar-config, default, btn, hover, color), get($sidebar-config, default, btn, hover, color), null
+		);
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.aside {
+		margin: 0;
+		
+		// Buttons
+		.btn.btn-icon.btn-lg {
+			width: 40px;
+			height: 40px;
+
+			.svg-icon {
+				@include svg-icon-size(26px);
+			}
+		}
+	}
+}
+
+// Build Aside Offcanvas Panel for mobile mode
+@include offcanvas-build(aside, tablet-and-mobile, get($aside-config, offcanvas-mobile));

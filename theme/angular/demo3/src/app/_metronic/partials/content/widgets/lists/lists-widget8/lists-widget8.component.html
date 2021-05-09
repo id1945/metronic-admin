@@ -1,0 +1,141 @@
+<div class="card card-custom" [ngClass]="cssClass">
+  <!-- Header -->
+  <div class="card-header border-0">
+    <h3 class="card-title font-weight-bolder text-dark">Trends</h3>
+    <div class="card-toolbar">
+      <div
+        ngbDropdown
+        placement="bottom-right"
+        class="dropdown dropdown-inline"
+        title="Quick actions"
+      >
+        <a
+          ngbDropdownToggle
+          class="btn btn-clean btn-hover-light-primary btn-sm btn-icon"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="ki ki-bold-more-hor"></i>
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu dropdown-menu-md dropdown-menu-right"
+        >
+          <app-dropdown-menu1></app-dropdown-menu1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Body -->
+  <div class="card-body pt-0">
+    <!--begin::Item-->
+    <div class="mb-10">
+      <!--begin::Section-->
+      <div class="d-flex align-items-center">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-45 symbol-light mr-5">
+          <span class="symbol-label">
+            <img
+              alt=""
+              src="./assets/media/svg/misc/006-plurk.svg"
+              class="h-50 align-self-center"
+            />
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column flex-grow-1">
+          <a
+            class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1 cursor-pointer"
+            >Top Authors</a
+          >
+          <span class="text-muted font-weight-bold">5 day ago</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Section-->
+
+      <!--begin::Desc-->
+      <p class="text-dark-50 m-0 pt-5 font-weight-normal">
+        A brief write up about the top Authors that fits within this section
+      </p>
+      <!--end::Desc-->
+    </div>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <div class="mb-10">
+      <!--begin::Section-->
+      <div class="d-flex align-items-center">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-45 symbol-light mr-5">
+          <span class="symbol-label">
+            <img
+              alt=""
+              src="./assets/media/svg/misc/015-telegram.svg"
+              class="h-50 align-self-center"
+            />
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column flex-grow-1">
+          <a
+            class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1 cursor-pointer"
+            >Popular Authors</a
+          >
+          <span class="text-muted font-weight-bold">5 day ago</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Section-->
+
+      <!--begin::Desc-->
+      <p class="text-dark-50 m-0 pt-5 font-weight-normal">
+        A brief write up about the Popular Authors that fits within this section
+      </p>
+      <!--end::Desc-->
+    </div>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <div class="">
+      <!--begin::Section-->
+      <div class="d-flex align-items-center">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-45 symbol-light mr-5">
+          <span class="symbol-label">
+            <img
+              alt=""
+              src="./assets/media/svg/misc/014-kickstarter.svg"
+              class="h-50 align-self-center"
+            />
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column flex-grow-1">
+          <a
+            href="#"
+            class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1"
+            >New Users</a
+          >
+          <span class="text-muted font-weight-bold">5 day ago</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Section-->
+
+      <!--begin::Desc-->
+      <p class="text-dark-50 m-0 pt-5 font-weight-normal">
+        A brief write up about the New Users that fits within this section
+      </p>
+      <!--end::Desc-->
+    </div>
+    <!--end::Item-->
+  </div>
+</div>

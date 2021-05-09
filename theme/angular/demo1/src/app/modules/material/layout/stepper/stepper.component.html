@@ -1,0 +1,115 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/list/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicStepper">
+      <div class="example-preview">
+        <span>
+          Angular Material's stepper provides a wizard-like workflow by dividing
+          content into logical steps.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-vertical-stepper>
+            <mat-step label="Step 1">
+              Content 1
+            </mat-step>
+            <mat-step label="Step 1">
+              Content 2
+            </mat-step>
+          </mat-vertical-stepper>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleHorizontalStepper">
+      <div class="example-preview">
+        <span>
+          The only difference is the orientation of stepper.
+          <code>&lt;mat-horizontal-steppert&gt;</code> selector can be used to
+          create a horizontal stepper
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-horizontal-stepper>
+            <mat-step label="Step 1">
+              Content 1
+            </mat-step>
+            <mat-step label="Step 1">
+              Content 2
+            </mat-step>
+          </mat-horizontal-stepper>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleStepperOverview">
+      <div class="example-preview">
+        <div>
+          <button
+            mat-raised-button
+            (click)="isLinear = true"
+            id="toggle-linear"
+          >
+            Enable linear mode
+          </button>
+
+          <mat-horizontal-stepper
+            [linear]="isLinear"
+            #stepper="matHorizontalStepper"
+          >
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Fill out your name</ng-template>
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Last name, First name"
+                    formControlName="firstCtrl"
+                    required
+                  />
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Fill out your address</ng-template>
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Address"
+                    formControlName="secondCtrl"
+                    required
+                  />
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Done</ng-template>
+              You are now done.
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

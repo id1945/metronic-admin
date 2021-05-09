@@ -1,0 +1,1 @@
+export default function e(){return{validate(e){if(e.value===""){return{valid:true}}if(!/^\d{4}\-\d{3}[\dX]$/.test(e.value)){return{valid:false}}const t=e.value.replace(/[^0-9X]/gi,"").split("");const l=t.length;let r=0;if(t[7]==="X"){t[7]="10"}for(let e=0;e<l;e++){r+=parseInt(t[e],10)*(8-e)}return{valid:r%11===0}}}}

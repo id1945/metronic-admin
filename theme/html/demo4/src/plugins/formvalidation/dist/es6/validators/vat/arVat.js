@@ -1,0 +1,1 @@
+export default function t(t){let e=t.replace("-","");if(/^AR[0-9]{11}$/.test(e)){e=e.substr(2)}if(!/^[0-9]{11}$/.test(e)){return{meta:{},valid:false}}const r=[5,4,3,2,7,6,5,4,3,2];let a=0;for(let t=0;t<10;t++){a+=parseInt(e.charAt(t),10)*r[t]}a=11-a%11;if(a===11){a=0}return{meta:{},valid:`${a}`===e.substr(10)}}

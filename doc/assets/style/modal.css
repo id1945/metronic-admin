@@ -1,0 +1,58 @@
+ 
+a {
+  color: inherit;
+}
+
+.kt-modal__interior {
+  text-align: center;
+  padding-top: 20rem;
+
+}
+
+.btn {
+  background-color: green;
+  padding: 1em 3em;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.kt-modal__window {
+  position: fixed;  
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;  
+  transition: all 0.3s;
+}
+
+.kt-modal__window:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.kt-modal__window>div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 2rem;
+  border: 1px solid red; 
+} 
+
+.kt-modal__close {
+  color: #fff;
+  background-color: red; 
+  font-size: 80%;
+  position: absolute;
+  right: 1rem;
+  text-align: center;
+  top: 1rem;
+  width: 70px;
+  text-decoration: none;
+}
+
+ 
+ 
+ 

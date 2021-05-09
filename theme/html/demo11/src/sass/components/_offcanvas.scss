@@ -1,0 +1,52 @@
+//
+// Offcanvas
+//
+
+// Desktop & Mobile Offcanvases
+.offcanvas,
+.offcanvas-mobile {
+	flex-shrink: 0 !important;
+
+	.offcanvas-header {
+		&.offcanvas-header-navs {
+			position: relative;
+
+			.offcanvas-close {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+	}
+
+	.offcanvas-content {
+		.offcanvas-demo {
+			border: 5px solid $gray-200;
+
+			&.offcanvas-demo-active {
+				border: 5px solid $primary;
+			}
+		}
+	}
+}
+
+// Desktop Offcanvas
+.offcanvas {
+	background-color: get($offcanvas-config, bg-color);
+	box-shadow: get($offcanvas-config, shadow);
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.offcanvas-mobile {
+		background-color: get($offcanvas-config, bg-color);
+		box-shadow: get($offcanvas-config, shadow);
+		overflow: auto;
+	}
+}
+
+// Desktop Offcanvas
+@include offcanvas-build(offcanvas, default, $offcanvas-config);
+
+// Mobile Offcanvas
+@include offcanvas-build(offcanvas-mobile, tablet-and-mobile, $offcanvas-config);

@@ -1,0 +1,10 @@
+//
+// Code
+//
+
+code {
+    background-color: $code-bg;
+    padding: $code-padding;
+    font-weight: 400;
+    @include border-radius($border-radius);
+}

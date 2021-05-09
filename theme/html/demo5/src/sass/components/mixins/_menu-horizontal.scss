@@ -1,0 +1,998 @@
+//
+// Horizontal Menu
+//
+
+
+// Helpers
+@mixin menu-hor-item-base($item) {
+	// item
+	@include attr(margin, get($item, self, margin));
+	@include attr(padding, get($item, self, padding));
+
+	// link
+	> .menu-link {
+		transition: all 0.3s ease;
+		cursor: pointer;
+		@include attr(padding, get($item, link, self, padding));
+		@include attr(margin, get($item, link, self, margin));
+
+		&:hover {
+			transition: all 0.3s ease;
+		}
+
+		// link icon
+		.menu-icon {
+			font-size: get($item, link, icon, font-size);
+			width: get($item, link, icon, width);
+			padding: get($item, link, icon, padding);
+			line-height: 0;
+
+			// duo-tone svg icon
+			&.svg-icon {
+				@include attr(height, get($item, link, icon, svg-width));
+				@include attr(width, get($item, link, icon, svg-width));
+				margin-left: -2px;
+			}
+		}
+
+		// link bullet
+		.menu-bullet {
+			width: get($item, link, bullet, self, width);
+
+			@if has($item, link, bullet, padding) {
+				padding: get($item, link, bullet, padding);
+			}
+
+			> span {
+				vertical-align: middle;
+				display: inline-block;
+			}
+
+			&.menu-bullet-dot {
+				> span {
+					width: get($item, link, bullet, dot, size);
+					height: get($item, link, bullet, dot, size);
+					border-radius: 100%;
+				}
+			}
+
+			&.menu-bullet-line {
+				> span {
+					width: get($item, link, bullet, line, width);
+					height: get($item, link, bullet, line, height);
+				}
+			}
+		}
+
+		// link text
+		.menu-text {
+			font-weight: get($item, link, text, font-weight);
+			font-size: get($item, link, text, font-size);
+			text-transform: get($item, link, text, font-transform);
+
+			@if has($item, link, text, padding) {
+				padding: get($item, link, text, padding);
+			}
+		}
+
+		// link label
+		.menu-label {
+			padding: get($item, link, label, padding);
+			justify-content: get($item, link, label, align);
+		}
+
+		// link arrow icon
+		.menu-arrow {
+			font-size: get($item, link, arrow, font-size);
+			width: get($item, link, arrow, width);
+			justify-content: flex-end;
+
+			@if has($item, link, arrow, padding) {
+				padding: get($item, link, arrow, padding);
+			}
+		}
+
+		.menu-arrow {
+			&:before {
+				@include ki(get($ki-types, 'arrowNext'));
+
+				[direction="rtl"] & {
+					content: get($ki-types, 'arrowBack') !important;
+				}
+			}
+		}
+
+		// link border radius
+		@include border-radius(get($item, link, self, border-radius));
+
+		// menu root level "here" arrow
+		.menu-item-here {
+			display: none;
+		}
+	}
+}
+
+@mixin menu-hor-item-theme($item) {
+	// link
+	> .menu-link {
+		background-color: get($item, link, self, bg-color, default);
+
+		// link icon
+		.menu-icon {
+			color: get($item, link, icon, font-color, default);
+
+			// Due-tone icon
+			&.svg-icon {
+				@include svg-icon-color(get($item, link, icon, font-color, default));
+			}
+		}
+
+		// link bullet
+		.menu-bullet {
+			&.menu-bullet-dot {
+				> span {
+					background-color: get($item, link, bullet, dot, bg-color, default);
+				}
+			}
+
+			&.menu-bullet-line {
+				> span {
+					background-color: get($item, link, bullet, line, bg-color, default);
+				}
+			}
+		}
+
+		// link text
+		.menu-text {
+			color: get($item, link, text, font-color, default);
+
+			@if has($item, link, text, font-weight) {
+				font-weight: get($item, link, text, font-weight);
+			}
+		}
+
+		// link arrow icon
+		.menu-arrow {
+			color: get($item, link, arrow, font-color, default);
+		}
+	}
+
+	// active state
+	&.menu-item-active {
+		> .menu-link {
+			// link bg color
+			background-color: get($item, link, self, bg-color, active);
+
+			// link icon
+			.menu-icon {
+				color: get($item, link, icon, font-color, active);
+
+				// Due-tone icon
+				&.svg-icon {
+					@include svg-icon-color(get($item, link, icon, font-color, active));
+				}
+			}
+
+			// link bullet
+			.menu-bullet {
+				&.menu-bullet-dot {
+					> span {
+						background-color: get($item, link, bullet, dot, bg-color, active);
+					}
+				}
+
+				&.menu-bullet-line {
+					> span {
+						background-color: get($item, link, bullet, line, bg-color, active);
+					}
+				}
+			}
+
+			.menu-text {
+				color: get($item, link, text, font-color, active);
+			}
+
+			// link arrow icon
+			> .menu-arrow {
+				color: get($item, link, arrow, font-color, active);
+			}
+		}
+	}
+
+	// here state
+	&.menu-item-here {
+		> .menu-link {
+			// link bg color
+			background-color: get($item, link, self, bg-color, here);
+
+			// link icon
+			.menu-icon {
+				color: get($item, link, icon, font-color, here);
+
+				// Due-tone icon
+				&.svg-icon {
+					@include svg-icon-color(get($item, link, icon, font-color, here));
+				}
+			}
+
+			// link bullet
+			.menu-bullet {
+				&.menu-bullet-dot {
+					> span {
+						background-color: get($item, link, bullet, dot, bg-color, here);
+					}
+				}
+
+				&.menu-bullet-line {
+					> span {
+						background-color: get($item, link, bullet, line, bg-color, here);
+					}
+				}
+			}
+
+			.menu-text {
+				color: get($item, link, text, font-color, here);
+			}
+
+			// link arrow icon
+			> .menu-arrow {
+				color: get($item, link, arrow, font-color, here);
+			}
+		}
+	}
+
+	// hover state
+	&:hover:not(.menu-item-here):not(.menu-item-active),
+	&.menu-item-hover:not(.menu-item-here):not(.menu-item-active) {
+		> .menu-link {
+			// link bg color
+			background-color: get($item, link, self, bg-color, hover);
+
+			// link icon
+			.menu-icon {
+				color: get($item, link, icon, font-color, hover);
+
+				// Due-tone icon
+				&.svg-icon {
+					@include svg-icon-color(get($item, link, icon, font-color, hover));
+				}
+			}
+
+			// link bullet
+			.menu-bullet {
+				&.menu-bullet-dot {
+					> span {
+						background-color: get($item, link, bullet, dot, bg-color, hover);
+					}
+				}
+
+				&.menu-bullet-line {
+					> span {
+						background-color: get($item, link, bullet, line, bg-color, hover);
+					}
+				}
+			}
+
+			// link text
+			.menu-text {
+				color: get($item, link, text, font-color, hover);
+			}
+
+			// link arrow icon
+			> .menu-arrow {
+				color: get($item, link, arrow, font-color, hover);
+			}
+		}
+	}
+}
+
+@mixin menu-hor-item-heading-base($item) {
+	// heading
+	padding: get($item, self, padding);
+
+	// text
+	> .menu-text {
+		font-weight: get($item, caption, text, font-weight);
+		font-size: get($item, caption, text, font-size);
+		text-transform: get($item, caption, text, font-transform);
+	}
+
+	// icon
+	> .menu-icon {
+		font-size: get($item, caption, icon, font-size);
+		flex: 0 0 get($item, caption, icon, width);
+		justify-content: get($item, caption, icon, align);
+		padding: get($item, caption, icon, padding);
+	}
+
+	// label
+	.menu-label {
+		padding: get($item, caption, label, padding);
+		text-align: get($item, caption, label, align);
+	}
+}
+
+@mixin menu-hor-item-heading-theme($item) {
+	// text
+	> .menu-text {
+		color: get($item, caption, text, font-color);
+	}
+
+	// icon
+	> .menu-icon {
+		color: get($item, caption, icon, font-color);
+	}
+}
+
+@mixin menu-hor-submenu-width($config) {
+	@include media-breakpoint-between(lg, xl) {
+		.#{get($config, base, class)} {
+			.menu-nav {
+				// menu root item
+				> .menu-item {
+					// general submenu
+					.menu-submenu {
+						&.menu-submenu-full,
+						&.menu-submenu-fixed,
+						&.menu-submenu-auto,
+						&.menu-submenu-auto.menu-submenu-mimimal-desktop-wide,
+						&.menu-submenu-fixed-xl,
+						&.menu-submenu-fixed-xxl {
+							margin: 0 auto;
+							width: auto;
+							left: 20px;
+							right: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Responsive container widths
+	@each $breakpoint, $width in $grid-breakpoints {
+	    @media (min-width: $width) {
+	    	.#{get($config, base, class)} {
+				.menu-nav {
+					// menu root item
+					> .menu-item {
+						// general submenu
+						.menu-submenu.menu-submenu-fixed-#{$breakpoint} {
+					        width: $width - 60px;
+					    }
+					}
+				}
+			}
+	    }
+	}
+}
+
+@mixin menu-hor-base($config) {
+	.#{get($config, base, class)} {
+		display: flex;
+		align-items: stretch;
+		height: 100%;
+	    margin: get($config, build, layout, self, margin);
+
+    	// general menu
+		.menu-nav {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			align-items: stretch;
+
+			// menu root item
+			> .menu-item {
+				// general link
+				.menu-link {
+					display: flex;
+					text-decoration: none;
+					position: relative;
+					vertical-align: middle;
+					align-items: stretch;
+					outline: none !important;
+					text-decoration: none;
+					cursor: pointer;
+
+					.menu-text {
+						display: flex;
+						align-items: center;
+						flex-grow: 1;
+						padding: 0;
+					}
+
+					.menu-label {
+						display: flex;
+						align-items: center;
+						line-height: 0;
+						white-space: nowrap;
+					}
+
+					// link icon
+					.menu-icon {
+						display: flex;
+						align-items: center;
+					}
+
+					// sub menu link arrow icon
+					.menu-arrow {
+						display: flex;
+						align-items: center;
+					}
+
+					&:hover,
+					&:active,
+					&:focus {
+						text-decoration: none;
+					}
+				}
+
+				// primary link
+				> .menu-link {
+					> .menu-text {
+						width: auto;
+					}
+				}
+
+				// icon only menu item
+				&.menu-item-icon {
+					> .menu-link {
+						justify-content: center;
+
+						> .menu-icon {
+							justify-content: center;
+						}
+					}
+				}
+
+				// general submenu
+				.menu-submenu {
+					display: none;
+					z-index: get($config, build, layout, item, submenu, self, zindex);
+					position: absolute;
+					top: 100%;
+
+					@include fix-animation-lags();
+					@include border-radius(get($config, build, layout, item, submenu, self, border-radius));
+					@include attr(margin, get($config, build, layout, item, submenu, self, margin));
+					@include attr(padding, get($config, build, layout, item, submenu, self, padding, classic));
+
+					.menu-scroll {
+						position: relative;
+						overflow: hidden;
+						display: flex;
+						flex-direction: column;
+						flex-grow: 1;
+					}
+
+					.menu-subnav {
+						list-style: none !important;
+						padding: 0;
+						margin: 0;
+					}
+
+					// classic submenu
+					& {
+						width: get($config, build, layout, item, submenu, self, width, classic);
+						margin: 0 auto;
+						left: auto;
+		    			right: auto;
+					}
+
+					// full width
+					&.menu-submenu-full {
+						margin: 0 auto;
+						width: auto;
+						left: get($config, build, layout, item, submenu, self, width, full, offset);
+						right: get($config, build, layout, item, submenu, self, width, full, offset);
+					}
+
+					// fixed width options
+					&.menu-submenu-fixed {
+						left: auto;
+						right: auto;
+						width: auto;
+					}
+
+					// alignment right
+					&.menu-submenu-right {
+						right: 0;
+						left: auto;
+
+						&.menu-submenu-pull {
+							margin-right: -40px;
+						}
+					}
+
+					// alignment left
+					&.menu-submenu-left {
+						right: auto;
+						left: 0;
+
+						&.menu-submenu-pull {
+							margin-left: -40px;
+						}
+					}
+
+					// alignment center
+					&.menu-submenu-center {
+						margin: 0 auto;
+						left: 0;
+		    			right: 0;
+					}
+
+					// sub menu dropdown
+					> .menu-subnav {
+						> .menu-item.menu-item-submenu {
+							position: relative;
+							padding: 0;
+							margin: 0;
+
+							> .menu-submenu {
+								top:0;
+								display: none;
+								margin-top: 0;
+
+								&.menu-submenu-left {
+									right: 100%;
+									left: auto;
+								}
+
+								&.menu-submenu-right {
+									left: 100%;
+									right: auto;
+								}
+							}
+
+							// Dropup Submenu
+							&.menu-item-dropup {
+								> .menu-submenu {
+									top: auto;
+									bottom: 0;
+								}
+							}
+						}
+					}
+
+					// mega menu content
+					.menu-content {
+						display: flex;
+						list-style: none;
+						padding: 0;
+						margin: 0;
+
+						> .menu-item {
+							padding: 0;
+							margin: 0;
+							display: flex;
+							flex-direction: column;
+					    	flex-grow: 1;
+
+					    	&:last-child {
+					    		border-right: 0;
+					    	}
+						}
+					}
+
+					// mega heading
+					.menu-heading {
+						display: flex;
+						align-items: center;
+						padding: 0;
+						margin: 0;
+						text-decoration: none;
+						position: relative;
+
+						.menu-text {
+							display: flex;
+							align-items: center;
+							flex-grow: 1
+						}
+
+						.menu-label {
+							display: flex;
+							align-items: center;
+							white-space: nowrap;
+						}
+
+						// link icon
+						.menu-icon {
+							display: flex;
+							align-items: center;
+							font-size: 18px;
+							padding: 0 10px 0 0;
+						}
+
+						// sub menu link arrow icon
+						.menu-arrow {
+							display: flex;
+							align-items: center;
+							padding: 0 0 0 10px;
+						}
+					}
+				}
+
+				.menu-inner,
+				.menu-subnav {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+
+					> .menu-item {
+						display: flex;
+						flex-grow: 1;
+						margin: 0;
+						padding: 10px 20px;
+
+						.menu-link {
+							display: flex;
+							align-items: center;
+							flex-grow: 1;
+							text-decoration: none;
+							position: relative;
+
+							&:hover,
+							&:active,
+							&:focus {
+								outline: none;
+								text-decoration: none;
+							}
+
+							.menu-text {
+								display: flex;
+								align-items: center;
+								font-weight: get($config, build, layout, item, submenu, item, link, text, font-weight);
+								color: get($config, build, layout, item, submenu, item, link, text, font-color, default);
+								font-size: get($config, build, layout, item, submenu, item, link, text, font-size);
+								text-transform: get($config, build, layout, item, submenu, item, link, text, font-transform);
+							}
+
+							.menu-label {
+								display: flex;
+								align-items: center;
+								white-space: nowrap;
+								padding: get($config, build, layout, item, submenu, item, link, label, padding);
+								text-align: get($config, build, layout, item, submenu, item, link, label, align);
+							}
+
+							// link icon
+							.menu-icon {
+								display: flex;
+								align-items: center;
+								flex: 0 0 get($config, build, layout, item, submenu, item, link, icon, width);
+								padding: get($config, build, layout, item, submenu, item, link, icon, padding);
+								color: get($config, build, layout, item, submenu, item, link, icon, font-color, default);
+								font-size: get($config, build, layout, item, submenu, item, link, icon, font-size);
+								text-align: get($config, build, layout, item, submenu, item, link, icon, align);
+							}
+
+							// menu item link's icon part
+							.menu-bullet {
+								display: flex;
+								align-items: center;
+								line-height: 0;
+							}
+
+							// sub menu link arrow icon
+							.menu-arrow {
+								display: flex;
+								align-items: center;
+								padding: get($config, build, layout, item, submenu, item, link, arrow, padding);
+							}
+						}
+					}
+				}
+
+				.menu-inner {
+					padding: 0;
+				}
+
+				// sub dropdown menu space
+				@if has($config, build, layout, item, submenu, self, space) {
+					.menu-submenu {
+						.menu-submenu {
+							margin-left: get($config, build, layout, item, submenu, self, space);
+
+							&.menu-submenu-left {
+								margin-right: get($config, build, layout, item, submenu, self, space);
+							}
+						}
+					}
+				}
+
+				// tabs integration
+				&.menu-item-submenu.menu-item-tabs > .menu-submenu > .menu-subnav > .menu-item.menu-item-submenu {
+					> .menu-submenu {
+						top:100%;
+
+						&.menu-submenu-left {
+							right: 100%;
+							left: 0;
+						}
+
+						&.menu-submenu-right {
+							left: 100%;
+							right: 0;
+						}
+					}
+				}
+			}
+		}
+
+		// Root Menu
+		.menu-nav {
+			> .menu-item {
+				display: flex;
+				align-items: center;
+				padding: get($config, build, layout, item, self, padding);
+
+				// Root Menu arrow
+				> .menu-link {
+					> .menu-arrow {
+						display: none;
+
+						&:before {
+							content: "#{get($ki-types, arrowDown)}" !important;
+						}
+					}
+				}
+
+				// used for classic submenus
+				&.menu-item-rel {
+					position: relative;
+				}
+
+				@include menu-hor-item-base( get($config, build, layout, item) );
+
+				// submenu
+				.menu-submenu {
+					padding: get($config, build, layout, item, submenu, self, padding, megamenu);
+					@include border-radius(get($config, build, layout, item, submenu, self, border-radius));
+
+					> .menu-subnav {
+						> .menu-item {
+							@include menu-hor-item-base(get($config, build, layout, item, submenu, item));
+						}
+
+						// mega submenu
+						.menu-content {
+							align-items: stretch;
+							// separator
+							> .menu-item {
+								flex-grow: 1;
+								flex-basis: 0;
+
+								&:last-child {
+									border-right:0 !important;
+								}
+							}
+
+							// heading
+							.menu-heading {
+								@include menu-hor-item-heading-base(get($config, build, layout, item, submenu, item, column, heading));
+							}
+
+							// mega menu
+							.menu-inner {
+								padding: get($config, build, layout, item, submenu, item, column, self, padding);
+
+								> .menu-item {
+									@include menu-hor-item-base(get($config, build, layout, item, submenu, item));
+								}
+							}
+						}
+					}
+
+					&.menu-submenu-classic {
+						padding: get($config, build, layout, item, submenu, self, padding, classic);
+						> .menu-subnav {
+
+						}
+					}
+
+					// inline submenu
+					&.menu-submenu-inline {
+						display: flex;
+						flex: 0 0 auto;
+
+						> .menu-subnav {
+							> .menu-item {
+								display: flex;
+								padding: 5px 0;
+							}
+						}
+					}
+				}
+			}
+
+			// general submenu hover effect
+			.menu-item {
+				// menu resize item
+				&.menu-item-resize {
+					display: none;
+				}
+
+				// menu item hover
+				&.menu-item-active-tab,
+				&.menu-item-hover {
+					.menu-submenu {
+						display: block;
+						animation: #{get($config, base, class)}-submenu-fade-in .3s ease 1, #{get($config, base, class)}-submenu-move-down .3s ease-out 1;
+
+						// ie8-11 versions hack
+                    	@include for-ie11 {
+                        	animation: none;
+                    	}
+
+						> .menu-subnav > .menu-item.menu-item-hover {
+							> .menu-submenu {
+								display: block;
+								animation: #{get($config, base, class)}-submenu-fade-in .3s ease 1, #{get($config, base, class)}-submenu-move-up .3s ease-out 1;
+
+								// ie8-11 versions hack
+                    			@include for-ie11 {
+                        			animation: none;
+                    			}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// Root Menu arrow display
+		&.#{get($config, base, class)}-root-arrow {
+			.menu-nav {
+				> .menu-item {
+					> .menu-link {
+						> .menu-arrow {
+							display: flex;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin menu-hor-theme($base-class, $config) {
+	.#{$base-class} {
+		// root level items
+		@if has($config, item, link) {
+			.menu-nav {
+				> .menu-item {
+					@if get($config, item, self) {
+						&.menu-item-hover,
+						&:hover {
+							background-color: get($config, item, self, bg-color, hover);
+						}
+
+						&.menu-item-here {
+							background-color: get($config, item, self, bg-color, here);
+						}
+
+						&.menu-item-open,
+						&.menu-item-active {
+							background-color: get($config, item, self, bg-color, active);
+						}
+					}
+
+					@include menu-hor-item-theme(get($config, item));
+				}
+			}
+		}
+
+		// submenu level items
+		.menu-nav {
+			> .menu-item {
+				// classic submenu
+				.menu-submenu {
+					background-color: get($config, item, submenu, self, bg-color);
+					box-shadow: get($config, item, submenu, self, box-shadow);
+
+					> .menu-subnav {
+						// submenu item
+						> .menu-item {
+							@include menu-hor-item-theme(get($config, item, submenu, item));
+						}
+
+						// mega submenu
+						.menu-content {
+							// separator
+							> .menu-item {
+								border-right: get($config, item, submenu, item, column, separator, border);
+							}
+
+							// heading
+							.menu-heading {
+								@include menu-hor-item-heading-theme(get($config, item, submenu, item, column, heading));
+							}
+
+							// mega menu
+							.menu-inner {
+								> .menu-item {
+									@include menu-hor-item-theme(get($config, item, submenu, item));
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Build Theme
+@mixin menu-hor-build-theme($config, $theme) {
+	$theme-config: ();
+
+	@if ($theme == default) {
+		$theme-config: get($config, build, theme);
+	} @else {
+		$theme-config: get($config, build, themes, $theme);
+	}
+
+	// Base vertical menu
+	@if (get($config, base, mode) == general) {
+
+		@include menu-hor-theme(get($config, base, class), $theme-config);
+
+	} @else if (get($config, base, mode) == desktop) {
+		// Desktop Mode
+		@include media-breakpoint-up(lg) {
+			@include menu-hor-theme(get($config, base, class), $theme-config);
+		}
+
+	} @else if (get($config, base, mode) == tablet-and-mobile) {
+		// Tablet & Mobile Modes
+		@include media-breakpoint-down(md) {
+			@include menu-hor-theme(get($config, base, class), $theme-config);
+		}
+	}
+}
+
+// Build Layout
+@mixin menu-hor-build-layout($config) {
+	// Base vertical menu
+	@if (get($config, base, mode) == general) {
+
+		@include menu-hor-base($config);
+
+	} @else if (get($config, base, mode) == desktop) {
+
+		// Desktop Mode
+		@include media-breakpoint-up(lg) {
+			@include menu-hor-base($config);
+		}
+
+		@include menu-hor-submenu-width($config);
+
+	} @else if (get($config, base, mode) == tablet-and-mobile) {
+		// Tablet & Mobile Modes
+		@include media-breakpoint-down(md) {
+			@include menu-hor-base($config);
+		}
+	}
+
+	// Horizontal Menu Hoverable Submenu Animations
+	@keyframes #{get($config, base, class)}-submenu-fade-out {
+	    from   { opacity: 1; }
+	    to { opacity: 0; }
+	}
+
+	@keyframes #{get($config, base, class)}-submenu-fade-in {
+	    from   { opacity: 0; }
+	    to { opacity: 1; }
+	}
+
+	@keyframes #{get($config, base, class)}-submenu-move-up {
+	    from   { margin-top: get($config, build, layout, item, submenu, self, animation, offset); }
+	    to { margin-top: 0; }
+	}
+
+	@keyframes #{get($config, base, class)}-submenu-move-down {
+	    from   { margin-top: -(get($config, build, layout, item, submenu, self, animation, offset)); }
+	    to { margin-top: 0; }
+	}
+}

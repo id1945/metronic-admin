@@ -1,0 +1,41 @@
+//
+// Subheader
+//
+
+.subheader {
+	display: flex;
+	align-items: center;
+	@include border-top-right-radius($border-radius);
+	background-color: get($subheader-config, default, bg-color);
+
+	// Subheader Separator
+	.subheader-separator {
+		display: block;
+	    width: 12px;
+	    height: 4px;
+	    border-radius: 2px;
+
+		&.subheader-separator-ver {
+			width: 1px;
+    		height: 22px;
+		}
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+    // Subheader
+	.subheader {
+		@include border-top-left-radius(0);
+		padding: 0 get($content-padding, desktop);
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Subheader
+	.subheader {
+		padding: 0 get($content-padding, tablet-and-mobile);
+		@include border-top-radius($border-radius);
+	}
+}

@@ -1,0 +1,44 @@
+//
+// Aside
+//
+
+.aside {
+	width: get($aside-config, base, width);
+	background-color: get($aside-config, base, bg-color);
+
+	// Aside Menu
+	.aside-menu {
+		@include perfect-scrollbar-ver-offset(4px);
+		background-color: get($aside-config, base, bg-color);
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.aside {
+		@include border-bottom-left-radius($border-radius);
+		box-shadow: get($aside-config, base, shadow);
+
+		// Aside Menu
+		.aside-menu,
+		.aside-menu-wrapper {
+			@include border-bottom-left-radius($border-radius);
+		}
+
+		// Static Aside Mode
+		.aside-static & {
+			position: relative;
+			z-index: 1;
+		}
+
+		// Scroll
+		@include perfect-scrollbar-ver-size( get($aside-config, base, scrollbar-width) );
+	}
+}
+
+// Build aside menu
+@include menu-ver-build-layout($aside-menu-config);
+@include menu-ver-build-theme($aside-menu-config, default);
+
+// Aside offcanvas panel for mobile mode
+@include offcanvas-build(aside, tablet-and-mobile, get($aside-config, offcanvas-mobile));

@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <div class="modal-title h4">Fetch selected customers</div>
+</div>
+<div class="modal-body overlay overlay-block cursor-default">
+  <ng-container *ngIf="isLoading">
+    <div class="overlay-layer">
+      <div class="spinner spinner-lg spinner-primary"></div>
+    </div>
+  </ng-container>
+
+  <div class="table-responsive angular-bootstrap-table">
+    <table class="table table-head-custom table-vertical-center overflow-hidden">
+      <thead>
+        <th>FIRSTNAME</th>
+        <th>LASTNAME</th>
+        <th>STATUS</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{customer.firstName}}</td>
+          <td>{{customer.lastName}}</td>
+          <td>
+            <span class="label label-lg label-inline" [class.label-light-danger]="customer.status === 1"
+              [class.label-light-success]="customer.status === 2" [class.label-light-primary]="customer.status === 3">
+              <ng-container *ngIf="customer.status === 1">Suspended</ng-container>
+              <ng-container *ngIf="customer.status === 2">Active</ng-container>
+              <ng-container *ngIf="customer.status === 3">Pending</ng-container>
+            </span>
+          </td>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="modal-footer">
+  <div>
+    <button type="button" class="btn btn-light btn-elevate mr-3" (click)="modal.dismiss()">Cancel</button>
+    <button type="button" class="btn btn-primary btn-elevate" (click)="fetchSelected()">Fetch</button>
+  </div>
+</div>

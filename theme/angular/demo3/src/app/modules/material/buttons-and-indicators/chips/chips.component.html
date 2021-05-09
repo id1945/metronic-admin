@@ -1,0 +1,88 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/chips/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasic">
+      <div class="example-preview">
+        <span>
+          <code>&lt;mat-chip-list&gt;</code> displays a list of values as
+          individual, keyboard accessible, chips.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-chip-list>
+            <mat-chip>One fish</mat-chip>
+            <mat-chip>Two fish</mat-chip>
+            <mat-chip color="primary" selected="true">Primary fish</mat-chip>
+            <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleInput">
+      <div class="example-preview">
+        <p>
+          The
+          <mark>MatChipInput</mark> directive can be used together with a
+          chip-list to streamline the interaction between the two components.
+          This directive adds chip-specific behaviors to the input element
+          within <code>&lt;mat-form-field&gt;</code> for adding and removing
+          chips. The <code>&lt;input&gt;</code> with
+          <mark>MatChipInput</mark> can be placed inside or outside the
+          chip-list element.
+        </p>
+        <p>
+          An example of chip input placed inside the chip-list element.
+        </p>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-form-field class="demo-chip-list">
+            <mat-chip-list #chipList>
+              <mat-chip
+                *ngFor="let fruit of fruits"
+                [selectable]="selectable"
+                [removable]="removable"
+                (removed)="remove(fruit)"
+              >
+                {{ fruit.name }}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input
+                placeholder="New fruit..."
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)"
+              />
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleStacked">
+      <div class="example-preview">
+        <div>
+          <mat-chip-list class="mat-chip-list-stacked">
+            <mat-chip
+              *ngFor="let chip of availableColors"
+              selected="true"
+              [color]="chip.color"
+            >
+              {{ chip.name }}
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

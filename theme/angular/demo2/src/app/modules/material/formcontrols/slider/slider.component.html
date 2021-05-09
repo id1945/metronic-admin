@@ -1,0 +1,153 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/slider/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicSlider">
+      <div class="example-preview">
+        <span>
+          <code>mat-slider</code> allows for the selection of a value from a
+          range via mouse, touch, or keyboard, similar to
+          <code>&lt;input type="range"&gt;</code>.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div class="example-container">
+          <mat-slider></mat-slider>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleChangeEvent">
+      <div class="example-preview">
+        <span>
+          <code>@Output() change: EventEmitter&lt;MatSliderChange&gt;</code>
+          Event emitted when the slider value has changed.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div class="example-container">
+          <mat-slider
+            (change)="changeSlider()"
+            [(ngModel)]="myValue"
+            min="0"
+            max="100"
+            step="1"
+          ></mat-slider>
+          <div class="separator separator-dashed my-6" *ngIf="myValue"></div>
+          <span *ngIf="myValue"
+            >Selected: <mark>{{ myValue }}</mark
+            >%</span
+          >
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleConfigurableSlider">
+      <div class="example-preview">
+        <div class="example-container">
+          <section class="example-section">
+            <mat-form-field class="example-margin">
+              <input
+                matInput
+                type="number"
+                placeholder="Value"
+                [(ngModel)]="value"
+              />
+            </mat-form-field>
+            <mat-form-field class="example-margin">
+              <input
+                matInput
+                type="number"
+                placeholder="Min value"
+                [(ngModel)]="min"
+              />
+            </mat-form-field>
+            <mat-form-field class="example-margin">
+              <input
+                matInput
+                type="number"
+                placeholder="Max value"
+                [(ngModel)]="max"
+              />
+            </mat-form-field>
+            <mat-form-field class="example-margin">
+              <input
+                matInput
+                type="number"
+                placeholder="Step size"
+                [(ngModel)]="step"
+              />
+            </mat-form-field>
+          </section>
+          <div class="separator separator-dashed my-6"></div>
+          <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="showTicks"
+              >Show ticks</mat-checkbox
+            >
+            <mat-checkbox
+              class="example-margin"
+              [(ngModel)]="autoTicks"
+              *ngIf="showTicks"
+            >
+              Auto ticks
+            </mat-checkbox>
+            <mat-form-field
+              class="example-margin"
+              *ngIf="showTicks && !autoTicks"
+            >
+              <input
+                matInput
+                type="number"
+                placeholder="Tick interval"
+                [(ngModel)]="tickInterval"
+              />
+            </mat-form-field>
+          </section>
+          <div class="separator separator-dashed my-6"></div>
+          <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="thumbLabel"
+              >Show thumb label</mat-checkbox
+            >
+          </section>
+          <div class="separator separator-dashed my-6"></div>
+          <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="vertical"
+              >Vertical</mat-checkbox
+            >
+            <mat-checkbox class="example-margin" [(ngModel)]="invert"
+              >Inverted</mat-checkbox
+            >
+          </section>
+          <div class="separator separator-dashed my-6"></div>
+          <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="disabled"
+              >Disabled</mat-checkbox
+            >
+          </section>
+          <div class="separator separator-dashed my-6"></div>
+          <h5>Result</h5>
+          <mat-slider
+            class="example-margin"
+            [disabled]="disabled"
+            [invert]="invert"
+            [max]="max"
+            [min]="min"
+            [step]="step"
+            [thumbLabel]="thumbLabel"
+            [tickInterval]="tickInterval"
+            [(ngModel)]="value"
+            [vertical]="vertical"
+          >
+          </mat-slider>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

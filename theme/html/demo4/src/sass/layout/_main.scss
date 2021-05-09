@@ -1,0 +1,50 @@
+//
+// Base
+//
+
+// Body
+body {
+	background: $page-bg;
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Wrapper
+	.wrapper {
+		padding-left: get($aside-config, base, width);
+
+		// Fixed Header
+		.header-fixed & {
+			padding-top: get($header-config, desktop, fixed, height);
+		}
+
+		// Fixed Content Head
+		.header-fixed.subheader-fixed.subheader-enabled & {
+			padding-top: get($header-config, desktop, fixed, height) + get($subheader-config, fixed, height);
+		}
+	}
+
+	// Container
+	.container,
+	.container-fluid {
+		padding: 0 get($page-padding, desktop);
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Wrapper
+	.wrapper {
+		// Fixed Header
+		.header-mobile-fixed & {
+			padding-top: get($header-config, tablet-and-mobile, fixed, height);
+		}
+	}
+
+	// Container
+	.container,
+	.container-fluid {
+		max-width: none;
+		padding: 0 get($page-padding, tablet-and-mobile);
+	}
+}

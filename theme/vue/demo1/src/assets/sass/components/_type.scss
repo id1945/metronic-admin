@@ -1,0 +1,37 @@
+//
+// Type
+//
+
+
+// Headings
+.h1 { @include font-size($h1-font-size, true); }
+.h2 { @include font-size($h2-font-size, true); }
+.h3 { @include font-size($h3-font-size, true); }
+.h4 { @include font-size($h4-font-size, true); }
+.h5 { @include font-size($h5-font-size, true); }
+.h6 { @include font-size($h6-font-size, true); }
+
+// Lead
+.lead {
+  @include font-size($lead-font-size, true);
+}
+
+// Type display classes
+.display-1 {
+  @include font-size($display1-size, true);
+}
+.display-2 {
+  @include font-size($display2-size, true);
+}
+.display-3 {
+  @include font-size($display3-size, true);
+}
+.display-4 {
+  @include font-size($display4-size, true);
+}
+
+// Reset global outline
+a,
+button {
+    outline: 0 !important;
+}

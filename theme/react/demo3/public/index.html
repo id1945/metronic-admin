@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+Theme: Metronic - The Ultimate Bootstrap Admin Theme
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+License: You must have a valid license purchased only from https://themes.getbootstrap.com/product/keen-the-ultimate-bootstrap-admin-theme/ in order to legally use the theme for your project.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Metronic | React Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="%PUBLIC_URL%/media/logos/favicon.ico"
+    />
+
+    <link
+      href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto:300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+    />
+    <!-- SPLASH SCREEN-->
+    <link
+      rel="stylesheet"
+      id="layout-styles-anchor"
+      href="%PUBLIC_URL%/css/splash-screen.css"
+    />
+    <!--  Setup `default`, `es2015`, `es2016`, `es2017`, and `Intl` polyfills from https://cdn.polyfill.io/v3/url-builder/ -->
+    <script
+      crossorigin="anonymous"
+      src="https://polyfill.io/v3/polyfill.min.js?features=es2017%2Cdefault%2Ces2015%2Ces2016%2CIntl"
+    ></script>
+  </head>
+  <!-- <body id="kt_body" direction="rtl" dir="rtl" style="direction: rtl">  RTL version body -->
+  <!-- Standard version of body -->
+  <body id="kt_body">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="splash-screen" class="kt-splash-screen">
+      <img
+        src="%PUBLIC_URL%/media/logos/logo-dark.png"
+        alt="Metronic logo"
+      />
+      <svg class="splash-spinner" viewBox="0 0 50 50">
+        <circle class="path"
+          cx="25"
+          cy="25"
+          r="20"
+          fill="none"
+          stroke-width="5"
+        ></circle>
+      </svg>
+    </div>
+    <div id="layout-portal"></div>
+  </body>
+</html>

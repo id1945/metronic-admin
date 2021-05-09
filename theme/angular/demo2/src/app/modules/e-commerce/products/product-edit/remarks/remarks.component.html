@@ -1,0 +1,108 @@
+<div class="mt-5">
+  <!-- begin: Filtration form -->
+  <div class="form margin-b-30">
+    <div class="form-filtration">
+      <div class="row align-items-center">
+        <div class="col-md-2 margin-bottom-10-mobile">
+          <form [formGroup]="searchGroup">
+            <div>
+              <input type="text" class="form-control" name="searchText" placeholder="Search"
+                formControlName="searchTerm" />
+              <small class="form-text text-muted"><b>Search</b> in all fields</small></div>
+          </form>
+        </div>
+        <div class="col-md-8 margin-bottom-10-mobile"></div>
+        <div class="col-md-2 text-right margin-bottom-10-mobile">
+          <button type="button" class="btn btn-primary" (click)="create()">
+            Create new remark
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: Filtration form -->
+
+  <!-- begin: Grouping -->
+  <ng-container *ngIf="grouping.getSelectedRowsCount()">
+    <div class="form">
+      <div class="row align-items-center form-group-actions margin-top-20 margin-bottom-20">
+        <div class="col-xl-12">
+          <div class="form-group form-group-inline">
+            <div class="form-label form-label-no-wrap">
+              <label class="font-bold font-danger"><span>Selected records count:
+                  <b>{{ grouping.getSelectedRowsCount() }}</b></span></label>
+            </div>
+            <div>
+              <button type="button" class="btn btn-danger font-weight-bolder font-size-sm mr-1"
+                (click)="deleteSelected()">
+                <i class="fa fa-trash"></i> Delete All
+              </button>&nbsp;
+              <button type="button" class="btn btn-light-primary font-weight-bolder font-size-sm"
+                (click)="fetchSelected()">
+                <i class="fa fa-stream"></i> Fetch Selected
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- end: Grouping -->
+  <!-- begin:Table -->
+  <div class="table-responsive angular-bootstrap-table">
+    <table class="table table-head-custom table-vertical-center overflow-hidden">
+      <thead>
+        <th class="selection-cell-header" data-row-selection="true">
+          <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectAllRows()"
+              [checked]="grouping.checkAreAllRowsSelected()" /><span></span></label>
+        </th>
+        <th>
+          ID
+          <app-sort-icon column="id" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+            (sort)="sort($event)"></app-sort-icon>
+        </th>
+        <th>
+          TEXT
+          <app-sort-icon column="text" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+            (sort)="sort($event)"></app-sort-icon>
+        </th>
+        <th>
+          DUE DATE
+          <app-sort-icon column="dueDate" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+            (sort)="sort($event)"></app-sort-icon>
+        </th>
+        <th>ACTIONS</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let remark of remarksService.items$ | async">
+          <td class="selection-cell">
+            <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow(remark.id)"
+                [checked]="grouping.isRowSelected(remark.id)" />
+              <span></span>
+            </label>
+          </td>
+          <td>{{ remark.id }}</td>
+          <td>{{ remark.text }}</td>
+          <td>{{ remark.dueDate }}</td>
+          <td>
+            <button title="Edit remark" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+              (click)="edit(remark.id)">
+              <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                class="svg-icon svg-icon-md svg-icon-primary">
+              </span>
+            </button>
+            <button title="Delete remark" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+              (click)="delete(remark.id)">
+              <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                class="svg-icon svg-icon-md svg-icon-danger">
+              </span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- end: Table -->
+  <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+    [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+</div>

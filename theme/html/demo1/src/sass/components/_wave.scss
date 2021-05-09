@@ -1,0 +1,95 @@
+//
+// Wave
+//
+
+
+.wave {
+	background-color: $gray-100;
+	overflow: hidden;
+	position: relative;
+
+	> div {
+		z-index: 1;
+	}
+
+	&:before {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		left:0;
+		right: 0;
+		bottom: 0;
+		background-color: $white;
+		z-index: -1;
+	}
+
+	&:after {
+		content: ' ';
+		width: 1000px;
+		height: 1025px;
+		position: absolute;
+		bottom: 65%;
+		left: -250px;
+		border-radius: 35%;
+		background: rgba(255, 255, 255, 1);
+		z-index: 0;
+	}
+
+	&:after {
+		transform: rotate(45deg);
+	}
+
+	&-animate {
+		&:after {
+			animation: animate-wave 15s infinite linear;
+		}
+
+		&-slower {
+			&:after {
+				animation: animate-wave 30s infinite linear;
+			}
+		}
+
+		&-slow {
+			&:after {
+				animation: animate-wave 25s infinite linear;
+			}
+		}
+
+		&-fast {
+			&:after {
+				animation: animate-wave 10s infinite linear;
+			}
+		}
+
+		&-faster {
+			&:after {
+				animation: animate-wave 5s infinite linear;
+			}
+		}
+    }
+
+    @each $name, $color in $theme-colors{
+		&.wave-#{$name}{
+			background-color: rgba($color, $component-light-style-opacity) !important;
+
+			.svg-icon{
+				svg{
+					g [fill]{
+						fill: $color;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes animate-wave {
+	from {
+		transform: rotate(0deg)
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

@@ -1,0 +1,81 @@
+//
+// Markdown
+//
+
+
+// Base
+.md-editor {
+    outline: none !important;
+    @include border-top-left-radius($border-radius);
+    @include border-top-right-radius($border-radius);
+    border: 1px solid $input-border-color;
+
+    .md-footer,
+    .md-header {
+        padding: 1rem 1rem;
+        background: $gray-100;
+    }
+
+    .md-header {
+        @include border-top-left-radius($border-radius);
+        @include border-top-right-radius($border-radius);
+
+        .btn-group {
+            margin-right: 0.74rem;
+
+            .btn {
+                background: white;
+                border: 1px solid $gray-200;
+                color: $dark-75;
+
+                span {
+                    line-height: 0;
+                    font-size: 1rem;
+                }
+
+                &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                    color: $primary;
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    .md-footer {
+        @include border-bottom-left-radius(0);
+        @include border-bottom-right-radius(0);
+    }
+
+    > textarea {
+        padding: 1rem 1rem;
+        background: $gray-100;
+
+        @include border-bottom-left-radius(0);
+        @include border-bottom-right-radius(0);
+    }
+
+    &.active {
+        border: 1px solid  $input-border-color;
+        box-shadow: none;
+
+        > textarea {
+            background: $gray-100;
+        }
+    }
+}
+
+// Validation
+.is-valid {
+    .md-editor {
+        border-color: $success;
+    }
+}
+
+.is-invalid {
+    .md-editor {
+        border-color: $danger;
+    }
+}

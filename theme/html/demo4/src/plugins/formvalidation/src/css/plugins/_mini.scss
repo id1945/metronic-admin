@@ -1,0 +1,42 @@
+.fv-plugins-mini {
+    .fv-plugins-icon {
+        height: 42px;   /* Same as height of input */
+        line-height: 42px;
+        width: 42px;
+        top: 4px;       /* Same as input's margin top */
+    }
+
+    .fv-plugins-icon-check {
+        top: -8px;
+    }
+
+    // Stacked form
+    &.fv-stacked-form {
+        .fv-plugins-icon {
+            top: 28px;
+        }
+
+        .fv-plugins-icon-check {
+            top: 20px;
+        }
+    }
+
+    .fv-plugins-message-container {
+        margin: calc(var(--universal-margin) / 2);
+    }
+
+    .fv-invalid-row {
+        .fv-help-block,
+        .fv-plugins-icon {
+            color: var(--input-invalid-color);
+        }
+    }
+
+    .fv-valid-row {
+        .fv-help-block,
+        .fv-plugins-icon {
+            color: #308732; /* Same as tertiary color */
+        }
+    }
+}
+  

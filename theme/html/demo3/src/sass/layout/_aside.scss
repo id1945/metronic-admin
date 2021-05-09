@@ -1,0 +1,158 @@
+//
+// Aside
+//
+
+// General Mode(all devices)
+.aside {
+	box-shadow: get($aside-config, base, shadow);
+	background-color: get($aside-config, base, bg-color);
+	transition: get($aside-config, base, transition);
+
+	// Aside Secondary Panel enabled
+	.aside-secondary-enabled & {
+		width: get($aside-config, base, primary-width) + get($aside-config, base, secondary-width);
+	}
+
+	// Aside Secondary Panel disabled
+	.aside-secondary-disabled & {
+		width: get($aside-config, base, primary-width);
+	}
+
+	// Aside Primary Panel
+	.aside-primary {
+		width: get($aside-config, base, primary-width);
+		flex-shrink: 0;
+
+		// Aside Secondary Panel disabled
+		.aside-secondary-enabled & {
+			border-right: 1px solid $border-color;
+		}
+	}
+
+	// Aside Secondary Panel
+	.aside-secondary {
+		overflow: hidden;
+
+		// Workspace
+		.aside-workspace {
+			width: get($aside-config, base, secondary-width);
+			flex-shrink: 0;
+		}
+
+		// Menu
+		.aside-menu {
+			@include perfect-scrollbar-ver-offset(4px);
+		}
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.aside {
+		// Fixed Aside Mode
+		.aside-fixed & {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			z-index: get($aside-config, base, zindex);
+		}
+
+		// Static Aside Mode
+		.aside-static & {
+			position: relative;
+			z-index: 1;
+		}
+
+		// Minimized Aside Mode
+		.aside-minimize & {
+			width: get($aside-config, base, primary-width);
+			transition: get($aside-config, base, transition);
+
+			// Aside Primary Panel
+			.aside-primary {
+				border-color: transparent;
+			}
+		}
+
+		// Aside Minimize Toggle Icon
+		.aside-toggle {
+			position: absolute;
+			right: 0;
+			bottom: 40px;
+			height: 36px;
+			width: 36px;
+			margin-right: -(36px/2);
+			z-index: get($aside-config, base, zindex) + 1;
+
+			i {
+				transition: $transition;
+			}
+
+			// Aside Minimize Toggle Icon Active State
+			.aside-minimize &,
+			&.aside-toggle-active {
+				i {
+					transition: $transition;
+					transform: rotateZ(180deg)#{'/*rtl:ignore*/'};
+
+					[direction="rtl"] & {
+						transform: rotateZ(-180deg)#{'/*rtl:ignore*/'};
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.aside {
+		// Aside Primary Panel
+		.aside-primary {
+			width: get($aside-config, base, primary-width-tablet-and-mobile);
+
+			// Buttons
+			.btn.btn-icon.btn-lg {
+				width: 40px;
+				height: 40px;
+
+				.svg-icon {
+					@include svg-icon-size(26px);
+				}
+			}
+		}
+
+		// Aside Secondary Panel
+		.aside-secondary {
+			// Workspace
+			.aside-workspace {
+				width: 100%;
+				flex-shrink: 0;
+				overflow: auto;
+			}
+		}
+
+		// Aside Minimize Toggle Icon
+		.aside-toggle {
+			display: none;
+		}
+	}
+
+	// Aside Secondary Panel enabled
+	.aside-secondary-enabled {
+		@include offcanvas-width(aside, get($aside-config, base, primary-width-tablet-and-mobile) + get($aside-config, base, secondary-width-tablet-and-mobile));
+	}
+
+	// Aside Secondary Panel disabled
+	.aside-secondary-disabled {
+		@include offcanvas-width(aside, get($aside-config, base, primary-width-tablet-and-mobile));
+	}
+}
+
+// Build Aside Menu(see mixin: src/sass/components/mixins/_menu-vertical.scss)
+@include menu-ver-build-layout($aside-menu-config);
+@include menu-ver-build-theme($aside-menu-config, default);
+
+// Build Aside Offcanvas Panel for mobile mode
+@include offcanvas-build(aside, tablet-and-mobile, get($aside-config, offcanvas-mobile));

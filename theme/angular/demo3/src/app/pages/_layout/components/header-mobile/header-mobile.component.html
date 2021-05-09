@@ -1,0 +1,24 @@
+<!--begin::Logo-->
+<a routerLink="/">
+  <img
+    alt="Logo"
+    src="./assets/media/logos/logo-letter-2.png"
+    class="logo-default max-h-30px"
+  />
+</a>
+<!--end::Logo-->
+
+<!--begin::Toolbar-->
+<div class="d-flex align-items-center">
+  <ng-container *ngIf="asideSelfDisplay">
+    <!--begin::Aside Mobile Toggle-->
+    <button
+      class="btn p-0 burger-icon burger-icon-left"
+      id="kt_aside_mobile_toggle"
+    >
+      <span></span>
+    </button>
+    <!--end::Aside Mobile Toggle-->
+  </ng-container>
+</div>
+<!--end::Toolbar-->

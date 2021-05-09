@@ -1,0 +1,30 @@
+//
+// Base
+//
+
+// Body
+body {
+	background: $page-bg;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% $page-bg-height;
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Container
+	.container,
+	.container-fluid {
+		padding: 0 get($page-padding, desktop);
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Container
+	.container,
+	.container-fluid {
+		max-width: none;
+		padding: 0 get($page-padding, tablet-and-mobile);
+	}
+}

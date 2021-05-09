@@ -1,0 +1,82 @@
+//
+// Kanban Board
+//
+
+// Variables
+$kanban-spacer-y: 1.25rem;
+$kanban-spacer-x: 1.25rem;
+
+.kanban-container {
+	width: 100% !important;
+	display: flex;
+	flex-wrap: wrap;
+
+	.kanban-board {
+		float: none;
+		flex-shrink: 0;
+		margin-bottom: $kanban-spacer-y;
+		margin-right: $kanban-spacer-x !important;
+		background-color: $gray-100;
+		@include border-radius($border-radius);
+
+		&:last-child {
+			margin-right: 0 !important;
+		}
+
+		.kanban-board-header {
+			@include border-top-left-radius($border-radius);
+			@include border-top-right-radius($border-radius);
+
+			.kanban-title-board {
+				font-size: 1.2rem;
+				font-weight: 500;
+				color: $dark;
+			}
+
+			@each $name, $color in $theme-colors {
+				&.#{$name} {
+					background-color: $color;
+					box-shadow: none;
+
+					.kanban-title-board {
+						color: theme-inverse-color($name);
+					}
+				}
+
+				&.light-#{$name} {
+					background-color: rgba($color, 0.1);
+					box-shadow: none;
+
+					.kanban-title-board {
+						color: $color;
+					}
+				}
+			}
+		}
+
+		.kanban-drag {
+			.kanban-item {
+				@include border-radius($border-radius);
+				box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.05);
+
+				@each $name, $color in $theme-colors {
+					&[data-class="#{$name}"]{
+						background-color: $color;
+						color: theme-inverse-color($name);
+						box-shadow: none;
+			        }
+
+					&[data-class="light-#{$name}"]{
+						background-color: rgba($color, 0.1);
+						color: $color;
+						box-shadow: none;
+			        }
+			    }
+			}
+		}
+
+		footer {
+
+		}
+	}
+}

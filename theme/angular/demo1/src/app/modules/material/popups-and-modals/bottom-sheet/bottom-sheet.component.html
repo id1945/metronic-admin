@@ -1,0 +1,38 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/bottom-sheet/"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-12">
+    <app-code-preview [viewItem]="exampleBasic">
+      <div class="example-preview">
+        <span>
+          The
+          <code>MatBottomSheet</code> service can be used to open Material
+          Design panels to the bottom of the screen. These panels are intended
+          primarily as an interaction on mobile devices where they can be used
+          as an alternative to dialogs and menus.
+        </span>
+        <span>
+          You can open a bottom sheet by calling the <code>open</code> method
+          with a component to be loaded and an optional config object. The
+          <code>open</code> method will return an instance of
+          <code>MatBottomSheetRef</code></span
+        >
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <p>You have receive a file called "cat-picture.jpeg".</p>
+          <button mat-raised-button (click)="openBottomSheet()">
+            Open file
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

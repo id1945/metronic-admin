@@ -1,0 +1,58 @@
+//
+// Base
+//
+
+// Body
+body {
+	background-color: $page-bg;
+	background-image: $page-bg-image;
+	background-size: cover;
+    background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+// Main
+.main {
+	background-color: $content-bg;
+	@include border-radius($border-radius);
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	body {
+		// Fixed Header & Minimized Header Modes
+		&.header-fixed[data-header-scroll="on"] {
+			padding-top: get($header-config, desktop, height);
+		}
+	}
+
+	// Main
+	.main {
+		@include border-top-left-radius(0);
+
+		// Aside Enabled Mode
+		.aside-enabled & {
+			@include border-bottom-left-radius(0);
+		}
+	}
+
+	// Container
+	.container {
+		padding: 0 get($container-padding, desktop, fixed);
+	}
+
+	// Fluid Container
+	.container-fluid {
+		padding: 0 get($container-padding, desktop, fluid);
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Container
+	.container,
+	.container-fluid {
+		max-width: none;
+		padding: 0 get($container-padding, tablet-and-mobile);
+	}
+}

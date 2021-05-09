@@ -1,0 +1,139 @@
+<!--begin::Subheader-->
+<div
+  class="subheader py-2 py-lg-4"
+  id="kt_subheader"
+  [ngClass]="subheaderCSSClasses"
+>
+  <div
+    [ngClass]="subheaderContainerCSSClasses"
+    class="d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+  >
+    <!--begin::Info-->
+    <div class="d-flex align-items-center flex-wrap mr-2">
+      <ng-container *ngIf="subheaderMobileToggle">
+        <!--begin::Mobile Toggle-->
+        <button
+          class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none"
+          id="kt_subheader_mobile_toggle"
+        >
+          <span></span>
+        </button>
+        <!--end::Mobile Toggle-->
+      </ng-container>
+
+      <!--begin::Actions-->
+      <a
+        class="btn btn-light-danger font-weight-bolder btn-sm mr-2 cursor-pointer"
+      >
+        Reports
+      </a>
+      <a
+        class="btn btn-light-success font-weight-bolder btn-sm mr-2 cursor-pointer"
+      >
+        Import
+      </a>
+      <!--end::Actions-->
+
+      <!--begin::Inputs-->
+      <div class="input-group input-group-sm input-group-solid max-w-175px">
+        <input type="text" class="form-control pl-4" placeholder="Search..." />
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <span
+              [inlineSVG]="'./assets/media/svg/icons/General/Search.svg'"
+              cacheSVG="true"
+              class="svg-icon svg-icon-md"
+            ></span>
+          </span>
+        </div>
+      </div>
+      <!--end::Inputs-->
+    </div>
+    <!--end::Info-->
+
+    <!--begin::Toolbar-->
+    <div class="d-flex align-items-center">
+      <ng-container *ngIf="subheaderDisplayDaterangepicker">
+        <!--begin::Daterange-->
+        <a
+          class="btn btn-light btn-sm font-weight-bold mr-2 cursor-pointer"
+          id="kt_dashboard_daterangepicker"
+          data-toggle="tooltip"
+          title="Select dashboard daterange"
+          data-placement="left"
+        >
+          <span
+            class="text-muted font-weight-bold mr-2"
+            id="kt_dashboard_daterangepicker_title"
+            >Today</span
+          >
+          <span
+            class="text-primary font-weight-bold"
+            id="kt_dashboard_daterangepicker_date"
+            >Aug 16</span
+          >
+          <span
+            [inlineSVG]="
+              './assets/media/svg/icons/Communication/Chat-check.svg'
+            "
+            cacheSVG="true"
+            class="svg-icon svg-icon-sm svg-icon-primary ml-1"
+          ></span>
+        </a>
+        <!--end::Daterange-->
+      </ng-container>
+
+      <!--begin::Actions-->
+      <a
+        class="btn btn-light btn-hover-primary btn-sm btn-icon mr-2 cursor-pointer"
+      >
+        <i class="flaticon2-file text-muted"></i>
+      </a>
+      <a
+        class="btn btn-light btn-hover-primary btn-sm btn-icon mr-2 cursor-pointer"
+      >
+        <i class="flaticon-download-1 text-muted"></i>
+      </a>
+      <a
+        class="btn btn-light btn-hover-primary btn-sm btn-icon mr-2 cursor-pointer"
+      >
+        <i class="flaticon2-fax text-muted"></i>
+      </a>
+      <a
+        class="btn btn-light btn-hover-primary btn-sm btn-icon mr-2 cursor-pointer"
+      >
+        <i class="flaticon2-settings text-muted"></i>
+      </a>
+      <!--end::Actions-->
+
+      <!--begin::Dropdowns-->
+      <div
+        class="dropdown dropdown-inline"
+        data-toggle="tooltip"
+        title="Quick actions"
+        data-placement="left"
+        placement="bottom-right"
+        ngbDropdown
+      >
+        <a
+          class="btn btn-icon btn-light-primary btn-sm cursor-pointer"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          ngbDropdownToggle
+        >
+          <i class="ki ki-plus icon-1x"></i>
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right"
+        >
+          <app-dropdown-menu2></app-dropdown-menu2>
+        </div>
+      </div>
+      <!--end::Dropdowns-->
+    </div>
+    <!--end::Toolbar-->
+  </div>
+</div>
+<!--end::Subheader-->

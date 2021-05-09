@@ -1,0 +1,209 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/tooltip/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleQuickAndEasyTooltips">
+      <div class="example-preview">
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            placement="top"
+            ngbTooltip="Tooltip on top"
+            ngbTooltipClass="kt-tooltip"
+          >
+            Tooltip on top</button
+          >&nbsp;
+          <button
+            type="button"
+            class="btn btn-info"
+            placement="right"
+            ngbTooltip="Tooltip on right"
+          >
+            Tooltip on right</button
+          >&nbsp;
+          <button
+            type="button"
+            class="btn btn-success"
+            placement="bottom"
+            ngbTooltip="Tooltip on bottom"
+          >
+            Tooltip on bottom</button
+          >&nbsp;
+          <button
+            type="button"
+            class="btn btn-danger"
+            placement="left"
+            ngbTooltip="Tooltip on left"
+          >
+            Tooltip on left
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleHTMLAndBindingsInTooltipsl">
+      <p>
+        Tooltips can contain any arbitrary HTML, Angular bindings and even
+        directives! Simply enclose desired content in a
+        <code>&lt;ng-template&gt;</code> element.
+      </p>
+      <div class="example-preview">
+        <div>
+          <ng-template #tipContentS
+            >Hello, <b>{{ name }}</b
+            >!
+          </ng-template>
+          <button
+            type="button"
+            class="btn btn-primary"
+            [ngbTooltip]="tipContentS"
+          >
+            I've got markup and bindings in my tooltip!
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleCustomAndManualTriggers">
+      <p>
+        You can easily override open and close triggers by specifying event
+        names (separated by
+        <code>:</code>) in the <code>triggers</code> property.
+      </p>
+      <div class="example-preview">
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            ngbTooltip="You see, I show up on click!"
+            triggers="click:blur"
+          >
+            Click me!
+          </button>
+        </div>
+      </div>
+      <div class="separator separator-dashed my-6"></div>
+      <p>
+        Alternatively you can take full manual control over tooltip opening /
+        closing events.
+      </p>
+      <div class="example-preview">
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            ngbTooltip="What a great tip!"
+            triggers="manual"
+            #t="ngbTooltip"
+            (click)="t.open()"
+          >
+            Click me to open a tooltip</button
+          >&nbsp;
+          <button type="button" class="btn btn-info" (click)="t.close()">
+            Click me to close a tooltip
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleContextAndManualTriggers">
+      <ng-template #tipContent let-greeting="greeting"
+        >{{ greeting }}, <b>{{ name2 }}</b
+        >!
+      </ng-template>
+      <p>
+        You can optionally pass in a context when manually triggering a popover.
+      </p>
+      <div class="example-preview">
+        How would you like to greet
+        <strong [ngbTooltip]="tipContent" #t2="ngbTooltip" triggers="manual"
+          >me</strong
+        >?
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="changeGreeting({ greeting: 'Bonjour' })"
+          >
+            French</button
+          >&nbsp;
+          <button
+            type="button"
+            class="btn btn-info"
+            (click)="changeGreeting({ greeting: 'Gutentag' })"
+          >
+            German</button
+          >&nbsp;
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="changeGreeting({ greeting: 'Hello' })"
+          >
+            English
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleAppendTooltipInTheBody">
+      <p>
+        Set the
+        <code>container</code> property to "body" to have the tooltip be
+        appended to the body instead of the triggering element's parent. This
+        option is useful if the element triggering the tooltip is inside an
+        element that clips its contents (i.e. <code>overflow: hidden</code>).
+      </p>
+      <div class="example-preview">
+        <div>
+          <div class="row">
+            <div class="card">
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                ngbTooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              >
+                Default tooltip
+              </button>
+              <br />
+              <button
+                type="button"
+                class="btn btn-outline-info"
+                ngbTooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                container="body"
+              >
+                Tooltip appended to body
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleGlobalConfigurationOfTooltips">
+      <div class="example-preview">
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            ngbTooltip="This tooltip gets its inputs from the customized configuration"
+            placement="right"
+            triggers="click"
+          >
+            Customized tooltip
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

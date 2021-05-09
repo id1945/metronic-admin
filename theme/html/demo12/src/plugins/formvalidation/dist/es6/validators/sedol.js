@@ -1,0 +1,1 @@
+export default function t(){return{validate(t){if(t.value===""){return{valid:true}}const e=t.value.toUpperCase();if(!/^[0-9A-Z]{7}$/.test(e)){return{valid:false}}const r=[1,3,1,7,3,9,1];const a=e.length;let l=0;for(let t=0;t<a-1;t++){l+=r[t]*parseInt(e.charAt(t),36)}l=(10-l%10)%10;return{valid:`${l}`===e.charAt(a-1)}}}}

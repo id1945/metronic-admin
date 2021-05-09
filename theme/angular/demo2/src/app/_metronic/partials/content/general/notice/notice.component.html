@@ -1,0 +1,24 @@
+<!--begin::Notice-->
+<div
+  class="alert alert-custom alert-white alert-shadow gutter-b"
+  [ngClass]="classes"
+  role="alert"
+>
+  <ng-container *ngIf="icon || svg">
+    <div class="alert-icon alert-icon-top">
+      <ng-container *ngIf="svg">
+        <span
+          class="svg-icon svg-icon-3x svg-icon-primary"
+          [inlineSVG]="svg"
+        ></span>
+      </ng-container>
+      <ng-container *ngIf="icon">
+        <i [ngClass]="icon"></i>
+      </ng-container>
+    </div>
+  </ng-container>
+  <div class="alert-text">
+    <ng-content></ng-content>
+  </div>
+</div>
+<!--end::Notice-->

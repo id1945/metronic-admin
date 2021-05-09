@@ -1,0 +1,41 @@
+<div
+  class="quick-search quick-search-dropdown"
+  [ngClass]="{ 'quick-search-has-result': data?.length }"
+  id="kt_quick_search_dropdown"
+>
+  <!--begin:Form-->
+  <form method="get" class="quick-search-form">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <span
+            class="svg-icon svg-icon-lg"
+            [inlineSVG]="'./assets/media/svg/icons/General/Search.svg'"
+          ></span>
+        </span>
+      </div>
+      <input
+        #searchInput
+        (keyup)="search($event)"
+        type="text"
+        class="form-control"
+        placeholder="Search..."
+      />
+      <div
+        class="input-group-append"
+        [ngClass]="{ 'spinner spinner-sm spinner-primary': loading }"
+      >
+        <span class="input-group-text">
+          <i
+            (click)="clear($event)"
+            class="quick-search-close ki ki-close icon-sm text-muted"
+            [style.display]="showCloseButton() ? 'block' : 'none'"
+          ></i>
+        </span>
+      </div>
+    </div>
+  </form>
+  <!--end::Form-->
+
+  <app-search-result [data]="data"></app-search-result>
+</div>

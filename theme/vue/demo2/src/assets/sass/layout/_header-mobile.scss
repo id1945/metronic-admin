@@ -1,0 +1,34 @@
+//
+// Header Mobile
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.header-mobile {
+		display: none;
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.header-mobile {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 get($page-padding, tablet-and-mobile);
+		height: get($header-config, tablet-and-mobile, default, height);
+		min-height: get($header-config, tablet-and-mobile, default, height);
+		position: relative;
+		z-index: 3;
+
+		// Topbar Shown Mode
+		.topbar-mobile-on & {
+			box-shadow: none;
+		}
+
+		// Burger Icon
+		.burger-icon {
+			@include burger-icon-theme(rgba($white, 0.7), $white, $white);
+		}
+	}
+}

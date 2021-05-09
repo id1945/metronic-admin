@@ -1,0 +1,55 @@
+//
+// Header
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		align-items: center;
+		position: relative;
+		z-index: 2;
+		height: get($header-config, desktop, height);
+
+		// Containers
+		.container,
+		.container-fluid {
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
+		}
+
+		// Fixed Header & Minimized Header Modes
+		.header-fixed[data-header-scroll="on"] & {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-image: $page-bg-image;
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, desktop, zindex);
+			background-color: get($header-config, desktop, bg-color);
+			box-shadow: get($header-config, desktop, shadow);
+			height: get($header-config, desktop, height-scroll);
+			animation: header-scroll-animation .5s ease 1;
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.header {
+		// Containers
+		.container,
+		.container-fluid {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
+@keyframes header-scroll-animation {
+    from   { top: -(get($header-config, desktop, height-scroll)); }
+    to { top: 0; }
+}

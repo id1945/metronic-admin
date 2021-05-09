@@ -1,0 +1,32 @@
+//
+// Bullet
+//
+
+// Base
+.bullet {
+    // Base
+    display: inline-block;
+    background-color: $gray-300;
+    width: get($bullet-config, hor-width);
+    height: get($bullet-config, hor-height);
+    @include border-radius(get($bullet-config, border-radius));
+
+    // Dot bullet
+    &.bullet-dot {
+        width: get($bullet-config, dot-size);
+        height: get($bullet-config, dot-size);
+        border-radius: 100% !important;
+    }
+
+    // Vertical bullet
+    &.bullet-ver {
+        width: get($bullet-config, ver-width);
+        height: get($bullet-config, ver-height);
+    }
+
+    // Vertical resizable bullet(use with align-self-stretch)
+    &.bullet-bar {
+        width: get($bullet-config, bar-width);
+        height: auto;
+    }
+}

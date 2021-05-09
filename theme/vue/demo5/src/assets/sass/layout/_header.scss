@@ -1,0 +1,59 @@
+//
+// Header
+//
+
+
+// Large Desktop Size
+@media (min-width: get($grid-breakpoints, xxl) + $header-aside-toggle-icon-offset) {
+	.header {
+		.container {
+			.aside-toggle {
+				position: absolute;
+				margin-left: -($header-aside-toggle-icon-offset) !important;
+				margin-right: 0 !important;
+			}
+		}
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Base
+	.header {
+		display: flex;
+		justify-content: space-between;
+		height: get($header-config, desktop, default, height);
+		transition: get($header-config, desktop, fixed, transition);
+		background-color: get($header-config, desktop, default, bg-color);
+		position: relative;
+		z-index: 2;
+		border-bottom: get($header-config, desktop, default, border);
+
+		// Fixed Header Mode
+		.header-fixed & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, desktop, fixed, zindex);
+			height: get($header-config, desktop, fixed, height);
+			transition: get($header-config, desktop, fixed, transition);
+		}
+
+		// Fixed header & subheader
+		.header-fixed.subheader-fixed & {
+			box-shadow: none !important;			
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Base
+	.header {
+		// Logo
+		.header-logo {
+			display: none;
+		}
+	}
+}

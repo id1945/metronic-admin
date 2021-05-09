@@ -1,0 +1,37 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/collapse/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-12">
+    <app-code-preview [viewItem]="exampleDemo">
+      <div class="example-preview">
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed"
+            aria-controls="collapseExample"
+          >
+            Toggle
+          </button>
+        </div>
+        <br />
+        <div id="collapseExample" [ngbCollapse]="isCollapsed">
+          <div class="card">
+            <div class="card-body">
+              You can collapse this card by clicking Toggle
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

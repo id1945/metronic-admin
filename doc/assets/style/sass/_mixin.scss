@@ -1,0 +1,47 @@
+@mixin border-radius-all($radius) {
+	-webkit-border-radius: ($radius);
+	-moz-border-radius: ($radius);
+	border-radius: ($radius);
+}
+
+@mixin border-radius-sides($leftTop, $rightTop, $rightBottom, $leftBottom ) {
+	-webkit-border-radius: $leftTop $rightTop $rightBottom $leftBottom;
+	-moz-border-radius: $leftTop $rightTop $rightBottom $leftBottom;
+	border-radius: $leftTop $rightTop $rightBottom $leftBottom;
+}
+
+@mixin background-size($value) {
+	-webkit-background-size: $value;
+	-moz-background-size: $value;
+	-o-background-size: $value;
+	background-size: $value;
+}
+
+@mixin box-shadow($horizontalOffset, $verticalOffset, $blur, $spreadRadius, $color) {
+	-webkit-box-shadow: $horizontalOffset $verticalOffset $blur $spreadRadius $color;
+	-moz-box-shadow: $horizontalOffset $verticalOffset $blur $spreadRadius $color;
+	-o-box-shadow: $horizontalOffset $verticalOffset $blur $spreadRadius $color;
+	box-shadow: $horizontalOffset $verticalOffset $blur $spreadRadius $color;
+}
+
+@mixin shadow-inset($val1, $val2, $blur, $color) {
+	-moz-box-shadow: inset $val1 $val2 $blur $color;
+	-webkit-box-shadow: inset $val1 $val2 $blur $color;
+	box-shadow: inset $val1 $val2 $blur $color;
+}
+
+@mixin transformY($val) {
+	transform: translateY($val);
+	-webkit-transform: translateY($val);
+	-ms-transform: translateY($val);
+	-o-transform: translateY($val);
+	-moz-transform: translateY($val);
+	}
+
+@mixin transformX($val) {
+	transform: translateX($val);
+	-webkit-transform: translateX($val);
+	-ms-transform: translateX($val);
+	-o-transform: translateX($val);
+	-moz-transform: translateX($val);
+}

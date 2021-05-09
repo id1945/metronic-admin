@@ -1,0 +1,125 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/tooltip/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasic">
+      <div class="example-preview">
+        <span>
+          The Angular Material tooltip provides a text label that is displayed
+          when the user hovers over or longpresses an element.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <span matTooltip="Tooltip!">I have a tooltip</span>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleCustomPosition">
+      <div class="example-preview">
+        <div>
+          <div
+            class="example-tooltip-host"
+            matTooltip="Tooltip!"
+            [matTooltipPosition]="position"
+          >
+            <span>Show tooltip:</span>&nbsp;&nbsp;
+            <mat-form-field>
+              <mat-select class="example-select" [(ngModel)]="position">
+                <mat-option value="before">Before</mat-option>
+                <mat-option value="after">After</mat-option>
+                <mat-option value="above">Above</mat-option>
+                <mat-option value="below">Below</mat-option>
+                <mat-option value="left">Left</mat-option>
+                <mat-option value="right">Right</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleShowHigh">
+      <div class="example-preview">
+        <span>
+          <b>Show and hide delays:</b>
+          To add a delay before showing or hiding the tooltip, you can use the
+          inputs
+          <mark>matTooltipShowDelay</mark> and
+          <mark>matTooltipHideDelay</mark> to provide a delay time in
+          milliseconds.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <button
+            class="mr-3"
+            color="primary"
+            mat-raised-button
+            matTooltip="Tooltip!"
+            matTooltipShowDelay="1000"
+          >
+            My tooltip waits one second to show
+          </button>
+
+          <button
+            color="accent"
+            mat-raised-button
+            matTooltip="Tooltip!"
+            matTooltipHideDelay="2000"
+          >
+            My tooltip waits two seconds to hide
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleDelay">
+      <div class="example-preview">
+        <span>
+          <b>Changing the default delay behavior:</b>
+          You can configure your app's tooltip default show/hide delays by
+          configuring and providing your options using the
+          <mark>MAT_TOOLTIP_DEFAULT_OPTIONS</mark> injection token.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+
+        <div>
+          <button mat-raised-button matTooltip="By default, I delay">
+            Button with delay-default tooltip
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleManually">
+      <div class="example-preview">
+        <span>
+          <b>Manually calling show() and hide():</b>
+          To manually cause the tooltip to show or hide, you can call the
+          <mark>show</mark> and <mark>hide</mark> directive methods, which both
+          accept a number in milliseconds to delay before applying the display
+          change.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <button class="mr-2" mat-raised-button (click)="tooltip.show()">
+            Show tooltip
+          </button>
+
+          <span matTooltip="This is the tooltip message" #tooltip="matTooltip">
+            I have a tooltip
+          </span>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

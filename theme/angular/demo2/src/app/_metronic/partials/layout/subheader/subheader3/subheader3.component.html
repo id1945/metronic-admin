@@ -1,0 +1,128 @@
+<!--begin::Subheader-->
+<div
+  class="subheader py-2 py-lg-4"
+  id="kt_subheader"
+  [ngClass]="subheaderCSSClasses"
+>
+  <div
+    [ngClass]="subheaderContainerCSSClasses"
+    class="d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+  >
+    <!--begin::Info-->
+    <div class="d-flex align-items-center flex-wrap mr-2">
+      <ng-container *ngIf="subheaderMobileToggle">
+        <!--begin::Mobile Toggle-->
+        <button
+          class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none"
+          id="kt_subheader_mobile_toggle"
+        >
+          <span></span>
+        </button>
+        <!--end::Mobile Toggle-->
+      </ng-container>
+
+      <!--begin::Page Title-->
+      <ng-container *ngIf="title$ | async as _title">
+        <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
+          {{ _title }}
+          <ng-container *ngIf="subheaderDisplayDesc">
+            <ng-container *ngIf="description$ | async as _description">
+              <small>{{ _description }}</small>
+            </ng-container>
+          </ng-container>
+        </h5>
+      </ng-container>
+      <!--end::Page Title-->
+
+      <!--begin::Actions-->
+      <div
+        class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200"
+      ></div>
+
+      <span class="text-muted font-weight-bold mr-4">#XRS-45670</span>
+
+      <a class="btn btn-light-warning font-weight-bolder btn-sm cursor-pointer">
+        Add New
+      </a>
+      <!--end::Actions-->
+    </div>
+    <!--end::Info-->
+
+    <!--begin::Toolbar-->
+    <div class="d-flex align-items-center">
+      <!--begin::Actions-->
+      <a
+        class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1 cursor-pointer"
+      >
+        Today
+      </a>
+      <a
+        class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1 cursor-pointer"
+      >
+        Month
+      </a>
+      <a
+        class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1 cursor-pointer"
+      >
+        Year
+      </a>
+      <!--end::Actions-->
+
+      <ng-container *ngIf="subheaderDisplayDaterangepicker">
+        <!--begin::Daterange-->
+        <a
+          class="btn btn-sm btn-light font-weight-bold mr-2 cursor-pointer"
+          id="kt_dashboard_daterangepicker"
+          data-toggle="tooltip"
+          title="Select dashboard daterange"
+          data-placement="left"
+        >
+          <span
+            class="text-muted font-size-base font-weight-bold mr-2"
+            id="kt_dashboard_daterangepicker_title"
+            >Today</span
+          >
+          <span
+            class="text-primary font-size-base font-weight-bolder"
+            id="kt_dashboard_daterangepicker_date"
+            >Aug 16</span
+          >
+        </a>
+        <!--end::Daterange-->
+      </ng-container>
+
+      <!--begin::Dropdowns-->
+      <div
+        class="dropdown dropdown-inline"
+        data-toggle="tooltip"
+        title="Quick actions"
+        data-placement="left"
+        placement="bottom-right"
+        ngbDropdown
+      >
+        <a
+          class="btn btn-sm btn-clean btn-icon cursor-pointer"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          ngbDropdownToggle
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Files/File-plus.svg'"
+            cacheSVG="true"
+            class="svg-icon svg-icon-success svg-icon-lg"
+          ></span>
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right py-3"
+        >
+          <app-dropdown-menu4></app-dropdown-menu4>
+        </div>
+      </div>
+      <!--end::Dropdowns-->
+    </div>
+    <!--end::Toolbar-->
+  </div>
+</div>
+<!--end::Subheader-->

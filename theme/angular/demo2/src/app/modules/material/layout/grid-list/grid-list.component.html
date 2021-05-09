@@ -1,0 +1,43 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/grid-list"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+<app-code-preview [viewItem]="exampleBasicGrid">
+  <div class="example-preview">
+    <span>
+      <code>&lt;mat-grid-list&gt;</code> is a two-dimensional list view that
+      arranges cells into grid-based layout. See Material Design spec here.
+    </span>
+    <div class="separator separator-dashed my-6"></div>
+    <div>
+      <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile>2</mat-grid-tile>
+        <mat-grid-tile>3</mat-grid-tile>
+        <mat-grid-tile>4</mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</app-code-preview>
+
+<app-code-preview [viewItem]="exampleDynamicGrid">
+  <div class="example-preview">
+    <div>
+      <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile
+          *ngFor="let tile of tiles"
+          [colspan]="tile.cols"
+          [rowspan]="tile.rows"
+          [style.background]="tile.color"
+        >
+          {{ tile.text }}
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</app-code-preview>

@@ -1,0 +1,112 @@
+//
+// NoUiSlider
+//
+
+
+// Base
+.noUi-target {
+    border: 1px solid $input-border-color;
+    background: $gray-100;
+    box-shadow:none;
+
+    &.noUi-horizontal {
+        height: 15px;
+
+        .noUi-handle {
+            width: 24px;
+            height: 24px;
+            //left: -17px;
+            top: -6px;
+            border-radius: 50%;
+            outline: none;
+
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &.noUi-vertical {
+        height: 150px;
+        width: 15px;
+
+        .noUi-handle {
+            width: 24px;
+            height: 24px;
+            top: -6px;
+            border-radius: 50%;
+            outline: none;
+
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .noUi-connect {
+        background: $primary;
+    }
+
+    .noUi-handle {
+        border: 1px solid $gray-200;
+        box-shadow: 0 3px 6px -3px rgba(#000, 0.7);
+    }
+
+    // Light option
+    &.nouislider-light{
+        height: 4px;
+
+        .noUi-handle{
+            width: 20px;
+            height: 20px;
+            top: -9px;
+        }
+    }
+
+    // State colors
+    &.nouislider {
+        @each $name, $color in $theme-colors {
+            &.nouislider-connect-#{$name} {
+                .noUi-connect {
+                    background: $color;
+                }
+            }
+
+            &.nouislider-handle-#{$name} {
+                .noUi-handle {
+                    border: 0;
+                    background: $color;
+                    box-shadow: 0 3px 6px -3px $color;
+                }
+            }
+
+            &.nouislider-bg-#{$name}{
+                background: $color;
+            }
+
+            &.nouislider-bg-light-#{$name}{
+                background: theme-light-color($name);
+            }
+        }
+    }
+
+    // No Shadow
+    &.nouislider-shadowless{
+        .noUi-handle {
+            box-shadow: none;
+        }
+    }
+
+    // No Border
+    &.nouislider-borderless{
+        border: 0;
+    }
+}

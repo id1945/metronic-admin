@@ -1,0 +1,31 @@
+//
+// Content
+//
+
+
+// General
+.content {
+	background-color: $content-bg;
+	@include border-bottom-left-radius($border-radius);
+	@include border-bottom-right-radius($border-radius);
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.content {
+		padding: get($page-padding, desktop);
+
+		// Aside Enabled Mode
+		.aside-enabled & {
+			@include border-bottom-left-radius(0);
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.content {
+		@include border-radius($border-radius);
+		padding: get($page-padding, tablet-and-mobile);
+	}
+}

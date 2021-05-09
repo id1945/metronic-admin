@@ -1,0 +1,66 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/paginator/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<app-code-preview [viewItem]="exampleBasic">
+  <div class="example-preview">
+    <p>
+      <code>&lt;mat-paginator&gt;</code> provides navigation for paged
+      information, typically used with a table.
+    </p>
+    <div class="separator separator-dashed my-6"></div>
+    <div>
+      <mat-paginator
+        [length]="100"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</app-code-preview>
+
+<app-code-preview [viewItem]="exampleConfig">
+  <div class="example-preview">
+    <div>
+      <mat-form-field>
+        List length:
+        <input matInput [(ngModel)]="length" />
+      </mat-form-field>
+
+      <mat-form-field>
+        Page size:
+        <input matInput [(ngModel)]="pageSize" />
+      </mat-form-field>
+      <mat-form-field>
+        Page size options:
+        <input
+          matInput
+          [ngModel]="pageSizeOptions"
+          (ngModelChange)="setPageSizeOptions($event)"
+        />
+      </mat-form-field>
+
+      <mat-paginator
+        [length]="length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = $event"
+      >
+      </mat-paginator>
+
+      <div *ngIf="pageEvent">
+        <h5>Page Change Event Properties</h5>
+        <div>List length: {{ pageEvent.length }}</div>
+        <div>Page size: {{ pageEvent.pageSize }}</div>
+        <div>Page index: {{ pageEvent.pageIndex }}</div>
+      </div>
+    </div>
+  </div>
+</app-code-preview>

@@ -1,0 +1,70 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/dialog/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasic">
+      <div class="example-preview">
+        <span>
+          The
+          <mark>MatDialog</mark> service can be used to open modal dialogs with
+          Material Design styling and animations.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <ol>
+            <li>
+              <mat-form-field>
+                <input
+                  matInput
+                  [(ngModel)]="name"
+                  placeholder="What's your name?"
+                />
+              </mat-form-field>
+            </li>
+            <li>
+              <button mat-raised-button (click)="openDialog()">Pick one</button>
+            </li>
+            <li *ngIf="animal$ | async as anim">You chose: {{ anim }}</li>
+          </ol>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleInjecting">
+      <div class="example-preview">
+        <span>
+          To access the data in your dialog component, you have to use the
+          <mark>MAT_DIALOG_DATA</mark> injection token
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <button mat-button (click)="openDialog2()">Open dialog</button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="examplHeader">
+      <div class="example-preview">
+        <p>
+          Once a dialog opens, the dialog will automatically focus the first
+          tabbable element.
+        </p>
+        <p>
+          You can control which elements are tab stops with the
+          <mark>tabindex</mark> attribute
+        </p>
+        <div>
+          <button mat-button (click)="openDialog3()">Open dialog</button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

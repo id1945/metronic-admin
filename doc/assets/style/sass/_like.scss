@@ -1,0 +1,46 @@
+.card:hover .demo_like {
+  display: block;
+}
+
+.demo_like {
+  padding: 12px 10px;
+  box-shadow: 0 0 21px 0 rgba(37, 47, 115, 0.1);
+  border-radius: 5px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  background-color: #ffffff;
+  font-family: Poppins, serif;
+  font-size: 16px;
+  color: #a6a5bb;
+  display: none;
+
+  .demo_like_total {
+    padding: 0 5px;
+  }
+
+  .demo_like_img {
+    cursor: pointer;
+    padding: 7px 5px 10px;
+    background-color: #e3f5ee;
+    border-radius: 5px;
+    margin-left: 10px;
+
+    g {
+      & > path, rect#Rectangle-153 {
+        fill: #16ad73;
+      }
+    }
+  }
+
+  &.demo_like_done > .demo_like_img {
+    cursor: default;
+    background-color: #f4f4f7;
+
+    g {
+      & > path, rect#Rectangle-153 {
+        fill: #a6a5bb;
+      }
+    }
+  }
+}

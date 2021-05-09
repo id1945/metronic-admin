@@ -1,0 +1,1 @@
+export default function o(){return{validate(o){const t="function"===typeof o.options.compare?o.options.compare.call(this):o.options.compare;return{valid:t===""||o.value===t}}}}

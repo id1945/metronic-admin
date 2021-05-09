@@ -1,0 +1,201 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/typeahead/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleSimpleTypeahead">
+      <p>
+        A typeahead example that gets values from a static
+        <code>string[]</code>
+      </p>
+      <ul>
+        <li><code>debounceTime</code> operator</li>
+        <li>kicks in only if 2+ characters typed</li>
+        <li>limits to 10 results</li>
+      </ul>
+      <div class="example-preview">
+        <div>
+          <label for="typeahead-basic">Search for a state:</label>
+          <input
+            id="typeahead-basic"
+            type="text"
+            class="form-control"
+            [(ngModel)]="model"
+            [ngbTypeahead]="search"
+          />
+        </div>
+
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <p>Model: {{ model | json }}</p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleOpenOnFocus">
+      <p>
+        It is possible to get the focus events with the current input value to
+        emit results on focus with a great flexibility. In this simple example,
+        a search is done no matter the content of the input:
+      </p>
+      <ul>
+        <li>on empty input all options will be taken</li>
+        <li>otherwise options will be filtered against the search term</li>
+        <li>it will limit the display to 10 results in all cases</li>
+      </ul>
+      <div class="example-preview">
+        <div>
+          <label for="typeahead-focus">Search for a state:</label>
+          <input
+            id="typeahead-focus"
+            type="text"
+            class="form-control"
+            [(ngModel)]="model2"
+            [ngbTypeahead]="search2"
+            (focus)="focus$.next($event.target.value)"
+            (click)="click$.next($event.target.value)"
+            #instance="ngbTypeahead"
+          />
+        </div>
+      </div>
+
+      <div class="separator separator-dashed my-6"></div>
+      <div class="example-preview">
+        <div>
+          <p>Model: {{ model2 | json }}</p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleFormattedResults">
+      <p>
+        A typeahead example that uses a formatter function for string results
+      </p>
+      <div class="example-preview">
+        <div>
+          <label for="typeahead-format">Search for a state:</label>
+          <input
+            id="typeahead-format"
+            type="text"
+            class="form-control"
+            [(ngModel)]="model3"
+            [ngbTypeahead]="search3"
+            [resultFormatter]="formatter3"
+          />
+        </div>
+
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <p>Model: {{ model3 | json }}</p>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleWikipediaSearch">
+      <p>
+        A typeahead example that gets values from the
+        <code>Wikipedia Search</code>
+      </p>
+      <ul>
+        <li>remote data retrieval</li>
+        <li><code>debounceTime</code> operator</li>
+        <li><code>do</code> operator</li>
+        <li><code>distinctUntilChanged</code> operator</li>
+        <li><code>switchMap</code> operator</li>
+        <li>
+          <code>catch</code> operator to display an error message in case of
+          connectivity issue
+        </li>
+      </ul>
+      <div class="example-preview">
+        <div>
+          <div class="form-group">
+            <label for="typeahead-http">Search for a wiki page:</label>
+            <input
+              id="typeahead-http"
+              type="text"
+              class="form-control"
+              [class.is-invalid]="searchFailed"
+              [(ngModel)]="model4"
+              [ngbTypeahead]="search4"
+              placeholder="Wikipedia search"
+            />
+            <span *ngIf="searching">searching...</span>
+            <div class="invalid-feedback" *ngIf="searchFailed">
+              Sorry, suggestions could not be loaded.
+            </div>
+          </div>
+        </div>
+
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <p>Model: {{ model4 | json }}</p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleTemplateForResults">
+      <p>
+        A typeahead example that uses custom template for results display and
+        uses object as a model
+      </p>
+      <div class="example-preview">
+        <div>
+          <ng-template #rt let-r="result" let-t="term">
+            <img
+              [src]="
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/' +
+                r['flag']
+              "
+              width="16"
+            />
+            {{ r.name }}
+          </ng-template>
+
+          <label for="typeahead-template">Search for a state:</label>
+          <input
+            id="typeahead-template"
+            type="text"
+            class="form-control"
+            [(ngModel)]="model5"
+            [ngbTypeahead]="search5"
+            [resultTemplate]="rt"
+            [inputFormatter]="formatter"
+          />
+        </div>
+
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <p>Model: {{ model5 | json }}</p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleGlobalConfigurationOfTypeaheads">
+      <p>
+        This typeahead shows a hint when the input matches because the default
+        values have been customized.
+      </p>
+      <div class="example-preview">
+        <div>
+          <label for="typeahead-config">Search for a state:</label>
+          <input
+            id="typeahead-config"
+            type="text"
+            class="form-control"
+            [(ngModel)]="model6"
+            [ngbTypeahead]="search6"
+          />
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

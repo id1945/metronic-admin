@@ -1,0 +1,193 @@
+<div class="card card-custom card-stretch gutter-b">
+  <!-- Header -->
+  <div class="card-header border-0">
+    <h3 class="card-title font-weight-bolder text-dark">Todo</h3>
+    <div class="card-toolbar">
+      <div
+        ngbDropdown
+        class="dropdown dropdown-inline"
+        data-toggle="tooltip"
+        title="Quick actions"
+        data-placement="bottom"
+      >
+        <a
+          ngbDropdownToggle
+          class="btn btn-light btn-sm font-size-sm font-weight-bolder dropdown-toggle text-dark-75"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Create
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu dropdown-menu-sm dropdown-menu-right"
+        >
+          <app-dropdown-menu2></app-dropdown-menu2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Body -->
+  <div class="card-body pt-2">
+    <!--begin::Item-->
+    <div class="d-flex align-items-center mb-10">
+      <!--begin::Bullet-->
+      <span class="bullet bullet-bar bg-success align-self-stretch"></span>
+      <!--end::Bullet-->
+
+      <!--begin::Checkbox-->
+      <label
+        class="checkbox checkbox-lg checkbox-light-success checkbox-single flex-shrink-0 m-0 mx-4"
+      >
+        <input type="checkbox" name="" value="1" />
+        <span></span>
+      </label>
+      <!--end::Checkbox-->
+
+      <!--begin::Text-->
+      <div class="d-flex flex-column flex-grow-1">
+        <a
+          class="text-dark-75 text-hover-primary font-weight-bold font-size-lg mb-1 cursor-pointer"
+        >
+          Create FireStone Logo
+        </a>
+        <span class="text-muted font-weight-bold">
+          Due in 2 Days
+        </span>
+      </div>
+      <!--end::Text-->
+
+      <app-widget4-dropdown></app-widget4-dropdown>
+    </div>
+    <!--end:Item-->
+
+    <!--begin::Item-->
+    <div class="d-flex align-items-center mb-10">
+      <!--begin::Bullet-->
+      <span class="bullet bullet-bar bg-primary align-self-stretch"></span>
+      <!--end::Bullet-->
+
+      <!--begin::Checkbox-->
+      <label
+        class="checkbox checkbox-lg checkbox-light-primary checkbox-single flex-shrink-0 m-0 mx-4"
+      >
+        <input type="checkbox" value="1" />
+        <span></span>
+      </label>
+      <!--end::Checkbox-->
+
+      <!--begin::Text-->
+      <div class="d-flex flex-column flex-grow-1">
+        <a
+          class="text-dark-75 text-hover-primary font-weight-bold font-size-lg mb-1 cursor-pointer"
+        >
+          Stakeholder Meeting
+        </a>
+        <span class="text-muted font-weight-bold">
+          Due in 3 Days
+        </span>
+      </div>
+      <!--end::Text-->
+
+      <app-widget4-dropdown></app-widget4-dropdown>
+    </div>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <div class="d-flex align-items-center mb-10">
+      <!--begin::Bullet-->
+      <span class="bullet bullet-bar bg-warning align-self-stretch"></span>
+      <!--end::Bullet-->
+
+      <!--begin::Checkbox-->
+      <label
+        class="checkbox checkbox-lg checkbox-light-warning checkbox-single flex-shrink-0 m-0 mx-4"
+      >
+        <input type="checkbox" value="1" />
+        <span></span>
+      </label>
+      <!--end::Checkbox-->
+
+      <!--begin::Text-->
+      <div class="d-flex flex-column flex-grow-1">
+        <a
+          class="text-dark-75 text-hover-primary font-size-sm font-weight-bold font-size-lg mb-1 cursor-pointer"
+        >
+          Scoping & Estimations
+        </a>
+        <span class="text-muted font-weight-bold">
+          Due in 5 Days
+        </span>
+      </div>
+      <!--end::Text-->
+
+      <app-widget4-dropdown></app-widget4-dropdown>
+    </div>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <div class="d-flex align-items-center mb-10">
+      <!--begin::Bullet-->
+      <span class="bullet bullet-bar bg-info align-self-stretch"></span>
+      <!--end::Bullet-->
+
+      <!--begin::Checkbox-->
+      <label
+        class="checkbox checkbox-lg checkbox-light-info checkbox-single flex-shrink-0 m-0 mx-4"
+      >
+        <input type="checkbox" value="1" />
+        <span></span>
+      </label>
+      <!--end::Checkbox-->
+
+      <!--begin::Text-->
+      <div class="d-flex flex-column flex-grow-1">
+        <a
+          class="text-dark-75 text-hover-primary font-weight-bold font-size-lg mb-1 cursor-pointer"
+        >
+          Sprint Showcase
+        </a>
+        <span class="text-muted font-weight-bold">
+          Due in 1 Day
+        </span>
+      </div>
+      <!--end::Text-->
+
+      <app-widget4-dropdown></app-widget4-dropdown>
+    </div>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <div class="d-flex align-items-center mb-2">
+      <!--begin::Bullet-->
+      <span class="bullet bullet-bar bg-danger align-self-stretch"></span>
+      <!--end::Bullet-->
+
+      <!--begin::Checkbox-->
+      <label
+        class="checkbox checkbox-lg checkbox-light-danger checkbox-single flex-shrink-0 m-0 mx-4"
+      >
+        <input type="checkbox" value="1" />
+        <span></span>
+      </label>
+      <!--end::Checkbox:-->
+
+      <!--begin::Title-->
+      <div class="d-flex flex-column flex-grow-1">
+        <a
+          class="text-dark-75 text-hover-primary font-weight-bold font-size-lg mb-1 cursor-pointer"
+        >
+          Project Retro
+        </a>
+        <span class="text-muted font-weight-bold">
+          Due in 12 Days
+        </span>
+      </div>
+      <!--end::Text-->
+
+      <app-widget4-dropdown></app-widget4-dropdown>
+    </div>
+    <!--end::Item-->
+  </div>
+</div>

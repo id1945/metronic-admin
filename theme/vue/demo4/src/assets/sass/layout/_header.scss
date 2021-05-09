@@ -1,0 +1,36 @@
+//
+// Header
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		height: get($header-config, desktop, default, height);
+		box-shadow: get($header-config, desktop, default, shadow);
+		transition: height 0.3s ease;
+		position: relative;
+		z-index: 2;
+
+		// Fixed Header Mode
+		&.header-fixed {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: get($aside-config, base, width);
+			z-index: get($header-config, desktop, fixed, zindex);
+		}
+
+		// Fixed Header & Minimized Header Modes
+		.header-fixed.header-minimize & {
+			height: get($header-config, desktop, fixed, height);
+			transition: height 0.3s ease;
+		}
+
+		// Fixed Header & Fixed Subheader Modes
+		.header-fixed.subheader-fixed & {
+			box-shadow: none !important;
+		}
+	}
+}

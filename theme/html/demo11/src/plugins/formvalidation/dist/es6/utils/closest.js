@@ -1,0 +1,1 @@
+function e(e,t){const l=e.matches||e.webkitMatchesSelector||e["mozMatchesSelector"]||e["msMatchesSelector"];if(l){return l.call(e,t)}const c=[].slice.call(e.parentElement.querySelectorAll(t));return c.indexOf(e)>=0}export default function t(t,l){let c=t;while(c){if(e(c,l)){break}c=c.parentElement}return c}

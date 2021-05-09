@@ -1,0 +1,30 @@
+<ng-container *ngIf="isLoading">
+  <div class="progress progress-modal">
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+      style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+</ng-container>
+
+<div class="modal-header">
+  <div class="modal-title h4">Customers Delete</div>
+</div>
+<div class="modal-body">
+  <ng-container *ngIf="isLoading">
+    <span>Customers are deleting...</span>
+  </ng-container>
+
+  <ng-container *ngIf="!isLoading">
+    <span>Are you sure to permanently delete selected customers?</span>
+  </ng-container>
+</div>
+
+<div class="modal-footer">
+  <div>
+    <button type="button" class="btn btn-light btn-elevate mr-1" (click)="modal.dismiss()">
+      Cancel
+    </button>&nbsp;
+    <button type="button" class="btn btn-primary btn-elevate" (click)="deleteCustomers()">
+      Delete
+    </button>
+  </div>
+</div>

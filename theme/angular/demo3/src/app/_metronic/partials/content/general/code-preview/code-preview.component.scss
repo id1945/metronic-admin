@@ -1,0 +1,11 @@
+:host {
+  ::ng-deep {
+    ngb-tabset > .nav-tabs {
+      display: none;
+    }
+  }
+
+  .hljs {
+    background: transparent !important;
+  }
+}

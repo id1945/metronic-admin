@@ -1,0 +1,98 @@
+//
+// 3rd-Party Plugins Stylesheet Includes
+//
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+////  Mandatory Plugins Includes(do not remove or change order!)  ////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+// Perfect-Scrollbar - Minimalistic but perfect custom scrollbar plugin.  Learn more:  https://github.com/mdbootstrap/perfect-scrollbar
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+
+// Keenthemes Icons - Custom font icon set by Keenthemes used by the core components. Learn more: src/plugins/keenthemes-icons/
+@import "../metronic/plugins/keenthemes-icons/font/ki.css";
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+///  Optional Plugins Includes(you can remove or add)  ///////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+// Apexcharts - mBdern charting library that helps developers to create beautiful and interactive visualizations for web pages: https://apexcharts.com/
+@import "~apexcharts/dist/apexcharts.css";
+
+// FormValidation - Best premium validation library for JavaScript. Zero dependencies. Learn more: https://formvalidation.io/
+@import "../metronic/plugins/formvalidation/dist/css/formValidation.css";
+
+// Bootstrap Datepicker - Bootstrap-datepicker provides a flexible datepicker widget in the Bootstrap style: https://bootstrap-datepicker.readthedocs.io/en/latest/
+@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker3.css";
+
+// Bootstrap Timepicker - Easily select a time for a text input using your mouse or keyboards arrow keys: https://jdewit.github.io/bootstrap-timepicker/
+@import "~bootstrap-timepicker/css/bootstrap-timepicker.css";
+
+// Bootstrap Daterangepicker
+@import "~bootstrap-daterangepicker/daterangepicker.css";
+
+// Bootstrap Touchspin
+@import "~bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css";
+
+// Bootstrap Select - The jQuery plugin that brings select elements into the 21st century with intuitive multiselection, searching, and much more: https://developer.snapappointments.com/bootstrap-select/
+@import "~bootstrap-select/dist/css/bootstrap-select.css";
+
+// Bootstrap Switch - Bootstrap switch/toggle is a simple component used for activating one of two predefined options: https://mdbootstrap.com/docs/jquery/forms/switch/
+@import "~bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css";
+
+// select2 - Select2 is a jQuery based replacement for select boxes: https://select2.org/
+@import "~select2/dist/css/select2.css";
+
+// Ion Rangeslider - Is an easy, flexible and responsive range slider with tons of options: http://ionden.com/a/plugins/ion.rangeSlider/
+@import "~ion-rangeslider/css/ion.rangeSlider.css";
+
+// noUiSlider - is a lightweight range slider with multi-touch support and a ton of features. It supports non-linear ranges, requires no external dependencies: https://refreshless.com/nouislider/
+@import "~nouislider/distribute/nouislider.css";
+
+// Owl Carousel - Touch enabled jQuery plugin that lets you create a beautiful responsive carousel slider: https://owlcarousel2.github.io/OwlCarousel2/
+@import "~owl.carousel/dist/assets/owl.carousel.css";
+@import "~owl.carousel/dist/assets/owl.theme.default.css";
+
+// DropzoneJS -  is an open source library that provides drag'n'drop file uploads with image previews: https://www.dropzonejs.com/
+@import "~dropzone/dist/dropzone.css";
+
+// Quill - is a free, open source WYSIWYG editor built for the modern web. Completely customize it for any need with its modular architecture and expressive API: https://quilljs.com/
+@import "~quill/dist/quill.snow.css";
+
+// Tagify - Transforms an input field or a textarea into a Tags component, in an easy, customizable way, with great performance and small code footprint, exploded with features: https://github.com/yairEO/tagify
+@import "~@yaireo/tagify/src/tagify.scss";
+
+// Summernote - Super Simple WYSIWYG Editor on Bootstrap Summernote is a JavaScript library that helps you create WYSIWYG editors online: https://summernote.org/
+@import "~summernote/dist/summernote.css";
+
+// Bootstrap Markdown - Bootstrap plugin for markdown editing: https://github.com/toopay/bootstrap-markdown
+@import "~bootstrap-markdown/css/bootstrap-markdown.min.css";
+
+// Animate.css - is a library of ready-to-use, cross-browser animations for use in your web projects: https://animate.style/
+@import "~animate.css/animate.css";
+
+// Toastr - is a Javascript library for non-blocking notifications. jQuery is required. The goal is to create a simple core library that can be customized and extended: https://github.com/CodeSeven/toastr
+@import "~toastr/build/toastr.css";
+
+// Dual Listbox - Make your multi select pretty and easy to use with only javascript: https://github.com/maykinmedia/dual-listbox
+@import "~dual-listbox/dist/dual-listbox.css";
+
+// Sweetalert2 - a beautiful, responsive, customizable and accessible (WAI-ARIA) replacement for JavaScript's popup boxes: https://sweetalert2.github.io/
+@import "~sweetalert2/dist/sweetalert2.css";
+
+// LineAwesome - Replace Font Awesome with modern line icons with a single line of code: https://icons8.com/line-awesome
+@import "~line-awesome/dist/line-awesome/css/line-awesome.css";
+
+// Flaticon - vector icons in SVG, PSD, PNG, EPS format or as ICON FONT: https://www.flaticon.com/
+@import "../metronic/plugins/flaticon/flaticon.css";
+@import "../metronic/plugins/flaticon2/flaticon.css";
+
+// Socicon - is a social icons font with more than 250 icons from all major services: https://www.socicon.com/
+@import "~socicon/css/socicon.css";
+
+// Fort Awesome. Build and manage icons and typefaces in a single place, then serve them with a single line of code: https://fortawesome.com/
+@import "~@fortawesome/fontawesome-free/css/all.min.css";

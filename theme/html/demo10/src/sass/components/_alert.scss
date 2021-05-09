@@ -1,0 +1,223 @@
+//
+// Alert
+//
+
+// Default
+.alert {
+    // Colors
+    @each $name, $color in $theme-colors {
+        // Solid style
+        &.alert-#{$name} {
+            background-color: $color;
+            border-color: $color;
+            color: theme-inverse-color($name);
+
+            .close {
+    	        i {
+                    opacity: 0.8;
+    	            color: theme-inverse-color($name);
+    	        }
+
+                &:focus,
+                &:hover {
+                    i {
+                        opacity: 1;
+    	                color: theme-inverse-color($name);
+                    }
+                }
+    	    }
+        }
+    }
+}
+
+// Custom
+.alert.alert-custom {
+    display: flex;
+    align-items: stretch;
+    padding: 1.5rem 2rem;
+
+    .alert-icon {
+        display: flex;
+        align-items: center;
+        padding: 0 1.25rem 0 0;
+
+        i {
+            font-size: 2.4rem;
+        }
+
+        &.alert-icon-top {
+            align-items: flex-start;
+            align-content: stretch;
+        }
+    }
+
+    .alert-text {
+        align-self: center;
+        flex-grow: 1;
+    }
+
+    .alert-close {
+        padding: 0 0 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        line-height: 0;
+
+        .close {
+        	text-shadow: none !important;
+            cursor: pointer;
+            line-height: 0;
+        }
+
+        i {
+            transition: $transition-link;
+            font-size: 1rem;
+
+            &.ki {
+                font-size: 0.75rem;
+            }
+        }
+
+        &:focus,
+        &:hover {
+            i {
+                transition: $transition-link;
+            }
+        }
+    }
+
+    // Border width options
+    &.alert-outline-2x {
+        border-width: 2px;
+    }
+
+    // White style
+    &.alert-white {
+        background-color: $white;
+        border-color: $white;
+
+        .alert-icon {
+            i {
+                color: $body-color;
+            }
+        }
+
+        .alert-text {
+            color: $body-color;
+        }
+
+        .alert-close {
+            i {
+                color: $body-color;
+            }
+        }
+    }
+
+    // Default style
+    &.alert-default {
+        background-color: $gray-100;
+        border-color: $gray-100;
+    }
+
+    // Elevate style
+    &.alert-shadow {
+        box-shadow: $alert-box-shadow;
+    }
+
+    // Theme colors
+    @each $name, $color in $theme-colors {
+        // Solid style
+        &.alert-#{$name} {
+            background-color: $color;
+            border-color: $color;
+
+            .alert-icon {
+    	        i {
+                    opacity: 0.8;
+    	            color: theme-inverse-color($name);
+    	        }
+    	    }
+
+    	    .alert-text {
+    	        color: theme-inverse-color($name);
+    	    }
+
+            .alert-close {
+            	i {
+                    color: theme-inverse-color($name);
+            	}
+
+                &:focus,
+                &:hover {
+                    opacity: 1;
+    	            color: theme-inverse-color($name);
+                }
+            }
+        }
+
+        // Light style
+        &.alert-light-#{$name} {
+            background-color: theme-light-color($name);
+            border-color: transparent;
+
+            .alert-icon {
+                i {
+                    color: $color;
+                }
+            }
+
+            .alert-text {
+                color: $color;
+            }
+
+            .alert-close {
+            	i {
+                    color: $color;
+            	}
+
+                &:focus,
+                &:hover {
+                    color: theme-hover-color($name);
+                }
+            }
+
+            // Notice style
+            &.alert-notice {
+                border: 0;
+                border-left: 4px solid $color;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+
+        // Outline style
+        &.alert-outline-#{$name} {
+            background-color: transparent;
+            border-color: $color;
+
+            .alert-icon {
+                i {
+                    color: theme-outline-inverse-color($name);
+                }
+            }
+
+            .alert-text {
+                color: theme-outline-inverse-color($name);
+            }
+
+            .alert-close {
+            	i {
+                    opacity: 0.8;
+                    color: theme-outline-inverse-color($name);
+            	}
+
+                &:focus,
+                &:hover {
+                    i {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

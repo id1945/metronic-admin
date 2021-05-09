@@ -1,0 +1,32 @@
+//
+// Aside
+//
+
+.aside {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: get($aside-config, base, zindex);
+	width: get($aside-config, base, width);
+
+	// Aside Menu
+	.aside-menu {
+		@include perfect-scrollbar-ver-offset(4px);
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.aside {
+		// Scroll
+		@include perfect-scrollbar-ver-size( get($aside-config, base, scrollbar-width) );
+	}
+}
+
+// Build aside menu
+@include menu-ver-build-layout($aside-menu-config);
+@include menu-ver-build-theme($aside-menu-config, default);
+
+// Aside offcanvas panel for mobile mode
+@include offcanvas-build(aside, default, get($aside-config, offcanvas));

@@ -1,0 +1,135 @@
+<!--begin::Subheader-->
+<div
+  class="subheader py-2 py-lg-6"
+  [ngClass]="subheaderCSSClasses"
+  id="kt_subheader"
+>
+  <div
+    [ngClass]="subheaderContainerCSSClasses"
+    class="d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+  >
+    <!--begin::Info-->
+    <div class="d-flex align-items-center flex-wrap mr-2">
+      <ng-container *ngIf="subheaderMobileToggle">
+        <!--begin::Mobile Toggle-->
+        <button
+          class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none"
+          id="kt_subheader_mobile_toggle"
+        >
+          <span></span>
+        </button>
+        <!--end::Mobile Toggle-->
+      </ng-container>
+
+      <!--begin::Page Title-->
+      <ng-container *ngIf="title$ | async as _title">
+        <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
+          {{ _title }}
+          <ng-container *ngIf="subheaderDisplayDesc">
+            <ng-container *ngIf="description$ | async as _description">
+              <small>{{ _description }}</small>
+            </ng-container>
+          </ng-container>
+        </h5>
+      </ng-container>
+      <!--end::Page Title-->
+      <!--begin::Action-->
+      <div
+        class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200"
+      ></div>
+
+      <span class="text-muted font-weight-bold mr-4">#XRS-45670</span>
+
+      <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">
+        Add New
+      </a>
+      <!--end::Action-->
+    </div>
+    <!--end::Info-->
+
+    <!--begin::Toolbar-->
+    <div class="d-flex align-items-center flex-wrap">
+      <!--begin::Actions-->
+      <a
+        class="btn btn-bg-white btn-icon-info btn-hover-primary btn-icon mr-3 my-2 my-lg-0 cursor-pointer"
+      >
+        <i class="flaticon2-file icon-md"></i>
+      </a>
+
+      <a
+        class="btn btn-bg-white btn-icon-danger btn-hover-primary btn-icon mr-3 my-2 my-lg-0 cursor-pointer"
+      >
+        <i class="flaticon-download-1 icon-md"></i>
+      </a>
+
+      <a
+        class="btn btn-bg-white btn-icon-success btn-hover-primary btn-icon mr-3 my-2 my-lg-0 cursor-pointer"
+      >
+        <i class="flaticon2-fax icon-md"></i>
+      </a>
+
+      <a
+        class="btn btn-bg-white btn-icon-warning btn-hover-primary btn-icon mr-3 my-2 my-lg-0 cursor-pointer"
+      >
+        <i class="flaticon2-settings icon-md"></i>
+      </a>
+      <!--end::Actions-->
+
+      <ng-container *ngIf="subheaderDisplayDaterangepicker">
+        <!--begin::Daterange-->
+        <a
+          class="btn btn-bg-white font-weight-bold mr-3 my-2 my-lg-0 cursor-pointer"
+          id="kt_dashboard_daterangepicker"
+          data-toggle="tooltip"
+          title="Select dashboard daterange"
+          data-placement="left"
+        >
+          <span
+            class="text-muted font-weight-bold mr-2"
+            id="kt_dashboard_daterangepicker_title"
+            >Today</span
+          >
+          <span
+            class="text-primary font-weight-bolder"
+            id="kt_dashboard_daterangepicker_date"
+            >Aug 16</span
+          >
+        </a>
+        <!--end::Daterange-->
+      </ng-container>
+
+      <!--begin::Dropdown-->
+    </div>
+    <!--end::Toolbar-->
+    <div
+      class="dropdown dropdown-inline my-2 my-lg-0"
+      data-toggle="tooltip"
+      title="Quick actions"
+      data-placement="left"
+      placement="bottom-right"
+      ngbDropdown
+    >
+      <a
+        class="btn btn-primary btn-icon cursor-pointer"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        ngbDropdownToggle
+      >
+        <span
+          [inlineSVG]="'./assets/media/svg/icons/General/Settings-2.svg'"
+          cacheSVG="true"
+          class="svg-icon svg-icon-md"
+        ></span>
+      </a>
+      <div
+        class="dropdown-menu p-0 sm-0 dropdown-menu-md dropdown-menu-right"
+        ngbDropdownMenu
+      >
+        <app-dropdown-menu1></app-dropdown-menu1>
+      </div>
+    </div>
+    <!--end::Dropdown-->
+  </div>
+</div>
+<!--end::Subheader-->

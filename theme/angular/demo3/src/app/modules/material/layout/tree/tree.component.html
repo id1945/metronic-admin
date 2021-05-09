@@ -1,0 +1,199 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/tree/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleTreeWithDynamicData">
+      <div class="example-preview">
+        <span>
+          The
+          <code>mat-tree</code> provides a Material Design styled tree that can
+          be used to display hierarchy data.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+              <button mat-icon-button disabled></button>
+              {{ node.item }}
+            </mat-tree-node>
+            <mat-tree-node
+              *matTreeNodeDef="let node; when: hasChild"
+              matTreeNodePadding
+            >
+              <button
+                mat-icon-button
+                [attr.aria-label]="'toggle ' + node.filename"
+                matTreeNodeToggle
+              >
+                <mat-icon class="mat-icon-rtl-mirror">
+                  {{
+                    treeControl.isExpanded(node)
+                      ? "expand_more"
+                      : "chevron_right"
+                  }}
+                </mat-icon>
+              </button>
+              {{ node.item }}
+              <mat-progress-bar
+                *ngIf="node.isLoading"
+                mode="indeterminate"
+                class="example-tree-progress-bar"
+              ></mat-progress-bar>
+            </mat-tree-node>
+          </mat-tree>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleTreeWithFlatNodes">
+      <div class="example-preview">
+        <div>
+          <mat-tree [dataSource]="dataSource2" [treeControl]="treeControl2">
+            <mat-tree-node
+              *matTreeNodeDef="let node"
+              matTreeNodeToggle
+              matTreeNodePadding
+            >
+              <button mat-icon-button disabled></button>
+              {{ node.filename }} : {{ node.type }}
+            </mat-tree-node>
+
+            <mat-tree-node
+              *matTreeNodeDef="let node; when: hasChild2"
+              matTreeNodePadding
+            >
+              <button
+                mat-icon-button
+                matTreeNodeToggle
+                [attr.aria-label]="'toggle ' + node.filename"
+              >
+                <mat-icon class="mat-icon-rtl-mirror">
+                  {{
+                    treeControl2.isExpanded(node)
+                      ? "expand_more"
+                      : "chevron_right"
+                  }}
+                </mat-icon>
+              </button>
+              {{ node.filename }} : {{ node.type }}
+            </mat-tree-node>
+          </mat-tree>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleTreeWithCheckboxes">
+      <div class="example-preview">
+        <div>
+          <mat-tree [dataSource]="dataSource3" [treeControl]="treeControl3">
+            <mat-tree-node
+              *matTreeNodeDef="let node"
+              matTreeNodeToggle
+              matTreeNodePadding
+            >
+              <button mat-icon-button disabled></button>
+              <mat-checkbox
+                class="checklist-leaf-node"
+                [checked]="checklistSelection3.isSelected(node)"
+                (change)="checklistSelection3.toggle(node)"
+                >{{ node.item }}</mat-checkbox
+              >
+            </mat-tree-node>
+
+            <mat-tree-node
+              *matTreeNodeDef="let node; when: hasNoContent3"
+              matTreeNodePadding
+            >
+              <button mat-icon-button disabled></button>
+              <mat-form-field>
+                <input matInput #itemValue placeholder="New item..." />
+              </mat-form-field>
+              <button mat-button (click)="saveNode3(node, itemValue.value)">
+                Save
+              </button>
+            </mat-tree-node>
+
+            <mat-tree-node
+              *matTreeNodeDef="let node; when: hasChild3"
+              matTreeNodePadding
+            >
+              <button
+                mat-icon-button
+                matTreeNodeToggle
+                [attr.aria-label]="'toggle ' + node.filename"
+              >
+                <mat-icon class="mat-icon-rtl-mirror">
+                  {{
+                    treeControl3.isExpanded(node)
+                      ? "expand_more"
+                      : "chevron_right"
+                  }}
+                </mat-icon>
+              </button>
+              <mat-checkbox
+                [checked]="descendantsAllSelected3(node)"
+                [indeterminate]="descendantsPartiallySelected3(node)"
+                (change)="todoItemSelectionToggle3(node)"
+                >{{ node.item }}</mat-checkbox
+              >
+              <button mat-icon-button (click)="addNewItem3(node)">
+                <mat-icon>add</mat-icon>
+              </button>
+            </mat-tree-node>
+          </mat-tree>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleTreeWithPartiallyLoadedData">
+      <div class="example-preview">
+        <div>
+          <mat-tree [dataSource]="dataSource4" [treeControl]="treeControl4">
+            <!-- Leaf node -->
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+              <button mat-icon-button disabled></button>
+              {{ node.item }}
+            </mat-tree-node>
+
+            <!-- expandable node -->
+            <mat-tree-node
+              *matTreeNodeDef="let node; when: hasChild4"
+              matTreeNodePadding
+            >
+              <button
+                mat-icon-button
+                [attr.aria-label]="'toggle ' + node.filename"
+                (click)="loadChildren4(node)"
+                matTreeNodeToggle
+              >
+                <mat-icon class="mat-icon-rtl-mirror">
+                  {{
+                    treeControl4.isExpanded(node)
+                      ? "expand_more"
+                      : "chevron_right"
+                  }}
+                </mat-icon>
+              </button>
+              {{ node.item }}
+            </mat-tree-node>
+
+            <mat-tree-node *matTreeNodeDef="let node; when: isLoadMore4">
+              <button mat-button (click)="loadMore4(node.loadMoreParentItem)">
+                Load more...
+              </button>
+            </mat-tree-node>
+          </mat-tree>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

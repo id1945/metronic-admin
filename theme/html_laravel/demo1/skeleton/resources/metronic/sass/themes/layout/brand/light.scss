@@ -1,0 +1,80 @@
+//
+// Brand Dark theme
+//
+
+
+// Initialization of global variables, mixins and functions
+@import "../../../init";
+
+// Variables
+$brand-bg: get($layout-themes, light);
+$brand-icon-color: #b4b8ce;
+$brand-icon-color-hover: $primary;
+
+$header-mobile-bg: $brand-bg;
+$header-mobile-shadow: 0px 1px 9px -3px rgba(0,0,0,0.1);
+$header-mobile-icon-color: #b4b8ce;
+$header-mobile-icon-color-hover: $primary;
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.brand {
+	    background-color: $brand-bg;
+    	box-shadow: none;
+
+		// Button
+		.btn {
+			i {
+				color: $brand-icon-color;
+			}
+
+			.svg-icon {
+				@include svg-icon-color($brand-icon-color);
+			}
+
+			&:hover {
+				.svg-icon {
+					@include svg-icon-color($brand-icon-color-hover);
+				}
+
+				i {
+					color: $brand-icon-color-hover;
+				}
+			}
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.header-mobile {
+		background-color: $header-mobile-bg;
+		box-shadow: $header-mobile-shadow;
+
+		// Burger Icon
+		.burger-icon {
+			@include burger-icon-theme($header-mobile-icon-color, $header-mobile-icon-color-hover, $header-mobile-icon-color-hover);
+		}
+
+		// Button
+		.btn {
+			i {
+				color: $header-mobile-icon-color;
+			}
+
+			.svg-icon {
+				@include svg-icon-color($header-mobile-icon-color);
+			}
+
+			&:hover {
+				.svg-icon {
+					@include svg-icon-color($header-mobile-icon-color-hover);
+				}
+
+				i {
+					color: $header-mobile-icon-color-hover;
+				}
+			}
+		}
+	}
+}

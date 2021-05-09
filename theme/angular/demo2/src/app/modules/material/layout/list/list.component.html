@@ -1,0 +1,75 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/list/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicList">
+      <div class="example-preview">
+        <span>
+          <code>&lt;mat-list&gt;</code> is a container component that wraps and
+          formats a series of line items. As the base list component, it
+          provides Material Design styling, but no behavior of its own.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-list role="list">
+            <mat-list-item role="listitem">Item 1</mat-list-item>
+            <mat-list-item role="listitem">Item 2</mat-list-item>
+            <mat-list-item role="listitem">Item 3</mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleListWithSelection">
+      <div class="example-preview">
+        <span>
+          A selection list provides an interface for selecting values, where
+          each list item is an option.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-selection-list #shoes>
+            <mat-list-option *ngFor="let shoe of typesOfShoes">
+              {{ shoe }}
+            </mat-list-option>
+          </mat-selection-list>
+          <div class="separator separator-dashed my-6"></div>
+          <div>
+            Options selected:
+            <mark>{{ shoes.selectedOptions.selected.length }}</mark>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleListWithSection">
+      <div class="example-preview">
+        <div>
+          <mat-list>
+            <h3 mat-subheader>Folders</h3>
+            <mat-list-item *ngFor="let folder of folders">
+              <mat-icon mat-list-icon>folder</mat-icon>
+              <h4 mat-line>{{ folder.name }}</h4>
+              <p mat-line>{{ folder.updated | date }}</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <h3 mat-subheader>Notes</h3>
+            <mat-list-item *ngFor="let note of notes">
+              <mat-icon mat-list-icon>note</mat-icon>
+              <h4 mat-line>{{ note.name }}</h4>
+              <p mat-line>{{ note.updated | date }}</p>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

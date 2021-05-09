@@ -1,0 +1,101 @@
+//
+// Header
+//
+
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		transition: height 0.3s ease;
+		box-shadow: get($header-config, desktop, shadow);
+		position: relative;
+		z-index: 2;
+
+		// Top
+		.header-top {
+			height: get($header-config, desktop, height) - get($header-config, desktop, height-bottom);
+			display: flex;
+			align-items: stretch;
+			background-color: get($header-config, desktop, bg-color);
+
+			.container,
+			.container-fluid {
+				display: flex;
+				align-items: stretch;
+				justify-content: space-between;
+			}
+
+			//Quick Search
+			.quick-search {
+				.quick-search-form {
+					.input-group {
+						background-color: rgba($white, 0.1) !important;
+
+						.input-group-text {
+							.svg-icon {
+								@include svg-icon-color(rgba($white, 0.75));
+							}
+
+							.quick-search-close {
+								color: rgba($white, 0.75);
+							}
+						}
+
+						.form-control {
+							color: rgba($white, 0.75);
+							@include placeholder(rgba($white, 0.75));
+
+							&:active,
+							&.active,
+							&:focus,
+							&.focus {
+								color: rgba($white, 0.85);
+							}
+						}
+
+						.input-group-append.spinner {
+							@include spinner-theme(rgba($white, 0.75));
+						}
+					}
+				}
+			}
+		}
+
+		// Bottom
+		.header-bottom {
+			height: get($header-config, desktop, height-bottom);
+			display: flex;
+			align-items: stretch;
+			background-color: $white;
+
+			.container,
+			.container-fluid {
+				display: flex;
+				align-items: stretch;
+				justify-content: space-between;
+			}
+		}
+
+		// Fixed Header and Minimized Header Modes
+		.header-fixed[data-header-scroll="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, desktop, zindex);
+			height: get($header-config, desktop, height) - get($header-config, desktop, height-bottom);
+			animation: header-scroll-animation .5s ease 1;
+
+			.header-bottom {
+				display: none;
+			}
+		}
+	}
+}
+
+@keyframes header-scroll-animation {
+    from   { top: -(get($header-config, desktop, height) - get($header-config, desktop, height-bottom)); }
+    to { top: 0; }
+}

@@ -1,0 +1,94 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/divider"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicDivider">
+      <div class="example-preview">
+        <span>
+          <code>&lt;mat-divider&gt;</code> is a component that allows for
+          Material styling of a line separator with various orientation options.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-list>
+            <mat-list-item>Alabama</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Alaska</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Arizona</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Arizona</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>California</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Colorado</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Connecticut</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Delaware</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Florida</mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleVertical">
+      <div class="example-preview">
+        <span>
+          Add the
+          <mark>vertical</mark> attribute in order to set whether or not the
+          divider is vertically-oriented.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-list>
+            <mat-list-item>Item 1</mat-list-item>
+            <mat-divider [vertical]="true"></mat-divider>
+            <mat-list-item>Item 2</mat-list-item>
+            <mat-divider [vertical]="true"></mat-divider>
+            <mat-list-item>Item 3</mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleList">
+      <div class="example-preview">
+        <span>
+          Dividers can be added to lists as a means of separating content into
+          distinct sections. Inset dividers can also be added to provide the
+          appearance of distinct elements in a list without cluttering content
+          like avatar images or icons. Make sure to avoid adding an inset
+          divider to the last element in a list, because it will overlap with
+          the section divider.
+        </span>
+        <div>
+          <mat-list>
+            <h3 mat-subheader>Folders</h3>
+            <mat-list-item *ngFor="let folder of folders">
+              <mat-icon mat-list-icon>folder</mat-icon>
+              <h4 mat-line>{{ folder.name }}</h4>
+              <p mat-line>{{ folder.updated | date }}</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <h3 mat-subheader>Notes</h3>
+            <mat-list-item *ngFor="let note of notes">
+              <mat-icon mat-list-icon>note</mat-icon>
+              <h4 mat-line>{{ note.name }}</h4>
+              <p mat-line>{{ note.updated | date }}</p>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

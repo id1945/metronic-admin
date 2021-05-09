@@ -1,0 +1,18 @@
+//
+// Content
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.content {
+		@include border-top-left-radius(0);
+		padding: get($content-padding, desktop);
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.content {
+		padding: get($content-padding, tablet-and-mobile);
+	}
+}

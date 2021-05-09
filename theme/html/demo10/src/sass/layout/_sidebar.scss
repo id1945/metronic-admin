@@ -1,0 +1,41 @@
+//
+// Aside Secondary
+//
+
+// General Mode(all devices)
+.sidebar {
+	margin: get($spacings, page-y) 0;
+	width: get($sidebar-config, default, width);
+	background-color: get($sidebar-config, default, bg-color);
+	@include border-top-left-radius($border-radius-xl);
+	@include border-bottom-left-radius($border-radius-xl);
+
+	// Aside Scroll
+	.aside-scroll {
+		@include perfect-scrollbar-ver-offset(4px);
+	}
+
+	// Quick Search
+	.quick-search {
+
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.sidebar {
+		@include border-top-right-radius(0);
+		@include border-bottom-right-radius(0);
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.sidebar {
+		margin: 0;
+		@include border-radius(0);
+	}
+}
+
+// Build Aside Offcanvas Panel for mobile mode
+@include offcanvas-build(sidebar, tablet-and-mobile, get($sidebar-config, offcanvas-mobile));

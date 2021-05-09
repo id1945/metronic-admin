@@ -1,0 +1,78 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/card/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicCards">
+      <div class="example-preview">
+        <span>
+          <code>&lt;mat-card&gt;</code> is a content container for text, photos,
+          and actions in the context of a single subject.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-card>Simple card</mat-card>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleCardWithTitle">
+      <div class="example-preview">
+        <span>
+          In addition to the aforementioned sections,
+          <code>&lt;mat-card-header&gt;</code> gives the ability to add a rich
+          header to a card.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Shiba Inu</mat-card-title>
+              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>Simple card</mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="examplBigExample">
+      <div class="example-preview">
+        <div>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Shiba Inu</mat-card-title>
+              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img
+              mat-card-image
+              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+              alt="Photo of a Shiba Inu"
+            />
+            <mat-card-content>
+              <p>
+                The Shiba Inu is the smallest of the six original and distinct
+                spitz breeds of dog from Japan. A small, agile dog that copes
+                very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

@@ -1,0 +1,608 @@
+//
+// Nav
+//
+
+// Extended nav
+.nav {
+	.nav-link {
+		display: flex;
+		align-items: center;
+		transition: $transition-link;
+		padding: $nav-link-py $nav-link-px;
+		color: $dark-50;
+
+		.nav-text {
+			flex-grow: 1;
+			font-size: $nav-font-size;
+			color: $dark-50;
+			font-weight: 400;
+			transition: $transition-link;
+		}
+
+		.nav-icon {
+			line-height: 0;
+			color: $dark-50;
+			width: $nav-icon-width;
+
+			&:before {
+				line-height: 0;
+			}
+
+			// Font icon
+			i {
+				color: $text-muted;
+				transition: $transition-link;
+				font-size: $nav-icon-size;
+			}
+
+			// Svg icon
+			@include svg-icon-color($text-muted);
+		}
+
+		.label {
+			margin-left: $nav-elem-space;
+		}
+
+		// Disabled state
+		&.disabled {
+			opacity: 0.6;
+		}
+	}
+
+	// States
+	.show > .nav-link,
+	.nav-link:hover:not(.disabled),
+	.nav-link.active {
+		transition: $transition-link;
+		color: $primary;
+
+		.nav-text {
+			transition: $transition-link;
+			color: $primary;
+		}
+
+		.nav-icon {
+			i {
+				transition: $transition-link;
+				color: $primary;
+			}
+
+			// Svg icon
+			.svg-icon {
+				@include svg-icon-color($primary);
+			}
+		}
+
+		&:after {
+			transition: $transition-link;
+			color: $primary;
+		}
+	}
+}
+
+// Font Weight Options
+.nav {
+    &.nav-bold {
+        .nav-item {
+            .nav-link {
+				font-weight: $font-weight-bold;
+
+                .nav-text {
+                    font-weight: $font-weight-bold;
+                }
+            }
+        }
+    }
+
+    &.nav-bolder {
+        .nav-item {
+            .nav-link {
+				font-weight: $font-weight-bolder;
+
+                .nav-text {
+                    font-weight: $font-weight-bolder;
+                }
+            }
+        }
+    }
+
+	&.nav-boldest {
+        .nav-item {
+            .nav-link {
+				font-weight: $font-weight-boldest;
+
+                .nav-text {
+                    font-weight: $font-weight-boldest;
+                }
+            }
+        }
+    }
+}
+
+// Tabs
+.nav.nav-tabs {
+	.nav-item {
+		margin-right: 0.25rem;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.nav-link {
+		.nav-text {
+			flex-grow: 0;
+		}
+	}
+
+	&.nav-tabs-line {
+		.nav-item {
+			margin: 0 0 -1px 0;
+		}
+
+		.nav-link {
+			border: 0;
+			border-bottom: 1px solid transparent;
+			transition: $transition-link;
+			padding: 0.85rem 0;
+			margin: 0 1rem;
+
+			.nav-item:first-child & {
+				margin-left: 0;
+			}
+
+			.nav-item:last-child & {
+				margin-right: 0;
+			}
+		}
+
+		.nav-item:first-child {
+			.nav-link {
+				margin-left: 0;
+			}
+		}
+
+		.nav-item:last-child {
+			.nav-link {
+				margin-right: 0;
+			}
+		}
+
+		.nav-link:hover:not(.disabled),
+		.nav-link.active,
+		.show > .nav-link {
+			background-color: transparent;
+			border: 0;
+			border-bottom: 1px solid $primary;
+			transition: $transition-link;
+		}
+
+		// Double border
+		&.nav-tabs-line-2x {
+			.nav-item {
+				margin-bottom: -2px;
+			}
+
+			.nav-link {
+				border-bottom: 2px solid transparent;
+			}
+
+			.nav-link:hover:not(.disabled),
+			.nav-link.active,
+			.show > .nav-link {
+				border-bottom: 2px solid $primary;
+			}
+
+			border-bottom-width: 2px;
+		}
+
+		// Trippe border
+		&.nav-tabs-line-3x {
+			.nav-item {
+				margin-bottom: -3px;
+			}
+
+			.nav-link {
+				border-bottom: 3px solid transparent;
+			}
+
+			.nav-link:hover:not(.disabled),
+			.nav-link.active,
+			.show > .nav-link {
+				border-bottom: 3px solid $primary;
+			}
+
+			border-bottom-width: 3px;
+		}
+
+		// Transparent white
+		&.nav-tabs-line-transparent-white {
+			border-bottom-color: rgba($white, 0.7);
+
+			.nav-link {
+				color: rgba($white, 0.7);
+
+				.nav-text {
+					color: rgba($white, 0.7);
+				}
+
+				.nav-icon {
+					i {
+						color: rgba($white, 0.7);
+					}
+
+					// Svg icon
+					.svg-icon {
+						@include svg-icon-color(rgba($white, 0.7));
+					}
+				}
+
+				.nav-arrow {
+					color: rgba($white, 0.7);
+				}
+			}
+
+			.nav-link:hover:not(.disabled),
+			.nav-link.active,
+			.show > .nav-link {
+				border-bottom-color: $white;
+				color: $white;
+
+				.nav-text {
+					color: $white;
+				}
+
+				.nav-icon {
+					i {
+						color: $white;
+					}
+
+					// Svg icon
+					.svg-icon {
+						@include svg-icon-color($white);
+					}
+				}
+
+				.nav-arrow {
+					color: $white;
+				}
+			}
+		}
+
+		// Theme colors
+		@each $name, $color in $theme-colors {
+			&.nav-tabs-line-#{$name} {
+				border-bottom-color: theme-light-color($name) !important;
+
+				.nav-link:hover:not(.disabled),
+				.nav-link.active,
+				.show > .nav-link {
+					border-bottom-color: $color;
+					color: $color;
+
+					.nav-text {
+						color: $color;
+					}
+
+					.nav-icon {
+						i {
+							color: $color;
+						}
+
+						// Svg icon
+						.svg-icon {
+							@include svg-icon-color($color);
+						}
+					}
+
+					.nav-arrow {
+						color: $color;
+					}
+				}
+			}
+
+			&.nav-tabs-line-active-border-#{$name} {
+				.nav-link:hover:not(.disabled),
+				.nav-link.active,
+				.show > .nav-link {
+					border-bottom-color: $color !important;
+				}
+			}
+		}
+	}
+}
+
+// Pills navs
+.nav.nav-pills {
+	// Fill mode
+	&.nav-fill {
+		.nav-item {
+			justify-content: center;
+		}
+
+		.nav-link {
+			text-align: center;
+			justify-content: center;
+
+			.nav-text {
+				flex-grow: 0;
+			}
+
+			.nav-icon {
+				margin-right: 0.25rem;
+			}
+		}
+	}
+
+	// Group mode
+	&.nav-group {
+		.nav-item {
+			padding: 0;
+			margin: 0;
+
+			.nav-link {
+				@include border-radius(0);
+			}
+
+			&:first-child {
+				.nav-link {
+					@include border-top-left-radius($rounded-pill);
+					@include border-bottom-left-radius($rounded-pill);
+				}
+			}
+
+			&:last-child {
+				.nav-link {
+					@include border-top-right-radius($rounded-pill);
+					@include border-bottom-right-radius($rounded-pill);
+				}
+			}
+		}
+
+		// Rounded
+		&.nav-rounded {
+			&:first-child {
+				.nav-link {
+					@include border-top-left-radius($border-radius);
+					@include border-bottom-left-radius($border-radius);
+				}
+			}
+
+			&:last-child {
+				.nav-link {
+					@include border-top-right-radius($border-radius);
+					@include border-bottom-right-radius($border-radius);
+				}
+			}
+		}
+	}
+
+	// Item
+	.nav-item {
+		margin-right: 0.25rem;
+	}
+
+	// Default colors
+	.nav-link {
+		color: $text-muted;
+		transition: $transition-link;
+		position: relative;
+
+		.nav-text {
+			transition: $transition-link;
+		}
+
+		.nav-icon {
+			i {
+				transition: $transition-link;
+			}
+		}
+
+		&:after {
+			transition: $transition-link;
+		}
+	}
+
+	// States
+	.show > .nav-link,
+	.nav-link.active {
+		color: $component-active-color;
+		background-color: $component-active-bg;
+		transition: $transition-link;
+
+		.nav-text {
+			color: $component-active-color;
+			transition: $transition-link;
+		}
+
+		.nav-icon {
+			i {
+				color: rgba($component-active-color, 0.8);
+				transition: $transition-link;
+			}
+
+			// Svg icon
+			.svg-icon {
+				@include svg-icon-color(rgba($component-active-color, 0.8));
+			}
+		}
+
+		&:after {
+			transition: $transition-link;
+			color: rgba($component-active-color, 0.8);
+		}
+	}
+}
+
+// Theme colors
+.nav.nav-pills {
+	// State colors
+	@each $name, $color in $theme-colors {
+		// Default
+		&.nav-#{$name} {
+			// Hover state
+			.show > .nav-link,
+			.nav-link:hover:not(.active) {
+				color: $color;
+				background-color: transparent;
+
+				.nav-text {
+					color: $color;
+				}
+
+				.nav-icon {
+					i {
+						color: $color;
+					}
+
+					// Svg icon
+					.svg-icon {
+						@include svg-icon-color($color);
+					}
+				}
+
+				&:after {
+					color: $color;
+				}
+			}
+
+			// Active state
+			.nav-link.active {
+				color: theme-inverse-color($name);
+				background-color: $color;
+
+				.nav-text {
+					color: theme-inverse-color($name);
+				}
+
+				.nav-icon {
+					i {
+						color: theme-inverse-color($name);
+					}
+
+					// Svg icon
+					.svg-icon {
+						@include svg-icon-color(theme-inverse-color($name), true);
+					}
+				}
+
+				&:after {
+					color: theme-inverse-color($name);
+				}
+			}
+		}
+
+		// Light
+		&.nav-light-#{$name} {
+			// Hover state
+			.show > .nav-link,
+			.nav-link:hover:not(.active) {
+				color: $color;
+				background-color: transparent;
+
+				.nav-text {
+					color: $color;
+				}
+
+				.nav-icon {
+					i {
+						color: $color;
+					}
+
+					// Svg icon
+					.svg-icon {
+						@include svg-icon-color($color);
+					}
+				}
+
+				&:after {
+					color: $color;
+				}
+			}
+
+			// Active state
+			.nav-link.active {
+				color: $color;
+				background-color: rgba($color, $component-light-style-opacity);
+
+				.nav-text {
+					color: $color;
+				}
+
+				.nav-icon {
+					i {
+						color: $color;
+					}
+
+					// Svg icon
+					.svg-icon {
+						@include svg-icon-color($color);
+					}
+				}
+
+				&:after {
+					color: $color;
+				}
+			}
+		}
+
+		// Group
+		&.nav-group.nav-#{$name} {
+			.nav-link {
+				color: $color;
+				background-color: theme-light-color($name);
+				border: 0;
+
+				.nav-text {
+					color: $color;
+				}
+
+				.nav-icon {
+					i {
+						color: $color;
+					}
+
+					// Svg icon
+					.svg-icon {
+						@include svg-icon-color($color);
+					}
+				}
+
+				&:after {
+					color: $color;
+				}
+			}
+
+			// Hover state
+			.show > .nav-link,
+			.nav-link:hover,
+			.nav-link.active {
+				color: theme-inverse-color($name);
+				background-color: $color;
+
+				.nav-text {
+					color: theme-inverse-color($name);
+				}
+
+				.nav-icon {
+					i {
+						color: theme-inverse-color($name);
+					}
+
+					// Svg icon
+					.svg-icon {
+						@include svg-icon-color(theme-inverse-color($name));
+					}
+				}
+
+				&:after {
+					color: theme-inverse-color($name);
+				}
+			}
+
+			.nav-link:hover {
+				background-color:  theme-hover-color($name);
+			}
+		}
+	}
+}

@@ -1,0 +1,64 @@
+//
+// Topbar
+//
+
+.topbar {
+	display: flex;
+	align-items: stretch;
+	padding: 0;
+
+	// Topbar Item
+	.topbar-item {
+		display: flex;
+		align-items: center;
+
+		// Hover, Active, Focus & Dropdown Show States
+		.btn.btn-icon {
+			$btn-hover-background: #171622;
+			$btn-active-background: $btn-hover-background;
+
+			@include button-custom-variant(
+				null, null, null, null, null,
+				$btn-hover-background, null, null, null, null,
+				$btn-active-background, null, null, null, null
+			);
+		}
+	}
+
+	// Topbar Dropdown
+	.dropdown {
+		display: flex;
+		align-items: stretch;
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.topbar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		transition: all 0.3s ease;
+		justify-content: flex-end;
+		padding: 0 get($page-padding, tablet-and-mobile);
+		height: get($header-topbar-config, tablet-and-mobile, height);
+		box-shadow: get($header-topbar-config, tablet-and-mobile, shadow);
+		background-color: get($header-topbar-config, tablet-and-mobile, bg-color);
+		border-top: 1px solid transparent;
+
+		// Fixed Mobile Header
+		.header-mobile-fixed & {
+			position: fixed;
+			z-index: get($header-config, tablet-and-mobile, zindex) - 1;
+		}
+
+		// Topbar Shown Mode
+		.topbar-mobile-on & {
+			z-index: 2;
+			transition: all 0.3s ease;
+			border-top: 1px solid get($header-topbar-config, tablet-and-mobile, border-color);
+			margin-top: get($header-config, tablet-and-mobile, height);
+		}
+	}
+}

@@ -1,0 +1,150 @@
+//
+// Header Menu
+//
+
+// Desktop Mode
+@include menu-hor-build-layout(get($header-menu-config, desktop, submenu));
+@include menu-hor-build-theme(get($header-menu-config, desktop, submenu), default);
+
+// Tablet & Mobile Mode
+@include menu-ver-build-layout(get($header-menu-config, tablet-and-mobile));
+@include menu-ver-build-theme(get($header-menu-config, tablet-and-mobile), default);
+
+// Header Menu Mobile Offcanvas
+@include offcanvas-build(header-menu-wrapper, tablet-and-mobile, get($header-menu-config, offcanvas-mobile));
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Header Menu Wrapper
+	.header-menu-wrapper {
+		display: flex;
+		align-items: stretch;
+		height: get($header-menu-config, desktop, root, base, height);
+		position: relative;
+
+		// Containers
+		.container,
+		.container-fluid {
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
+		}
+	}
+
+	// Header Menu
+	.header-menu {
+		display: flex;
+		align-items: stretch;
+
+		// Header Nav
+		.menu-nav {
+			display: flex;
+			align-items: stretch;
+
+			> .menu-item {
+				display: flex;
+				align-items: stretch;
+				padding: 0;
+				margin-right: 0.35rem;
+
+				&:first-child {
+					padding-left: 0;
+				}
+
+				// Default State
+				> .menu-link {
+					display: flex;
+					align-items: stretch;
+					padding: 0 1.75rem;
+					@include border-top-radius($border-radius);
+					background-color: get($header-menu-config, desktop, root, link, default, bg-color);
+
+					.menu-text {
+						color: get($header-menu-config, desktop, root, link, default, color);
+						font-weight: 600;
+						font-size: 1rem;
+						text-transform: uppercase;
+					}
+
+					.menu-arrow {
+						color: get($header-menu-config, desktop, root, link, default, color);
+					}
+
+					.menu-icon {
+						i {
+							color: get($header-menu-config, desktop, root, link, default, color);
+						}
+
+						.svg-icon {
+							@include svg-icon-color(get($header-menu-config, desktop, root, link, default, color));
+						}
+					}
+				}
+
+				// Hover State
+				&:hover:not(.menu-item-here):not(.menu-item-active),
+				&.menu-item-hover:not(.menu-item-here):not(.menu-item-active) {
+					> .menu-link {
+						background-color: get($header-menu-config, desktop, root, link, hover, bg-color);
+
+						.menu-text {
+							color: get($header-menu-config, desktop, root, link, hover, color);
+						}
+
+						.menu-arrow {
+							color: get($header-menu-config, desktop, root, link, hover, color);
+						}
+
+						.menu-icon {
+							i {
+								color: get($header-menu-config, desktop, root, link, hover, color);
+							}
+
+							.svg-icon {
+								@include svg-icon-color(get($header-menu-config, desktop, root, link, hover, color));
+							}
+						}
+					}
+				}
+
+				// Active State
+				&.menu-item-here,
+				&.menu-item-active {
+					> .menu-link {
+						background-color: get($header-menu-config, desktop, root, link, active, bg-color);
+
+						.menu-text {
+							color: get($header-menu-config, desktop, root, link, active, color);
+						}
+
+						.menu-arrow {
+							color: get($header-menu-config, desktop, root, link, active, color);
+						}
+
+						.menu-icon {
+							i {
+								color: get($header-menu-config, desktop, root, link, active, color);
+							}
+
+							.svg-icon {
+								@include svg-icon-color(get($header-menu-config, desktop, root, link, active, color));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Header Wrapper
+	.header-menu-wrapper {
+		overflow: auto;
+
+		.container {
+			padding: 0;
+		}
+	}
+}

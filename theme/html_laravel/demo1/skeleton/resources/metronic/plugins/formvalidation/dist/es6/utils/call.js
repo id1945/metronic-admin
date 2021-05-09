@@ -1,0 +1,1 @@
+export default function t(t,n){if("function"===typeof t){return t.apply(this,n)}else if("string"===typeof t){let e=t;if("()"===e.substring(e.length-2)){e=e.substring(0,e.length-2)}const i=e.split(".");const o=i.pop();let f=window;for(const t of i){f=f[t]}return typeof f[o]==="undefined"?null:f[o].apply(this,n)}}

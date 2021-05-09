@@ -1,0 +1,74 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/button-toggle/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasic">
+      <div class="example-preview">
+        <span>
+          <code>&lt;mat-button-toggle&gt;</code> are on/off toggles with the
+          appearance of a button. These toggles can be configured to behave as
+          either radio-buttons or checkboxes. While they can be standalone, they
+          are typically part of a <mark>mat-button-toggle-group</mark>.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-button-toggle>Toggle me!</mat-button-toggle>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleVertical">
+      <div class="example-preview">
+        <span>
+          The button-toggles can be rendered in a vertical orientation by adding
+          the
+          <mark>vertical</mark> attribute.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-button-toggle vertical="true">Toggle me!</mat-button-toggle>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleList">
+      <div class="example-preview">
+        <span>
+          Dividers can be added to lists as a means of separating content into
+          distinct sections. Inset dividers can also be added to provide the
+          appearance of distinct elements in a list without cluttering content
+          like avatar images or icons. Make sure to avoid adding an inset
+          divider to the last element in a list, because it will overlap with
+          the section divider.
+        </span>
+        <div>
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle value="left">
+              <mat-icon>format_align_left</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="center">
+              <mat-icon>format_align_center</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="right">
+              <mat-icon>format_align_right</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="justify" disabled>
+              <mat-icon>format_align_justify</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+          <div class="example-selected-value">
+            Selected value: {{ group.value }}
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

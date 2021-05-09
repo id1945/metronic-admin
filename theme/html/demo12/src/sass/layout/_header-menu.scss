@@ -1,0 +1,71 @@
+ //
+// Header Menu
+//
+
+// Desktop Mode
+@include menu-hor-build-layout(get($header-menu-config, desktop));
+@include menu-hor-build-theme(get($header-menu-config, desktop), default);
+
+// Tablet & Mobile Mode
+@include menu-ver-build-layout(get($header-menu-config, tablet-and-mobile));
+@include menu-ver-build-theme(get($header-menu-config, tablet-and-mobile), default);
+
+// Header Navs Mobile Offcanvas
+@include offcanvas-build(header-menu-wrapper, tablet-and-mobile, get($header-menu-config, offcanvas-mobile));
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Header Menu
+	.header-menu {
+		display: flex;
+		align-items: stretch;
+
+		// Header Nav
+		.menu-nav {
+			display: flex;
+			align-items: stretch;
+
+			// Item
+			> .menu-item {
+				display: flex;
+				align-items: center;
+				margin-right: 0.75rem;
+
+				// Link
+				> .menu-link {
+					display: flex;
+					@include border-radius($border-radius);
+					padding: 0.85rem 1.5rem;
+				}
+
+				&:last-child {
+					> .menu-link {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Header Wrapper
+	.header-menu-wrapper {
+		overflow: auto;
+	}
+
+	// Header Menu
+	.header-menu {
+		// Header Nav
+		.menu-nav {
+			> .menu-item {
+				> .menu-link {
+					.menu-desc {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

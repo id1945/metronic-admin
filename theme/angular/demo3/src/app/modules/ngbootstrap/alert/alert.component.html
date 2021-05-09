@@ -1,0 +1,92 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/alert/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicAlert">
+      <ngb-alert [dismissible]="false" [type]="'success'">
+        <strong>Well done! </strong> You successfully read this important alert
+        message.
+      </ngb-alert>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleCloseableAlert">
+      <div *ngFor="let alert of alerts">
+        <ngb-alert
+          [dismissible]="true"
+          [type]="alert.type"
+          (close)="closeAlert(alert)"
+          >{{ alert.message }}</ngb-alert
+        >
+      </div>
+    </app-code-preview>
+  </div>
+
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleSelfClosingAlert">
+      <p>
+        Static self-closing alert that disappears
+        <strong>after 20 seconds</strong> (refresh the page if it has already
+        disappeared)
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-alert
+            *ngIf="!staticAlertClosed"
+            [type]="'brand'"
+            (close)="staticAlertClosed = true"
+            >Check out our awesome new features!</ngb-alert
+          >
+        </div>
+      </div>
+
+      <div class="separator separator-dashed my-6"></div>
+
+      <p>
+        Show a self-closing success message that disappears after 5 seconds.
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-alert
+            *ngIf="successMessage"
+            [type]="'success'"
+            (close)="successMessage = null"
+            >{{ successMessage }}</ngb-alert
+          >
+          <p>
+            <button class="btn btn-primary" (click)="changeSuccessMessage()">
+              Change message
+            </button>
+          </p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleCustomAlert">
+      <p>
+        Show a custom alert that can be styled via CSS or SCSS.
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-alert type="custom" [dismissible]="false">
+            <strong>Whoa!</strong> This is a custom alert.
+          </ngb-alert>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleGlobalConfigurationOfAlerts">
+      <ngb-alert [dismissible]="false" [type]="'success'">
+        This alert's type is success and it's not dismissible because the config
+        has been customized
+      </ngb-alert>
+    </app-code-preview>
+  </div>
+</div>

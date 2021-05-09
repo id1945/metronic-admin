@@ -1,0 +1,47 @@
+//
+// Topbar
+//
+
+// Mobile Offcanvas Panel For Header Topbar
+@include offcanvas-build(topbar, tablet-and-mobile, get($header-topbar-config, offcanvas-mobile));
+
+// General Mode
+.topbar {
+	display: flex;
+	align-items: center;
+	padding: 0;
+
+	// Topbar Item
+	.topbar-item {
+		display: flex;
+		align-items: center;
+	}
+
+	// Topbar Dropdown
+	.dropdown {
+		display: flex;
+		align-items: center;
+	}
+
+	// Customize buttons(see: src\sass\components\mixins\_buttons.scss)
+	// button-custom-variant(
+	//    $background, $border, $color, $icon, $box-shadow,
+	//    $hover-background, $hover-border, $hover-color, $hover-icon, $hover-box-shadow,
+	//    $active-background, $active-border, $active-color, $active-icon, $active-box-shadow)
+	// )
+
+	.btn.btn-icon {
+		@include button-custom-variant(
+			$gray-300, null, $gray-600, $gray-600, null,
+			$dark, null, $white, $white, null,
+			$dark, null, $white, $white, null,
+		);
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.topbar {
+		padding: 0 get($page-padding, tablet-and-mobile);
+	}
+}

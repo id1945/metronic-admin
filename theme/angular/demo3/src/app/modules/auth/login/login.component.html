@@ -1,0 +1,191 @@
+<!--begin::Signin-->
+<div class="login-form login-signin">
+  <!--begin::Form-->
+  <form
+    class="form"
+    [formGroup]="loginForm"
+    novalidate="novalidate"
+    id="kt_login_signin_form"
+    (ngSubmit)="submit()"
+  >
+    <!--begin::Title-->
+    <div class="pb-13 pt-lg-0 pt-5">
+      <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
+        Welcome to Metronic
+      </h3>
+      <span class="text-muted font-weight-bold font-size-h4"
+        >New Here?
+        <a
+          routerLink="/auth/registration"
+          id="kt_login_signup"
+          class="text-primary font-weight-bolder"
+          >{{ "AUTH.GENERAL.SIGNUP_BUTTON" | translate }}</a
+        >
+      </span>
+    </div>
+    <!--end::Title-->
+
+    <!-- begin::Alert info-->
+    <ng-container *ngIf="!hasError">
+      <div class="mb-10 alert alert-custom alert-light-info alert-dismissible">
+        <div class="alert-text">
+          Use account <strong>{{ defaultAuth.email }}</strong> and password
+          <strong>{{ defaultAuth.password }}</strong> to continue.
+        </div>
+      </div>
+    </ng-container>
+    <!-- end::Alert info-->
+
+    <!-- begin::Alert error-->
+    <ng-container *ngIf="hasError">
+      <div
+        class="mb-10 alert alert-custom alert-light-danger alert-dismissible"
+      >
+        <div class="alert-text">The login details are incorrect</div>
+      </div>
+    </ng-container>
+    <!-- end::Alert error-->
+
+    <!--begin::Form group-->
+    <div class="form-group">
+      <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
+      <input
+        class="form-control form-control-solid h-auto py-7 px-6 rounded-lg"
+        type="email"
+        name="email"
+        formControlName="email"
+        autocomplete="off"
+        [ngClass]="{ 'is-invalid': loginForm.controls['email'].invalid }"
+      />
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'Email is required',
+          control: loginForm.controls['email']
+        }"
+      ></ng-container>      
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'email',
+          message: 'Email is invalid',
+          control: loginForm.controls['email']
+        }"
+      ></ng-container>
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'minLength',
+          message: 'Email should have at least 3 symbols',
+          control: loginForm.controls['email']
+        }"
+      ></ng-container>
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'maxLength',
+          message: 'Email should have maximum 360 symbols',
+          control: loginForm.controls['email']
+        }"
+      ></ng-container>
+    </div>
+    <!--end::Form group-->
+
+    <!--begin::Form group-->
+    <div class="form-group">
+      <div class="d-flex justify-content-between mt-n5">
+        <label class="font-size-h6 font-weight-bolder text-dark pt-5"
+          >Password</label
+        >
+        <a
+          routerLink="/auth/forgot-password"
+          class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5"
+          id="kt_login_forgot"
+        >
+          Forgot Password ?
+        </a>
+      </div>
+
+      <input
+        class="form-control form-control-solid h-auto py-7 px-6 rounded-lg"
+        type="password"
+        name="password"
+        autocomplete="off"
+        formControlName="password"
+        [ngClass]="{ 'is-invalid': loginForm.controls['password'].invalid }"
+      />
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'Password is required',
+          control: loginForm.controls['password']
+        }"
+      ></ng-container>
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'minlength',
+          message: 'Password should have at least 3 symbols',
+          control: loginForm.controls['password']
+        }"
+      ></ng-container>
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'maxLength',
+          message: 'Password should have maximum 100 symbols',
+          control: loginForm.controls['password']
+        }"
+      ></ng-container>
+    </div>
+    <!--end::Form group-->
+
+    <!--begin::Action-->
+    <div class="pb-lg-0 pb-5">
+      <button
+        type="submit"
+        id="kt_login_signin_submit"
+        class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3"
+        [disabled]="loginForm.invalid"
+      >
+        Sign In
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-light-primary font-weight-bolder px-8 py-4 my-3 font-size-lg"
+      >
+        <span class="svg-icon svg-icon-md">
+          <img src="./assets/media/svg/social-icons/google.svg" />
+        </span>
+        Sign in with Google
+      </button>
+
+      <ng-container *ngIf="isLoading$ | async">
+        <span class="spinner spinner-primary ml-5"></span>
+      </ng-container>
+    </div>
+    <!--end::Action-->
+  </form>
+  <!--end::Form-->
+</div>
+<!--end::Signin-->
+
+<ng-template
+  #formError
+  let-control="control"
+  let-message="message"
+  let-validation="validation"
+>
+  <ng-container
+    *ngIf="control.hasError(validation) && (control.dirty || control.touched)"
+  >
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        {{ message }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

@@ -1,0 +1,90 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/sort/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<app-code-preview [viewItem]="exampleBasic">
+  <div class="example-preview">
+    <p>
+      The
+      <mark>matSort</mark> and <mark>mat-sort-header</mark> are used,
+      respectively, to add sorting state and display to tabular data.
+    </p>
+    <div class="separator separator-dashed my-6"></div>
+    <div>
+      <table #sort1="matSort" (matSortChange)="sortData($event)" matSort>
+        <tr>
+          <th mat-sort-header="name">Dessert (100g)</th>
+          <th mat-sort-header="calories">Calories</th>
+          <th mat-sort-header="fat">Fat (g)</th>
+          <th mat-sort-header="carbs">Carbs (g)</th>
+          <th mat-sort-header="protein">Protein (g)</th>
+        </tr>
+
+        <tr *ngFor="let dessert of sortedData">
+          <td>{{ dessert.name }}</td>
+          <td>{{ dessert.calories }}</td>
+          <td>{{ dessert.fat }}</td>
+          <td>{{ dessert.carbs }}</td>
+          <td>{{ dessert.protein }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</app-code-preview>
+
+<app-code-preview [viewItem]="exampleConfig">
+  <div class="example-preview">
+    <div>
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource" #sort2="matSort" matSort>
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              No.
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.position }}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Name
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Weight
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.weight }}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Symbol
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.symbol }}
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+</app-code-preview>

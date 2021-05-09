@@ -1,0 +1,89 @@
+//
+// Topbar
+//
+
+.topbar {
+	display: flex;
+	align-items: stretch;
+	padding: 0;
+
+	// Topbar Item
+	.topbar-item {
+		display: flex;
+		align-items: center;
+	}
+
+	// Topbar Dropdown
+	.dropdown {
+		display: flex;
+		align-items: stretch;
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Fixed Header & Header Scroll Modes
+	body[data-header-scroll="on"] {
+		.topbar {
+			// Button
+			.btn.btn-icon {
+				// Icons
+				i {
+					color: $text-muted !important;
+				}
+
+				// SVG Icons
+				.svg-icon {
+					@include svg-icon-color($text-muted, true);
+				}
+
+				// Text
+				.text-white {
+					color: $dark-75 !important;
+				}
+
+				// Symbol
+				.symbol {
+					.symbol-label {
+						color: $primary !important;
+						background-color: $primary-light !important;
+					}
+				}
+			}
+
+			// Hover, Active, Focus & Dropdown Show States
+			.btn.btn-icon.active,
+			.btn.btn-icon:focus,
+			.btn.btn-icon:hover,
+			.show .btn.btn-icon {
+				background-color: $gray-100 !important;
+			}
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.topbar {
+		position: relative;
+		display: flex;
+		justify-content: flex-end;
+		height: get($header-topbar-config, tablet-and-mobile, height);
+		box-shadow: get($header-topbar-config, tablet-and-mobile, shadow);
+		background-color: get($header-topbar-config, tablet-and-mobile, bg-color);
+		transition: margin-top get($header-topbar-config, tablet-and-mobile, transition);
+		margin-top: -(get($header-topbar-config, tablet-and-mobile, height));
+		z-index: 2;
+		opacity: 0;
+
+		// Topbar On Mode
+		.topbar-mobile-on & {
+			z-index: 6;
+			padding: 0 0;
+			justify-content: center;
+			margin-top: 0;
+			opacity: 1;
+			transition: margin-top get($header-topbar-config, tablet-and-mobile, transition), opacity get($header-topbar-config, tablet-and-mobile, transition);
+		}
+	}
+}

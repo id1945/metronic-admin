@@ -1,0 +1,62 @@
+//
+// Header
+//
+
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		transition: height 0.3s ease;
+		//box-shadow: get($header-config, desktop, shadow);
+		position: relative;
+		z-index: 2;
+
+		// Top
+		.header-top {
+			height: get($header-config, desktop, height) - get($header-config, desktop, height-bottom);
+			display: flex;
+			align-items: stretch;
+			background-color: get($header-config, desktop, bg-color);
+
+			.container,
+			.container-fluid {
+				display: flex;
+				align-items: stretch;
+				justify-content: space-between;
+			}
+		}
+
+		// Bottom
+		.header-bottom {
+			height: get($header-config, desktop, height-bottom);
+			display: flex;
+			align-items: stretch;
+			background-color: $white;
+
+			.container,
+			.container-fluid {
+				display: flex;
+				align-items: stretch;
+				justify-content: space-between;
+			}
+		}
+
+		// Fixed Header and Minimized Header Modes
+		.header-fixed & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, desktop, zindex);
+			height: get($header-config, desktop, height) - get($header-config, desktop, height-bottom);
+			box-shadow: none;
+		}
+
+		.header-fixed.header-bottom-enabled & {
+			height: get($header-config, desktop, height);
+			box-shadow: get($header-config, desktop, shadow);
+		}
+	}
+}

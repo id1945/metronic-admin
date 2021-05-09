@@ -1,0 +1,222 @@
+<div class="aside-primary d-flex flex-column align-items-center flex-row-auto">
+  <!--begin::Primary-->
+  <div
+    class="aside-brand d-flex flex-column align-items-center flex-column-auto py-5 py-lg-12"
+    id="kt_brand"
+    [ngClass]="brandClasses"
+  >
+    <!--begin::Logo-->
+    <a routerLink="/" class="brand-logo">
+      <img
+        alt="Logo"
+        src="./assets/media/logos/logo-letter-2.png"
+        class="max-h-30px"
+      />
+    </a>
+    <!--end::Logo-->
+  </div>
+  <!--begin::Nav Wrapper-->
+  <div
+    class="aside-nav d-flex flex-column align-items-center flex-column-fluid py-5 scroll scroll-pull"
+  >
+    <!--begin::Nav-->
+    <!--begin::Nav-->
+    <ul class="nav flex-column" role="tablist">
+      <!--begin::Item-->
+      <li
+        class="nav-item mb-3"
+        placement="right"
+        ngbTooltip="Latest project"
+        container="body"
+      >
+        <a
+          class="nav-link btn btn-icon btn-clean btn-lg"
+          data-toggle="tab"
+          [ngClass]="{ active: activeTabId === TABS[1] }"
+          (click)="setTab(TABS[1])"
+          data-target="#kt_aside_tab_1"
+          role="tab"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/General/Search.svg'"
+            cacheSVG="true"
+            class="svg-icon svg-icon-xl"
+          ></span>
+        </a>
+      </li>
+      <!--end::Item-->
+      <!--begin::Item-->
+      <li
+        class="nav-item mb-3"
+        placement="right"
+        ngbTooltip="Metronic Features"
+        container="body"
+      >
+        <a
+          class="nav-link btn btn-icon btn-clean btn-lg"
+          [ngClass]="{ active: activeTabId === TABS[2] }"
+          (click)="setTab(TABS[2])"
+          data-toggle="tab"
+          data-target="#kt_aside_tab_2"
+          role="tab"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Communication/Group.svg'"
+            cacheSVG="true"
+            class="svg-icon svg-icon-xl"
+          ></span>
+        </a>
+      </li>
+      <!--end::Item-->
+      <!--begin::Item-->
+      <li
+        class="nav-item mb-3"
+        placement="right"
+        ngbTooltip="Latest Reports"
+        ngbTooltipClass="tooltip"
+        container="body"
+      >
+        <a
+          class="nav-link btn btn-icon btn-clean btn-lg"
+          [ngClass]="{ active: activeTabId === TABS[3] }"
+          data-toggle="tab"
+          data-target="#kt_aside_tab_3"
+          role="tab"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Media/Equalizer.svg'"
+            cacheSVG="true"
+            class="svg-icon svg-icon-xl"
+          ></span>
+        </a>
+      </li>
+      <!--end::Item--
+      <!--begin::Item-->
+      <li
+        class="nav-item mb-3"
+        placement="right"
+        ngbTooltip="Latest Reports"
+        ngbTooltipClass="tooltip"
+        container="body"
+      >
+        <a
+          class="nav-link btn btn-icon btn-clean btn-lg"
+          [ngClass]="{ active: activeTabId === TABS[4] }"
+          data-toggle="tab"
+          data-target="#kt_aside_tab_4"
+          role="tab"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/General/Shield-check.svg'"
+            cacheSVG="true"
+            class="svg-icon svg-icon-xl"
+          ></span>
+        </a>
+      </li>
+      <!--end::Item-->
+      <!--begin::Item-->
+      <li
+        class="nav-item mb-3"
+        data-toggle="tooltip"
+        data-placement="right"
+        data-container="body"
+        data-boundary="window"
+        title="User Management"
+        container="body"
+      >
+        <a
+          class="nav-link btn btn-icon btn-clean btn-lg"
+          data-toggle="tab"
+          data-target="#kt_aside_tab_5"
+          [ngClass]="{ active: activeTabId === TABS[5] }"
+          role="tab"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Home/Library.svg'"
+            cacheSVG="true"
+            class="svg-icon svg-icon-xl"
+          ></span>
+        </a>
+      </li>
+      <!--end::Item-->
+      <!--begin::Item-->
+      <li
+        class="nav-item mb-3"
+        data-toggle="tooltip"
+        data-placement="right"
+        data-container="body"
+        data-boundary="window"
+        title="Finance & Accounting"
+        container="body"
+      >
+        <a
+          class="nav-link btn btn-icon btn-clean btn-lg"
+          [ngClass]="{ active: activeTabId === TABS[6] }"
+          data-toggle="tab"
+          data-target="#kt_aside_tab_6"
+          role="tab"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Files/File-plus.svg'"
+            cacheSVG="true"
+            class="svg-icon svg-icon-xl"
+          ></span>
+        </a>
+      </li>
+      <!--end::Item-->
+    </ul>
+    <!--begin::Item-->
+    <!--end::Nav-->
+  </div>
+  <!--end::Nav Wrapper-->
+  <!--begin::Footer -->
+  <app-topbar
+    class="aside-footer d-flex flex-column align-items-center flex-column-auto py-4 py-lg-10"
+  ></app-topbar>
+  <!--end::Footer-->
+  <!--end::Primary-->
+</div>
+<ng-container *ngIf="disableAsideSecondaryDisplay">
+  <!--begin::Secondary-->
+  <div class="aside-secondary d-flex flex-row-fluid">
+    <!--begin::Workspace-->
+    <div class="aside-workspace scroll scroll-push my-2">
+      <!--begin::Tab Content-->
+      <div class="tab-content">
+        <!--begin::Tab Pane-->
+        <div
+          class="tab-pane p-3 px-lg-7 py-lg-5 fade"
+          [ngClass]="{ 'show active': activeTabId === TABS[1] }"
+          id="kt_aside_tab_1"
+        >
+          <app-aside-search></app-aside-search>
+        </div>
+        <!--end::Tab Pane-->
+        <!--begin::Tab Pane-->
+        <div
+          class="tab-pane fade"
+          id="kt_aside_tab_2"
+          [ngClass]="{ 'show active': activeTabId === TABS[2] }"
+        >
+          <ng-container *ngIf="asideMenuStatic">
+            <!--begin::STATIC Aside-->
+            <app-aside-static
+              class="aside-menu-wrapper flex-column-fluid"
+              id="kt_aside_menu_wrapper"
+            ></app-aside-static>
+            <!--end::STATIC Aside-->
+          </ng-container>
+          <ng-container *ngIf="!asideMenuStatic">
+            <!--begin::DYNAMIC Aside-->
+            <app-aside-dynamic
+              class="aside-menu-wrapper flex-column-fluid"
+              id="kt_aside_menu_wrapper"
+            ></app-aside-dynamic>
+            <!--end::DYNAMIC Aside-->
+          </ng-container>
+        </div>
+        <!--end::Tab Pane-->
+      </div>
+    </div>
+  </div>
+</ng-container>

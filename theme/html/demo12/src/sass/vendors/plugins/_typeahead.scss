@@ -1,0 +1,50 @@
+//
+// Typeahead
+//
+
+
+// Base
+.typeahead {
+    .form-control {
+        &.tt-hint {
+            color: $input-placeholder-color;
+        }
+
+        &.tt-input {
+            color: $input-plaintext-color;
+        }
+    }
+
+    .twitter-typeahead {
+        display: block !important;
+    }
+
+    .tt-menu {
+        border: 0;
+        margin: 0;
+        min-width: 275px;
+        padding: $input-btn-padding-y 0;
+        left: auto #{'/*rtl:ignore*/'}!important;
+        background: $white;
+        box-shadow: $dropdown-box-shadow;
+        @include border-radius($border-radius);
+
+        .tt-dataset {
+            .tt-suggestion {
+                padding: $input-btn-padding-y $input-btn-padding-x;
+                font-size: 1rem;
+                color: $dark-75;
+                cursor: pointer;
+
+                .tt-highlight {
+                    color: $dark-75;
+                    font-weight: 500;
+                }
+
+                &:hover {
+                    background: $gray-100;
+                }
+            }
+        }
+    }
+}

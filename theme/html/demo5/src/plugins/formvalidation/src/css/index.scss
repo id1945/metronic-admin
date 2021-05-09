@@ -1,0 +1,30 @@
+/**
+ * FormValidation (https://formvalidation.io)
+ * The best validation library for JavaScript
+ * (c) 2013 - 2020 Nguyen Huu Phuoc <me@phuoc.ng>
+ */
+
+@import 'core';
+
+// Core plugins
+@import 'plugins/framework';
+@import 'plugins/icon';
+@import 'plugins/tooltip';
+
+// External plugins
+@import 'plugins/bootstrap';
+@import 'plugins/bootstrap3';
+@import 'plugins/bulma';
+@import 'plugins/foundation';
+@import 'plugins/materialize';
+@import 'plugins/milligram';
+@import 'plugins/mini';
+@import 'plugins/mui';
+@import 'plugins/pure';
+@import 'plugins/semantic';
+@import 'plugins/shoelace';
+@import 'plugins/spectre';
+@import 'plugins/tachyons';
+@import 'plugins/turret';
+@import 'plugins/uikit';
+@import 'plugins/wizard';

@@ -1,0 +1,68 @@
+<!--begin::Container-->
+<div
+  [ngClass]="headerContainerCSSClasses"
+  class="d-flex align-items-stretch justify-content-between"
+>
+  <ng-container *ngIf="loader$ | async as _loader">
+    <ngb-progressbar
+      class="loading-bar"
+      height="3px"
+      [value]="_loader"
+    ></ngb-progressbar>
+  </ng-container>
+
+  <!--begin::Left-->
+  <div class="d-flex align-items-stretch mr-3">
+    <!--begin::Header Logo-->
+    <div class="header-logo">
+      <a routerLink="/">
+        <img
+          alt="Logo"
+          src="./assets/media/logos/logo-letter-9.png"
+          class="logo-default max-h-40px"
+        />
+        <img
+          alt="Logo"
+          src="./assets/media/logos/logo-letter-1.png"
+          class="logo-sticky max-h-40px"
+        />
+      </a>
+    </div>
+    <!--end::Header Logo-->
+    <ng-container *ngIf="headerMenuSelfDisplay">
+      <!--begin::Header Menu Wrapper-->
+      <div
+        class="header-menu-wrapper header-menu-wrapper-left"
+        id="kt_header_menu_wrapper"
+      >
+        <!--begin::Header Menu-->
+        <!-- Don't change id => 'kt_header_menu' -->
+        <ng-container *ngIf="headerMenuSelfStatic">
+          <!-- STATIC MENU -->
+          <app-header-menu
+            #ktHeaderMenu
+            id="kt_header_menu"
+            class="header-menu header-menu-left header-menu-mobile"
+            [ngClass]="headerMenuCSSClasses"
+          ></app-header-menu>
+        </ng-container>
+        <ng-container *ngIf="!headerMenuSelfStatic">
+          <!-- DYNAMIC MENU -->
+          <app-header-menu-dynamic
+            #ktHeaderMenu
+            id="kt_header_menu"
+            class="header-menu header-menu-left header-menu-mobile"
+            [ngClass]="headerMenuCSSClasses"
+          ></app-header-menu-dynamic>
+        </ng-container>
+        <!--end::Header Menu-->
+      </div>
+      <!--end::Header Menu Wrapper-->
+    </ng-container>
+  </div>
+  <!--end::Left-->
+  <!--begin::Topbar-->
+  <app-topbar class="topbar"></app-topbar>
+  <!--end::Topbar-->
+</div>
+<!--end::Container-->

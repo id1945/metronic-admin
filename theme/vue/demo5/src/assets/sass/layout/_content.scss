@@ -1,0 +1,49 @@
+//
+// Content
+//
+
+// Dashboard Tabs
+.dashboard-tabs {
+	.nav-link {
+		.nav-icon {
+			.svg-icon {
+				@include svg-icon-color(#D2C9C5);
+			}
+		}
+
+		.nav-text {
+			color: $text-muted;
+		}
+
+		&.active {
+			.nav-icon {
+				.svg-icon {
+					@include svg-icon-color(theme-inverse-color(primary));
+				}
+			}
+
+			.nav-text {
+				color: theme-inverse-color(primary);
+			}
+		}
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.content {
+		padding: get($page-spacers, y, desktop) 0;
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.content {
+		padding: get($page-spacers, y, tablet-and-mobile) 0;
+
+		// Subheader Enabled & Subheader Transparent Modes
+		.subheader-enabled.subheader-transparent & {
+			padding-top: 0;
+		}
+	}
+}

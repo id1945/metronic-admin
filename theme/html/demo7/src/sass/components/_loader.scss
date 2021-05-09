@@ -1,0 +1,49 @@
+//
+// Loader
+//
+
+// Base
+.loader {
+	display: inline-block;
+	margin: 0 auto;
+	border-radius: 100%;
+	background-color: $gray-100;
+	opacity: 0;
+	animation: animation-loader 0.9s infinite ease-in-out;
+	width: get($loader-config, size);
+	height: get($loader-config, size);
+
+	.btn & {
+		position: relative;
+		line-height: 0;
+	}
+
+	&.loader-lg {
+		width: get($loader-config, width-lg);
+	    height: get($loader-config, width-lg);
+	}
+
+	&.loader-sm {
+		width: get($loader-config, width-sm);
+	    height: get($loader-config, width-sm);
+	}
+
+	// Colors
+	@each $name, $color in $theme-colors {
+        &.loader-#{$name} {
+            background-color: $color;
+        }
+    }
+}
+
+// Spinner animation
+@keyframes animation-loader {
+	0% {
+		opacity: 0.3;
+		transform: scale(0);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1.0);
+	}
+}

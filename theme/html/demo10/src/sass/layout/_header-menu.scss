@@ -1,0 +1,136 @@
+//
+// Header Menu
+//
+
+// Desktop Mode
+@include menu-hor-build-layout(get($header-menu-config, desktop));
+@include menu-hor-build-theme(get($header-menu-config, desktop), default);
+
+// Tablet & Mobile Mode
+@include menu-ver-build-layout(get($header-menu-config, tablet-and-mobile));
+@include menu-ver-build-theme(get($header-menu-config, tablet-and-mobile), default);
+
+// Header Menu Mobile Offcanvas
+@include offcanvas-build(header-menu-wrapper, tablet-and-mobile, get($header-menu-config, offcanvas-mobile));
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Header Menu
+	.header-menu {
+		// Header Nav
+		.menu-nav {
+			> .menu-item {
+				&:first-child {
+					padding-left: 0;
+				}
+
+				> .menu-link {
+					@include border-radius(3rem);
+					padding: 0.75rem 1.25rem;
+					transition: none;
+
+					.menu-text {
+						font-size: 1.1rem;
+						color: $dark-75;
+						font-weight: 500;
+					}
+
+					.menu-arrow {
+						color: $gray-400;
+					}
+
+					.menu-icon {
+						i {
+							color: $gray-400;
+						}
+
+						.svg-icon {
+							@include svg-icon-color($gray-400);
+						}
+					}
+				}
+
+				// Hover States
+				&:hover:not(.menu-item-here):not(.menu-item-active),
+				&.menu-item-hover:not(.menu-item-here):not(.menu-item-active) {
+					> .menu-link {
+						transition: none;
+
+						.menu-text {
+							color: $danger;
+						}
+
+						.menu-arrow {
+							color: $danger;
+						}
+
+						.menu-icon {
+							i {
+								color: $danger;
+							}
+
+							.svg-icon {
+								@include svg-icon-color($danger);
+							}
+						}
+					}
+				}
+
+				// Active State
+				&.menu-item-here,
+				&.menu-item-active {
+					> .menu-link {
+						transition: none;
+						background-color: $danger;
+
+						.menu-text {
+							color: $danger-inverse;
+						}
+
+						.menu-arrow {
+							color: $danger-inverse;
+						}
+
+						.menu-icon {
+							i {
+								color: $danger-inverse;
+							}
+
+							.svg-icon {
+								@include svg-icon-color($danger-inverse);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Above 992px and below 1400px breakpoints
+@include media-breakpoint-between(lg, xl) {
+	// Header Menu
+	.header-menu {
+		// Header Nav
+		.menu-nav {
+			> .menu-item {
+				&:first-child {
+					padding-left: 0;
+				}
+
+				> .menu-link {
+					padding-left: 0.75rem;
+					padding-right: 0.75rem;
+				}
+			}
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Header Wrapper
+	.header-menu-wrapper {
+		overflow: auto;
+	}
+}

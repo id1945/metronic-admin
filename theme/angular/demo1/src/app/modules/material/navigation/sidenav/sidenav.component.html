@@ -1,0 +1,105 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/sidenav/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicSidenav">
+      <div class="example-preview">
+        <p>
+          Angular Material provides two sets of components designed to add
+          collapsible side content (often navigation, though it can be any
+          content) alongside some primary content. These are the sidenav and
+          drawer components.
+        </p>
+        <p>
+          The sidenav components are designed to add side content to a
+          fullscreen app. To set up a sidenav we use three components:
+          <code>&lt;mat-sidenav-container&gt;</code> which acts as a structural
+          container for our content and sidenav,
+          <code>&lt;mat-sidenav-content&gt;</code> which represents the main
+          content, and <code>&lt;mat-sidenav&gt;</code> which represents the
+          added side content.
+        </p>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-sidenav-container class="example-container" *ngIf="shouldRun">
+            <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+            <mat-sidenav-content>Main content</mat-sidenav-content>
+          </mat-sidenav-container>
+
+          <div>
+            <a
+              href="https://stackblitz.com/angular/vqvkrekvgga"
+              target="_blank"
+            >
+              Please open on Stackblitz to see result
+            </a>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleAutosizeSidenav">
+      <div class="example-preview">
+        <p>
+          By default, Material will only measure and resize the drawer container
+          in a few key moments (on open, on window resize, on mode change) in
+          order to avoid layout thrashing, however there are cases where this
+          can be problematic. If your app requires for a drawer to change its
+          width while it is open, you can use the
+          <mark>autosize</mark> option to tell Material to continue measuring
+          it. Note that you should use this option <b>at your own risk</b>,
+          because it could cause performance issues.
+        </p>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-drawer-container class="example-container" autosize>
+            <mat-drawer #drawer class="example-sidenav" mode="side">
+              <p>Auto-resizing sidenav</p>
+              <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+              <button (click)="showFiller = !showFiller" mat-raised-button>
+                Toggle extra text
+              </button>
+            </mat-drawer>
+
+            <div class="example-sidenav-content">
+              <button type="button" mat-button (click)="drawer.toggle()">
+                Toggle sidenav
+              </button>
+            </div>
+          </mat-drawer-container>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicDrawer">
+      <div class="example-preview">
+        <p>
+          The drawer component is designed to add side content to a small
+          section of your app. This is accomplished using the
+          <code>&lt;mat-drawer-container&gt;</code>,
+          <code>&lt;mat-drawer-content&gt;</code>, and
+          <code>&lt;mat-drawer&gt;</code> components, which are analogous to
+          their sidenav equivalents. Rather than adding side content to the app
+          as a whole, these are designed to add side content to a small section
+          of your app. They support almost all of the same features, but do not
+          support fixed positioning.
+        </p>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-drawer-container class="example-container">
+            <mat-drawer mode="side" opened="true">Drawer content</mat-drawer>
+            <mat-drawer-content>Main content</mat-drawer-content>
+          </mat-drawer-container>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

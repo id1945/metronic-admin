@@ -1,0 +1,70 @@
+//
+// Header Mobile
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.header-mobile {
+		display: none;
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.header-mobile {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 get($page-padding, tablet-and-mobile);
+		box-shadow: get($header-config, tablet-and-mobile, shadow);
+		height: get($header-config, tablet-and-mobile, height);
+		min-height: get($header-config, tablet-and-mobile, height);
+		position: relative;
+		background-color: get($header-config, tablet-and-mobile, bg-color);
+		z-index: 3;
+
+		// Fixed Mobile Header Mode
+		.header-mobile-fixed & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, tablet-and-mobile, zindex);
+		}
+
+		// Topbar Shown Mode
+		.topbar-mobile-on & {
+			box-shadow: none;
+		}
+
+		// Burger Icon
+		.burger-icon {
+			@include burger-icon-theme(rgba($white, 0.75), $white, $white);
+		}
+
+		// Button
+		.btn {
+			i {
+				color: rgba($white, 0.75);
+			}
+
+			.svg-icon {
+				@include svg-icon-color(rgba($white, 0.75));
+			}
+		}
+
+		// Hover, Active, Focus & Dropdown Show States
+		.btn.active,
+		.btn:focus,
+		.btn:hover,
+		.show .btn {
+			i {
+				color: $white;
+			}
+
+			.svg-icon {
+				@include svg-icon-color($white);
+			}
+		}
+	}
+}

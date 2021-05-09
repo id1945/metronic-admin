@@ -1,0 +1,197 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/progressbar/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleContextualProgressBars">
+      <div class="example-preview">
+        <div>
+          <p>
+            <ngb-progressbar type="success" [value]="25"></ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar type="info" [value]="50"></ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar type="warning" [value]="75"></ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar type="danger" [value]="100"></ngb-progressbar>
+          </p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleProgressBarsWithCurrentValueLabels">
+      <div class="example-preview">
+        <div>
+          <p>
+            <ngb-progressbar
+              showValue="true"
+              type="success"
+              [value]="25"
+              [max]="100"
+            ></ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar
+              [showValue]="true"
+              type="info"
+              [value]="50"
+              [max]="100"
+            ></ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar
+              showValue="true"
+              type="warning"
+              [value]="150"
+              [max]="200"
+            ></ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar
+              [showValue]="true"
+              type="danger"
+              [value]="150"
+              [max]="150"
+            ></ngb-progressbar>
+          </p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleStripedProgressBars">
+      <div class="example-preview">
+        <div>
+          <p>
+            <ngb-progressbar
+              type="success"
+              [value]="25"
+              [striped]="true"
+            ></ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar
+              type="info"
+              [value]="50"
+              [striped]="true"
+            ></ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar
+              type="warning"
+              [value]="75"
+              [striped]="true"
+            ></ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar
+              type="danger"
+              [value]="100"
+              [striped]="true"
+            ></ngb-progressbar>
+          </p>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleProgressBarsWithCustomLabels">
+      <div class="example-preview">
+        <div>
+          <p>
+            <ngb-progressbar type="success" [value]="25">25</ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar type="info" [value]="50"
+              >Copying file <b>2 of 4</b>...
+            </ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar
+              type="warning"
+              [value]="75"
+              [striped]="true"
+              [animated]="true"
+            >
+              <i>50%</i>
+            </ngb-progressbar>
+          </p>
+          <p>
+            <ngb-progressbar type="danger" [value]="100" [striped]="true"
+              >Completed!</ngb-progressbar
+            >
+          </p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleProgressBarsWithHeight">
+      <div class="example-preview">
+        <div>
+          <p>
+            <ngb-progressbar type="success" [value]="25"
+              >default</ngb-progressbar
+            >
+          </p>
+          <p>
+            <ngb-progressbar type="info" [value]="50" height="10px"
+              >10px</ngb-progressbar
+            >
+          </p>
+          <p>
+            <ngb-progressbar type="warning" [value]="75" height=".5rem"
+              >.5rem</ngb-progressbar
+            >
+          </p>
+          <p>
+            <ngb-progressbar type="danger" [value]="100" [height]="height">{{
+              height
+            }}</ngb-progressbar>
+          </p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleGlobalConfigurationOfProgressBars">
+      <p>This progress bar uses the customized default values.</p>
+      <div class="example-preview">
+        <p>
+          <ngb-progressbar
+            value="250"
+            max="1000"
+            striped="true"
+            animated="true"
+            height="20px"
+            type="success"
+          ></ngb-progressbar>
+        </p>
+      </div>
+
+      <p class="mt-6">
+        This progress bar uses the customized default values, but changes the
+        type using an input.
+      </p>
+      <div class="example-preview">
+        <p>
+          <ngb-progressbar
+            value="500"
+            max="1000"
+            striped="true"
+            animated="true"
+            height="20px"
+            type="info"
+          ></ngb-progressbar>
+        </p>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

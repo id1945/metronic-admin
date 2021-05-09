@@ -1,0 +1,1658 @@
+<!--begin::Brand-->
+<div class="brand flex-column-auto" id="kt_brand" [ngClass]="brandClasses">
+  <!--begin::Logo-->
+  <a routerLink="/" class="brand-logo">
+    <img alt="Logo" [attr.src]="headerLogo" />
+  </a>
+  <!--end::Logo-->
+
+  <ng-container *ngIf="asideSelfMinimizeToggle">
+    <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
+      <span
+        [inlineSVG]="
+          './assets/media/svg/icons/Navigation/Angle-double-left.svg'
+        "
+        cacheSVG="true"
+        class="svg-icon svg-icon-xl"
+      ></span>
+    </button>
+  </ng-container>
+</div>
+<!--end::Brand-->
+
+<!--begin::Aside Menu-->
+<div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
+  <ng-container *ngIf="disableAsideSelfDisplay">
+    <!--begin::Header Logo-->
+    <a routerLink="/">
+      <img alt="Logo" [attr.src]="headerLogo" />
+    </a>
+    <!--end::Header Logo-->
+  </ng-container>
+  <!--begin::Menu Container-->
+  <div
+    id="kt_aside_menu"
+    class="aside-menu"
+    [ngClass]="asideMenuCSSClasses"
+    data-menu-vertical="1"
+    [attr.data-menu-scroll]="asideMenuScroll"
+    [attr.data-menu-dropdown]="asideMenuDropdown"
+    data-menu-dropdown-timeout="500"
+  >
+    <!-- begin::Menu Nav -->
+    <ul class="menu-nav" [ngClass]="ulCSSClasses">
+      <!-- begin::1 Level -->
+      <li
+        class="menu-item"
+        aria-haspopup="true"
+        routerLinkActive="menu-item-active"
+      >
+        <a class="menu-link" routerLink="/dashboard" routerLinkActive="active">
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'"
+            cacheSVG="true"
+            class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text" translate="MENU.DASHBOARD"></span>
+        </a>
+      </li>
+      <!-- end::1 Level -->
+
+      <!-- begin::1 Level -->
+      <li
+        class="menu-item"
+        aria-haspopup="true"
+        routerLinkActive="menu-item-active"
+      >
+        <a class="menu-link" routerLink="/builder" routerLinkActive="active">
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Home/Library.svg'"
+            cacheSVG="true"
+            class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text">Layout Builder</span>
+        </a>
+      </li>
+      <!-- end::1 Level -->
+
+      <!-- Components -->
+      <!-- begin::section -->
+      <li class="menu-section">
+        <h4 class="menu-text">Components</h4>
+        <i class="menu-icon flaticon-more-v2"></i>
+      </li>
+      <!-- end:: section -->
+
+      <!-- Material-UI -->
+      <!-- begin::1 Level -->
+      <li
+        class="menu-item menu-item-submenu"
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        routerLinkActive="menu-item-open"
+      >
+        <a
+          class="menu-link menu-toggle"
+          href="/material"
+          routerLinkActive="active"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Design/Cap-2.svg'"
+            cacheSVG="true"
+            class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text">Material UI</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="menu-submenu">
+          <i class="menu-arrow"></i>
+          <ul class="menu-subnav">
+            <li class="menu-item menu-item-parent" aria-haspopup="true">
+              <span class="menu-link">
+                <span class="menu-text">Material UI</span>
+              </span>
+            </li>
+
+            <!-- Form Controls -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item menu-item-submenu"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+              routerLinkActive="menu-item-open"
+            >
+              <a
+                class="menu-link menu-toggle"
+                href="/material/form-controls"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Form Controls</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="menu-submenu">
+                <i class="menu-arrow"></i>
+                <ul class="menu-subnav">
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    aria-haspopup="true"
+                    routerLinkActive="menu-item-active"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/form-controls/autocomplete"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Auto Complete</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    aria-haspopup="true"
+                    routerLinkActive="menu-item-active"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/form-controls/checkbox"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Checkbox</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    aria-haspopup="true"
+                    routerLinkActive="menu-item-active"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/form-controls/radiobutton"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Radio Button</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/form-controls/datepicker"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Datepicker</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="material/form-controls/formfield"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Form Field</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/form-controls/input"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Input</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/form-controls/select"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Select</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/form-controls/slider"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Slider</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/form-controls/slidertoggle"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Slider Toggle</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                </ul>
+              </div>
+            </li>
+            <!-- end::2 Level -->
+            <!-- Navigation -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item menu-item-submenu"
+              routerLinkActive="menu-item-open"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link menu-toggle"
+                routerLinkActive="active"
+                href="/material/navigation"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Navigation</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="menu-submenu">
+                <i class="menu-arrow"></i>
+                <ul class="menu-subnav">
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/navigation/menu"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Menu</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/navigation/sidenav"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Sidenav</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/navigation/toolbar"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Toolbar</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                </ul>
+              </div>
+            </li>
+            <!-- end::2 Level -->
+            <!-- Layout -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item menu-item-submenu"
+              routerLinkActive="menu-item-open"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link menu-toggle"
+                href="/material/layout"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Layout</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="menu-submenu">
+                <i class="menu-arrow"></i>
+                <ul class="menu-subnav">
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/layout/card"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Card</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/layout/divider"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Divider</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/layout/expansion-panel"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Expansion panel</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/layout/grid-list"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Grid list</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/layout/list"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">List</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/layout/tabs"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Tabs</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/layout/stepper"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Stepper</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/layout/tree"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Tree</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                </ul>
+              </div>
+            </li>
+            <!-- end::2 Level -->
+            <!-- Buttons and Indicators -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item menu-item-submenu"
+              routerLinkActive="menu-item-open"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link menu-toggle"
+                routerLinkActive="active"
+                href="/material/buttons-and-indicators"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Buttons and Indicators</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="menu-submenu">
+                <i class="menu-arrow"></i>
+                <ul class="menu-subnav">
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/buttons-and-indicators/button"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Button</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/buttons-and-indicators/button-toggle"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Button toggle</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level --><!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/buttons-and-indicators/chips"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Chips</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/buttons-and-indicators/icon"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Icon</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/buttons-and-indicators/progress-bar"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Progress bar</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/buttons-and-indicators/progress-spinner"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Progress spinner</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/buttons-and-indicators/ripples"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Ripples</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                </ul>
+              </div>
+            </li>
+            <!-- end::2 Level -->
+
+            <!-- Popups and Modals -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item menu-item-submenu"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+              routerLinkActive="menu-item-open"
+            >
+              <a
+                class="menu-link menu-toggle"
+                routerLinkActive="active"
+                href="/material/bottom-sheet"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Popups and Modals</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="menu-submenu">
+                <i class="menu-arrow"></i>
+                <ul class="menu-subnav">
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/popups-and-modals/bottom-sheet"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Bottom sheet</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/popups-and-modals/dialog"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Dialog</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/popups-and-modals/snackbar"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Snackbar</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/popups-and-modals/tooltip"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Tooltip</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                </ul>
+              </div>
+            </li>
+            <!-- end::2 Level -->
+
+            <!-- Data table -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item menu-item-submenu"
+              routerLinkActive="menu-item-open"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link menu-toggle"
+                routerLinkActive="active"
+                href="/material/data-table"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Data table</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="menu-submenu">
+                <i class="menu-arrow"></i>
+                <ul class="menu-subnav">
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/data-table/paginator"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Paginator</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/data-table/sort-header"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Sort header</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                  <!-- begin::3 Level -->
+                  <li
+                    class="menu-item"
+                    routerLinkActive="menu-item-active"
+                    aria-haspopup="true"
+                  >
+                    <a
+                      class="menu-link"
+                      routerLink="/material/data-table/table"
+                      routerLinkActive="active"
+                    >
+                      <i class="menu-bullet menu-bullet-dot">
+                        <span></span>
+                      </i>
+                      <span class="menu-text">Table</span>
+                    </a>
+                  </li>
+                  <!-- end::3 Level -->
+                </ul>
+              </div>
+            </li>
+            <!-- end::2 Level -->
+          </ul>
+        </div>
+      </li>
+      <!-- end::1 Level -->
+
+      <!-- Ng-Bootstrap -->
+      <!-- begin::1 Level -->
+      <li
+        class="menu-item menu-item-submenu"
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        routerLinkActive="menu-item-open"
+      >
+        <a
+          class="menu-link menu-toggle"
+          href="/ngbootstrap"
+          routerLinkActive="active"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Shopping/Bitcoin.svg'"
+            cacheSVG="true"
+            class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text">NgBootstrap</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="menu-submenu">
+          <i class="menu-arrow"></i>
+          <ul class="menu-subnav">
+            <li class="menu-item menu-item-parent" aria-haspopup="true">
+              <span class="menu-link">
+                <span class="menu-text">NgBootstrap</span>
+              </span>
+            </li>
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/accordion"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Accordion</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/alert"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Alert</span>
+              </a>
+            </li>
+            <!-- end::2 Level --
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/buttons"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Buttons</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/carousel"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Carousel</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/collapse"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Collapse</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/datepicker"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Datepicker</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/dropdown"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Dropdown</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/modal"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Modal</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/pagination"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Pagination</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/popover"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Popover</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/progressbar"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Progressbar</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/rating"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Rating</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/timepicker"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Timepicker</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/tooltip"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Tooltips</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ngbootstrap/typehead"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Typehead</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+          </ul>
+        </div>
+      </li>
+      <!-- end::1 Level -->
+
+      <!-- Applications -->
+      <!-- begin::section -->
+      <li class="menu-section">
+        <h4 class="menu-text">Applications</h4>
+        <i class="menu-icon flaticon-more-v2"></i>
+      </li>
+      <!-- end:: section -->
+
+      <!-- ECommerce -->
+      <!-- begin::1 Level -->
+      <li
+        class="menu-item menu-item-submenu"
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        routerLinkActive="menu-item-open"
+      >
+        <a
+          class="menu-link menu-toggle"
+          routerLinkActive="active"
+          href="/ecommerce"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Shopping/Cart3.svg'"
+            cacheSVG="true"
+            class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text">eCommerce</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="menu-submenu">
+          <i class="menu-arrow"></i>
+          <ul class="menu-subnav">
+            <!-- <li class="menu-item" aria-haspopup="true">
+              <span class="menu-link">
+                <span class="menu-text">eCommerce</span>
+              </span>
+            </li> -->
+
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+              routerLinkActive="menu-item-active"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ecommerce/customers"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Customers</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+              routerLinkActive="menu-item-active"
+            >
+              <a
+                class="menu-link"
+                routerLink="/ecommerce/products"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Products</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+          </ul>
+        </div>
+      </li>
+      <!-- end::1 Level -->
+
+      <!-- User Management -->
+      <!-- begin::1 Level -->
+      <li
+        class="menu-item menu-item-submenu"
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        routerLinkActive="menu-item-open"
+      >
+        <a
+          class="menu-link menu-toggle"
+          routerLinkActive="active"
+          href="/user-management"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/General/User.svg'"
+            cacheSVG="true"
+            class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text">User Management</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="menu-submenu">
+          <i class="menu-arrow"></i>
+          <ul class="menu-subnav">
+            <!-- <li class="menu-item menu-item-parent" aria-haspopup="true">
+              <span class="menu-link">
+                <span class="menu-text">User Management</span>
+              </span>
+            </li> -->
+
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/user-management/users"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Users</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/user-management/roles"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Roles</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+          </ul>
+        </div>
+      </li>
+      <!-- end::1 Level -->
+
+      <!-- begin::1 Level -->
+      <li
+        class="menu-item"
+        aria-haspopup="true"
+        routerLinkActive="menu-item-active"
+      >
+        <a
+          class="menu-link"
+          routerLink="/user-profile"
+          routerLinkActive="active"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Communication/Add-user.svg'"
+            cacheSVG="true"
+            class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text">User Profile</span>
+        </a>
+      </li>
+      <!-- end::1 Level -->
+
+      <!-- Custom -->
+      <!-- begin::section -->
+      <li class="menu-section">
+        <h4 class="menu-text">Custom</h4>
+        <i class="menu-icon flaticon-more-v2"></i>
+      </li>
+      <!-- end:: section -->
+
+      <!-- Wizards -->
+      <!-- begin::1 Level -->
+      <li
+        class="menu-item menu-item-submenu"
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        routerLinkActive="menu-item-open"
+      >
+        <a
+          class="menu-link menu-toggle"
+          routerLinkActive="active"
+          href="/wizards"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Shopping/Box1.svg'"
+            cacheSVG="true"
+            class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text">Wizards</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="menu-submenu">
+          <i class="menu-arrow"></i>
+          <ul class="menu-subnav">
+            <li class="menu-item menu-item-parent" aria-haspopup="true">
+              <span class="menu-link">
+                <span class="menu-text">Wizards</span>
+              </span>
+            </li>
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/wizards/wizard-1"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Wizard 1</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/wizards/wizard-2"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Wizard 2</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/wizards/wizard-3"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Wizard 3</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/wizards/wizard-4"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Wizard 4</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+          </ul>
+        </div>
+      </li>
+      <!-- end::1 Level -->
+
+      <!-- Errors -->
+      <!-- begin::1 Level -->
+      <li
+        class="menu-item menu-item-submenu"
+        aria-haspopup="true"
+        data-menu-toggle="hover"
+        routerLinkActive="menu-item-open"
+      >
+        <a
+          class="menu-link menu-toggle"
+          routerLinkActive="active"
+          href="/error"
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Code/Warning-2.svg'"
+            cacheSVG="true"
+            class="svg-icon menu-icon"
+          ></span>
+          <span class="menu-text">Error Pages</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="menu-submenu">
+          <i class="menu-arrow"></i>
+          <ul class="menu-subnav">
+            <li class="menu-item menu-item-parent" aria-haspopup="true">
+              <span class="menu-link">
+                <span class="menu-text">Error Pages</span>
+              </span>
+            </li>
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/error/error-1"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Error 1</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/error/error-2"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Error 2</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/error/error-3"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Error 3</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/error/error-4"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Error 4</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/error/error-5"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Error 5</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+            <!-- begin::2 Level -->
+            <li
+              class="menu-item"
+              routerLinkActive="menu-item-active"
+              aria-haspopup="true"
+              data-menu-toggle="hover"
+            >
+              <a
+                class="menu-link"
+                routerLink="/error/error-6"
+                routerLinkActive="active"
+              >
+                <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+                </i>
+                <span class="menu-text">Error 6</span>
+              </a>
+            </li>
+            <!-- end::2 Level -->
+          </ul>
+        </div>
+      </li>
+      <!-- end::1 Level -->
+    </ul>
+    <!-- end::Menu Nav -->
+  </div>
+  <!--end::Menu Container-->
+</div>
+<!--end::Aside Menu-->

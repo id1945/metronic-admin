@@ -1,0 +1,148 @@
+//
+// Topbar
+//
+
+
+.topbar {
+	display: flex;
+	align-items: center;
+	padding: 0;
+
+	// Topbar Item
+	.topbar-item {
+		display: flex;
+		align-items: center;
+
+		// Button
+		.btn.btn-icon {
+			background-color: get($header-topbar-config, general, item, default, bg-color);
+
+			// Icons
+			i {
+				color: get($header-topbar-config, general, item, default, color);
+			}
+
+			// SVG Icons
+			.svg-icon {
+				@include svg-icon-color(get($header-topbar-config, general, item, default, color));
+			}
+
+			// Text
+			.text-dark-50 {
+				color: get($header-topbar-config, general, item, default, color) !important;
+			}
+
+			.text-muted {
+				color: get($header-topbar-config, general, item, default, color) !important;
+			}
+
+			// Symbol
+			.symbol {
+				.symbol-label {
+					transition: $transition;
+					background-color: get($header-topbar-config, general, item, default, bg-color);
+					color: get($header-topbar-config, general, item, default, color) !important;
+				}
+			}
+		}
+
+		// Hover, Active, Focus & Dropdown Show States
+		.btn.btn-icon.active,
+		.btn.btn-icon:focus,
+		.btn.btn-icon:hover,
+		.show .btn.btn-icon {
+			background-color: get($header-topbar-config, general, item, hover, bg-color) !important;
+
+			// Icons
+			i {
+				color: get($header-topbar-config, general, item, default, color);
+			}
+
+			// SVG Icons
+			.svg-icon {
+				@include svg-icon-color(get($header-topbar-config, general, item, default, color));
+			}
+
+			// Text
+			.text-dark-50 {
+				color:  get($header-topbar-config, general, item, default, color) !important;
+			}
+
+			.text-muted {
+				color: get($header-topbar-config, general, item, default, color) !important;
+			}
+
+			// Symbol
+			.symbol {
+				.symbol-label {
+					transition: $transition;
+					background-color: get($header-topbar-config, general, item, hover, bg-color) !important;
+				}
+			}
+		}
+
+		//Quick Search
+		.quick-search {
+			.quick-search-form {
+				.input-group {
+					background-color: get($header-topbar-config, general, item, default, bg-color) !important;
+
+					.input-group-text {
+						.svg-icon {
+							@include svg-icon-color(get($header-topbar-config, general, item, default, color));
+						}
+
+						.quick-search-close {
+							color: get($header-topbar-config, general, item, default, color);
+						}
+					}
+
+					.form-control {
+						color: get($header-topbar-config, general, item, default, color);
+
+						&:active,
+						&.active,
+						&:focus,
+						&.focus {
+							color: get($header-topbar-config, general, item, default, color);
+						}
+					}
+
+					.input-group-append.spinner {
+						@include spinner-theme(get($header-topbar-config, general, item, default, color));
+					}
+				}
+			}
+		}
+	}
+
+	// Topbar Dropdown
+	.dropdown {
+		display: flex;
+		align-items: center;
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.topbar {
+		position: relative;
+		display: flex;
+		justify-content: flex-end;
+		padding: 0 get($container-padding, tablet-and-mobile);
+		height: get($header-topbar-config, tablet-and-mobile, height);
+		box-shadow: get($header-topbar-config, tablet-and-mobile, shadow);
+		background-color: get($header-topbar-config, tablet-and-mobile, bg-color);
+		transition: margin-top get($header-topbar-config, tablet-and-mobile, transition);
+		margin-top: -(get($header-topbar-config, tablet-and-mobile, height));
+		z-index: 2;
+		opacity: 0;
+
+		// Topbar On Mode
+		.topbar-mobile-on & {
+			margin-top: 0;
+			opacity: 1;
+			transition: margin-top get($header-topbar-config, tablet-and-mobile, transition), opacity get($header-topbar-config, tablet-and-mobile, transition);
+		}
+	}
+}

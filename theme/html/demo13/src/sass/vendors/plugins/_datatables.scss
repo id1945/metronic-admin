@@ -1,0 +1,431 @@
+//
+// DataTables
+//
+
+// Variables
+$dt-page-size: 2.25rem;
+
+$dt-page-bg: $gray-100;
+$dt-page-color: $dark-50;
+
+$dt-page-bg-hover: $primary;
+$dt-page-color-hover: $white;
+
+$dt-page-bg-active: $primary;
+$dt-page-color-active: $white;
+
+// Base wrapper
+.dataTables_wrapper {
+    padding: 0 !important;
+
+    .DTFC_LeftWrapper, .DTFC_RightWrapper {
+        .dataTable {
+            margin-top: 0 !important;
+        }
+    }
+
+    // Table
+    .dataTable {
+        width: 100% !important;
+        border-collapse: initial !important;
+        border-spacing: 0 !important;
+        //margin: 1rem 0 !important;
+
+        @include border-radius($border-radius);
+
+        // General
+        th, td {
+            font-weight: 400;
+            font-size: 1rem;
+            vertical-align: middle;
+            color: $dark-75;
+            transition: $transition-link;
+            outline: none !important;
+            padding: 1rem 1rem;
+
+            // Row checkbox
+            .checkbox {
+                margin: 0;
+                right: -2px;
+            }
+
+            // Cell alignments
+            &.dt-center {
+                text-align: center;
+            }
+
+            &.dt-left {
+                text-align: left;
+            }
+
+            &.dt-right {
+                text-align: right;
+            }
+
+            // Sorting
+            &.sorting {
+                &:before,
+                &:after {
+                    opacity: 0.6;
+                }
+            }
+
+            &.sorting_desc,
+            &.orting_asc_disabled,
+            &.orting_desc_disabled,
+            &.sorting_asc,
+            &.sorting {
+                &:before,
+                &:after {
+                    top: 50% !important;
+                    margin-top: -0.75rem;
+                    bottom: auto !important;
+                }
+            }
+
+            &.sorting_asc {
+                color: $primary !important;
+
+                &:before {
+                    opacity: 1;
+                    color: $primary !important;
+                }
+            }
+
+            &.sorting_desc {
+                color: $primary !important;
+
+                &:after {
+                    opacity: 1;
+                    color: $primary !important;
+                }
+            }
+        }
+
+        // Head
+        tfoot,
+        thead {
+            th {
+                font-weight: 500;
+                color: $dark;
+            }
+        }
+
+        thead {
+            th {
+                border-top: 0;
+            }
+        }
+
+        // Row selected
+        tbody {
+            tr.active,
+            tr.selected {
+                background-color: $gray-200;
+
+                th, td {
+                    background-color: $gray-200;
+                    border-left-color: $gray-200;
+                    border-right-color: $gray-200;
+                    color: $dark-75;
+                }
+            }
+        }
+
+        // Group
+        .group {
+            th, td {
+                background-color: $gray-100;
+            }
+        }
+
+        // Filter
+        .filter {
+             th, td {
+                vertical-align: top;
+
+                .input-group + .input-group {
+                    margin-top: 0.5rem;
+                }
+
+                .btn + .btn {
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+
+        // Group
+        .group {
+            th, td {
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    // Scrollable
+    .dataTables_scroll {
+        margin: 1rem 0 !important;
+
+        .dataTable {
+            margin: 0 !important;
+        }
+    }
+
+    // Pagination
+    .dataTables_paginate {
+        .pagination {
+            margin: 0;
+
+            .page-item {
+                margin-left: 0.4rem;
+
+                > .page-link {
+                    outline: none !important;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: $dt-page-size;
+                    min-width: $dt-page-size;
+                    padding: 0.5rem;
+                    text-align: center;
+                    position: relative;
+                    font-size: 1rem;
+                    line-height: 1rem;
+                    font-weight: 500;
+                    @include border-radius($border-radius);
+                    border: 0;
+                    transition: $transition-link;
+                    color: $dt-page-color;
+                    background-color: transparent;
+
+                    > i {
+                        transition: $transition-link;
+                        font-size: 0.7rem;
+                        text-align: center;
+                        display: inline-block;
+                        color: $dt-page-color;
+                    }
+                }
+
+                &.previous,
+                &.next,
+                &.last,
+                &.first {
+                    > .page-link {
+                        transition: $transition-link;
+                        background-color: $dt-page-bg;
+                        color: $dt-page-color;
+
+                        &:hover {
+                            transition: $transition-link;
+                            background-color: $dt-page-bg-hover;
+                            color: $dt-page-color-hover;
+
+                            > i {
+                                transition: $transition-link;
+                                color: $dt-page-color-hover;
+                            }
+                        }
+                    }
+                }
+
+                &.active {
+                    > .page-link {
+                        transition: $transition-link;
+                        background-color: $dt-page-bg-active;
+                        color: $dt-page-color-active;
+
+                        > i {
+                            transition: $transition-link;
+                            color: $dt-page-color-active;
+                        }
+                    }
+                }
+
+                &:hover:not(.disabled) {
+                    > .page-link {
+                        transition: $transition-link;
+                        background-color: $dt-page-bg-hover;
+                        color: $dt-page-color-hover;
+
+                        > i {
+                            transition: $transition-link;
+                            color: $dt-page-color-hover;
+                        }
+                    }
+                }
+
+                &.disabled {
+                    > .page-link {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+
+    // Custom pager
+    .dataTables_pager {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        // Info
+        .dataTables_info {
+            display: inline-block;
+            margin: 0.5rem 0;
+            margin-right: 0.5rem;
+            color: $dark-50;
+        }
+
+        // Length
+        .dataTables_length {
+            margin: 0.5rem 0;
+            margin-right: 1rem;
+            display: inline-block;
+
+            label {
+                display: flex;
+                align-items: center;
+                margin: 0;
+                color: $dark-50;
+            }
+
+            .custom-select {
+                margin-left: 0.5rem;
+                height: $dt-page-size;
+                box-shadow: none !important;
+                display: flex;
+                align-items: center;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+
+        // Pagination
+        .dataTables_paginate {
+            margin: 0.5rem 0;
+
+            .pagination {
+                margin: 0;
+            }
+        }
+    }
+
+    // Filter
+    .text-right,
+    .text-left {
+        .dataTables_filter {
+            display: inline-block;
+        }
+    }
+
+    // Tablet and mobile mode
+    @include media-breakpoint-down(md) {
+        .dataTables_pager {
+            margin-top: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    // Mobile mode
+    @include media-breakpoint-down(sm) {
+        .dataTables_paginate {
+            margin-left: 0 !important;
+
+            .pagination .page-item:first-child {
+                margin-left: 0 !important;
+            }
+        }
+    }
+
+    // Responsive mode
+    table.dataTable.collapsed > tbody > {
+        tr > td:first-child {
+            padding-left: 30px !important;
+
+            &:before {
+                padding-right: 10px !important;
+            }
+        }
+    }
+
+    // Responsive mode toggle icon
+    table.dataTable.dtr-inline.collapsed > tbody > {
+        tr > td:first-child:before {
+            box-shadow: none;
+            border-radius: 0;
+            top: 50%;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            margin-top: -9px;
+            font-size: 10px;
+            color: $primary;
+            border: 0;
+            background-color: transparent;
+
+            @include ki(get($ki-types, arrowDown));
+        }
+
+        tr.parent > td:first-child:before {
+            color: $primary;
+            background-color: transparent;
+            @include ki(get($ki-types, arrowUp));
+        }
+    }
+
+    // Responsive mode row expand details
+    .child {
+        .dtr-details {
+            display: table !important;
+
+            > li {
+                display: table-row !important;
+                border: 0 !important;
+
+                .dtr-title {
+                    display: table-cell;
+                    vertical-align: top;
+                    border-bottom: 1px dashed $gray-100;
+                    font-weight: 500;
+                    padding: 0.5rem 2rem 0.5rem 0;
+
+                    &:after {
+                        content: ':';
+                    }
+                }
+
+                .dtr-data {
+                    display: table-cell;
+                    vertical-align: top;
+                    border-bottom: 1px dashed $gray-100;
+                    padding: 0.5rem 0;
+                }
+
+                &:last-child {
+                    .dtr-title {
+                        border-bottom: 0;
+                    }
+
+                    .dtr-data {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // Bootstrap 4
+    .dt-bootstrap4 {
+        .dropdown {
+            .dropdown-menu.dropdown-menu-right {
+                /*rtl:ignore*/
+                margin-left: 65px;
+            }
+        }
+    }
+}

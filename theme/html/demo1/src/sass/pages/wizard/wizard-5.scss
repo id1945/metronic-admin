@@ -1,0 +1,193 @@
+//
+// Wizard 5
+// Pages SASS files are compiled into separate css files
+//
+
+// Initialization of global variables, mixins and functions
+@import "../../init";
+
+.wizard.wizard-5 {
+    // Aside
+    .wizard-aside {
+        @include border-top-left-radius($border-radius);
+        @include border-bottom-left-radius($border-radius);
+
+        // Nav
+	    .wizard-nav {
+    		padding: 0;
+
+    		// Steps
+    		.wizard-steps {
+    			display: flex;
+    			flex-direction: column;
+    			justify-content: center;
+
+    			// Step
+    			.wizard-step {
+    				padding: 0.75rem 0;
+    				transition: $transition-link;
+                    margin-bottom: 1.5rem;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+    				.wizard-wrapper {
+    					display: flex;
+    				}
+
+    				.wizard-icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+    					transition: $transition-link;
+                        min-width: 50px;
+                        height: 50px;
+                        border-radius: 50px;
+                        background-color: $gray-100;
+                        margin-right: 1.4rem;
+
+                        .wizard-check {
+                            display: none;
+                            font-size: 1.4rem;
+                        }
+
+                        .wizard-number {
+                            font-weight: 600;
+                            color: $dark-75;
+                            font-size: 1.35rem;
+                        }
+    				}
+
+    				.wizard-label {
+    					display: flex;
+    					flex-direction: column;
+    					justify-content: center;
+
+    					.wizard-title {
+    						color: $dark;
+    						font-weight: 500;
+    						font-size: 1.4rem;
+    					}
+
+    					.wizard-desc {
+    						color: $text-muted;
+                            font-size: $font-size-lg;
+                            font-weight: 500;
+    					}
+    				}
+
+                    // Current States
+    				&[data-wizard-state="current"] {
+    					transition: $transition-link;
+
+    					.wizard-icon {
+    						transition: $transition-link;
+                            background-color: $success-light;
+
+                            .wizard-check {
+                                color: $success;
+                                display: none;
+                            }
+
+                            .wizard-number {
+                                color: $success;
+                            }
+    					}
+
+                        .wizard-label {
+        					.wizard-title {
+        						color: $dark;
+        					}
+
+        					.wizard-desc {
+                                color: $gray-500;
+        					}
+        				}
+    				}
+
+                    // Done States
+                    &[data-wizard-state="current"]:last-child,
+                    &[data-wizard-state="done"] {
+                        .wizard-icon {
+    						transition: $transition-link;
+                            background-color: $success-light;
+
+                            .wizard-check {
+                                color: $success;
+                                display: inline-block;
+                            }
+
+                            .wizard-number {
+                                display: none;
+                            }
+    					}
+
+                        .wizard-label {
+        					.wizard-title {
+        						color: $text-muted;
+        					}
+
+        					.wizard-desc {
+                                color: $gray-400;
+        					}
+        				}
+                    }
+                }
+            }
+	    }
+    }
+
+    // Content
+    .wizard-content {
+        background-color: $gray-100;
+        @include border-top-right-radius($border-radius);
+        @include border-bottom-right-radius($border-radius);
+
+        .form-group {
+            .fv-help-block {
+                font-size: 1.1rem !important;
+                padding-top: 3px;
+            }
+        }
+    }
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+    .wizard.wizard-5{
+        // Aside
+        .wizard-aside {
+            @include border-top-left-radius($border-radius);
+            @include border-top-right-radius($border-radius);
+            @include border-bottom-left-radius(0);
+            @include border-bottom-right-radius(0);
+
+            // Nav
+    	    .wizard-nav {
+        		padding: 0;
+                align-content: center;
+
+        		// Steps
+        		.wizard-steps {
+    			    // Step
+    			    .wizard-step {
+                       margin-bottom: .5rem;
+
+                       &:last-child {
+                           margin-bottom: 0;
+                       }
+                    }
+                }
+            }
+        }
+
+        // Content
+        .wizard-content {
+            @include border-top-left-radius(0);
+            @include border-top-right-radius(0);
+            @include border-bottom-left-radius($border-radius);
+            @include border-bottom-right-radius($border-radius);
+        }
+    }
+}

@@ -1,0 +1,38 @@
+//
+// Mixins
+//
+
+
+@mixin spinner-size($size) {
+	&:before {
+		width: $size;
+  		height: $size;
+  		margin-top: -($size/2);
+  	}
+
+	&.spinner-center {
+		&:before {
+			left: 50%;
+  			margin-left: -($size/2);
+		}
+	}
+
+	&.spinner-left {
+		&:before {
+			right: auto;
+		}
+	}
+
+	&.spinner-right {
+		&:before {
+			left: auto;
+		}
+	}
+}
+
+@mixin spinner-theme($color, $important: false) {
+	&:before {
+    	border-color: $color valueif($important, !important, null);
+		border-right-color: transparent;
+    }
+}

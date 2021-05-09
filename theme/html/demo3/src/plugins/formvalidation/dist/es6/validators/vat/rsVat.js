@@ -1,0 +1,1 @@
+export default function t(t){let e=t;if(/^RS[0-9]{9}$/.test(e)){e=e.substr(2)}if(!/^[0-9]{9}$/.test(e)){return{meta:{},valid:false}}let r=10;let a=0;for(let t=0;t<8;t++){a=(parseInt(e.charAt(t),10)+r)%10;if(a===0){a=10}r=2*a%11}return{meta:{},valid:(r+parseInt(e.substr(8,1),10))%10===1}}

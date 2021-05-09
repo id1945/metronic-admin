@@ -1,0 +1,130 @@
+//
+// Spinner
+//
+
+// Spinner Default
+.spinner {
+	position: relative;
+
+	&:before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        border-radius: 50%;
+		border: 2px solid $gray-400;
+		border-right: 2px solid transparent;
+    }
+
+  	// Sizes
+	@include spinner-size(get($spinner-config, size));
+
+  	&.spinner-sm {
+  		@include spinner-size(get($spinner-config, size-sm));
+  	}
+
+  	&.spinner-lg {
+  		@include spinner-size(get($spinner-config, size-lg));
+  	}
+
+  	// Default Style
+  	&:before {
+        animation: animation-spinner .5s linear infinite;
+    }
+
+  	// State Colors
+    @each $name, $color in $theme-colors {
+        &.spinner-#{$name} {
+            &:before {
+                border: 2px solid $color;
+                border-right: 2px solid transparent;
+            }
+        }
+
+		&.spinner-darker-#{$name} {
+            &:before {
+                border: 2px solid darken($color, 7%);
+                border-right: 2px solid transparent;
+            }
+        }
+    }
+
+	// Alignment
+    &.spinner-right {
+        &:before {
+            left: auto;
+            right: $input-btn-padding-x;
+        }
+
+		&.btn:not(.btn-block) {
+			padding-right: 2 * $input-btn-padding-x + get($spinner-config, size);
+		}
+
+		&.btn:not(.btn-block).spinner-sm {
+			padding-right: 2 * $input-btn-padding-x + get($spinner-config, size-sm);
+		}
+
+		&.btn:not(.btn-block).spinner-lg {
+			padding-right: 2 * $input-btn-padding-x + get($spinner-config, size-lg);
+		}
+    }
+
+    &.spinner-left {
+        &:before {
+            right: auto;
+            left: $input-btn-padding-x;
+        }
+
+		&.btn:not(.btn-block) {
+			padding-left: 2 * $input-btn-padding-x + get($spinner-config, size);
+		}
+
+		&.btn:not(.btn-block).spinner-sm {
+			padding-left: 2 * $input-btn-padding-x + get($spinner-config, size-sm);
+		}
+
+		&.btn:not(.btn-block).spinner-lg {
+			padding-left: 2 * $input-btn-padding-x + get($spinner-config, size-lg);
+		}
+    }
+
+    // Spinner Track
+    &.spinner-track {
+      	&:before {
+           animation: animation-spinner .5s linear infinite;
+       }
+
+      	// State Colors
+        @each $name, $color in $theme-colors {
+            &.spinner-#{$name} {
+                &:before {
+                    border: 2px solid lighten($color, 30%);
+                    border-top-color: darken($color, 3%);
+                }
+            }
+
+			&.spinner-darker-#{$name} {
+	            &:before {
+					border: 2px solid lighten($color, 20%);
+                    border-top-color: darken($color, 10%);
+	            }
+	        }
+        }
+    }
+
+    &-grow{
+      vertical-align: sub;
+    }
+
+    &-border{
+      vertical-align: sub;
+    }
+}
+
+// Animations
+@keyframes animation-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}

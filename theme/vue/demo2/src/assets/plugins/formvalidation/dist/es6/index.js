@@ -1,0 +1,1 @@
+import i from"./algorithms/index";import o,{Plugin as r}from"./core/index";import m from"./filters/index";import t from"./plugins/index";import e from"./utils/index";import n from"./validators/index";const p={};export{i as algorithms,o as formValidation,m as filters,p as locales,t as plugins,e as utils,n as validators,r as Plugin};

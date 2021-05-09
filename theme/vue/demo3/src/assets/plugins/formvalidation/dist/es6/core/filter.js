@@ -1,0 +1,1 @@
+export default function t(){return{filters:{},add(t,e){(this.filters[t]=this.filters[t]||[]).push(e)},clear(){this.filters={}},execute(t,e,i){if(!this.filters[t]||!this.filters[t].length){return e}let s=e;const r=this.filters[t];const l=r.length;for(let t=0;t<l;t++){s=r[t].apply(s,i)}return s},remove(t,e){if(this.filters[t]){this.filters[t]=this.filters[t].filter(t=>t!==e)}}}}

@@ -1,0 +1,86 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/snack-bar/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasic">
+      <div class="example-preview">
+        <span>
+          <mark>MatSnackBar</mark> is a service for displaying snack-bar
+          notifications.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              value="Disco party!"
+              placeholder="Message"
+              #message
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput value="Dance" placeholder="Action" #action />
+          </mat-form-field>
+
+          <button
+            mat-button
+            (click)="openSnackBar(message.value, action.value)"
+          >
+            Show snack-bar
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="exampleCustom">
+      <div class="example-preview">
+        <div>
+          <button
+            mat-button
+            (click)="openSnackBar2()"
+            aria-label="Show an example snack-bar"
+          >
+            Pizza party
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleDismissal">
+      <div class="example-preview">
+        <span> <mark>Dismissal</mark> example with 6 seconds duration </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              value="Disco party!"
+              placeholder="Message"
+              #message
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput value="Dance" placeholder="Action" #action />
+          </mat-form-field>
+
+          <button
+            mat-button
+            (click)="openSnackBar3(message.value, action.value)"
+          >
+            Show snack-bar
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

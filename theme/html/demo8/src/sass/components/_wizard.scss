@@ -1,0 +1,87 @@
+//
+// Wizard
+//
+
+.wizard {
+	// Step info
+	[data-wizard-type="step-info"] {
+		display: none;
+
+		&[data-wizard-state="current"] {
+			display: block;
+		}
+	}
+
+	// Content states
+	[data-wizard-type="step-content"] {
+		display: none;
+
+		&[data-wizard-state="current"] {
+			display: block;
+		}
+	}
+
+	// Buttons states
+	& {
+		[data-wizard-type="action-prev"] {
+			display: none;
+		}
+
+		[data-wizard-type="action-next"] {
+			display: inline-block;
+		}
+
+		[data-wizard-type="action-submit"] {
+			display: none;
+		}
+	}
+
+	&[data-wizard-state="first"] {
+		[data-wizard-type="action-prev"] {
+			display: none;
+		}
+
+		[data-wizard-type="action-next"] {
+			display: inline-block;
+		}
+
+		[data-wizard-type="action-submit"] {
+			display: none;
+		}
+	}
+
+	&[data-wizard-state="between"] {
+		[data-wizard-type="action-prev"] {
+			display: inline-block;
+		}
+
+		[data-wizard-type="action-next"] {
+			display: inline-block;
+		}
+
+		[data-wizard-type="action-submit"] {
+			display: none;
+		}
+	}
+
+	&[data-wizard-state="last"] {
+		[data-wizard-type="action-prev"] {
+			display: inline-block;
+		}
+
+		[data-wizard-type="action-next"] {
+			display: none;
+		}
+
+		[data-wizard-type="action-submit"] {
+			display: inline-block;
+		}
+	}
+
+	// Enable cursor pointer on clickable wizards
+	&[data-wizard-clickable="true"] {
+		.wizard-step {
+			cursor: pointer;
+		}
+	}
+}

@@ -1,0 +1,133 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/button/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasic">
+      <div class="example-preview">
+        <p>
+          Angular Material buttons are native
+          <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> elements
+          enhanced with Material Design styling and ink ripples.
+        </p>
+        <p>
+          Native
+          <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements are
+          always used in order to provide the most straightforward and
+          accessible experience for users. A <code>&lt;button&gt;</code> element
+          should be used whenever some action is performed. An
+          <code>&lt;a&gt;</code> element should be used whenever the user will
+          navigate to another view.
+        </p>
+        <div class="separator separator-dashed my-6"></div>
+        <div class="example-container">
+          <div class="button-row">
+            <button mat-button>Basic</button>&nbsp;
+            <button mat-button color="primary">Primary</button>&nbsp;
+            <button mat-button color="accent">Accent</button>&nbsp;
+            <button mat-button color="warn">Warn</button>&nbsp;
+            <button mat-button disabled>Disabled</button>&nbsp;
+            <a mat-button routerLink=".">Link</a>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleRaised">
+      <div class="example-preview">
+        <div class="example-container">
+          <div class="button-row">
+            <button mat-raised-button>Basic</button>&nbsp;
+            <button mat-raised-button color="primary">Primary</button>&nbsp;
+            <button mat-raised-button color="accent">Accent</button>&nbsp;
+            <button mat-raised-button color="warn">Warn</button>&nbsp;
+            <button mat-raised-button disabled>Disabled</button>&nbsp;
+            <a mat-raised-button routerLink=".">Link</a>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleIcon">
+      <div class="example-preview">
+        <div class="example-container">
+          <div class="button-row">
+            <button mat-icon-button>
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >favorite</mat-icon
+              ></button
+            >&nbsp;
+            <button mat-icon-button color="primary">
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >favorite</mat-icon
+              ></button
+            >&nbsp;
+            <button mat-icon-button color="accent">
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >favorite</mat-icon
+              ></button
+            >&nbsp;
+            <button mat-icon-button color="warn">
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >favorite</mat-icon
+              ></button
+            >&nbsp;
+            <button mat-icon-button disabled>
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >favorite</mat-icon
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exmapleFab">
+      <div class="example-preview">
+        <div class="example-container">
+          <div class="button-row">
+            <button mat-fab>Basic</button>&nbsp;
+            <button mat-fab color="primary">Primary</button>&nbsp;
+            <button mat-fab color="accent">Accent</button>&nbsp;
+            <button mat-fab color="warn">Warn</button>&nbsp;
+            <button mat-fab disabled>Disabled</button>&nbsp;
+            <button mat-fab>
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >favorite</mat-icon
+              ></button
+            >&nbsp;
+            <a mat-fab routerLink=".">Link</a>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleMiniFav">
+      <div class="example-preview">
+        <div class="example-container">
+          <div class="button-row">
+            <button mat-mini-fab>Basic</button>&nbsp;
+            <button mat-mini-fab color="primary">Primary</button>&nbsp;
+            <button mat-mini-fab color="accent">Accent</button>&nbsp;
+            <button mat-mini-fab color="warn">Warn</button>&nbsp;
+            <button mat-mini-fab disabled>Disabled</button>&nbsp;
+            <button mat-mini-fab>
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >favorite</mat-icon
+              ></button
+            >&nbsp;
+            <a mat-mini-fab routerLink=".">Link</a>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

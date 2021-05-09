@@ -1,0 +1,66 @@
+//
+// Popover
+//
+
+
+// Base
+.popover {
+    .popover-header {
+        font-size: $popover-header-font-size;
+        font-weight: $popover-header-font-weight;
+        border-bottom: 1px solid $popover-header-border-color;
+    }
+
+    /*rtl:raw:
+    left: 0 !important;
+    right: auto !important;
+    */
+
+    &.bs-popover-right {
+        margin-right: auto#{'/*rtl:ignore*/'};
+        margin-left: $popover-arrow-height#{'/*rtl:ignore*/'};
+
+        > .arrow {
+            right: auto#{'/*rtl:ignore*/'};
+            left: subtract(-$popover-arrow-height, $popover-border-width)#{'/*rtl:ignore*/'};
+
+            &::before {
+                right: auto#{'/*rtl:ignore*/'};
+                left: 0#{'/*rtl:ignore*/'};
+                border-width: ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2) 0#{'/*rtl:ignore*/'};
+                border-right-color: $popover-arrow-outer-color#{'/*rtl:ignore*/'};
+            }
+
+            &::after {
+                right: auto#{'/*rtl:ignore*/'};
+                left: $popover-border-width#{'/*rtl:ignore*/'};
+                border-width: ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2) 0#{'/*rtl:ignore*/'};
+                border-right-color: $popover-arrow-color#{'/*rtl:ignore*/'};
+            }
+        }
+    }
+
+    &.bs-popover-left {
+        margin-left: auto#{'/*rtl:ignore*/'};
+        margin-right: $popover-arrow-height#{'/*rtl:ignore*/'};
+
+        > .arrow {
+            left: auto#{'/*rtl:ignore*/'};
+            right: subtract(-$popover-arrow-height, $popover-border-width)#{'/*rtl:ignore*/'};
+
+            &::before {
+                left: auto#{'/*rtl:ignore*/'};
+                right: 0#{'/*rtl:ignore*/'};
+                border-width: ($popover-arrow-width / 2) 0 ($popover-arrow-width / 2) $popover-arrow-height#{'/*rtl:ignore*/'};
+                border-left-color: $popover-arrow-outer-color#{'/*rtl:ignore*/'};
+            }
+
+            &::after {
+                left: auto#{'/*rtl:ignore*/'};
+                right: $popover-border-width#{'/*rtl:ignore*/'};
+                border-width: ($popover-arrow-width / 2) 0 ($popover-arrow-width / 2) $popover-arrow-height#{'/*rtl:ignore*/'};
+                border-left-color: $popover-arrow-color#{'/*rtl:ignore*/'};
+            }
+        }
+    }
+}

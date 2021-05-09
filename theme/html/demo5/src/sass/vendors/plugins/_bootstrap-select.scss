@@ -1,0 +1,259 @@
+//
+// Bootstrap Select
+//
+
+
+// Variables
+$bootstrap-select-general-padding: 10px 15px;
+$bootstrap-select-title-padding: 10px 15px;
+
+// Base
+ .bootstrap-select {
+    > .dropdown-toggle {
+        position: relative;
+        outline: none !important;
+        padding: $input-btn-padding-y $input-btn-padding-x;
+        @include border-radius($input-border-radius);
+
+        &:focus {
+            outline: none !important;
+            border-color: $input-focus-border-color !important;
+        }
+
+        &:after {
+            border: 0;
+            margin-right: -2px;
+            font-size: 0.6rem;
+            display: inline-block;
+            @include ki(get($ki-types, arrowDown));
+        }
+
+        &:before {
+            width: auto;
+        }
+
+        &.btn-light,
+        &.btn-secondary {
+            background: $white !important;
+            color: $input-plaintext-color;
+            border-color: $input-border-color !important;
+            box-shadow: none;
+
+            &.focus,
+            &.active {
+                border-color: $input-border-color !important;
+            }
+
+            &.disabled,
+            &:disabled {
+                background: $input-disabled-bg !important;
+                opacity: 1;
+            }
+
+            .filter-option {
+                color: $input-color;
+
+                .bs-icon {
+                    color: $input-color;
+                    margin-right: 0.1rem;
+                }
+            }
+        }
+
+        &.bs-placeholder {
+            color:  $input-placeholder-color;
+
+            &.btn {
+                color: $white;
+            }
+        }
+    }
+
+    .dropdown-menu.inner {
+        display: block;
+
+        > li {
+            > a {
+                display: block;
+                position: relative;
+                outline: none !important;
+                padding: $bootstrap-select-general-padding;
+
+                &:hover {
+                    text-decoration: none;
+                }
+
+                .bs-icon {
+                    font-size: 1.3rem;
+                    vertical-align: middle;
+                    color: $text-muted;
+                    margin-right: 0.5rem;
+                }
+
+                .text {
+                    color: $dark-75;
+
+                    small {
+                        color: $text-muted;
+                    }
+                }
+
+                .check-mark {
+                    color: $dark-50;
+                }
+            }
+
+            &.selected {
+                > a {
+                    .check-mark {
+                        top: 50%;
+                        position: absolute;
+                        margin-top: - (0.8rem / 2) ;
+                        font-size: 0.7rem;
+                        right: $input-btn-padding-x;
+
+                        &:before {
+                            @include ki(get($ki-types, check));
+                        }
+
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &.selected,
+            &:hover {
+                > a {
+                    background: $gray-100;
+
+                    .text {
+                        color: $dark-75;
+                    }
+
+                    .bs-icon {
+                        color: $dark-75;
+                    }
+
+                    .check-mark {
+                        color: $dark-50;
+                    }
+                }
+            }
+
+            &.divider {
+                margin: 10px 0;
+                border-bottom: 1px solid $gray-100;
+            }
+
+            &.hidden {
+                display: none;
+            }
+
+            &.no-results {
+                padding: $bootstrap-select-general-padding;
+            }
+
+            &.dropdown-header {
+                 color: $dark-50;
+            }
+
+            &.selected {
+                > a {
+                    background: $gray-100;
+                }
+            }
+
+            &.disabled {
+                > a {
+                    opacity: 0.8;
+                }
+            }
+
+            &.active:not(.selected) {
+                > a {
+                    background: $primary;
+
+                    .bs-icon,
+                    .text {
+                        color: $white;
+                    }
+
+                    .check-mark {
+                        color: $white;
+                    }
+                }
+            }
+
+            &.no-results {
+                color: $dark-50;
+            }
+        }
+    }
+
+    .popover-title {
+        padding: $bootstrap-select-title-padding;
+        margin-bottom: 5px;
+
+        .close {
+            display: none;
+        }
+    }
+
+    .bs-searchbox,
+    .bs-actionsbox,
+    .bs-donebutton {
+        padding: $bootstrap-select-general-padding;
+    }
+
+    // menu shown state
+    &.show {
+        > .dropdown-toggle {
+            &.btn-light,
+            &.btn-secondary {
+                border-color: $input-focus-border-color !important;
+            }
+        }
+    }
+
+    // Validation
+    &.is-invalid {
+        .btn.dropdown-toggle {
+            border-color: $danger;
+
+        }
+    }
+
+    &.is-valid {
+        .btn.dropdown-toggle {
+            border-color: $success;
+        }
+    }
+
+    // menu header
+    .popover-title {
+        background: $gray-100;
+        border: 0;
+    }
+
+    .dropdown-menu {
+        max-width: 100% !important;
+        border-top: none !important;
+        border: 0;
+        box-shadow: $dropdown-box-shadow;
+
+        &.show {
+            width: auto;
+        }
+    }
+}
+
+// Display inside content
+.content {
+     .bootstrap-select {
+         .dropdown-menu {
+             z-index: $zindex-dropdown - 5;
+         }
+     }
+}

@@ -1,0 +1,134 @@
+//
+// Header Menu
+//
+
+// Desktop Mode
+@include menu-hor-build-layout(get($header-menu-config, desktop));
+@include menu-hor-build-theme(get($header-menu-config, desktop), default);
+
+// Tablet & Mobile Mode
+@include menu-ver-build-layout(get($header-menu-config, tablet-and-mobile));
+@include menu-ver-build-theme(get($header-menu-config, tablet-and-mobile), default);
+
+// Header Menu Mobile Offcanvas
+@include offcanvas-build(header-menu-wrapper, tablet-and-mobile, get($header-menu-config, offcanvas-mobile));
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Header Menu Wrapper
+	.header-menu-wrapper {
+		display: flex;
+		align-items: stretch;
+	}
+
+	// Header Menu
+	.header-menu {
+		display: flex;
+		align-items: stretch;
+
+		// Header Nav
+		.menu-nav {
+			display: flex;
+			align-items: stretch;
+
+			> .menu-item {
+				&:first-child {
+					padding-left: 0;
+				}
+
+				> .menu-link {
+					@include border-radius($border-radius);
+					padding: 0.75rem 1.25rem;
+
+					.menu-text {
+						color: $white;
+						font-weight: 500;
+					}
+
+					.menu-arrow {
+						color: rgba($white, 0.8);
+					}
+
+					.menu-icon {
+						i {
+							color: rgba($white, 0.8);
+						}
+
+						.svg-icon {
+							@include svg-icon-color(rgba($white, 0.8));
+						}
+					}
+				}
+
+				// Active & Hover States
+				&:hover:not(.menu-item-here):not(.menu-item-active),
+				&.menu-item-hover:not(.menu-item-here):not(.menu-item-active),
+				&.menu-item-here,
+				&.menu-item-active {
+					> .menu-link {
+						background-color: rgba($white, 0.1);
+
+						.menu-text {
+							color: $white;
+						}
+
+						.menu-arrow {
+							color: rgba($white, 0.8);
+						}
+
+						.menu-icon {
+							i {
+								color: rgba($white, 0.8);
+							}
+
+							.svg-icon {
+								@include svg-icon-color(rgba($white, 0.8));
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// Fixed Header & Header Scroll Modes
+		.header-fixed[data-header-scroll="on"] & {
+			// Header Nav
+			.menu-nav {
+				> .menu-item {
+					> .menu-link {
+						.menu-text {
+							color: $dark-50;
+						}
+					}
+
+					// Active & hover states
+					&:hover:not(.menu-item-here):not(.menu-item-active),
+					&.menu-item-hover:not(.menu-item-here):not(.menu-item-active),
+					&.menu-item-here,
+					&.menu-item-active {
+						> .menu-link {
+							background-color: $gray-100;
+
+							.menu-text {
+								color: $dark-50;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Header Wrapper
+	.header-menu-wrapper {
+		overflow: auto;
+		
+		// Logo
+		.header-logo {
+			display: none;
+		}
+	}
+}

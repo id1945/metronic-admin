@@ -1,0 +1,1 @@
+function t(t){return t.split("").map(t=>{const n=t.charCodeAt(0);return n>=65&&n<=90?n-55:t}).join("").split("").map(t=>parseInt(t,10))}export default function n(n){const e=t(n);let r=0;const o=e.length;for(let t=0;t<o-1;++t){r=(r+e[t])*10%97}r+=e[o-1];return r%97===1}

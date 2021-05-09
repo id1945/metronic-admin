@@ -1,0 +1,40 @@
+{
+  "name": "bootstrap-session-timeout",
+  "version": "1.0.3",
+  "main": "dist/bootstrap-session-timeout.js",
+  "description": "Session timeout and keep-alive control with a nice Bootstrap warning dialog.",
+  "homepage": "https://github.com/orangehill/bootstrap-session-timeout",
+  "bugs": "https://github.com/orangehill/bootstrap-session-timeout/issues",
+  "author": "Vedran Opacic, vedran.opacic@orangehilldev.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orangehill/bootstrap-session-timeout"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "keywords": [
+    "timeout",
+    "time-out",
+    "keepalive",
+    "keep-alive",
+    "session",
+    "bootstrap",
+    "bootstrap 3",
+    "jquery",
+    "javascript",
+    "dialog"
+  ],
+  "devDependencies": {
+    "bower": "^1.3.5",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-jshint": "~0.7.0",
+    "grunt-contrib-uglify": "~0.3.1",
+    "grunt-contrib-watch": "~0.5.0",
+    "jshint-stylish": "~0.1.3",
+    "load-grunt-tasks": "~0.2.0",
+    "time-grunt": "~0.2.0"
+  }
+}

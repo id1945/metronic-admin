@@ -1,0 +1,37 @@
+//
+// Header Mobile
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.header-mobile {
+		display: none;
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.header-mobile {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 get($page-spacers, x, tablet-and-mobile);
+		background-color: get($header-config, tablet-and-mobile, default, bg-color);
+		border-bottom: get($header-config, tablet-and-mobile, default, border);
+		height: get($header-config, tablet-and-mobile, default, height);
+		min-height: get($header-config, tablet-and-mobile, default, height);
+		position: relative;
+		z-index: 3;
+
+		// Fixed Mobile Header Mode
+		.header-mobile-fixed & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, tablet-and-mobile, fixed, zindex);
+			height: get($header-config, tablet-and-mobile, fixed, height);
+			min-height: get($header-config, tablet-and-mobile, fixed, height);
+		}
+	}
+}

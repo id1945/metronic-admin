@@ -1,0 +1,1517 @@
+//
+// Layout Config
+//
+
+
+// Root font size
+$root-font-size:                                    13px; // custom parameter
+$root-font-size-lg:                             	12px; // custom parameter
+$root-font-size-md:                             	12px; // custom parameter
+
+// Page Background Color
+$page-bg:	 										#FBF6F0 !default;
+
+// Page Paddings
+$page-padding: (
+	desktop: 25px, 			// Padding for desktop mode
+	tablet-and-mobile: 15px // Padding for tablet and mobile modes
+) !default;
+
+// Header
+$header-config: (
+	// Desktop Mode
+	desktop: (
+		bg-color: $primary,
+		height: 175px,
+		height-bottom: 100px,
+		shadow: none, //0px 10px 30px 0px rgba(82,63,105,0.08),
+		zindex: 97
+	),
+
+	// Tablet & Mobile Modes
+	tablet-and-mobile: (
+		bg-color: $primary,
+		height: 55px,
+		shadow: 0px 1px 9px -3px rgba(0,0,0, 0.1),
+		zindex: 97
+	)
+) !default;
+
+// Header Menu
+$header-menu-config: (
+	// Desktop Mode
+	desktop: (
+		// Base Parameters
+		base: (
+			class: header-menu, // menu element class name
+			mode: desktop // menu mode: "desktop", "desktop-and-tablet" or "general"
+		),
+
+		// Customize
+		build: (
+			// Layout
+			layout: (
+				// Container
+				self: (
+					margin: 0
+				),
+
+				// Item
+				item: (
+					// Item
+					self: (
+						padding: 0px 0.25rem
+					),
+
+					// Link
+					link: (
+						// self
+						self: (
+							padding: 0.25rem 0.5rem
+						),
+
+						// Icon
+						icon: (
+							width: 30px,
+							svg-width: 23px,
+							font-size: 1.4rem,
+							padding: 0
+						),
+
+						// Bullet
+						bullet:	(
+							self: (
+								width: 20px
+							),
+
+							dot: (
+								size: 4px,
+							),
+
+							line: (
+								width: 5px,
+								height: 1px,
+							)
+						),
+
+						// Text
+						text: (
+							font-size: 1rem,
+							font-weight: 400,
+							font-transform:	initial
+						),
+
+						// Label
+						label:	(
+							padding: 0px 0px 0px 5px
+						),
+
+						// Arrow
+						arrow: (
+							width: 20px,
+							align: flex-end,
+							font-size: 0.6rem
+						)
+					),
+
+					// Submenu
+					submenu: (
+						// Submenu
+						self: (
+							zindex: get($header-config, desktop, zindex) + 1,
+							padding: (
+								classic: 20px 0px,
+								megamenu: 0px
+							),
+							border-radius: 4px,
+							width: (
+								classic: 275px,  // Classic dropdown menu width
+								// full width dropdown menu
+								full: (
+									offset: 20px
+								)
+							),
+							animation: (
+								offset: -10px
+							),
+							space: 1px
+						),
+
+						// Item
+						item: (
+							// Item
+							self: (
+								padding: 0px
+							),
+
+							// Link
+							link: (
+								// Link
+								self: (
+									padding: 11px 30px,
+									padding-x: 30px
+								),
+
+								// Icon
+								icon: (
+									width: 33px,
+									svg-width: 23px,
+									font-size: 1.4rem,
+									padding: 0
+								),
+
+								// Bullet
+								bullet:	(
+									self: (
+										width: 20px
+									),
+
+									dot: (
+										size: 4px
+									),
+
+									line: (
+										width: 9px,
+										height: 1px
+									)
+								),
+
+								// Text
+								text: (
+									font-size: 1rem,
+									font-weight: 400,
+									font-transform:	initial
+								),
+
+								// Label
+								label:	(
+									padding: 0px 0px 0px 5px
+								),
+
+								// Arrow
+								arrow: (
+									padding: 0px 0px 0px 10px,
+									width: 20px,
+									font-size: 0.6rem
+								)
+							),
+
+							// Column
+							column: (
+								// Column
+								self: (
+									padding: 0 0 20px 0
+								),
+
+								// Heading
+								heading: (
+									// Heading
+									self: (
+										padding: 30px 30px 10px 30px
+									),
+
+									// Caption
+									caption: (
+										// Icon
+										icon: (
+											width: 30px,
+											svg-width: 23px,
+											font-size: 1.35rem,
+											padding: 0
+										),
+
+										// Text
+										text: (
+											font-size: 1.07rem,
+											font-weight: 500,
+											font-transform:	initial
+										),
+
+										// Label
+										label:	(
+											padding: 0px 0px 0px 5px
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			),
+
+			// Theme
+			theme: (
+				// Item
+				item: (
+					// Link
+					link: (
+						// Link
+						self: (
+							bg-color: (
+								default: none,
+								active: none,
+								here: none,
+								hover: none
+							)
+						),
+
+						// Bullet
+						bullet:	(
+							dot: (
+								bg-color: (
+									default: $text-muted,
+									active: $primary,
+									here: $primary,
+									hover: $primary
+								)
+							),
+							line: (
+								bg-color:	(
+									default: $text-muted,
+									active: $primary,
+									here: $primary,
+									hover: $primary
+								)
+							)
+						),
+
+						// Text
+						text: (
+							font-color:	(
+								default: $dark-75,
+								active: $primary,
+								here: $primary,
+								hover: $primary
+							)
+						),
+
+						// Arrow
+						arrow: (
+							font-color:	(
+								default: $text-muted,
+								active: $primary,
+								here: $primary,
+								hover: $primary
+							)
+						)
+					),
+
+					// Submenu
+					submenu: (
+						// Submenu
+						self: (
+							bg-color: $white,
+							box-shadow: 0px 15px 50px 0px rgba(82,63,105,0.15)
+						),
+
+						// Item
+						item: (
+							link: (
+								self: (
+									bg-color: (
+										active: $gray-100,
+										here: $gray-100,
+										hover: $gray-100,
+									)
+								),
+
+								// Icon
+								icon: (
+									font-color:	(
+										default: $text-muted,
+										active: $primary,
+										here: $primary,
+										hover: $primary
+									)
+								),
+
+								// Bullet
+								bullet:	(
+									dot: (
+										bg-color: (
+											default: $text-muted,
+											active: $primary,
+											here: $primary,
+											hover: $primary
+										)
+									),
+									line: (
+										bg-color: (
+											default: $text-muted,
+											active: $primary,
+											here: $primary,
+											hover: $primary
+										)
+									)
+								),
+
+								// Text
+								text: (
+									font-color:	(
+										default: $dark-75,
+										active: $primary,
+										here: $primary,
+										hover: $primary
+									)
+								),
+
+								// Arrow
+								arrow: (
+									font-color:	(
+										default: $text-muted,
+										active: $primary,
+										here: $primary,
+										hover: $primary
+									)
+								)
+							),
+
+							// Column
+							column: (
+								// Separator
+								separator: (
+									border: 1px solid $gray-200
+								),
+
+								// Heading
+								heading: (
+									// Caption
+									caption: (
+										// Icon
+										icon: (
+											font-color:	$text-muted
+										),
+
+										// Text
+										text: (
+											font-color:	$dark
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	),
+
+	// Tablet & Mobile Modes
+	tablet-and-mobile: (
+		// Base Settings
+		base:	(
+			class: header-menu-mobile,
+			parent-class: header-menu-wrapper,
+			mode: tablet-and-mobile, //menu mode: "mobile", "tablet-and-mobile" or "general"
+		),
+		// Customize
+		build: (
+			// Layout
+			layout: (
+				// Default Mode
+				default: (
+					// Menu Panel
+					self: (
+						padding: 10px 0
+					),
+
+					// Item
+					item: (
+						// Item
+						self: (
+							margin:	0
+						),
+
+						// Link
+						link: (
+							// Link
+							self: (
+								height: 44px,
+								padding: 9px 30px
+							),
+
+							// Icon
+							icon:	(
+								width: 35px,
+								font-size: 1.4rem
+							),
+
+							// Bullet
+							bullet:	(
+								self: (
+									width: 15px,
+								),
+
+								dot: (
+									size: 4px
+								),
+
+								line: (
+									width: 5px,
+									height: 1px
+								)
+							),
+
+							// Text
+							text:	(
+								font-size: 1.02rem,
+								font-weight: 400,
+								font-transform:	initial
+							),
+
+							// Arrow
+							arrow:	(
+								width: 20px,
+								transition: all 0.3s ease,
+								font-size: 0.6rem
+							),
+
+							// Label
+							label:	(
+								padding: 0px 0px 0px 5px,
+								align: right
+							)
+						),
+
+						// Submenu
+						submenu: (
+							// Submenu
+							self: (
+								indent: 15px,
+								margin:	0
+							),
+
+							// Item
+							item: (
+								// Item
+								self: (
+									margin:	0
+								),
+
+								// Link
+								link: (
+									// Link
+									self: (
+										height: 40px,
+										padding: 0 30px,
+										padding-x: 30px
+									),
+
+									// Icon
+									icon:	(
+										width: 35px,
+										font-size: 1.35rem
+									),
+
+									// Bullet
+									bullet:	(
+										self: (
+											width: 20px,
+										),
+										dot: (
+											size: 4px
+										),
+										line: (
+											width: 5px,
+											height: 1px
+										)
+									),
+
+									// Text
+									text:	(
+										font-size: 1rem,
+										font-weight: 400,
+										font-transform:	initial
+									),
+
+									// Arrow
+									arrow:	(
+										width: 20px,
+										transition: all 0.3s ease,
+										font-size: 0.6rem
+									),
+
+									// Label
+									label:	(
+										padding: 0px 0px 0px 5px
+									)
+								)
+							),
+
+							// Section
+							section: (
+								self: (
+									indent: 15px,
+									padding: 0 25px,
+									margin: 20px 0 0 0,
+									height: 40px
+								),
+
+								text: (
+									font-size: 0.8rem,
+									font-weight: 300,
+									font-transform: uppercase,
+									letter-spacing: 0.3px
+								),
+
+								icon: (
+									font-size: 1.1rem
+								)
+							),
+
+							// Separator
+							separator: (
+								margin: 15px 0
+							)
+						)
+					),
+
+					// Section
+					section: (
+						self: (
+							padding: 0 27px,
+							margin: 20px 0 0 0,
+							height: 40px
+						),
+
+						text: (
+							font-size: 0.83rem,
+							font-weight: 500,
+							font-transform: uppercase,
+							letter-spacing: 0.3px
+						),
+
+						icon: (
+							font-size: 1.1rem
+						)
+					),
+
+					// Separator
+					separator: (
+						margin: 15px 0,
+					)
+				)
+			),
+
+			// Themes
+			theme: (
+				// Default Mode
+				default: (
+					// Container
+					self: (
+						bg-color: $white
+					),
+
+					// root item
+					item: (
+						// Item
+						self: (
+							bg-color: (
+								default: null,
+								open: null,
+								here: null,
+								active: null,
+								hover: null
+							)
+						),
+						// Link
+						link: (
+							// Link
+							self: (
+								bg-color: (
+									default: null,
+									open: null,
+									here: null,
+									active: $gray-100,
+									hover: null
+								)
+							),
+							// Icon
+							icon: (
+								font-color:	(
+									default: $text-muted,
+									open: $primary,
+									here: $primary,
+									active: $primary,
+									hover: $primary
+								),
+							),
+							// Bullet
+							bullet:	(
+								dot: (
+									bg-color: (
+										default: $text-muted,
+										open: $primary,
+										here: $primary,
+										active: $primary,
+										hover: $primary
+									)
+								),
+								line: (
+									bg-color: (
+										default: $text-muted,
+										open: $primary,
+										here: $primary,
+										active: $primary,
+										hover: $primary
+									)
+								)
+							),
+							// Text
+							text:	(
+								font-color:	(
+									default: $dark-75,
+									open: $primary,
+									here: $primary,
+									active: $primary,
+									hover: $primary
+								)
+							),
+							// Arrow
+							arrow:	(
+								font-color:	(
+									default: $text-muted,
+									open: $primary,
+									here: $primary,
+									active: $primary,
+									hover: $primary
+								)
+							)
+						),
+
+						// Submenu
+						submenu: (
+							// Submenu
+							self: (
+								bg-color: (
+									default: null,
+									open: null,
+									active: null,
+									hover: null
+								)
+							),
+							// Item
+							item: (
+								// Item
+								self: (
+									bg-color: (
+										default: null,
+										open: null,
+										here: null,
+										active: null,
+										hover: null
+									)
+								),
+								// Link
+								link: (
+									// Link
+									self: (
+										bg-color: (
+											default: null,
+											open: null,
+											here: null,
+											active: $gray-100,
+											hover: null
+										)
+									),
+									// Icon
+									icon:	(
+										font-color:	(
+											default: $text-muted,
+											open: $primary,
+											active: $primary,
+											hover: $primary
+										)
+									),
+									// Bullet
+									bullet:	(
+										dot: (
+											bg-color: (
+												default: $text-muted,
+												open: $primary,
+												here: $primary,
+												active: $primary,
+												hover: $primary
+											)
+										),
+										line: (
+											bg-color: (
+												default: $text-muted,
+												open: $primary,
+												here: $primary,
+												active: $primary,
+												hover: $primary
+											)
+										)
+									),
+									// Text
+									text: (
+										font-color:	(
+											default: $dark-75,
+											open: $primary,
+											active: $primary,
+											hover: $primary
+										)
+									),
+
+									// Arrow
+									arrow:	(
+										font-color:	(
+											default: $text-muted,
+											open: $primary,
+											active: $primary,
+											hover: $primary
+										)
+									)
+								)
+							),
+
+							// Section
+							section: (
+								text: (
+									font-color: $dark-50
+								),
+								icon: (
+									font-color: $text-muted
+								)
+							),
+
+							// Separator
+							separator: (
+								border: 1px solid $gray-200
+							)
+						)
+					),
+
+					// Section
+					section: (
+						text: (
+							font-color: $dark-50
+						),
+						icon: (
+							font-color: $text-muted
+						)
+					),
+
+					// Separator
+					separator: (
+						border: 1px solid $gray-200
+					)
+				)
+			)
+		)
+	),
+
+	// Offcanvas Mobile
+	offcanvas-mobile: (
+		width: 275px,
+		zindex: 1001,
+		bg-color: #ffffff,
+		shadow: 0px 1px 9px -3px rgba(0,0,0,0.75),
+		overlay-bg-color: rgba(#000000, 0.1)
+	)
+) !default;
+
+// Header Topbar
+$header-topbar-config: (
+	// Tablet & Mobile Modes
+	tablet-and-mobile: (
+		bg-color: $primary,
+		height: 50px,
+		shadow: 0px 1px 9px -3px rgba(0,0,0, 0.1),
+		border-color: rgba($white, 0.1)
+	)
+) !default;
+
+// Aside
+$aside-config: (
+	// Aside
+	base: (
+		width: 265px,
+		zindex: 98,
+		scrollbar-width: 4px
+	),
+
+	// Aside's Offcanvas Config(see mixin: src/sass/components/mixins/_offcanvas.scss)
+	offcanvas-mobile: (
+		width: 275px,
+		zindex: 1001,
+		bg-color: #ffffff,
+		shadow: 0px 1px 9px -3px rgba(0,0,0,0.75),
+		overlay-bg-color: rgba(#000000, 0.1)
+	)
+) !default;
+
+// Aside Menu
+$aside-menu-config: (
+	// Base parameters required to build the base menu(see mixin: src/sass/components/mixins/_menu-vertical.scss)
+	base:	(
+		class: aside-menu, // Menu element class name
+		parent-class: aside, // Menu parent aside element class name
+		mode: general, // Menu responsive mode: general or tablet-and-mobile
+	),
+
+	// Customize
+	build: (
+		// layout
+		layout: (
+			// Default Mode
+			default: (
+				// Container
+				self: (
+					padding: 15px 0
+				),
+
+				// Item
+				item: (
+					// Item
+					self: (
+						margin:	0
+					),
+
+					// Link
+					link: (
+						// Link
+						self: (
+							height: 44px,
+							padding: 9px 25px
+						),
+
+						// Icon
+						icon:	(
+							width: 35px,
+							svg-width: 23px,
+							font-size: 1.3rem
+						),
+
+						// Bullet
+						bullet:	(
+							self: (
+								width: 15px,
+							),
+
+							dot: (
+								size: 4px
+							),
+
+							line: (
+								width: 5px,
+								height: 1px
+							)
+						),
+
+						// Text
+						text:	(
+							font-size: 1rem,
+							font-weight: 400,
+							font-transform:	initial
+						),
+
+						// Arrow
+						arrow:	(
+							width: 20px,
+							transition: all 0.3s ease,
+							font-size: 0.6rem
+						),
+
+						// Label
+						label:	(
+							padding: 0px 0px 0px 5px
+						)
+					),
+
+					// Submenu
+					submenu: (
+						// Submenu
+						self: (
+							indent: 15px,
+							margin:	0
+						),
+
+						// Item
+						item: (
+							// Item
+							self: (
+								margin:	0
+							),
+
+							// Link
+							link: (
+								// Link
+								self: (
+									height: 40px,
+									padding: 0 25px,
+									padding-x: 25px
+								),
+
+								// Icon
+								icon:	(
+									width: 35px,
+									svg-width: 24px,
+									font-size: 1.3rem
+								),
+
+								// Bullet
+								bullet:	(
+									self: (
+										width: 15px,
+									),
+
+									dot: (
+										size: 4px
+									),
+
+									line: (
+										width: 5px,
+										height: 1px
+									)
+								),
+
+								// Text
+								text:	(
+									font-size: 1rem,
+									font-weight: 400,
+									font-transform:	initial
+								),
+
+								// Arrow
+								arrow:	(
+									width: 20px,
+									transition: all 0.3s ease,
+									font-size: 0.6rem
+								),
+
+								// Label
+								label:	(
+									padding: 0px 0px 0px 5px
+								)
+							)
+						),
+
+						// Section
+						section: (
+							self: (
+								indent: 15px,
+								padding: 0 25px,
+								margin: 20px 0 0 0,
+								height: 40px
+							),
+
+							text: (
+								font-size: 0.8rem,
+								font-weight: 300,
+								font-transform: uppercase,
+								letter-spacing: 0.3px
+							),
+
+							icon: (
+								font-size: 1.1rem
+							)
+						),
+
+						// Separator
+						separator: (
+							margin: 15px 0
+						)
+					)
+				),
+
+				// Section
+				section: (
+					self: (
+						padding: 0 25px,
+						margin: 20px 0 0 0,
+						height: 40px
+					),
+
+					text: (
+						font-size: 0.9rem,
+						font-weight: 500,
+						font-transform: uppercase,
+						letter-spacing: 0.3px
+					),
+
+					icon: (
+						font-size: 1.1rem
+					)
+				),
+
+				// Separator
+				separator: (
+					margin: 15px 0,
+				)
+			),
+
+			// Dropdown Mode
+			dropdown: (
+				// Item
+				item: (
+					// Item
+					self: (
+						margin: 0,
+						zindex:	get($header-config, desktop, zindex) + 1, // Aside's dropdown z-index has to be greater that fixed header's z-index
+					),
+
+					// Submenu
+					submenu: (
+						// Submenu
+						self: (
+							padding: 20px 0,
+							width: 265px, // Should be equal to the parent aside width
+							parent-width: 265px, // Should be equal to the parent aside width
+							border-radius: 4px,
+
+							// Animation
+							animation: (
+								offset: 10px
+							),
+
+							// Vertical Offset
+							offset: (
+								root: (
+									default: -5px,
+									up: -10px
+								),
+
+								inner: (
+									default: -10px,
+									up: -10px
+								)
+							)
+						),
+
+						// Item
+						item: (
+							// Item
+							self: (
+								margin:	0
+							),
+
+							// Link
+							link: (
+								// Link
+								self: (
+									height: 40px,
+									padding: 7px 30px
+								),
+
+								// Icon
+								icon:	(
+									width: 35px,
+									font-size: 1.35rem
+								),
+
+								// Bullet
+								bullet:	(
+									self: (
+										width: 15px,
+									),
+
+									dot: (
+										size: 4px
+									),
+
+									line: (
+										width: 5px,
+										height: 1px
+									)
+								),
+
+								// Text
+								text:	(
+									font-size: 1rem,
+									font-weight: 400,
+									font-transform:	initial
+								),
+
+								// Arrow
+								arrow:	(
+									width: 20px,
+									transition: all 0.3s ease,
+									font-size: 0.6rem
+								),
+
+								// Label
+								label:	(
+									padding: 0px 0px 0px 5px,
+									align: right,
+								)
+							)
+						),
+
+						// Section
+						section: (
+							self: (
+								margin: 20px 0 0 0,
+								padding: 0 25px,
+								height: 40px
+							),
+
+							text: (
+								font-size: 0.8rem,
+								font-weight: 300,
+								font-transform: uppercase,
+							),
+
+							icon: (
+								font-size: 1.1rem,
+							)
+						),
+
+						// Separator
+						separator: (
+							margin: 15px 0,
+						)
+					)
+				)
+			)
+		),
+
+		// Theme
+		theme: (
+		    // Default Mode
+		    default: (
+		        // Dropdown
+		        self: (
+		            bg-color: $white
+		        ),
+
+		        // Item
+		        item: (
+		            // Item
+		            self: (
+		                bg-color: (
+		                    default: null,
+		                    open: null,
+		                    here: null,
+		                    active: null,
+		                    hover: null
+		                )
+		            ),
+
+		            // Link
+		            link: (
+		                // Link
+		                self: (
+		                    bg-color: (
+		                        default: null,
+		                        open: $gray-100,
+		                        here: $gray-100,
+		                        active: $gray-100,
+		                        hover: $gray-100
+		                    )
+		                ),
+
+		                // Icon
+		                icon: (
+		                    font-color:	(
+		                        default: $text-muted,
+		                        open: $primary,
+		                        here: $primary,
+		                        active: $primary,
+		                        hover: $primary
+		                    ),
+		                ),
+
+		                // Bullet
+		                bullet:	(
+		                    dot: (
+		                        bg-color: (
+		                            default: $text-muted,
+		                            open: $primary,
+		                            here: $primary,
+		                            active: $primary,
+		                            hover: $primary
+		                        )
+		                    ),
+
+		                    line: (
+		                        bg-color: (
+		                            default: $text-muted,
+		                            open: $primary,
+		                            here: $primary,
+		                            active: $primary,
+		                            hover: $primary
+		                        )
+		                    )
+		                ),
+
+		                // Text
+		                text:	(
+		                    font-color:	(
+		                        default: $dark-75,
+		                        open: $primary,
+		                        here: $primary,
+		                        active: $primary,
+		                        hover: $primary
+		                    )
+		                ),
+
+		                // Arrow
+		                arrow:	(
+		                    font-color:	(
+		                        default: $text-muted,
+		                        open: $primary,
+		                        here: $primary,
+		                        active: $primary,
+		                        hover: $primary
+		                    )
+		                )
+		            ),
+
+		            // Submenu
+		            submenu: (
+		                // Submenu
+		                self: (
+		                    bg-color: (
+		                        default: null,
+		                        open: null,
+		                        active: null,
+		                        hover: null
+		                    )
+		                ),
+
+		                // Item
+		                item: (
+		                    // Item
+		                    self: (
+		                        bg-color: (
+		                            default: null,
+		                            open: null,
+		                            here: null,
+		                            active: null,
+		                            hover: null
+		                        )
+		                    ),
+
+		                    // Link
+		                    link: (
+		                        // Link
+		                        self: (
+		                            bg-color: (
+		                                default: null,
+		                                open: $gray-100,
+		                                here: $gray-100,
+		                                active: $gray-100,
+		                                hover: $gray-100
+		                            )
+		                        ),
+
+		                        // Icon
+		                        icon:	(
+		                            font-color:	(
+		                                default: $text-muted,
+		                                open: $primary,
+		                                active: $primary,
+		                                hover: $primary
+		                            )
+		                        ),
+
+								// Bullet
+		                        bullet:	(
+		                            dot: (
+		                                bg-color: (
+		                                    default: $text-muted,
+		                                    open: $primary,
+		                                    here: $primary,
+		                                    active: $primary,
+		                                    hover: $primary
+		                                )
+		                            ),
+
+		                            line: (
+		                                bg-color: (
+		                                    default: $text-muted,
+		                                    open: $primary,
+		                                    here: $primary,
+		                                    active: $primary,
+		                                    hover: $primary
+		                                )
+		                            )
+		                        ),
+
+		                        // Text
+		                        text: (
+		                            font-color:	(
+		                                default: $dark-75,
+		                                open: $primary,
+		                                active: $primary,
+		                                hover: $primary
+		                            )
+		                        ),
+
+		                        // Arrow
+		                        arrow:	(
+		                            font-color:	(
+		                                default: $text-muted,
+		                                open: $primary,
+		                                active: $primary,
+		                                hover: $primary
+		                            )
+		                        )
+		                    )
+		                ),
+
+		                // Section
+		                section: (
+		                    text: (
+		                        font-color: $dark-50
+		                    ),
+
+		                    icon: (
+		                        font-color: $text-muted
+		                    )
+		                ),
+
+		                // Separator
+		                separator: (
+		                    border: 1px solid $gray-200
+		                )
+		            )
+		        ),
+
+		        // Section
+		        section: (
+		            text: (
+		                font-color: $dark-50
+		            ),
+		            icon: (
+		                font-color: $text-muted
+		            )
+		        ),
+
+		        // Separator
+		        separator: (
+		            border: 1px solid $gray-200
+		        )
+		    ),
+
+		    // Dropdown Mode
+		    dropdown: (
+		        // Item
+		        item: (
+		            // Submenu
+		            submenu: (
+		                // Submenu
+		                self: (
+		                    // submenu base styles
+		                    bg-color: $white,
+		                    box-shadow: 0px 0px 50px 0px rgba(82,63,105,0.15),
+		                ),
+
+		                // Item
+		                item: (
+		                    // Item
+		                    self: (
+		                        bg-color: (
+		                            default: null,
+		                            open: null,
+		                            here: null,
+		                            active: null,
+		                            hover: null
+		                        )
+		                    ),
+
+		                    // Link
+		                    link: (
+		                        // Link
+		                        self: (
+		                            bg-color: (
+		                                default: null,
+		                                open: $gray-100,
+		                                here: $gray-100,
+		                                active: $gray-100,
+		                                hover: $gray-100
+		                            )
+		                        ),
+
+		                        // Icon
+		                        icon:	(
+		                            font-color:	(
+		                                default: $text-muted,
+		                                open: $primary,
+		                                active: $primary,
+		                                hover: $primary
+		                            )
+		                        ),
+
+		                        // Bullet
+		                        bullet:	(
+		                            dot: (
+		                                bg-color: (
+		                                    default: $text-muted,
+		                                    open: $primary,
+		                                    here: $primary,
+		                                    active: $primary,
+		                                    hover: $primary
+		                                )
+		                            ),
+		                            line: (
+		                                bg-color: (
+		                                    default: $text-muted,
+		                                    open: $primary,
+		                                    here: $primary,
+		                                    active: $primary,
+		                                    hover: $primary
+		                                )
+		                            )
+		                        ),
+
+		                        // Text
+		                        text: (
+		                            font-color:	(
+		                                default: $dark-75,
+		                                open: $primary,
+		                                active: $primary,
+		                                hover: $primary
+		                            )
+		                        ),
+
+		                        // Arrow
+		                        arrow:	(
+		                            font-color:	(
+		                                default: $text-muted,
+		                                open: $primary,
+		                                active: $primary,
+		                                hover: $primary
+		                            )
+		                        )
+		                    )
+		                ),
+
+		                // Section
+		                section: (
+		                    text: (
+		                        font-color: $dark-50
+		                    ),
+
+		                    icon: (
+		                        font-color: $text-muted
+		                    )
+		                ),
+
+		                // Separator
+		                separator: (
+		                    border: 1px solid $gray-200
+		                )
+		            )
+		        )
+		    )
+		)
+	)
+) !default;
+
+// Subheader
+$subheader-config: (
+	// Default Mode
+	default: (
+		bg-color: $white,
+		border-color: $gray-200,
+	),
+	// Fixed Subheader Mode
+	fixed: (
+		height: 54px,
+		shadow: 0px 10px 30px 0px rgba(82,63,105,0.08),
+		zindex: 95
+	)
+) !default;

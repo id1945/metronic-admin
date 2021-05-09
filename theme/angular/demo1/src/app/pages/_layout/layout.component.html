@@ -1,0 +1,136 @@
+<!--begin::Main-->
+<ng-container *ngIf="selfLayout !== 'blank'; else blankLayout">
+  <!-- begin:: Header Mobile -->
+  <app-header-mobile
+    #ktHeaderMobile
+    id="kt_header_mobile"
+    class="header-mobile align-items-center"
+    [ngClass]="headerMobileClasses"
+  ></app-header-mobile>
+  <!-- end:: Header Mobile -->
+  <div class="d-flex flex-column flex-root">
+    <!--begin::Page-->
+    <div class="d-flex flex-row flex-column-fluid page">
+      <!-- begin:: Aside Left -->
+      <ng-container *ngIf="asideSelfDisplay">
+        <ng-container *ngIf="asideMenuStatic">
+          <!--begin::STATIC Aside-->
+          <app-aside
+            #ktAside
+            id="kt_aside"
+            class="aside aside-left d-flex flex-column flex-row-auto"
+            [ngClass]="asideCSSClasses"
+          ></app-aside>
+          <!--end::STATIC Aside-->
+        </ng-container>
+        <ng-container *ngIf="!asideMenuStatic">
+          <!--begin::DYNAMIC Aside-->
+          <app-aside-dynamic
+            #ktAside
+            id="kt_aside"
+            class="aside aside-left d-flex flex-column flex-row-auto"
+            [ngClass]="asideCSSClasses"
+          ></app-aside-dynamic>
+          <!--end::DYNAMIC Aside-->
+        </ng-container>
+      </ng-container>
+      <!-- end:: Aside Left -->
+
+      <!--begin::Wrapper-->
+      <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+        <!-- begin:: Header -->
+        <app-header
+          #ktHeader
+          id="kt_header"
+          class="header"
+          [ngClass]="headerCSSClasses"
+        ></app-header>
+        <!-- end:: Header -->
+
+        <!-- begin:: Content -->
+        <div
+          class="content d-flex flex-column flex-column-fluid"
+          id="kt_content"
+          [ngClass]="contentClasses"
+        >
+          <!-- begin:: Content Head -->
+          <ng-container *ngIf="subheaderDisplay">
+            <app-subheader-wrapper></app-subheader-wrapper>
+          </ng-container>
+          <!-- end:: Content Head -->
+
+          <!-- begin:: Content Body -->
+          <ng-container *ngIf="contentExtended">
+            <router-outlet></router-outlet>
+          </ng-container>
+
+          <ng-container *ngIf="!contentExtended">
+            <!--begin::Entry-->
+            <div class="d-flex flex-column-fluid">
+              <!--begin::Container-->
+              <div [ngClass]="contentContainerClasses">
+                <router-outlet></router-outlet>
+                <!--end::Container-->
+              </div>
+            </div>
+            <!--end::Entry-->
+          </ng-container>
+          <!-- end:: Content Body -->
+        </div>
+        <!-- end:: Content -->
+        <ng-container *ngIf="footerDisplay">
+          <!--begin::Footer-->
+          <app-footer
+            class="footer bg-white py-4 d-flex flex-lg-column w-100"
+            id="kt_footer"
+            [ngClass]="footerCSSClasses"
+          ></app-footer>
+          <!--end::Footer-->
+        </ng-container>
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!-- end:: Body -->
+    <!--end::Page-->
+
+    <!--begin::Offcanvases-->
+    <ng-container *ngIf="extrasSearchOffcanvasDisplay">
+      <app-search-offcanvas></app-search-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasNotificationsOffcanvasDisplay">
+      <app-notifications-offcanvas></app-notifications-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasQuickActionsOffcanvasDisplay">
+      <app-quick-actions-offcanvas></app-quick-actions-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasCartOffcanvasDisplay">
+      <app-cart-offcanvas></app-cart-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasQuickPanelDisplay">
+      <app-quick-panel-offcanvas></app-quick-panel-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasUserOffcanvasDisplay">
+      <app-user-offcanvas></app-user-offcanvas>
+    </ng-container>
+
+    <app-toolbar></app-toolbar>
+
+    <ng-container *ngIf="extrasScrollTopDisplay">
+      <app-scroll-top></app-scroll-top>
+    </ng-container>
+    <!--end::Offcanvases-->
+  </div>
+</ng-container>
+
+<ng-template #blankLayout>
+  <div class="d-flex flex-column flex-root">
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>
+<app-scripts-init></app-scripts-init>
+<!--end::Main-->

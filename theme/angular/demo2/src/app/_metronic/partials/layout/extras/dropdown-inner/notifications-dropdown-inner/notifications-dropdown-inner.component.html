@@ -1,0 +1,598 @@
+<!--begin::Header-->
+<ng-container *ngIf="extrasNotificationsDropdownStyle === 'light'">
+  <div class="d-flex flex-column pt-12 bg-dark-o-5 rounded-top">
+    <!--begin::Title-->
+    <h4 class="d-flex flex-center">
+      <span class="text-dark">User Notifications</span>
+      <span
+        class="btn btn-text btn-success btn-sm font-weight-bold btn-font-md ml-2"
+        >23 new</span
+      >
+    </h4>
+    <!--end::Title-->
+
+    <!--begin::Tabs-->
+    <ul
+      class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-primary mt-3 px-8"
+      role="tablist"
+    >
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          data-toggle="tab"
+          (click)="setActiveTabId('topbar_notifications_notifications')"
+          [ngClass]="getActiveCSSClasses('topbar_notifications_notifications')"
+          >Alerts</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          data-toggle="tab"
+          (click)="setActiveTabId('topbar_notifications_events')"
+          [ngClass]="getActiveCSSClasses('topbar_notifications_events')"
+          >Events</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          data-toggle="tab"
+          (click)="setActiveTabId('topbar_notifications_logs')"
+          [ngClass]="getActiveCSSClasses('topbar_notifications_logs')"
+          >Logs</a
+        >
+      </li>
+    </ul>
+    <!--end::Tabs-->
+  </div>
+</ng-container>
+<ng-container *ngIf="extrasNotificationsDropdownStyle === 'dark'">
+  <div
+    class="d-flex flex-column pt-12 bgi-size-cover bgi-no-repeat rounded-top"
+    style="background-image: url('./assets/media/misc/bg-1.jpg');"
+  >
+    <!--begin::Title-->
+    <h4 class="d-flex flex-center rounded-top">
+      <span class="text-white">User Notifications</span>
+      <span
+        class="btn btn-text btn-success btn-sm font-weight-bold btn-font-md ml-2"
+        >23 new</span
+      >
+    </h4>
+    <!--end::Title-->
+
+    <!--begin::Tabs-->
+    <ul
+      class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-line-transparent-white nav-tabs-line-active-border-success mt-3 px-8"
+      role="tablist"
+    >
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          data-toggle="tab"
+          (click)="setActiveTabId('topbar_notifications_notifications')"
+          [ngClass]="getActiveCSSClasses('topbar_notifications_notifications')"
+          >Alerts</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          data-toggle="tab"
+          (click)="setActiveTabId('topbar_notifications_events')"
+          [ngClass]="getActiveCSSClasses('topbar_notifications_events')"
+          >Events</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          data-toggle="tab"
+          (click)="setActiveTabId('topbar_notifications_logs')"
+          [ngClass]="getActiveCSSClasses('topbar_notifications_logs')"
+          >Logs</a
+        >
+      </li>
+    </ul>
+    <!--end::Tabs-->
+  </div>
+</ng-container>
+<!--end::Header-->
+
+<!--begin::Content-->
+<div class="tab-content">
+  <!--begin::Tabpane-->
+  <div
+    class="tab-pane p-8"
+    id="topbar_notifications_notifications"
+    role="tabpanel"
+    [ngClass]="getActiveCSSClasses('topbar_notifications_notifications')"
+  >
+    <!--begin::Scroll-->
+    <div
+      class="scroll pr-7 mr-n7 ps"
+      style="position: relative; max-height: 300px;"
+      perfectScrollbar
+    >
+      <!--begin::Item-->
+      <div class="d-flex align-items-center mb-6">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-40 symbol-light-primary mr-5">
+          <span class="symbol-label">
+            <span
+              [inlineSVG]="'./assets/media/svg/icons/Home/Library.svg'"
+              cacheSVG="true"
+              class="svg-icon svg-icon-xl svg-icon-primary"
+            ></span>
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column font-weight-bold">
+          <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg"
+            >Cool App</a
+          >
+          <span class="text-muted">Marketing campaign planning</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <div class="d-flex align-items-center mb-6">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-40 symbol-light-warning mr-5">
+          <span class="symbol-label">
+            <span
+              [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'"
+              cacheSVG="true"
+              class="svg-icon svg-icon-xl svg-icon-warning"
+            ></span>
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column font-weight-bold">
+          <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"
+            >Awesome SAAS</a
+          >
+          <span class="text-muted">Project status update meeting</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <div class="d-flex align-items-center mb-6">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-40 symbol-light-success mr-5">
+          <span class="symbol-label">
+            <span
+              [inlineSVG]="
+                './assets/media/svg/icons/Communication/Group-chat.svg'
+              "
+              cacheSVG="true"
+              class="svg-icon svg-icon-xl svg-icon-success"
+            ></span>
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column font-weight-bold">
+          <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg"
+            >Claudy Sys</a
+          >
+          <span class="text-muted">Project Deployment & Launch</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <div class="d-flex align-items-center mb-6">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-40 symbol-light-danger mr-5">
+          <span class="symbol-label">
+            <span
+              [inlineSVG]="'./assets/media/svg/icons/General/Attachment2.svg'"
+              cacheSVG="true"
+              class="svg-icon svg-icon-xl svg-icon-danger"
+            ></span>
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column font-weight-bold">
+          <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg"
+            >Trilo Service</a
+          >
+          <span class="text-muted">Analytics & Requirement Study</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <div class="d-flex align-items-center mb-6">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-40 symbol-light-info mr-5">
+          <span class="symbol-label">
+            <span
+              [inlineSVG]="
+                './assets/media/svg/icons/Communication/Shield-user.svg'
+              "
+              cacheSVG="true"
+              class="svg-icon svg-icon-xl svg-icon-info"
+            ></span>
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column font-weight-bold">
+          <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg"
+            >Bravia SAAS</a
+          >
+          <span class="text-muted">Reporting Application</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <div class="d-flex align-items-center mb-6">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-40 symbol-light-danger mr-5">
+          <span class="symbol-label">
+            <span
+              [inlineSVG]="
+                './assets/media/svg/icons/Communication/Mail-notification.svg'
+              "
+              cacheSVG="true"
+              class="svg-icon svg-icon-xl svg-icon-danger"
+            ></span>
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column font-weight-bold">
+          <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg"
+            >Express Wind</a
+          >
+          <span class="text-muted">Software Analytics & Design</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <div class="d-flex align-items-center mb-6">
+        <!--begin::Symbol-->
+        <div class="symbol symbol-40 symbol-light-success mr-5">
+          <span class="symbol-label">
+            <span
+              [inlineSVG]="'./assets/media/svg/icons/Design/Bucket.svg'"
+              cacheSVG="true"
+              class="svg-icon svg-icon-xl svg-icon-success"
+            ></span>
+          </span>
+        </div>
+        <!--end::Symbol-->
+
+        <!--begin::Text-->
+        <div class="d-flex flex-column font-weight-bold">
+          <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg"
+            >Bruk Fitness</a
+          >
+          <span class="text-muted">Web Design & Development</span>
+        </div>
+        <!--end::Text-->
+      </div>
+      <!--end::Item-->
+    </div>
+    <!--end::Scroll-->
+
+    <!--begin::Action-->
+    <div class="d-flex flex-center pt-7">
+      <a href="#" class="btn btn-light-primary font-weight-bold text-center"
+        >See All</a
+      >
+    </div>
+    <!--end::Action-->
+  </div>
+  <!--end::Tabpane-->
+
+  <!--begin::Tabpane-->
+  <div
+    class="tab-pane"
+    id="topbar_notifications_events"
+    role="tabpanel"
+    [ngClass]="getActiveCSSClasses('topbar_notifications_events')"
+  >
+    <!--begin::Nav-->
+    <div
+      class="navi navi-hover scroll my-4"
+      data-scroll="true"
+      style="position: relative; max-height: 300px;"
+      perfectScrollbar
+    >
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-line-chart text-success"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              New report has been received
+            </div>
+            <div class="text-muted">
+              23 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-paper-plane text-danger"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              Finance report has been generated
+            </div>
+            <div class="text-muted">
+              25 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-user flaticon2-line- text-success"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              New order has been received
+            </div>
+            <div class="text-muted">
+              2 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-pin text-primary"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              New customer is registered
+            </div>
+            <div class="text-muted">
+              3 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-sms text-danger"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              Application has been approved
+            </div>
+            <div class="text-muted">
+              3 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-pie-chart-3 text-warning"></i>
+          </div>
+          <div class="navinavinavi-text">
+            <div class="font-weight-bold">
+              New file has been uploaded
+            </div>
+            <div class="text-muted">
+              5 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon-pie-chart-1 text-info"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              New user feedback received
+            </div>
+            <div class="text-muted">
+              8 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-settings text-success"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              System reboot has been successfully completed
+            </div>
+            <div class="text-muted">
+              12 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon-safe-shield-protection text-primary"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              New order has been placed
+            </div>
+            <div class="text-muted">
+              15 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-notification text-primary"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              Company meeting canceled
+            </div>
+            <div class="text-muted">
+              19 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-fax text-success"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              New report has been received
+            </div>
+            <div class="text-muted">
+              23 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon-download-1 text-danger"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              Finance report has been generated
+            </div>
+            <div class="text-muted">
+              25 hrs ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon-security text-warning"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              New customer comment recieved
+            </div>
+            <div class="text-muted">
+              2 days ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+
+      <!--begin::Item-->
+      <a href="#" class="navi-item">
+        <div class="navi-link">
+          <div class="navi-icon mr-2">
+            <i class="flaticon2-analytics-1 text-success"></i>
+          </div>
+          <div class="navi-text">
+            <div class="font-weight-bold">
+              New customer is registered
+            </div>
+            <div class="text-muted">
+              3 days ago
+            </div>
+          </div>
+        </div>
+      </a>
+      <!--end::Item-->
+    </div>
+    <!--end::Nav-->
+  </div>
+  <!--end::Tabpane-->
+
+  <!--begin::Tabpane-->
+  <div
+    class="tab-pane"
+    id="topbar_notifications_logs"
+    role="tabpanel"
+    [ngClass]="getActiveCSSClasses('topbar_notifications_logs')"
+  >
+    <!--begin::Nav-->
+    <div class="d-flex flex-center text-center text-muted min-h-200px">
+      All caught up!
+      <br />
+      No new notifications.
+    </div>
+    <!--end::Nav-->
+  </div>
+  <!--end::Tabpane-->
+</div>
+<!--end::Content-->

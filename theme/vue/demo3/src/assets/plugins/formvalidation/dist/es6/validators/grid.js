@@ -1,0 +1,1 @@
+import e from"../algorithms/mod37And36";export default function r(){return{validate(r){if(r.value===""){return{valid:true}}let t=r.value.toUpperCase();if(!/^[GRID:]*([0-9A-Z]{2})[-\s]*([0-9A-Z]{5})[-\s]*([0-9A-Z]{10})[-\s]*([0-9A-Z]{1})$/g.test(t)){return{valid:false}}t=t.replace(/\s/g,"").replace(/-/g,"");if("GRID:"===t.substr(0,5)){t=t.substr(5)}return{valid:e(t)}}}}

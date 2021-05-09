@@ -1,0 +1,391 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/table/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<app-code-preview [viewItem]="exampleBasic">
+  <div class="example-preview">
+    <p>
+      The
+      <mark>mat-table</mark> provides a Material Design styled data-table that
+      can be used to display rows of data.
+    </p>
+    <p>
+      This table builds on the foundation of the CDK data-table and uses a
+      similar interface for its data input and template, except that its element
+      and attribute selectors will be prefixed with
+      <mark>mat-</mark> instead of <mark>cdk-</mark>. For more information on
+      the interface and a detailed look at how the table is implemented, see the
+      <a href="https://material.angular.io/cdk/table/overview" target="_blank"
+        >guide covering the CDK data-table</a
+      >.
+    </p>
+    <div class="separator separator-dashed my-6"></div>
+    <div>
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table1 [dataSource]="dataSource1">
+          <!--- Note that these columns can be defined in any order.
+										The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.position }}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.weight }}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.symbol }}
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns1"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns1"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+</app-code-preview>
+
+<app-code-preview [viewItem]="examplePagination">
+  <div class="example-preview">
+    <div>
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table2 [dataSource]="dataSource2">
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.position }}
+            </mat-cell>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+          </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.weight }}
+            </mat-cell>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.symbol }}
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns2"></mat-row>
+        </mat-table>
+        <mat-paginator
+          #matPaginator2
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 20]"
+          [showFirstLastButtons]="true"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</app-code-preview>
+
+<app-code-preview [viewItem]="exampleSorting">
+  <div class="example-preview">
+    <div>
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table3 [dataSource]="dataSource3" #sort3="matSort" matSort>
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              No.
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.position }}
+            </mat-cell>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Name
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+          </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Weight
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.weight }}
+            </mat-cell>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Symbol
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.symbol }}
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns3"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns3"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+</app-code-preview>
+
+<app-code-preview [viewItem]="exampleFiltering">
+  <div class="example-preview">
+    <div>
+      <div class="example-container mat-elevation-z8">
+        <div class="example-header">
+          <mat-form-field class="mat-form-field">
+            <input
+              matInput
+              (keyup)="applyFilter4($event.target.value)"
+              placeholder="Filter"
+            />
+          </mat-form-field>
+        </div>
+        <mat-table #table4 [dataSource]="dataSource4">
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.position }}
+            </mat-cell>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+          </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.weight }}
+            </mat-cell>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.symbol }}
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns4"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns4"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+</app-code-preview>
+
+<app-code-preview [viewItem]="exampleSelection">
+  <div class="example-preview">
+    <div>
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table5 [dataSource]="dataSource5">
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef>
+              <mat-checkbox
+                (change)="$event ? masterToggle5() : null"
+                [checked]="selection.hasValue() && isAllSelected5()"
+                [indeterminate]="selection.hasValue() && !isAllSelected5()"
+              >
+              </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)"
+              >
+              </mat-checkbox>
+            </mat-cell>
+          </ng-container>
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.position }}
+            </mat-cell>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+          </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.weight }}
+            </mat-cell>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.symbol }}
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns5"></mat-header-row>
+          <mat-row
+            *matRowDef="let row; columns: displayedColumns5"
+            (click)="selection.toggle(row)"
+          ></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+</app-code-preview>
+
+<app-code-preview [viewItem]="exampleHTTP">
+  <div class="example-preview">
+    <div class="example-container mat-elevation-z8">
+      <div
+        class="example-loading-shade"
+        *ngIf="isLoadingResults || isRateLimitReached"
+      >
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+          GitHub's API rate limit has been reached. It will be reset in one
+          minute.
+        </div>
+      </div>
+
+      <mat-table
+        #sort6="matSort"
+        #table6
+        [dataSource]="dataSource6"
+        class="example-table"
+        matSort
+        matSortActive="created"
+        matSortDisableClear
+        matSortDirection="asc"
+      >
+        <!--- Note that these columns can be defined in any order.
+		                                The actual rendered columns are set as a property on the row definition" -->
+        <!-- Number Column -->
+        <ng-container matColumnDef="number">
+          <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.number }}</mat-cell>
+        </ng-container>
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.title }}</mat-cell>
+        </ng-container>
+        <!-- State Column -->
+        <ng-container matColumnDef="state">
+          <mat-header-cell *matHeaderCellDef>State</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.state }}</mat-cell>
+        </ng-container>
+        <!-- Created Column -->
+        <ng-container matColumnDef="created">
+          <mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            disableClear="true"
+          >
+            Created
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.created_at | date }}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns6"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns6"></mat-row>
+      </mat-table>
+      <mat-paginator
+        #matPaginator6
+        [length]="resultsLength"
+        [pageSize]="30"
+      ></mat-paginator>
+    </div>
+  </div>
+</app-code-preview>
+
+<app-code-preview [viewItem]="exampleMain">
+  <div class="example-preview">
+    <div class="example-header">
+      <mat-form-field>
+        <input
+          matInput
+          (keyup)="applyFilter7($event.target.value)"
+          placeholder="Filter"
+        />
+      </mat-form-field>
+    </div>
+    <div class="example-container mat-elevation-z8">
+      <mat-table #sort7="matSort" [dataSource]="dataSource7" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            ID
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
+        </ng-container>
+        <!-- Progress Column -->
+        <ng-container matColumnDef="progress">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Progress
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.progress }}% </mat-cell>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Name
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+        </ng-container>
+        <!-- Color Column -->
+        <ng-container matColumnDef="color">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Color
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" [style.color]="row.color">
+            {{ row.color }}
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns7"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns7"></mat-row>
+      </mat-table>
+      <mat-paginator
+        #matPaginator7
+        [pageSizeOptions]="[5, 10, 25, 100]"
+      ></mat-paginator>
+    </div>
+  </div>
+</app-code-preview>

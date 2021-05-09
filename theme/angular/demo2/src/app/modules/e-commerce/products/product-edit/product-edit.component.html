@@ -1,0 +1,222 @@
+<div class="card card-custom gutter-b">
+  <ng-container *ngIf="isLoading$ | async">
+    <div class="progress progress-modal">
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+        style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </ng-container>
+
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">
+        <ng-container *ngIf="product">
+          {{ id ? "Edit" : "New" }} product
+          <span *ngIf="product && product.id">'{{ product.manufacture }} {{ product.model }} -
+            {{ product.modelYear }}'</span>
+        </ng-container>
+        {{ product?.manufacture }}
+      </h3>
+    </div>
+    <div class="card-toolbar">
+      <a type="button" class="btn btn-light" routerLink="/ecommerce/products">
+        <i class="fa fa-arrow-left"></i>Back
+      </a>
+      <button class="btn btn-secondary ml-2" (click)="reset()">
+        <i class="fa fa-redo"></i>Reset
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+      <li class="nav-item cursor-pointer" (click)="changeTab(tabs.BASIC_TAB)">
+        <a class="nav-link" data-toggle="tab" role="tab" [attr.aria-selected]="activeTabId === tabs.BASIC_TAB"
+          [class.active]="activeTabId === tabs.BASIC_TAB">
+          Basic info
+        </a>
+      </li>
+      <li *ngIf="product && product.id" class="nav-item cursor-pointer" (click)="changeTab(tabs.REMARKS_TAB)">
+        <a class="nav-link" data-toggle="tab" role="button" [attr.aria-selected]="activeTabId === tabs.REMARKS_TAB"
+          [class.active]="activeTabId === tabs.REMARKS_TAB">Product remarks</a>
+      </li>
+      <li *ngIf="product && product.id" class="nav-item cursor-pointer" (click)="changeTab(tabs.SPECIFICATIONS_TAB)">
+        <a class="nav-link" data-toggle="tab" role="tab" [attr.aria-selected]="activeTabId === tabs.SPECIFICATIONS_TAB"
+          [class.active]="activeTabId === tabs.SPECIFICATIONS_TAB">Product specifications</a>
+      </li>
+    </ul>
+
+    <ng-container *ngIf="activeTabId === tabs.BASIC_TAB">
+      <div class="mt-5" *ngIf="product">
+        <form action="#" class="form form-label-right" [formGroup]="formGroup" (ngSubmit)="save()">
+          <div class="form-group row">
+            <div class="col-lg-4">
+              <label>Enter Model</label>
+              <input type="text" class="form-control form-control-lg form-control-solid" autocomplete="off"
+                placeholder="Model" name="model" [class.is-invalid]="isControlInvalid('model')"
+                [class.is-valid]="isControlValid('model')" formControlName="model" />
+              <div class="feedback" *ngIf="!isControlTouched('model')">Please enter <b>Model</b></div>
+              <div class="valid-feedback" *ngIf="isControlValid('model')">Model was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'model')">Model is required</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('minlength', 'model')">Model should have at least 3
+                symbols</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('maxLength', 'model')">Model should have maximum 100
+                symbols</div>
+            </div>
+            <div class="col-lg-4">
+              <label>Select Manufacture</label>
+              <select class="form-control form-control-lg form-control-solid" name="manufacture"
+                formControlName="manufacture">
+                <option value="Pontiac">Pontiac</option>
+                <option value="Kia">Kia</option>
+                <option value="Lotus">Lotus</option>
+                <option value="Subaru">Subaru</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Isuzu">Isuzu</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Oldsmobile">Oldsmobile</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Chrysler">Chrysler</option>
+                <option value="Audi">Audi</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="GMC">GMC</option>
+                <option value="Cadillac">Cadillac</option>
+                <option value="Infinity">Infinity</option>
+                <option value="Mercury">Mercury</option>
+                <option value="Dodge">Dodge</option>
+                <option value="Ram">Ram</option>
+                <option value="Lexus">Lexus</option>
+                <option value="Lamborghini">Lamborghini</option>
+                <option value="Honda">Honda</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Ford">Ford</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Saab">Saab</option>
+                <option value="Toyota">Toyota</option>
+              </select>
+              <div class="feedback">Please select <b>Color</b></div>
+            </div>
+            <div class="col-lg-4">
+              <label>Enter Model year</label>
+              <input type="number" class="form-control form-control-lg form-control-solid" placeholder="Model Year"
+                name="modelYear" [class.is-invalid]="isControlInvalid('modelYear')"
+                [class.is-valid]="isControlValid('modelYear')" formControlName="modelYear" />
+              <div class="feedback" *ngIf="!isControlTouched('modelYear')">Please enter <b>Model</b></div>
+              <div class="valid-feedback" *ngIf="isControlValid('modelYear')">Model year was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'modelYear')">Model year is required
+              </div>
+              <div class="invalid-feedback" *ngIf="controlHasError('minlength', 'modelYear')">Model year should have at
+                least 3 symbols</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('min', 'modelYear')">Model year can't be less than
+                1900</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('max', 'modelYear')">Model year can't be more than
+                2023</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('maxLength', 'modelYear')">Model year should have
+                maximum 100 symbols</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-lg-4">
+              <label>Enter Mileage</label>
+              <input type="number" class="form-control form-control-lg form-control-solid" placeholder="Mileage"
+                name="mileage" [class.is-invalid]="isControlInvalid('mileage')"
+                [class.is-valid]="isControlValid('mileage')" formControlName="mileage" />
+              <div class="feedback" *ngIf="!isControlTouched('mileage')">Please enter <b>Mileage</b></div>
+              <div class="valid-feedback" *ngIf="isControlValid('mileage')">Mileage was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'mileage')">Mileage is required</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('minlength', 'mileage')">Mileage should have at least
+                1 symbol</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('maxLength', 'mileage')">Mileage year should have
+                maximum 100 symbols</div>
+            </div>
+            <div class="col-lg-4">
+              <label>Select Color</label>
+              <select class="form-control form-control-lg form-control-solid" name="color" formControlName="color">
+                <option value="Red">Red</option>
+                <option value="CadetBlue">CadetBlue</option>
+                <option value="Eagle">Eagle</option>
+                <option value="Gold">Gold</option>
+                <option value="LightSlateGrey">LightSlateGrey</option>
+                <option value="RoyalBlue">RoyalBlue</option>
+                <option value="Crimson">Crimson</option>
+                <option value="Blue">Blue</option>
+                <option value="Sienna">Sienna</option>
+                <option value="Indigo">Indigo</option>
+                <option value="Green">Green</option>
+                <option value="Violet">Violet</option>
+                <option value="GoldenRod">GoldenRod</option>
+                <option value="OrangeRed">OrangeRed</option>
+                <option value="Khaki">Khaki</option>
+                <option value="Teal">Teal</option>
+                <option value="Purple">Purple</option>
+                <option value="Orange">Orange</option>
+                <option value="Pink">Pink</option>
+                <option value="Black">Black</option>
+                <option value="DarkTurquoise">DarkTurquoise</option>
+              </select>
+              <div class="feedback">Please select <b>Color</b></div>
+            </div>
+            <div class="col-lg-4">
+              <label>Enter Price ($)</label>
+              <input type="number" class="form-control form-control-lg form-control-solid" autocomplete="off"
+                placeholder="Price" name="price" [class.is-invalid]="isControlInvalid('price')"
+                [class.is-valid]="isControlValid('price')" formControlName="price" />
+              <div class="feedback" *ngIf="!isControlTouched('price')">Please enter <b>Price</b></div>
+              <div class="valid-feedback" *ngIf="isControlValid('price')">Price was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'price')">Price is required</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('minlength', 'price')">Price should have at least 3
+                symbols</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('maxLength', 'price')">Price should have maximum 100
+                symbols</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-lg-4">
+              <label>Enter VIN code</label>
+              <input type="text" class="form-control form-control-lg form-control-solid" autocomplete="off"
+                placeholder="VIN Code" name="VINCode" [class.is-invalid]="isControlInvalid('VINCode')"
+                [class.is-valid]="isControlValid('VINCode')" formControlName="VINCode" />
+              <div class="feedback" *ngIf="!isControlTouched('VINCode')">Please enter <b>VIN code</b></div>
+              <div class="valid-feedback" *ngIf="isControlValid('VINCode')">VIN code was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'VINCode')">VIN code is required</div>
+            </div>
+            <div class="col-lg-4">
+              <label>Select Status</label>
+              <select class="form-control form-control-lg form-control-solid" name="status" formControlName="status">
+                <option value="1">Selling</option>
+                <option value="2">Sold</option>
+              </select>
+              <div class="feedback">Please select <b>Status</b></div>
+            </div>
+            <div class="col-lg-4">
+              <label>Select Condition</label>
+              <select class="form-control form-control-lg form-control-solid" name="condition"
+                formControlName="condition">
+                <option value="1">New</option>
+                <option value="2">Used</option>
+              </select>
+              <div class="feedback">Please select <b>Condition</b></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" class="form-control form-control-solid"
+              formControlName="description"></textarea>
+          </div>
+          <div class="float-right">
+            <a class="btn btn-default font-weight-bold mr-2" routerLink="/ecommerce/products">Cancel</a>
+            <button type="submit" class="btn btn-primary font-weight-bold mr-2"
+              [disabled]="formGroup.invalid">Save</button>
+          </div>
+        </form>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="activeTabId === tabs.REMARKS_TAB && product && product.id">
+      <app-remarks [productId]="product.id"></app-remarks>
+    </ng-container>
+
+    <ng-container *ngIf="activeTabId === tabs.SPECIFICATIONS_TAB && product && product.id">
+      <app-specifications [productId]="product.id"></app-specifications>
+    </ng-container>
+
+  </div>
+</div>

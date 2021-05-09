@@ -1,0 +1,55 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <div class="modal-title h4" id="example-modal-sizes-title-lg">
+      <ng-container *ngIf="spec">
+        <ng-container *ngIf="spec.id">Edit</ng-container>
+        <ng-container *ngIf="!spec.id">Create</ng-container>
+        specification
+        <ng-container *ngIf="spec.id"> '{{specs[spec.specId]}}</ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="overlay overlay-block cursor-default modal-body">
+    <ng-container *ngIf="isLoading$ | async">
+      <div class="overlay-layer bg-transparent">
+        <div class="spinner spinner-lg spinner-success"></div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="spec">
+      <form action="#" class="form form-label-right" [formGroup]="formGroup">
+        <div class="form-group row">
+          <div class="col-lg-12">
+            <label>Select Specification Type</label>
+            <select class="form-control form-control-lg form-control-solid" name="specId" formControlName="specId">
+              <option [value]="i" *ngFor="let sp of specs; let i = index">{{sp}}</option>
+            </select>
+            <div class="feedback">Please select <b>Specification Type</b></div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-xl-12">
+            <label class="form-label">Enter Value</label>
+            <input type="text" class="form-control form-control-lg form-control-solid" name="value" placeholder="Value"
+              autocomplete="off" [class.is-invalid]="isControlInvalid('value')"
+              [class.is-valid]="isControlValid('value')" formControlName="value" />
+            <div class="valid-feedback" *ngIf="isControlValid('value')">Value was entered correct</div>
+            <div class="invalid-feedback" *ngIf="controlHasError('required', 'value')">Value is required</div>
+            <div class="invalid-feedback" *ngIf="controlHasError('minlength', 'value')">Value should have at least 3
+              symbols</div>
+            <div class="invalid-feedback" *ngIf="controlHasError('maxLength', 'value')">Value should have maximum 10000
+              symbols</div>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Cancel</button>
+    <ng-container *ngIf="spec">
+
+      <button type="submit" class="btn btn-primary btn-elevate" (click)="save()"
+        [disabled]="formGroup.invalid">Save</button>
+    </ng-container>
+  </div>
+</div>

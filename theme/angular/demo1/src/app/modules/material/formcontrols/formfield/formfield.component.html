@@ -1,0 +1,246 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/form-field/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleSimpleFormField">
+      <div class="example-preview">
+        <span>
+          <code>mat-form-field</code> is a component used to wrap several
+          Angular Material components and apply common Text field styles such as
+          the underline, floating label, and hint messages. <br />
+          The following Angular Material components are designed to work inside
+          a <code>mat-form-field</code>:
+          <ul>
+            <li>
+              <code>input matInput & textarea matInput</code>
+            </li>
+
+            <li>
+              <code>mat-select</code>
+            </li>
+            <li>
+              <code>mat-chip-list</code>
+            </li>
+          </ul>
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Input" />
+          </mat-form-field>
+          <mat-form-field>
+            <textarea matInput placeholder="Textarea"></textarea>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Select">
+              <mat-option value="option">Alabama</mat-option>
+              <mat-option value="option">Alaska</mat-option>
+              <mat-option value="option">Florida</mat-option>
+              <mat-option value="option">Illinois</mat-option>
+              <mat-option value="option">Kansas</mat-option>
+              <mat-option value="option">Michigan</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleFormFieldWithLabel">
+      <div class="example-preview">
+        <div class="example-container">
+          <form class="example-container" [formGroup]="options">
+            <mat-checkbox formControlName="hideRequired"
+              >Hide required marker</mat-checkbox
+            >
+            <div>
+              <label>Float label: </label>
+              <mat-radio-group formControlName="floatLabel">
+                <mat-radio-button value="auto">Auto</mat-radio-button>
+                <mat-radio-button value="always">Always</mat-radio-button>
+                <mat-radio-button value="never">Never</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </form>
+          <mat-form-field
+            [hideRequiredMarker]="options.value.hideRequired"
+            [floatLabel]="options.value.floatLabel"
+          >
+            <input matInput placeholder="Simple placeholder" required />
+          </mat-form-field>
+          <mat-form-field [floatLabel]="options.value.floatLabel">
+            <mat-label>Both a label and a placeholder</mat-label>
+            <input matInput placeholder="Simple placeholder" />
+          </mat-form-field>
+          <mat-form-field
+            [hideRequiredMarker]="options.value.hideRequired"
+            [floatLabel]="options.value.floatLabel"
+          >
+            <mat-select required>
+              <mat-option>-- None --</mat-option>
+              <mat-option value="option">Alabama</mat-option>
+              <mat-option value="option">Alaska</mat-option>
+              <mat-option value="option">Florida</mat-option>
+              <mat-option value="option">Illinois</mat-option>
+              <mat-option value="option">Kansas</mat-option>
+              <mat-option value="option">Michigan</mat-option>
+            </mat-select>
+            <mat-placeholder>
+              <!-- <mat-icon>favorite</mat-icon> -->
+              <b> Fancy</b>
+              <i> placeholder</i>
+            </mat-placeholder>
+          </mat-form-field>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleFormFieldWithHints">
+      <div class="example-preview">
+        <div class="example-container">
+          <mat-form-field hintLabel="Max 10 characters">
+            <input
+              matInput
+              #input
+              maxlength="10"
+              placeholder="Enter some input"
+            />
+            <mat-hint align="end">{{ input.value?.length || 0 }}/10</mat-hint>
+          </mat-form-field>
+          <div class="separator separator-dashed my-6"></div>
+          <mat-form-field>
+            <mat-select placeholder="Select me">
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+            <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleFormFieldWithErrorMessages">
+      <div class="example-preview">
+        <div class="example-container">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Enter your email"
+              [formControl]="email"
+              required
+            />
+            <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleFormFieldWithPrefixSuffix">
+      <div class="example-preview">
+        <div class="example-container">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Enter your password"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <i
+              matSuffix
+              (click)="hide = !hide"
+              class="la"
+              [ngClass]="{ 'la-toggle-on': !hide, 'la-toggle-off': hide }"
+            ></i>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Amount"
+              type="number"
+              class="example-right-align"
+            />
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleFormFieldTheming">
+      <div class="example-preview">
+        <div class="example-container">
+          <form
+            class="example-container"
+            [formGroup]="options2"
+            [style.fontSize.px]="getFontSize()"
+          >
+            <mat-form-field [color]="options2.value.color">
+              <mat-select placeholder="Color" formControlName="color">
+                <mat-option value="primary">Primary</mat-option>
+                <mat-option value="accent">Accent</mat-option>
+                <mat-option value="warn">Warn</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field [color]="options2.value.color">
+              <input
+                matInput
+                type="number"
+                placeholder="Font size (px)"
+                formControlName="fontSize"
+                min="10"
+              />
+              <mat-error *ngIf="options2.get('fontSize')?.invalid"
+                >Min size: 10px</mat-error
+              >
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleFormFieldAppearanceVariants">
+      <div class="example-preview">
+        <div class="example-container">
+          <p>
+            <mat-form-field appearance="legacy">
+              <mat-label>Legacy form field</mat-label>
+              <input matInput placeholder="Placeholder" />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="standard">
+              <mat-label>Standard form field</mat-label>
+              <input matInput placeholder="Placeholder" />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Fill form field</mat-label>
+              <input matInput placeholder="Placeholder" />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Outline form field</mat-label>
+              <input matInput placeholder="Placeholder" />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </p>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

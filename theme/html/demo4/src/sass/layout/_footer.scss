@@ -1,0 +1,19 @@
+//
+// Content
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.footer {
+		// Fixed Footer Mode
+		.footer-fixed & {
+			position: fixed;
+			box-shadow: get($footer-config, fixed, shadow);
+			height: get($footer-config, fixed, height);
+			z-index: get($footer-config, fixed, zindex);
+			left: get($aside-config, base, width);
+			bottom: 0;
+			right: 0;
+		}
+	}
+}

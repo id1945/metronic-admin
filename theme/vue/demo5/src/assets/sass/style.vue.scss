@@ -1,0 +1,126 @@
+//
+// Main Style
+//
+
+
+////////////////////////////////////////////////////////////////
+///////////// DO NOT MODIFY BELOW INCLUDE ORDER ////////////////
+////////////////////////////////////////////////////////////////
+
+// 1: Initialize
+@import "init";
+
+// 2: Bootstrap framework includes
+@import "~bootstrap/scss/bootstrap";
+@import "vendors/vue/include";
+
+// 3: Components
+@import
+    "components/utilities/background",
+    "components/utilities/flex",
+    "components/utilities/opacity",
+    "components/utilities/borders",
+    "components/utilities/sizing",
+    "components/utilities/position",
+    "components/utilities/text",
+    "components/utilities/icon",
+    "components/card",
+    "components/wizard",
+    "components/type",
+    "components/breadcrumb",
+    "components/nav",
+    "components/alert",
+    "components/buttons",
+    "components/code",
+    "components/dropdown",
+    "components/forms",
+    "components/grid",
+    "components/modal",
+    "components/progress",
+    "components/table",
+    "components/popover",
+    "components/tooltip",
+    "components/accordion",
+    "components/datatable",
+    "components/checkbox",
+    "components/radio",
+    "components/switch",
+    "components/option",
+    "components/dialog",
+    "components/strikethrough",
+    "components/separator",
+    "components/image-input",
+    "components/label",
+    "components/loader",
+    "components/symbol",
+    "components/pulse",
+    "components/page-loader",
+    "components/quick-search",
+    "components/scrolltop",
+    "components/spinner",
+    "components/sticky-toolbar",
+    "components/svg-icon",
+    "components/svg",
+    "components/timeline",
+    "components/timeline-2",
+    "components/timeline-3",
+    "components/timeline-4",
+    "components/timeline-5",
+    "components/overlay",
+    "components/wave",
+    "components/list",
+    "components/bullet",
+    "components/navi",
+    "components/offcanvas",
+    "components/ribbon";
+
+// 4: Plugins
+@import
+    "vendors/plugins/blockui",
+    "vendors/plugins/bootstrap-datepicker",
+    "vendors/plugins/bootstrap-daterangepicker",
+    "vendors/plugins/bootstrap-datetimepicker",
+    "vendors/plugins/bootstrap-markdown",
+    "vendors/plugins/bootstrap-maxlength",
+    "vendors/plugins/bootstrap-notify",
+    "vendors/plugins/bootstrap-select",
+    "vendors/plugins/bootstrap-session-timeout",
+    "vendors/plugins/bootstrap-switch",
+    "vendors/plugins/bootstrap-timepicker",
+    "vendors/plugins/bootstrap-touchspin",
+    "vendors/plugins/ckeditor",
+    "vendors/plugins/datatables",
+    "vendors/plugins/dropzone",
+    "vendors/plugins/duallistbox",
+    "vendors/plugins/fontawesome5",
+    "vendors/plugins/fullcalendar",
+    "vendors/plugins/gmaps",
+    "vendors/plugins/ion-range-slider",
+    "vendors/plugins/jquery-repeater",
+    "vendors/plugins/jqvmap",
+    "vendors/plugins/jstree",
+    "vendors/plugins/kanban",
+    "vendors/plugins/nouislider",
+    "vendors/plugins/perfect-scrollbar",
+    "vendors/plugins/quill",
+    "vendors/plugins/recaptcha",
+    "vendors/plugins/select2",
+    "vendors/plugins/summernote",
+    "vendors/plugins/sweetalert2",
+    "vendors/plugins/tagify",
+    "vendors/plugins/tinymce",
+    "vendors/plugins/toastr",
+    "vendors/plugins/typeahead",
+    "vendors/plugins/uppy",
+    "vendors/plugins/draggable",
+    "vendors/plugins/prismjs",
+    "vendors/plugins/apexcharts";
+
+
+// 5: Layout
+@import
+    "layout/init";
+
+////////////////////////////////////////////////////////////////
+///////////// DO NOT MODIFY ABOVE INCLUDE ORDER ////////////////
+////////////////////////////////////////////////////////////////

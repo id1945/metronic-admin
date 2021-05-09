@@ -1,0 +1,44 @@
+<!--begin::Logo-->
+<a routerLink="/">
+  <img alt="Logo" [attr.src]="headerLogo" class="logo-default max-h-30px" />
+</a>
+<!--end::Logo-->
+
+<!--begin::Toolbar-->
+<div class="d-flex align-items-center">
+  <ng-container *ngIf="asideSelfDisplay">
+    <!--begin::Aside Mobile Toggle-->
+    <button
+      class="btn p-0 burger-icon burger-icon-left"
+      id="kt_aside_mobile_toggle"
+    >
+      <span></span>
+    </button>
+    <!--end::Aside Mobile Toggle-->
+  </ng-container>
+
+  <ng-container *ngIf="headerMenuSelfDisplay">
+    <!--begin::Header Menu Mobile Toggle-->
+    <button
+      class="btn p-0 burger-icon burger-icon-left ml-4"
+      id="kt_header_mobile_toggle"
+    >
+      <span></span>
+    </button>
+    <!--end::Header Menu Mobile Toggle-->
+  </ng-container>
+
+  <!--begin::Topbar Mobile Toggle-->
+  <button
+    class="btn btn-icon btn-hover-transparent-white p-0 ml-3"
+    id="kt_header_mobile_topbar_toggle"
+  >
+    <span
+      [inlineSVG]="'./assets/media/svg/icons/General/User.svg'"
+      cacheSVG="true"
+      class="svg-icon svg-icon-xl"
+    ></span>
+  </button>
+  <!--end::Topbar Mobile Toggle-->
+</div>
+<!--end::Toolbar-->

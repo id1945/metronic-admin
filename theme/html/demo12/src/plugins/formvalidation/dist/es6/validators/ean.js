@@ -1,0 +1,1 @@
+export default function e(){return{validate(e){if(e.value===""){return{valid:true}}if(!/^(\d{8}|\d{12}|\d{13}|\d{14})$/.test(e.value)){return{valid:false}}const t=e.value.length;let a=0;const l=t===8?[3,1]:[1,3];for(let r=0;r<t-1;r++){a+=parseInt(e.value.charAt(r),10)*l[r%2]}a=(10-a%10)%10;return{valid:`${a}`===e.value.charAt(t-1)}}}}

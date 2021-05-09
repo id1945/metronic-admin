@@ -1,0 +1,201 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/dropdown/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleDropdown">
+      <div class="example-preview">
+        <div>
+          <div class="row">
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button
+                  class="btn btn-success"
+                  id="dropdownBasic1"
+                  ngbDropdownToggle
+                >
+                  Toggle dropdown
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button class="dropdown-item">Action - 1</button>
+                  <button class="dropdown-item">Another Action</button>
+                  <button class="dropdown-item">Something else is here</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col text-right">
+              <div ngbDropdown placement="top-right" class="d-inline-block">
+                <button
+                  class="btn btn-outline-success"
+                  id="dropdownBasic2"
+                  ngbDropdownToggle
+                >
+                  Toggle dropup
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                  <button class="dropdown-item">Action - 1</button>
+                  <button class="dropdown-item">Another Action</button>
+                  <button class="dropdown-item">Something else is here</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleManualTriggers">
+      <p>
+        You can easily control dropdowns programmatically using the exported
+        dropdown instance.
+      </p>
+      <div class="example-preview">
+        <div>
+          <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+            <button
+              class="btn btn-primary"
+              id="dropdownManual"
+              ngbDropdownToggle
+            >
+              Toggle dropdown</button
+            >&nbsp;
+            <div ngbDropdownMenu aria-labelledby="dropdownManual">
+              <button class="dropdown-item">Action - 1</button>
+              <button class="dropdown-item">Another Action</button>
+              <button class="dropdown-item">Something else is here</button>
+            </div>
+
+            <button
+              class="btn btn-success"
+              (click)="$event.stopPropagation(); myDrop.open()"
+            >
+              Open from outside</button
+            >&nbsp;
+            <button
+              class="btn btn-danger"
+              (click)="$event.stopPropagation(); myDrop.close()"
+            >
+              Close from outside
+            </button>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleButtonGroupsAndSplitButtons">
+      <p>
+        Bootstrap split buttons and dropdowns on button groups are supported
+        with the existing dropdown directives.
+      </p>
+      <div class="example-preview">
+        <div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-success">
+              Plain ol' button</button
+            >&nbsp;
+            <div
+              class="btn-group"
+              ngbDropdown
+              role="group"
+              aria-label="Button group with nested dropdown"
+            >
+              <button class="btn btn-primary" ngbDropdownToggle>Drop me</button
+              >&nbsp;
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item">One</button>
+                <button class="dropdown-item">Two</button>
+                <button class="dropdown-item">Four!</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-primary">
+              Split me
+            </button>
+            <div
+              class="btn-group"
+              ngbDropdown
+              role="group"
+              aria-label="Button group with nested dropdown"
+            >
+              <button
+                class="btn btn-outline-primary dropdown-toggle-split"
+                ngbDropdownToggle
+              ></button
+              >&nbsp;
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item">One</button>
+                <button class="dropdown-item">Two</button>
+                <button class="dropdown-item">Four!</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <div
+              class="btn-group"
+              ngbDropdown
+              role="group"
+              aria-label="Button group with nested dropdown"
+            >
+              <button class="btn btn-danger" ngbDropdownToggle>Select me</button
+              >&nbsp;
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item">One</button>
+                <button class="dropdown-item">Two</button>
+                <button class="dropdown-item">Four!</button>
+              </div>
+            </div>
+            <div
+              class="btn-group"
+              ngbDropdown
+              role="group"
+              aria-label="Button group with nested dropdown"
+            >
+              <button class="btn btn-success" ngbDropdownToggle>Or me</button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button class="dropdown-item">One</button>
+                <button class="dropdown-item">Two</button>
+                <button class="dropdown-item">Four!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleGlobalConfigurationOfDropdowns">
+      <p>
+        This dropdown uses customized default values.
+      </p>
+      <div class="example-preview">
+        <div>
+          <div ngbDropdown>
+            <button
+              class="btn btn-primary"
+              id="dropdownConfig"
+              ngbDropdownToggle
+            >
+              Toggle
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+              <button class="dropdown-item">Action - 1</button>
+              <button class="dropdown-item">Another Action</button>
+              <button class="dropdown-item">Something else is here</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

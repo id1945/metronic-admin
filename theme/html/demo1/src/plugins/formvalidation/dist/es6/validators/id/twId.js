@@ -1,0 +1,1 @@
+export default function t(t){const e=t.toUpperCase();if(!/^[A-Z][12][0-9]{8}$/.test(e)){return{meta:{},valid:false}}const a=e.length;const n="ABCDEFGHJKLMNPQRSTUVXYWZIO";const r=n.indexOf(e.charAt(0))+10;const o=Math.floor(r/10)+r%10*(a-1);let s=0;for(let t=1;t<a-1;t++){s+=parseInt(e.charAt(t),10)*(a-1-t)}return{meta:{},valid:(o+s+parseInt(e.charAt(a-1),10))%10===0}}

@@ -1,0 +1,115 @@
+<ng-container *ngIf="data !== null">
+  <!--begin::Wrapper-->
+  <div class="quick-search-wrapper pt-5">
+    <div
+      [ngStyle]="{ 'max-height': '30vh', position: 'relative' }"
+      class="scroll"
+      perfectScrollbar
+    >
+      <div class="quick-search-result">
+        <!-- Has Result -->
+        <ng-container *ngIf="data.length > 0">
+          <ng-container *ngFor="let item of data">
+            <ng-container
+              *ngIf="item.type === 0"
+              [ngTemplateOutlet]="documentsTemplate"
+              [ngTemplateOutletContext]="{ item: item }"
+            ></ng-container>
+            <ng-container
+              *ngIf="item.type === 1"
+              [ngTemplateOutlet]="membersTemplate"
+              [ngTemplateOutletContext]="{ item: item }"
+            ></ng-container>
+            <ng-container
+              *ngIf="item.type === 2"
+              [ngTemplateOutlet]="filesTemplate"
+              [ngTemplateOutletContext]="{ item: item }"
+            ></ng-container>
+          </ng-container>
+        </ng-container>
+        <!-- No Result -->
+        <ng-container *ngIf="data.length === 0">
+          <div class="text-muted d-none">
+            No record found
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <!--end::Wrapper-->
+</ng-container>
+
+<ng-template #documentsTemplate let-item="item">
+  <div class="font-size-sm text-primary font-weight-bolder text-uppercase mb-2">
+    Documents
+  </div>
+  <div class="mb-10">
+    <ng-container *ngFor="let el of item.items">
+      <div class="d-flex align-items-center flex-grow-1 mb-2">
+        <div class="symbol symbol-45 bg-transparent flex-shrink-0">
+          <!-- <span class="icon-svg" [inlineSVG]="el.svgPath"></span> -->
+          <img [src]="el.svgPath" alt="" />
+        </div>
+        <div class="d-flex flex-column ml-3 mt-2 mb-2">
+          <a href="#" class="font-weight-bold text-dark text-hover-primary">
+            {{ el.title }}
+          </a>
+          <span class="font-size-sm font-weight-bold text-muted">
+            {{ el.description }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #membersTemplate let-item="item">
+  <div class="font-size-sm text-primary font-weight-bolder text-uppercase mb-2">
+    Members
+  </div>
+  <div class="mb-10">
+    <ng-container *ngFor="let el of item.items">
+      <div class="d-flex align-items-center flex-grow-1 mb-2">
+        <div class="symbol symbol-45 symbol-circle flex-shrink-0">
+          <div
+            class="symbol-label"
+            [ngStyle]="{ 'background-image': 'url(' + el.imgPath + ')' }"
+          ></div>
+        </div>
+        <div class="d-flex flex-column ml-3 mt-2 mb-2">
+          <a href="#" class="font-weight-bold text-dark text-hover-primary">
+            {{ el.title }}
+          </a>
+          <span class="font-size-sm font-weight-bold text-muted">
+            {{ el.description }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #filesTemplate let-item="item">
+  <div class="font-size-sm text-primary font-weight-bolder text-uppercase mb-2">
+    Files
+  </div>
+  <div class="mb-10">
+    <ng-container *ngFor="let el of item.items">
+      <div class="d-flex align-items-center flex-grow-1 mb-2">
+        <div class="symbol symbol-45 symbol-circle flex-shrink-0">
+          <div class="symbol-label">
+            <i [ngClass]="el.iconClasses"></i>
+          </div>
+        </div>
+        <div class="d-flex flex-column ml-3 mt-2 mb-2">
+          <a href="#" class="font-weight-bold text-dark text-hover-primary">
+            {{ el.title }}
+          </a>
+          <span class="font-size-sm font-weight-bold text-muted">
+            {{ el.description }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>

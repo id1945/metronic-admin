@@ -1,0 +1,89 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/toolbar/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleSingleRow">
+      <div class="example-preview">
+        <p>
+          <code>&lt;mat-toolbar&gt;</code> is a container for headers, titles,
+          or actions.
+        </p>
+        <p>
+          <b>Single row:</b>
+          In the most situations, a toolbar will be placed at the top of your
+          application and will only have a single row that includes the title of
+          your application.
+        </p>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-toolbar>
+            <span>My Application</span>
+          </mat-toolbar>
+        </div>
+      </div>
+    </app-code-preview>
+    <app-code-preview [viewItem]="examplMultipleRows">
+      <div class="example-preview">
+        <span>
+          The Material Design specifications describe that toolbars can also
+          have multiple rows. Creating toolbars with multiple rows in Angular
+          Material can be done by placing
+          <code>&lt;mat-toolbar-row&gt;</code> elements inside of a
+          <code>&lt;mat-toolbar&gt;</code>.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-toolbar>
+            <mat-toolbar-row>
+              <span>First Row</span>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row>
+              <span>Second Row</span>
+            </mat-toolbar-row>
+          </mat-toolbar>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="examplMultipleRows2">
+      <div class="example-preview">
+        <span>
+          <b>Note:</b> Placing content outside of a
+          <code>&lt;mat-toolbar-row&gt;</code> when multiple rows are specified
+          is not supported.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-toolbar color="primary">
+            <mat-toolbar-row>
+              <span>Custom Toolbar</span>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row>
+              <span>Second Line</span>
+              <span class="example-spacer"></span>
+              <mat-icon class="example-icon">verified_user</mat-icon>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row>
+              <span>Third Line</span>
+              <span class="example-spacer"></span>
+              <mat-icon class="example-icon">favorite</mat-icon>
+              <mat-icon class="example-icon">delete</mat-icon>
+            </mat-toolbar-row>
+          </mat-toolbar>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

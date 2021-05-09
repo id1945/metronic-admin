@@ -1,0 +1,1 @@
+export default function t(){return{validate(t){const n=!!t.options&&!!t.options.trim;const o=t.value;return{valid:!n&&o!==""||n&&o!==""&&o.trim()!==""}}}}

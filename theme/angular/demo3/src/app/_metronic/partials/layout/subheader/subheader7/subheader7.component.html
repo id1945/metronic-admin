@@ -1,0 +1,74 @@
+<!--begin::Subheader-->
+<div class="subheader py-2 py-lg-12" [ngClass]="subheaderCSSClasses" id="kt_subheader">
+  <div [ngClass]="subheaderContainerCSSClasses"
+    class="d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+    <!--begin::Info-->
+    <div class="d-flex align-items-center flex-wrap mr-1">
+      <ng-container *ngIf="subheaderMobileToggle">
+        <!--begin::Mobile Toggle-->
+        <button class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none" id="kt_subheader_mobile_toggle">
+          <span></span>
+        </button>
+        <!--end::Mobile Toggle-->
+      </ng-container>
+
+      <!--begin::Page Heading-->
+      <div class="d-flex flex-column">
+        <!--begin::Page Title-->
+        <ng-container *ngIf="title$ | async as _title">
+          <h2 class="text-white font-weight-bold my-2 mr-5">
+            {{ _title }}
+            <ng-container *ngIf="subheaderDisplayDesc">
+              <ng-container *ngIf="description$ | async as _description">
+                <small>{{ _description }}</small>
+              </ng-container>
+            </ng-container>
+          </h2>
+        </ng-container>
+        <!--end::Page Title-->
+        <!--begin::Breadcrumb-->
+        <ng-container *ngIf="breadcrumbs$ | async as breadcrumbs">
+          <div class="d-flex align-items-center font-weight-bold my-2">
+            <a href="/" class="opacity-75 hover-opacity-100">
+              <i class="flaticon2-shelter text-white icon-1x"></i>
+            </a>
+            <ng-container *ngFor="let bc of breadcrumbs">
+              <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
+              <a [routerLink]="bc.linkPath" routerLinkActive="active"
+                class="text-white text-hover-white opacity-75 hover-opacity-100">
+                {{ bc.linkText }}
+              </a>
+            </ng-container>
+          </div>
+        </ng-container>
+        <!--end::Breadcrumb-->
+      </div>
+      <!--end::Page Heading-->
+    </div>
+    <!--end::Info-->
+
+    <!--begin::Toolbar-->
+    <div class="d-flex align-items-center">
+      <!--begin::Button-->
+      <a href="#" class="btn btn-transparent-white font-weight-bold py-3 px-6 mr-2">
+        Reports
+      </a>
+      <!--end::Button-->
+
+      <!--begin::Dropdown-->
+      <div class="dropdown dropdown-inline ml-2" data-toggle="tooltip" title="Quick actions" data-placement="left"
+        placement="bottom-right" ngbDropdown>
+        <a class="btn btn-white font-weight-bold py-3 px-6" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" ngbDropdownToggle>
+          Actions
+        </a>
+        <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right" ngbDropdownMenu>
+          <app-dropdown-menu4></app-dropdown-menu4>
+        </div>
+      </div>
+      <!--end::Dropdown-->
+    </div>
+    <!--end::Toolbar-->
+  </div>
+</div>
+<!--end::Subheader-->

@@ -1,0 +1,111 @@
+<!--begin::Subheader-->
+<div
+  class="subheader py-2 py-lg-4"
+  [ngClass]="subheaderCSSClasses"
+  id="kt_subheader"
+>
+  <div
+    [ngClass]="subheaderContainerCSSClasses"
+    class="d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+  >
+    <!--begin::Details-->
+    <div class="d-flex align-items-center flex-wrap mr-2">
+      <ng-container *ngIf="subheaderMobileToggle">
+        <!--begin::Mobile Toggle-->
+        <button
+          class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none"
+          id="kt_subheader_mobile_toggle"
+        >
+          <span></span>
+        </button>
+        <!--end::Mobile Toggle-->
+      </ng-container>
+
+      <!--begin::Title-->
+      <ng-container *ngIf="title$ | async as _title">
+        <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
+          {{ _title }}
+        </h5>
+      </ng-container>
+      <!--end::Title-->
+
+      <!--begin::Separator-->
+      <div
+        class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200"
+      ></div>
+      <!--end::Separator-->
+
+      <!--begin::Search Form-->
+      <div class="d-flex align-items-center" id="kt_subheader_search">
+        <ng-container *ngIf="subheaderDisplayDesc">
+          <ng-container *ngIf="description$ | async as _description">
+            <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">
+              {{ _description }}</span
+            >
+          </ng-container>
+        </ng-container>
+
+        <form class="ml-5">
+          <div
+            class="input-group input-group-sm input-group-solid"
+            style="max-width: 175px;"
+          >
+            <input
+              type="text"
+              class="form-control"
+              id="kt_subheader_search_form"
+              placeholder="Search..."
+            />
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <span
+                  [inlineSVG]="'./assets/media/svg/icons/General/Search.svg'"
+                  cacheSVG="true"
+                  class="svg-icon"
+                ></span>
+                <!--<i class="flaticon2-search-1 icon-sm"></i>-->
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--end::Search Form-->
+    </div>
+    <!--end::Details-->
+
+    <!--begin::Toolbar-->
+    <div class="d-flex align-items-center">
+      <!--begin::Dropdown-->
+      <div
+        class="dropdown dropdown-inline"
+        data-toggle="tooltip"
+        title="Quick actions"
+        placement="bottom-right"
+        ngbDropdown
+      >
+        <a
+          class="btn btn-icon cursor-pointer"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          ngbDropdownToggle
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Files/File-plus.svg'"
+            cacheSVG="true"
+            class="svg-icon svg-icon-success svg-icon-2x"
+          ></span>
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-md dropdown-menu-right p-0 m-0"
+          ngbDropdownMenu
+        >
+          <app-dropdown-menu3></app-dropdown-menu3>
+        </div>
+      </div>
+      <!--end::Dropdown-->
+    </div>
+    <!--end::Toolbar-->
+  </div>
+</div>
+<!--end::Subheader-->

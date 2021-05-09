@@ -1,0 +1,85 @@
+@media (min-width: 992px) {
+  .header {
+    background-color: #ffffff;
+  }
+  .header-fixed .header {
+    -webkit-box-shadow: 0px 0px 40px 0px rgba(82, 63, 105, 0.1);
+    box-shadow: 0px 0px 40px 0px rgba(82, 63, 105, 0.1);
+  }
+  .header .header-menu .menu-nav > .menu-item > .menu-link {
+    border-radius: 4px;
+  }
+  .header .header-menu .menu-nav > .menu-item > .menu-link .menu-text {
+    color: #6c7293;
+    font-weight: 500;
+  }
+  .header .header-menu .menu-nav > .menu-item > .menu-link .menu-arrow {
+    color: #6c7293;
+  }
+  .header .header-menu .menu-nav > .menu-item > .menu-link .menu-icon {
+    color: #6c7293;
+  }
+  .header .header-menu .menu-nav > .menu-item > .menu-link svg g [fill] {
+    -webkit-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+    fill: #6c7293;
+  }
+  .header .header-menu .menu-nav > .menu-item > .menu-link svg:hover g [fill] {
+    -webkit-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+  }
+  .header .header-menu .menu-nav > .menu-item.menu-item-here > .menu-link, .header .header-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
+    background-color: rgba(77, 89, 149, 0.06);
+  }
+  .header .header-menu .menu-nav > .menu-item.menu-item-here > .menu-link .menu-text, .header .header-menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-text {
+    color: #3699FF;
+  }
+  .header .header-menu .menu-nav > .menu-item.menu-item-here > .menu-link .menu-arrow, .header .header-menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-arrow {
+    color: #3699FF;
+  }
+  .header .header-menu .menu-nav > .menu-item.menu-item-here > .menu-link .menu-icon, .header .header-menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-icon {
+    color: #3699FF;
+  }
+  .header .header-menu .menu-nav > .menu-item.menu-item-here > .menu-link svg g [fill], .header .header-menu .menu-nav > .menu-item.menu-item-active > .menu-link svg g [fill] {
+    -webkit-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+    fill: #3699FF;
+  }
+  .header .header-menu .menu-nav > .menu-item.menu-item-here > .menu-link svg:hover g [fill], .header .header-menu .menu-nav > .menu-item.menu-item-active > .menu-link svg:hover g [fill] {
+    -webkit-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+  }
+  .header .header-menu .menu-nav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link, .header .header-menu .menu-nav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link {
+    background-color: rgba(77, 89, 149, 0.06);
+  }
+  .header .header-menu .menu-nav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-text, .header .header-menu .menu-nav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-text {
+    color: #3699FF;
+  }
+  .header .header-menu .menu-nav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-hor-arrow, .header .header-menu .menu-nav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-hor-arrow {
+    color: #3699FF;
+  }
+  .header .header-menu .menu-nav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-icon, .header .header-menu .menu-nav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link .menu-icon {
+    color: #3699FF;
+  }
+  .header .header-menu .menu-nav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link svg g [fill], .header .header-menu .menu-nav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link svg g [fill] {
+    -webkit-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+    fill: #3699FF;
+  }
+  .header .header-menu .menu-nav > .menu-item:hover:not(.menu-item-here):not(.menu-item-active) > .menu-link svg:hover g [fill], .header .header-menu .menu-nav > .menu-item.menu-item-hover:not(.menu-item-here):not(.menu-item-active) > .menu-link svg:hover g [fill] {
+    -webkit-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+  }
+}
+@media (max-width: 991.98px) {
+  .topbar {
+    background-color: #ffffff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .topbar-mobile-on .topbar {
+    -webkit-box-shadow: 0px 0px 40px 0px rgba(82, 63, 105, 0.2);
+    box-shadow: 0px 0px 40px 0px rgba(82, 63, 105, 0.2);
+    border-top: 1px solid #eff0f6;
+  }
+}

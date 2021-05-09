@@ -1,0 +1,83 @@
+<div class="card card-custom bg-radial-gradient-danger" [ngClass]="cssClass">
+  <!-- Header -->
+  <div class="card-header border-0 py-5">
+    <h3 class="card-title font-weight-bolder text-white">Sales Progress</h3>
+    <div class="card-toolbar">
+      <div
+        ngbDropdown
+        placement="bottom-right"
+        class="dropdown dropdown-inline"
+        title="Quick actions"
+      >
+        <a
+          ngbDropdownToggle
+          class="btn btn-text-white btn-hover-white btn-sm btn-icon border-0"
+        >
+          <i class="ki ki-bold-more-hor"></i>
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu dropdown-menu-sm dropdown-menu-right"
+        >
+          <app-dropdown-menu2></app-dropdown-menu2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Body -->
+  <div class="card-body d-flex flex-column p-0">
+    <!--begin::Chart-->
+    <div id="kt_mixed_widget_6_chart" [style.height]="'200px'">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [yaxis]="chartOptions.yaxis"
+        [dataLabels]="chartOptions.dataLabels"
+        [stroke]="chartOptions.stroke"
+        [legend]="chartOptions.legend"
+        [fill]="chartOptions.fill"
+        [states]="chartOptions.states"
+        [tooltip]="chartOptions.tooltip"
+        [colors]="chartOptions.colors"
+        [markers]="chartOptions.markers"
+        [plotOptions]="chartOptions.plotOptions"
+      ></apx-chart>
+    </div>
+    <!--end::Chart-->
+    <!--begin::Stats-->
+    <div class="card-spacer bg-white card-rounded flex-grow-1">
+      <!--begin::Row-->
+      <div class="row m-0">
+        <div class="col px-8 py-6 mr-8">
+          <div class="font-size-sm text-muted font-weight-bold">
+            Average Sale
+          </div>
+          <div class="font-size-h4 font-weight-bolder">$650</div>
+        </div>
+        <div class="col px-8 py-6">
+          <div class="font-size-sm text-muted font-weight-bold">Commission</div>
+          <div class="font-size-h4 font-weight-bolder">$233,600</div>
+        </div>
+      </div>
+      <!--end::Row-->
+      <!--begin::Row-->
+      <div class="row m-0">
+        <div class="col px-8 py-6 mr-8">
+          <div class="font-size-sm text-muted font-weight-bold">
+            Annual Taxes
+          </div>
+          <div class="font-size-h4 font-weight-bolder">$29,004</div>
+        </div>
+        <div class="col px-8 py-6">
+          <div class="font-size-sm text-muted font-weight-bold">
+            Annual Income
+          </div>
+          <div class="font-size-h4 font-weight-bolder">$1,480,00</div>
+        </div>
+      </div>
+      <!--end::Row-->
+    </div>
+    <!--end::Stats-->
+  </div>
+</div>

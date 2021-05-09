@@ -1,0 +1,127 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/buttons/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleCheckboxButtons">
+      <div class="example-preview">
+        <span>
+          Click buttons to get the result:
+          <pre>{{ modelFirst | json }}</pre>
+        </span>
+        <div>
+          <div class="btn-group btn-group-toggle">
+            <label class="btn-primary" ngbButtonLabel>
+              <input type="checkbox" ngbButton [(ngModel)]="modelFirst.left" />
+              Left (pre-checked)
+            </label>
+            <label class="btn-success" ngbButtonLabel>
+              <input
+                type="checkbox"
+                ngbButton
+                [(ngModel)]="modelFirst.middle"
+              />
+              Middle
+            </label>
+            <label class="btn-info" ngbButtonLabel>
+              <input type="checkbox" ngbButton [(ngModel)]="modelFirst.right" />
+              Right
+            </label>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleCheckboxButtonsReactiveForms">
+      <div class="example-preview">
+        <span>
+          Click buttons to get the result:
+          <pre>{{ checkboxGroupForm.value | json }}</pre>
+        </span>
+        <div>
+          <form [formGroup]="checkboxGroupForm">
+            <div class="btn-group btn-group-toggle">
+              <label class="btn-warning" ngbButtonLabel>
+                <input type="checkbox" formControlName="left" ngbButton /> Left
+                (pre-checked)
+              </label>
+              <label class="btn-danger" ngbButtonLabel>
+                <input type="checkbox" formControlName="middle" ngbButton />
+                Middle
+              </label>
+              <label class="btn-success" ngbButtonLabel>
+                <input type="checkbox" formControlName="right" ngbButton />
+                Right
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleRadioButtons">
+      <div class="example-preview">
+        <span>
+          Click buttons to get the result:
+          <pre>{{ secondModel }}</pre>
+        </span>
+        <div>
+          <div
+            class="btn-group btn-group-toggle"
+            ngbRadioGroup
+            name="radioBasic"
+            [(ngModel)]="secondModel"
+          >
+            <label ngbButtonLabel class="btn-primary">
+              <input ngbButton type="radio" [value]="1" /> Left (pre-checked)
+            </label>
+            <label ngbButtonLabel class="btn-info">
+              <input ngbButton type="radio" value="middle" /> Middle
+            </label>
+            <label ngbButtonLabel class="btn-danger">
+              <input ngbButton type="radio" [value]="false" /> Right
+            </label>
+          </div>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleRadioButtonsReactiveForms">
+      <div class="example-preview">
+        <span>
+          Click buttons to get the result:
+          <pre>{{ radioGroupForm.value["model"] }}</pre>
+        </span>
+        <div>
+          <form [formGroup]="radioGroupForm">
+            <div
+              class="btn-group btn-group-toggle"
+              ngbRadioGroup
+              name="radioBasic"
+              formControlName="model"
+            >
+              <label ngbButtonLabel class="btn-warning">
+                <input ngbButton type="radio" [value]="1" /> Left (pre-checked)
+              </label>
+              <label ngbButtonLabel class="btn-success">
+                <input ngbButton type="radio" value="middle" /> Middle
+              </label>
+              <label ngbButtonLabel class="btn-info">
+                <input ngbButton type="radio" [value]="false" /> Right
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

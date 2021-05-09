@@ -1,0 +1,154 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/button/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleDeterminate">
+      <div class="example-preview">
+        <p>
+          <code>&lt;mat-progress-bar&gt;</code>is a horizontal progress-bar for
+          indicating progress and activity.
+        </p>
+        <p>
+          <b>Determinate:</b> Operations where the percentage of the operation
+          complete is known should use the determinate indicator.
+        </p>
+        <div class="separator separator-dashed my-6"></div>
+        <div class="example-container">
+          <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleIndeterminate">
+      <div class="example-preview">
+        <span>
+          Operations where the user is asked to wait while something finishes
+          and it’s not necessary to indicate how long it will take should use
+          the indeterminate indicator.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div class="example-container">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleBuffer">
+      <div class="example-preview">
+        <span>
+          Operations where the user wants to indicate some activity or loading
+          from the server, use the buffer indicator.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div class="example-container">
+          <mat-progress-bar mode="buffer"></mat-progress-bar>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exmapleQuery">
+      <div class="example-preview">
+        <span>
+          For situations where the user wants to indicate pre-loading (until the
+          loading can actually be made), use the query indicator.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div class="example-container">
+          <mat-progress-bar mode="query"></mat-progress-bar>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleConfig">
+      <div class="example-preview">
+        <div class="example-container">
+          <mat-card>
+            <mat-card-content>
+              <h2 class="example-h2">Progress bar configuration</h2>
+
+              <section class="example-section">
+                <label class="example-margin">Color:</label>
+                <mat-radio-group [(ngModel)]="color">
+                  <mat-radio-button class="example-margin" value="primary">
+                    Primary
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    Accent
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="warn">
+                    Warn
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+              <section class="example-section">
+                <label class="example-margin">Mode:</label>
+                <mat-radio-group [(ngModel)]="mode">
+                  <mat-radio-button class="example-margin" value="determinate">
+                    Determinate
+                  </mat-radio-button>
+                  <mat-radio-button
+                    class="example-margin"
+                    value="indeterminate"
+                  >
+                    Indeterminate
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="buffer">
+                    Buffer
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="query">
+                    Query
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+              <section
+                class="example-section"
+                *ngIf="mode == 'determinate' || mode == 'buffer'"
+              >
+                <label class="example-margin">Progress:</label>
+                <mat-slider
+                  class="example-margin"
+                  [(ngModel)]="value"
+                ></mat-slider>
+              </section>
+              <section class="example-section" *ngIf="mode == 'buffer'">
+                <label class="example-margin">Buffer:</label>
+                <mat-slider
+                  class="example-margin"
+                  [(ngModel)]="bufferValue"
+                ></mat-slider>
+              </section>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card>
+            <mat-card-content>
+              <h2 class="example-h2">Result</h2>
+
+              <section class="example-section">
+                <mat-progress-bar
+                  class="example-margin"
+                  [color]="color"
+                  [mode]="mode"
+                  [value]="value"
+                  [bufferValue]="bufferValue"
+                >
+                </mat-progress-bar>
+              </section>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

@@ -1,0 +1,234 @@
+<!--begin::Brand-->
+<div class="brand flex-column-auto" id="kt_brand" [ngClass]="brandClasses">
+  <!--begin::Logo-->
+  <a routerLink="/" class="brand-logo">
+    <img alt="Logo" [attr.src]="headerLogo" />
+  </a>
+  <!--end::Logo-->
+
+  <ng-container *ngIf="asideSelfMinimizeToggle">
+    <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
+      <span
+        [inlineSVG]="
+          './assets/media/svg/icons/Navigation/Angle-double-left.svg'
+        "
+        cacheSVG="true"
+        class="svg-icon svg-icon-xl"
+      ></span>
+    </button>
+  </ng-container>
+</div>
+<!--end::Brand-->
+
+<!--begin::Aside Menu-->
+<div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
+  <ng-container *ngIf="disableAsideSelfDisplay">
+    <!--begin::Header Logo-->
+    <a routerLink="/">
+      <img alt="Logo" [attr.src]="headerLogo" />
+    </a>
+    <!--end::Header Logo-->
+  </ng-container>
+  <!--begin::Menu Container-->
+  <ng-container *ngIf="menuConfig && menuConfig.items">
+    <div
+      id="kt_aside_menu"
+      class="aside-menu"
+      [ngClass]="asideMenuCSSClasses"
+      data-menu-vertical="1"
+      [attr.data-menu-scroll]="asideMenuScroll"
+      [attr.data-menu-dropdown]="asideMenuDropdown"
+      data-menu-dropdown-timeout="500"
+    >
+      <!-- begin::Menu Nav -->
+      <ul class="menu-nav" [ngClass]="ulCSSClasses">
+        <ng-container *ngFor="let item of menuConfig.items">
+          <ng-container
+            *ngIf="item.section"
+            [ngTemplateOutlet]="menuItemSectionTemplate"
+            [ngTemplateOutletContext]="{ item: item }"
+          ></ng-container>
+          <ng-container
+            *ngIf="item.separator"
+            [ngTemplateOutlet]="menuItemSeparatorTemplate"
+          ></ng-container>
+          <ng-container
+            *ngIf="item.title"
+            [ngTemplateOutlet]="menu1LevelTemplate"
+            [ngTemplateOutletContext]="{ item: item }"
+          ></ng-container>
+        </ng-container>
+      </ul>
+      <!-- end::Menu Nav -->
+    </div>
+    <!--end::Menu Container-->
+  </ng-container>
+</div>
+<!--end::Aside Menu-->
+
+<!-- begin::1 Level -->
+<ng-template #menu1LevelTemplate let-item="item">
+  <!-- begin::if don't have submenu -->
+  <ng-container *ngIf="!item.submenu">
+    <li
+      class="menu-item"
+      aria-haspopup="true"
+      routerLinkActive="menu-item-active"
+    >
+      <a class="menu-link" [routerLink]="item.page" routerLinkActive="active">
+        <span
+          [inlineSVG]="item.svg"
+          cacheSVG="true"
+          class="svg-icon menu-icon"
+        ></span>
+        <span class="menu-text" [translate]="item.translate">{{
+          item.title
+        }}</span>
+      </a>
+    </li>
+  </ng-container>
+  <!-- end::if don't have submenu -->
+
+  <!-- begin::if has submenu -->
+  <ng-container *ngIf="item.submenu">
+    <li
+      class="menu-item menu-item-submenu"
+      aria-haspopup="true"
+      data-menu-toggle="hover"
+      [ngClass]="{ 'menu-item-open': isMenuItemActive(item.page) }"
+      routerLinkActive="menu-item-open"
+    >
+      <a
+        class="menu-link menu-toggle"
+        [attr.href]="item.page"
+        routerLinkActive="active"
+        [ngClass]="{ 'active ': isMenuItemActive(item.page) }"
+      >
+        <span
+          [inlineSVG]="item.svg"
+          cacheSVG="true"
+          class="svg-icon menu-icon"
+        ></span>
+        <span class="menu-text" [translate]="item.translate">{{
+          item.title
+        }}</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+          <li class="menu-item menu-item-parent" aria-haspopup="true">
+            <span class="menu-link">
+              <span class="menu-text" [translate]="item.translate">{{
+                item.title
+              }}</span>
+            </span>
+          </li>
+          <ng-container
+            *ngFor="let sub of item.submenu"
+            [ngTemplateOutlet]="menu2LevelTemplate"
+            [ngTemplateOutletContext]="{ item: sub }"
+          ></ng-container>
+        </ul>
+      </div>
+    </li>
+  </ng-container>
+  <!-- end::if has submenu -->
+</ng-template>
+<!-- end::1 Level -->
+
+<!-- begin::2 Level -->
+<ng-template #menu2LevelTemplate let-item="item">
+  <!-- begin::if don't have submenu -->
+  <ng-container *ngIf="!item.submenu">
+    <li
+      class="menu-item"
+      routerLinkActive="menu-item-active"
+      aria-haspopup="true"
+      data-menu-toggle="hover"
+    >
+      <a class="menu-link" [routerLink]="item.page" routerLinkActive="active">
+        <i class="menu-bullet menu-bullet-dot">
+          <span></span>
+        </i>
+        <span class="menu-text" [translate]="item.translate">{{
+          item.title
+        }}</span>
+      </a>
+    </li>
+  </ng-container>
+  <!-- end::if don't have submenu -->
+
+  <!-- begin::if has submenu -->
+  <ng-container *ngIf="item.submenu">
+    <li
+      class="menu-item menu-item-submenu"
+      aria-haspopup="true"
+      data-menu-toggle="hover"
+      [ngClass]="{ 'menu-item-open': isMenuItemActive(item.page) }"
+      routerLinkActive="menu-item-open"
+    >
+      <a
+        class="menu-link menu-toggle"
+        [attr.href]="item.page"
+        [ngClass]="{ 'active ': isMenuItemActive(item.page) }"
+        routerLinkActive="active"
+      >
+        <i class="menu-bullet menu-bullet-dot">
+          <span></span>
+        </i>
+        <span class="menu-text" [translate]="item.translate">{{
+          item.title
+        }}</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="menu-submenu">
+        <i class="menu-arrow"></i>
+        <ul class="menu-subnav">
+          <!-- submenu-->
+          <ng-container
+            *ngFor="let sub of item.submenu"
+            [ngTemplateOutlet]="menu3LevelTemplate"
+            [ngTemplateOutletContext]="{ item: sub }"
+          ></ng-container>
+        </ul>
+      </div>
+    </li>
+  </ng-container>
+  <!-- end::if has submenu -->
+</ng-template>
+<!-- end::2 Level -->
+
+<!-- begin::3 Level -->
+<ng-template #menu3LevelTemplate let-item="item">
+  <li
+    class="menu-item"
+    aria-haspopup="true"
+    routerLinkActive="menu-item-active"
+  >
+    <a class="menu-link" [routerLink]="item.page" routerLinkActive="active">
+      <i class="menu-bullet menu-bullet-dot">
+        <span></span>
+      </i>
+      <span class="menu-text" [translate]="item.translate">{{
+        item.title
+      }}</span>
+    </a>
+  </li>
+</ng-template>
+<!-- end::3 Level -->
+
+<!-- begin::Separator -->
+<ng-template #menuItemSeparatorTemplate>
+  <li class="menu-separator"><span></span></li>
+</ng-template>
+<!-- end::3 Separator -->
+
+<!-- begin::Section -->
+<ng-template #menuItemSectionTemplate let-item="item">
+  <li class="menu-section">
+    <h4 class="menu-text" [translate]="item.translate">{{ item.section }}</h4>
+    <i class="menu-icon flaticon-more-v2"></i>
+  </li>
+</ng-template>
+<!-- end::Section -->

@@ -1,0 +1,15 @@
+.fv-plugins-bootstrap3 {
+  .help-block {
+    margin-bottom: 0;
+  }
+
+  .input-group~.form-control-feedback {
+    // Need to have a bigger index than `.input-group .form-control:focus` (which is 3)
+    z-index: 4;
+  }
+
+  // Support inline form
+  &.form-inline .form-group {
+    vertical-align: top;
+  }
+}

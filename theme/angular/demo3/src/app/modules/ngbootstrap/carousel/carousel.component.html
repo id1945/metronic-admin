@@ -1,0 +1,126 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/carousel/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-12">
+    <app-code-preview [viewItem]="exampleCarousel">
+      <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+          <img
+            [src]="images[0]"
+            alt="Random first slide"
+            style="width: 100%;"
+          />
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img
+            [src]="images[1]"
+            alt="Random second slide"
+            style="width: 100%;"
+          />
+          <div class="carousel-caption">
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img
+            [src]="images[2]"
+            alt="Random third slide"
+            style="width: 100%;"
+          />
+          <div class="carousel-caption">
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-12">
+    <app-code-preview [viewItem]="exampleNavigationArrowsAndIndicatorsCarousel">
+      <ngb-carousel
+        *ngIf="thirdImages"
+        [showNavigationArrows]="showNavigationArrows"
+        [showNavigationIndicators]="showNavigationIndicators"
+      >
+        <ng-template ngbSlide *ngFor="let image of images">
+          <img [src]="image" alt="Random slide" style="width: 100%;" />
+          <div class="carousel-caption">
+            <h3>No mouse navigation</h3>
+            <p>This carousel hides navigation arrows and indicators.</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      <hr />
+      <div class="btn-group" role="group" aria-label="Carousel toggle controls">
+        <button
+          type="button"
+          (click)="showNavigationArrows = !showNavigationArrows"
+          class="btn btn-outline-dark btn-sm"
+        >
+          Toggle navigation arrows
+        </button>
+        <button
+          type="button"
+          (click)="showNavigationIndicators = !showNavigationIndicators"
+          class="btn btn-outline-dark btn-sm"
+        >
+          Toggle navigation indicators
+        </button>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-12">
+    <app-code-preview [viewItem]="exampleGlobalConfigurationOfCarousels">
+      <ngb-carousel *ngIf="secondImages">
+        <ng-template ngbSlide>
+          <img
+            [src]="secondImages[0]"
+            alt="Random first slide"
+            style="width: 100%;"
+          />
+          <div class="carousel-caption">
+            <h3>10 seconds between slides...</h3>
+            <p>This carousel uses customized default values.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img
+            [src]="secondImages[1]"
+            alt="Random second slide"
+            style="width: 100%;"
+          />
+          <div class="carousel-caption">
+            <h3>No keyboard...</h3>
+            <p>This carousel uses customized default values.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img
+            [src]="secondImages[2]"
+            alt="Random third slide"
+            style="width: 100%;"
+          />
+          <div class="carousel-caption">
+            <h3>And no wrap after last slide.</h3>
+            <p>This carousel uses customized default values.</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </app-code-preview>
+  </div>
+</div>

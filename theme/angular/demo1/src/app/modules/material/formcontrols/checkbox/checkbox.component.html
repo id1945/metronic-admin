@@ -1,0 +1,132 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/checkbox/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicCheckboxes">
+      <div class="example-preview">
+        <span>
+          <code>&lt;mat-checkbox&gt;</code> provides the same functionality as a
+          native <code>&lt;input type="checkbox"&gt;</code> enhanced with
+          Material Design styling and animations.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-checkbox [color]="'primary'">Check me!</mat-checkbox>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleLabelPositions">
+      <div class="example-preview">
+        <span>
+          <code>@Input() labelPosition: 'before' | 'after'</code> Whether the
+          label should appear after or before the checkbox. Defaults to 'after'
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-checkbox [labelPosition]="labelPosition" [color]="'primary'"
+            >Check me!</mat-checkbox
+          >
+          <div class="separator separator-dashed my-6"></div>
+          <mat-slide-toggle (change)="changeLablesPositions()"
+            >Slide labels position</mat-slide-toggle
+          >
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleChangeEvent">
+      <div class="example-preview">
+        <span>
+          <code>@Output() change: EventEmitter&lt;MatCheckboxChange&gt;</code>
+          Event emitted when the checkbox's checked value changes.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-checkbox
+            [(ngModel)]="myValue"
+            (change)="changeValueEvent()"
+            [color]="'primary'"
+            >Check me!</mat-checkbox
+          >
+          <div class="separator separator-dashed my-6"></div>
+          <span
+            >Checked: <mark>{{ myValue }}</mark></span
+          >
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleConfigurableCheckbox">
+      <div class="example-preview">
+        <span>
+          When user clicks on the
+          <code>mat-checkbox</code>, the default behavior is toggle checked
+          value and set indeterminate to false. This behavior can be customized
+          by
+          <a
+            href="https://angular.io/guide/dependency-injection"
+            target="_blank"
+            >providing a new value</a
+          >
+          of <code>MAT_CHECKBOX_CLICK_ACTION</code> to the checkbox.
+        </span>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="checked"
+            [color]="'primary'"
+            >Checked</mat-checkbox
+          >
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="indeterminate"
+            [color]="'primary'"
+            >Indeterminate</mat-checkbox
+          >
+          <div class="separator separator-dashed my-6"></div>
+          <label class="example-margin">Align:</label>
+          <mat-radio-group [(ngModel)]="align">
+            <mat-radio-button class="example-margin" value="start"
+              >Start</mat-radio-button
+            >
+            <mat-radio-button class="example-margin" value="end"
+              >End</mat-radio-button
+            >
+          </mat-radio-group>
+
+          <div class="separator separator-dashed my-6"></div>
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="disabled"
+            [color]="'primary'"
+            >Disabled</mat-checkbox
+          >
+
+          <div class="separator separator-dashed my-6"></div>
+
+          Result:
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="checked"
+            [(indeterminate)]="indeterminate"
+            [disabled]="disabled"
+            [color]="'primary'"
+          >
+            I'm a checkbox
+          </mat-checkbox>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

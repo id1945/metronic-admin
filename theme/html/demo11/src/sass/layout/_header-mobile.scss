@@ -1,0 +1,71 @@
+//
+// Header Mobile
+//
+
+// Mobile Offcanvas Panel For Header Bottom
+@include offcanvas-build(header-bottom, tablet-and-mobile, get($header-menu-config, offcanvas-mobile));
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.header-mobile {
+		display: none;
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.header-mobile {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 get($page-padding, tablet-and-mobile);
+		height: get($header-config, tablet-and-mobile, height);
+		min-height: get($header-config, tablet-and-mobile, height);
+		position: relative;
+		background-color: get($header-config, tablet-and-mobile, bg-color);
+		z-index: 3;
+		border-bottom: 1px solid transparent;
+
+		// Fixed Header & Scroll Header Modes
+		.header-mobile-fixed[data-header-scroll="on"] & {
+			position: fixed;
+			z-index: get($header-config, tablet-and-mobile, scroll-zindex);
+			top: 0;
+			right: 0;
+			left: 0;
+			background-color: get($header-config, tablet-and-mobile, scroll-bg-color);
+			box-shadow: get($header-config, tablet-and-mobile, scroll-shadow);
+			height: get($header-config, tablet-and-mobile, scroll-height);
+			animation: header-mobile-scroll-animation .5s ease 1;
+
+			.header-bottom {
+				display: none;
+			}
+		}
+
+		// Burger Icon
+		.burger-icon {
+			@include burger-icon-theme($gray-500, $gray-600, $gray-600);
+		}
+
+		// Customize buttons(see: src\sass\components\mixins\_buttons.scss)
+		// button-custom-variant(
+		//    $background, $border, $color, $icon, $box-shadow,
+		//    $hover-background, $hover-border, $hover-color, $hover-icon, $hover-box-shadow,
+		//    $active-background, $active-border, $active-color, $active-icon, $active-box-shadow)
+		// )
+
+		.btn.btn-icon {
+			@include button-custom-variant(
+				$gray-300, null, $gray-600, $gray-600, null,
+				$gray-400, null, $dark, $dark, null,
+				$gray-400, null, $dark, $dark, null,
+			);
+		}
+	}
+}
+
+@keyframes header-mobile-scroll-animation {
+    from   { top: -(get($header-config, tablet-and-mobile, height)); }
+    to { top: 0; }
+}

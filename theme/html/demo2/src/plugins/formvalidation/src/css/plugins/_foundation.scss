@@ -1,0 +1,55 @@
+.fv-plugins-foundation {
+  .fv-plugins-icon {
+    height: 39px;
+    line-height: 39px;
+    right: 0;
+    width: 39px;    /* Same as height of input */
+  }
+
+  // Support that grid container comes with padding
+  .grid-padding-x .fv-plugins-icon {
+    right: 15px;
+  }
+
+  // To support multiple fields in the same row
+  .fv-plugins-icon-container .cell {
+    position: relative;
+  }
+
+  [type="checkbox"]~.fv-plugins-icon,
+  [type="checkbox"]~.fv-plugins-icon {
+    top: -7px;      /* labelHeight/2 - iconHeight/2 */
+  }
+
+  /* Stacked form */
+  &.fv-stacked-form {
+    // Put the message in the new line
+    .fv-plugins-message-container {
+      width: 100%;
+    }
+
+    label .fv-plugins-icon,
+    fieldset [type="checkbox"]~.fv-plugins-icon,
+    fieldset [type="radio"]~.fv-plugins-icon {
+      top: 25px;      /* Same as height of label */
+    }
+  }
+
+  .form-error {
+    display: block;
+  }
+
+  .fv-row__success {
+    .fv-plugins-icon {
+      color: #3adb76; /* Same as .success */
+    }
+  }
+
+  .fv-row__error {
+    label,
+    fieldset legend,
+    .fv-plugins-icon {
+      color: #cc4b37; /* Same as .is-invalid-label and .form-error */
+    }
+  }
+}

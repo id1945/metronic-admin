@@ -1,0 +1,277 @@
+//
+// Forms
+//
+
+
+// Form group
+.form-group {
+	label {
+		font-size: $form-label-font-size;
+		font-weight: $form-label-font-weight;
+		color: $dark-75;
+	}
+
+	.invalid-feedback,
+	.valid-feedback {
+		font-size: $form-feedback-font-size;
+		font-weight: $form-feedback-font-weight;
+	}
+
+	.form-text {
+		font-size: $form-text-font-size;
+		font-weight: $form-text-font-weight;
+	}
+}
+
+// Form control
+.form-control {
+	// Readonly state
+	&[readonly] {
+		background-color: $input-readonly-bg;
+	}
+
+	// Pill style
+	&.form-control-pill {
+		border-radius: $input-line-height;
+
+		&.form-control-sm {
+			border-radius: $input-line-height-sm;
+		}
+
+		&.form-control-lg {
+			border-radius: $input-line-height-lg;
+		}
+	}
+
+	@if $form-validation-input-shadow == false {
+		&:active,
+		&.active,
+		&:focus,
+		&.focus {
+			box-shadow: none !important;
+		}
+	}
+
+	// Solid style
+	&.form-control-solid {
+		background-color: $input-solid-bg;
+		border-color: $input-solid-bg;
+		@include placeholder($input-solid-placeholder-color);
+		color: $input-solid-color;
+		transition: $transition-input;
+
+		&:active,
+		&.active,
+		&:focus,
+		&.focus {
+			background-color: $input-solid-bg-focus;
+			border-color: $input-solid-bg-focus;
+			color: $input-solid-color;
+			transition: $transition-input;
+		}
+	}
+}
+
+// Hide Form Control Icon On Validation
+.form-control-iconless {
+	background-image: none;
+
+	.form-control {
+		background-image: none;
+	}
+}
+
+// Placeholder colors
+.placeholder-dark-50 {
+	@include placeholder($dark-50);
+}
+
+.placeholder-dark-75 {
+	@include placeholder($dark-75);
+}
+
+.placeholder-white {
+	@include placeholder($white);
+}
+
+// Custom inputs
+.custom-select {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	box-shadow: none;
+}
+
+.custom-file {
+	width: 100%;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+	box-shadow: none !important;
+}
+
+.custom-file-label {
+	text-align: left;
+
+	&:after {
+	    float: left;
+	}
+}
+
+// Input Group
+.input-group {
+	.form-control.is-valid + .input-group-append,
+	.form-control.is-invalid + .input-group-append {
+		margin-left: 0;
+	}
+
+	.input-group-prepend + .form-control.is-valid,
+	.input-group-prepend + .form-control.is-invalid {
+		margin-left: 1px;
+	}
+
+	// Sizing
+	i {
+		line-height: 0;
+		font-size: 1.3rem;
+
+		&:after,
+		&:before {
+			line-height: 0;
+		}
+	}
+
+	.svg-icon {
+		line-height: 0;
+	}
+
+	&.input-group-sm {
+		i {
+			line-height: 0;
+			font-size: 1rem;
+		}
+	}
+
+	&.input-group-lg {
+		i {
+			line-height: 0;
+			font-size: 1.4rem;
+		}
+	}
+
+	// Solid style
+	&.input-group-solid {
+		align-items: center;
+		background-color: $input-solid-bg;
+		@include border-radius($input-border-radius);
+
+		&.active,
+		&.focus {
+			background-color: $input-solid-bg-focus;
+			border-color: $input-solid-bg-focus;
+			color: $input-solid-color;
+			transition: $transition-input;
+		}
+
+		.form-control {
+			@include input-reset();
+
+			&.form-control-solid {
+				&:active,
+				&.active,
+				&:focus,
+				&.focus {
+					background-color: $input-solid-bg-focus;
+					border-color: $input-solid-bg-focus;
+					color: $input-solid-color;
+					transition: $transition-input;
+				}
+			}
+		}
+
+		&.input-group-sm {
+			@include border-radius($input-border-radius-sm);
+		}
+
+		&.input-group-lg {
+			@include border-radius($input-border-radius-lg);
+		}
+
+		.input-group-prepend,
+		.input-group-append,
+		.input-group-text {
+			background-color: transparent;
+			border: 0;
+			padding-top: 0;
+    		padding-bottom: 0;
+
+			.btn-secondary {
+				border: 0 !important;
+			}
+		}
+
+		.input-group-prepend ~ .form-control {
+			padding-left: 0 !important;
+		}
+	}
+}
+
+// Validation
+.validated {
+	.valid-feedback,
+	.invalid-feedback {
+		display: block;
+	}
+}
+
+// Input icon
+.input-icon {
+	position: relative;
+
+	span {
+		left: 0;
+		top: 0;
+		bottom: 0;
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: calc(#{$input-line-height * 1em} + #{$input-padding-y * 2} + #{$input-height-border});
+
+		i {
+			line-height: 0;
+			color: $dark-50;
+
+			&:after,
+			&:before {
+				line-height: 0;
+			}
+		}
+
+		.svg-icon {
+			@include svg-icon-color($dark-50);
+			@include svg-icon-size(24px);
+		}
+	}
+
+	.form-control {
+		padding-left: calc(#{$input-line-height * 1em} + #{$input-padding-y * 2} + #{$input-height-border});
+	}
+
+	&.input-icon-right {
+		span {
+			right: 0;
+			left: auto;
+		}
+
+		.form-control {
+			padding-left: $input-btn-padding-x;
+			padding-right: calc(#{$input-line-height * 1em} + #{$input-padding-y * 2} + #{$input-height-border});
+		}
+	}
+}
+
+// Textarea reset resize
+.resize-none {
+	resize: none;
+}

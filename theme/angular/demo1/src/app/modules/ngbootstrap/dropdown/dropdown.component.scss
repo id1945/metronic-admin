@@ -1,0 +1,6 @@
+:host {
+	// show bootstrap dropdown arrow
+	.dropdown-toggle::after {
+		display: inline-block !important;
+	}
+}

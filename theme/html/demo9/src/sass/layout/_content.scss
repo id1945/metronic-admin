@@ -1,0 +1,38 @@
+//
+// Content
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.content {
+		padding: get($page-padding, desktop) 0;
+
+		// Fixed Header and Minimized Header Modes
+		.header-fixed[data-header-scroll="on"] & {
+			padding-top: get($header-config, desktop, height);
+		}
+		// Aside Enabled Mode
+		.aside-enabled & {
+			.content-wrapper {
+				padding-left: get($page-padding, desktop);
+			}
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.content {
+		padding: get($page-padding, tablet-and-mobile) 0;
+
+		// Subheader Enabled Mode
+		.subheader-enabled.subheader-transparent & {
+			padding-top: 0;
+		}
+
+		// Fixed Header Mode
+		.header-mobile-fixed & {
+			padding-top: get($page-padding, tablet-and-mobile) + get($header-config, tablet-and-mobile, height);
+		}
+	}
+}

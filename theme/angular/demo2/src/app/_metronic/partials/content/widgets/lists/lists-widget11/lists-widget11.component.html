@@ -1,0 +1,153 @@
+<!--begin::List Widget 11-->
+<div class="card card-custom" [ngClass]="cssClass">
+  <!--begin::Header-->
+  <div class="card-header border-0">
+    <h3 class="card-title font-weight-bolder text-dark">Trends</h3>
+    <div class="card-toolbar">
+      <div
+        ngbDropdown
+        placement="bottom-right"
+        class="dropdown dropdown-inline"
+        title="Quick actions"
+      >
+        <a
+          ngbDropdownToggle
+          class="btn btn-clean btn-hover-light-primary btn-sm btn-icon"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="ki ki-bold-more-ver"></i>
+        </a>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu dropdown-menu-md dropdown-menu-right"
+        >
+          <app-dropdown-menu4></app-dropdown-menu4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Header-->
+
+  <!--begin::Body-->
+  <div class="card-body pt-0">
+    <!--begin::Item-->
+    <div class="d-flex align-items-center mb-9 bg-light-warning rounded p-5">
+      <!--begin::Icon-->
+      <span class="svg-icon svg-icon-warning mr-5">
+        <span
+          [inlineSVG]="'./assets/media/svg/icons/Home/Library.svg'"
+          class="svg-icon svg-icon-lg"
+        ></span>
+      </span>
+      <!--end::Icon-->
+
+      <!--begin::Title-->
+      <div class="d-flex flex-column flex-grow-1 mr-2">
+        <a
+          href="#"
+          class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1"
+          >Group lunch celebration</a
+        >
+        <span class="text-muted font-weight-bold">Due in 2 Days</span>
+      </div>
+      <!--end::Title-->
+
+      <!--begin::Lable-->
+      <span class="font-weight-bolder text-warning py-1 font-size-lg"
+        >+28%</span
+      >
+      <!--end::Lable-->
+    </div>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <div class="d-flex align-items-center bg-light-success rounded p-5 mb-9">
+      <!--begin::Icon-->
+      <span class="svg-icon svg-icon-success mr-5">
+        <span
+          [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'"
+          class="svg-icon svg-icon-lg"
+        ></span>
+      </span>
+      <!--end::Icon-->
+
+      <!--begin::Title-->
+      <div class="d-flex flex-column flex-grow-1 mr-2">
+        <a
+          href="#"
+          class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1"
+          >Home navigation optimization</a
+        >
+        <span class="text-muted font-weight-bold">Due in 2 Days</span>
+      </div>
+      <!--end::Title-->
+
+      <!--begin::Lable-->
+      <span class="font-weight-bolder text-success py-1 font-size-lg"
+        >+50%</span
+      >
+      <!--end::Lable-->
+    </div>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <div class="d-flex align-items-center bg-light-danger rounded p-5 mb-9">
+      <!--begin::Icon-->
+      <span class="svg-icon svg-icon-danger mr-5">
+        <span
+          [inlineSVG]="'./assets/media/svg/icons/Communication/Group-chat.svg'"
+          class="svg-icon svg-icon-lg"
+        ></span>
+      </span>
+      <!--end::Icon-->
+
+      <!--begin::Title-->
+      <div class="d-flex flex-column flex-grow-1 mr-2">
+        <a
+          href="#"
+          class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1"
+          >Rebrand strategy planning</a
+        >
+        <span class="text-muted font-weight-bold">Due in 2 Days</span>
+      </div>
+      <!--end::Title-->
+
+      <!--begin::Lable-->
+      <span class="font-weight-bolder text-danger py-1 font-size-lg">-27%</span>
+      <!--end::Lable-->
+    </div>
+    <!--end::Item-->
+
+    <!--begin::Item-->
+    <div class="d-flex align-items-center bg-light-info rounded p-5">
+      <!--begin::Icon-->
+      <span class="svg-icon svg-icon-info mr-5">
+        <span
+          [inlineSVG]="'./assets/media/svg/icons/General/Attachment2.svg'"
+          class="svg-icon svg-icon-lg"
+        ></span>
+      </span>
+      <!--end::Icon-->
+
+      <!--begin::Title-->
+      <div class="d-flex flex-column flex-grow-1 mr-2">
+        <a
+          href="#"
+          class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1"
+          >Product goals strategy meet-up</a
+        >
+        <span class="text-muted font-weight-bold">Due in 2 Days</span>
+      </div>
+      <!--end::Title-->
+
+      <!--begin::Lable-->
+      <span class="font-weight-bolder text-info py-1 font-size-lg">+8%</span>
+      <!--end::Lable-->
+    </div>
+    <!--end::Item-->
+  </div>
+  <!--end::Body-->
+</div>
+<!--end::List Widget 11-->

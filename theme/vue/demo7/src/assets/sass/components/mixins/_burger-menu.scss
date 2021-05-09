@@ -1,0 +1,195 @@
+//
+// Burger Icon Mixins
+//
+
+
+
+
+@mixin burger-icon-build($class, $config) {
+	$space: get($config, thickness) + get($config, space);
+
+	.#{$class} {
+		display: inline-block;
+	  	position: relative;
+	  	overflow: hidden;
+	  	margin: 0;
+	  	padding: 0;
+	  	font-size: 0;
+	  	text-indent: -9999px;
+	    appearance: none;
+	    box-shadow: none;
+	    border-radius: none;
+	    border: none;
+	    cursor: pointer;
+	    background-color:none;
+	    outline: none !important;
+	  	width: get($config, width);
+	  	height: get($config, height);
+	    transition: all get($config, transition-duration) ease;
+
+		span {
+			display: block;
+	  		position: absolute;
+			@include border-radius(get($config, radius));
+			transition: all get($config, transition-duration) ease;
+	  		top: (get($config, height) / 2) - (get($config, thickness)) + 1px;
+	  		height: get($config, thickness);
+	  		min-height: get($config, thickness);
+	  		width: 100%;
+	  		&::before,
+	  		&::after {
+	  			position: absolute;
+			  	display: block;
+			  	left: 0;
+			  	width: 100%;
+			  	height: get($config, thickness);
+			  	min-height: get($config, thickness);
+			  	content: "";
+			  	transition: all get($config, transition-duration) ease;
+				@include border-radius(get($config, radius));
+	  		}
+
+	  		&::before {
+	  			top: -($space);
+	  		}
+
+	  		&::after {
+	  			bottom: -($space);
+	  		}
+		}
+
+	    // left direction style
+	    &.#{$class}-left {
+	    	span {
+	    		&:before {
+	    			transition: all get($config, transition-duration) ease;
+	    			left: auto;
+	    			right: 0px;
+	    			width: 50%;
+	    		}
+
+	    		&:after {
+	    			transition: all get($config, transition-duration) ease;
+	    			left: auto;
+	    			right: 0px;
+	    			width: 75%;
+	    		}
+	    	}
+
+	    	// hover states
+	    	&:hover {
+	    		span {
+		    		&:after,
+		    		&:before {
+		    			width: 100%;
+		    			transition: all get($config, transition-duration) ease;
+		    		}
+		    	}
+	    	}
+
+	    	// active state
+		    &.#{$class}-active {
+		    	span {
+		    		&:before {
+		    			transition: all get($config, transition-duration) ease;
+		    			left: 0px;
+		    			right: auto;
+		    			width: 50%;
+		    		}
+
+		    		&:after {
+		    			transition: all get($config, transition-duration) ease;
+		    			left: 0px;
+		    			right: auto;
+		    			width: 75%;
+		    		}
+		    	}
+		    }
+	    }
+
+	    // right direction style
+	    &.#{$class}-right {
+	    	span {
+		    	&:before {
+		    		left: 0px;
+		    		right: auto;
+		    		width: 50%;
+		    		transition: width get($config, transition-duration) ease;
+		    	}
+
+		    	&:after {
+		    		left: 0px;
+		    		right: auto;
+		    		width: 75%;
+		    		transition: width get($config, transition-duration) ease;
+		    	}
+		    }
+
+	    	// hover states
+	    	&:hover {
+	    		span {
+		    		&:after,
+		    		&:before {
+		    			width: 100%;
+		    			transition: width get($config, transition-duration) ease;
+		    		}
+		    	}
+	    	}
+
+	    	// active state
+		    &.#{$class}-active {
+		    	span {
+		    		&:before {
+		    			left: auto;
+	    				right: 0px;
+		    			width: 50%;
+		    			transition: width get($config, transition-duration) ease;
+		    		}
+
+		    		&:after {
+		    			left: auto;
+	    				right: 0px;
+		    			width: 75%;
+		    			transition: width get($config, transition-duration) ease;
+		    		}
+		    	}
+		    }
+	    }
+	}
+}
+
+@mixin burger-icon-theme($class, $config) {
+	.#{$class} {
+		span {
+	 		background-color:get($config, default);
+
+	  		&::before,
+	  		&::after {
+			  	background-color:get($config, default);
+	  		}
+		}
+
+	    //active & hover state
+	    &:hover {
+	    	span {
+		    	background-color:get($config, hover);
+
+		    	&::before,
+		  		&::after {
+		  			background-color:get($config, hover);
+		  		}
+		  	}
+	    }
+
+	    &.#{$class}-active {
+	    	span {
+		    	background-color:get($config, active);
+
+		    	&::before,
+		  		&::after {
+		  			background-color:get($config, active);
+		  		}
+		  	}
+	    }
+	}
+}

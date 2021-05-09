@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <div class="modal-title h4">Fetch selected products</div>
+</div>
+<div class="modal-body overlay overlay-block cursor-default">
+  <ng-container *ngIf="isLoading">
+    <div class="overlay-layer">
+      <div class="spinner spinner-lg spinner-primary"></div>
+    </div>
+  </ng-container>
+
+  <div class="table-responsive angular-bootstrap-table">
+    <table class="table table-head-custom table-vertical-center overflow-hidden">
+      <thead>
+        <th>VIN CODE</th>
+        <th>MANUFACTURE</th>
+        <th>MODEL</th>
+        <th>STATUS</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.VINCode}}</td>
+          <td>{{product.manufacture}}</td>
+          <td>{{product.model}}</td>
+          <td>
+            <span class="label label-lg label-inline" 
+              [class.label-light-success]="product.status === 1"
+              [class.label-light-primary]="product.status === 2"
+            >
+              <ng-container *ngIf="product.status === 1">Selling</ng-container>
+              <ng-container *ngIf="product.status === 2">Sold</ng-container>
+            </span>
+          </td>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="modal-footer">
+  <div>
+    <button type="button" class="btn btn-light btn-elevate mr-3" (click)="modal.dismiss()">Cancel</button>
+    <button type="button" class="btn btn-primary btn-elevate" (click)="fetchSelected()">Fetch</button>
+  </div>
+</div>

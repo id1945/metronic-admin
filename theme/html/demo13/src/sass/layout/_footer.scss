@@ -1,0 +1,25 @@
+//
+// Content
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.footer {
+		// Fixed Mode
+		.footer-fixed & {
+			position: fixed;
+			height: get($footer-config, fixed, height);
+			z-index: get($footer-config, fixed, zindex);
+			box-shadow: get($footer-config, fixed, shadow);
+			bottom: 0;
+			right: 0;
+			left: get($aside-config, base, width);
+		}
+
+		// Aside Minimized, Aside Minimize Hover & Fixed Footer Modes
+		.aside-minimize-hover.footer-fixed &,
+		.aside-minimize.footer-fixed & {
+			left: get($aside-config, base, minimized-width);
+		}
+	}
+}

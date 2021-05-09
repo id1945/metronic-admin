@@ -1,0 +1,118 @@
+//
+// Login 6
+// Pages SASS files are compiled into separate css files
+//
+
+
+// Initialization of global variables, mixins and functions
+@import "../../../init";
+
+.login.login-6 {
+    // Form modes
+    .login-signin,
+    .login-signup,
+    .login-forgot {
+        display: none;
+    }
+
+    &.login-signin-on {
+        .login-signup {
+            display: none;
+        }
+
+        .login-signin {
+            display: block;
+        }
+
+        .login-forgot {
+            display: none;
+        }
+    }
+
+    &.login-signup-on {
+        .login-signup {
+            display: block;
+        }
+
+        .login-signin {
+            display: none;
+        }
+
+        .login-forgot {
+            display: none;
+        }
+    }
+
+    &.login-forgot-on {
+        .login-signup {
+            display: none;
+        }
+
+        .login-signin {
+            display: none;
+        }
+
+        .login-forgot {
+            display: block;
+        }
+    }
+
+    .login-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        > div {
+            height: 400px;
+            background: #ffffff;
+            width: 30px;
+            box-shadow: -19px 0 35px -7px rgba(#000, 0.05);
+        }
+    }
+}
+
+// Desktop view
+@include media-breakpoint-up(lg) {
+    .login.login-6 {
+        .login-wrapper {
+            width: 100%;
+            max-width: 450px;
+        }
+    }
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+    .login.login-6 {
+        .login-wrapper {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .login-divider {
+            display: flex;
+            padding-top: 0;
+            width: 60%;
+            margin: 5px auto;
+            align-items: center;
+            justify-content: center;
+
+            > div {
+                height: 30px;
+                background: #ffffff;
+                width: 100%;
+                box-shadow: 0 -15px 30px -10px rgba(#000, 0.1);
+            }
+        }
+    }
+}
+
+// Mobile mode
+@include media-breakpoint-down(sm) {
+    .login.login-6 {
+        .login-wrapper {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}

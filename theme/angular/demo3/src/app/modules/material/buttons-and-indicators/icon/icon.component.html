@@ -1,0 +1,92 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://material.angular.io/components/icon/overview"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasic">
+      <div class="example-preview">
+        <p>
+          <code>&lt;mat-icon&gt;</code> makes it easier to use vector-based
+          icons in your app. This directive supports both icon fonts and SVG
+          icons, but not bitmap-based formats (png, jpg, etc.).
+        </p>
+        <p>
+          <b>Registering icons:</b>
+          <mark>MatIconRegistry</mark> is an injectable service that allows you
+          to associate icon names with SVG URLs and define aliases for CSS font
+          classes. Its methods are discussed below and listed in the API
+          summary.
+        </p>
+        <p>
+          <b> Font icons with ligatures:</b> Some fonts are designed to show
+          icons by using
+          <a
+            href="https://en.wikipedia.org/wiki/Typographic_ligature"
+            target="_blank"
+            >ligatures</a
+          >, for example by rendering the text "home" as a home image. To use a
+          ligature icon, put its text in the content of the
+          <mark>mat-icon</mark> component.
+        </p>
+        <p>
+          By default,
+          <code>&lt;mat-icon&gt;</code> expects the
+          <a
+            href="http://google.github.io/material-design-icons/#icon-font-for-the-web"
+            target="_blank"
+            >Material icons font</a
+          >. (You will still need to include the HTML to load the font and its
+          CSS, as described in the link). You can specify a different font by
+          setting the <mark>fontSet</mark> input to either the CSS class to
+          apply to use the desired font, or to an alias previously registered
+          with <mark>MatIconRegistry.registerFontClassAlias</mark>.
+        </p>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-icon>home</mat-icon>
+          <mat-icon>queue music</mat-icon>
+          <mat-icon>call split</mat-icon>
+          <mat-icon>event note</mat-icon>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleSVG">
+      <div class="example-preview">
+        <p>
+          <code>&lt;mat-icon&gt;</code>
+          When an <mark>mat-icon</mark> component displays an SVG icon, it does
+          so by directly inlining the SVG content into the page as a child of
+          the component. (Rather than using an tag or a div background image).
+          This makes it easier to apply CSS styles to SVG icons. For example,
+          the default color of the SVG content is the CSS
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentColor_keyword"
+            target="_blank"
+            >currentColor</a
+          >
+          value. This makes SVG icons by default have the same color as
+          surrounding text, and allows you to change the color by setting the
+          "color" style on the <mark>mat-icon</mark> element.
+        </p>
+        <p>
+          In order to prevent XSS vulnerabilities, any SVG URLs passed to the
+          <mark>MatIconRegistry</mark> must be marked as trusted resource URLs
+          by using Angular's <mark>DomSanitizer</mark> service.
+        </p>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <mat-icon svgIcon="boy"></mat-icon>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

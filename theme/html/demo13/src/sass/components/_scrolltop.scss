@@ -1,0 +1,66 @@
+//
+// Scrolltop
+//
+
+.scrolltop {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: get($scrolltop-config, size, desktop);
+    height: get($scrolltop-config, size, desktop);
+    position: fixed;
+    bottom: get($scrolltop-config, bottom, desktop);
+    right: get($scrolltop-config, right, desktop);
+    cursor: pointer;
+    z-index: 100;
+    background-color: $primary;
+    box-shadow: $box-shadow;
+    opacity: 0;
+    transition: $transition-link;
+    @include border-radius($border-radius !important);
+
+    .svg-icon {
+        @include svg-icon-size(24px);
+        @include svg-icon-color($white);
+    }
+
+    > i {
+        font-size: 1.3rem;
+        color: $white;
+    }
+
+    &:hover {
+        > i {
+            color: $white;
+        }
+
+        .svg-icon {
+            @include svg-icon-color($white);
+        }
+    }
+
+    [data-scrolltop="on"] & {
+        opacity: 0.3;
+        animation: animation-scrolltop .4s ease-out 1;
+        display: flex;
+
+        &:hover {
+            transition: $transition-link;
+            opacity: 1;
+        }
+    }
+
+    // Tablet & Mobile Modess
+    @include media-breakpoint-down(md) {
+        bottom: get($scrolltop-config, bottom, tablet-and-mobile);
+        right: get($scrolltop-config, right, tablet-and-mobile);
+        width: get($scrolltop-config, size, tablet-and-mobile);
+        height: get($scrolltop-config, size, tablet-and-mobile);
+    }
+}
+
+// Animations
+@keyframes animation-scrolltop {
+    from   { margin-bottom: -15px }
+    to {     margin-bottom: 0; }
+}

@@ -1,0 +1,196 @@
+<app-notice [svg]="'assets/media/svg/icons/Tools/Compass.svg'">
+  For more info please check the components's official demos & documentation
+  <a
+    class="font-weight-bold"
+    href="https://ng-bootstrap.github.io/#/components/pagination/examples"
+    target="_blank"
+    >demos & documentation</a
+  >
+</app-notice>
+
+<div class="row">
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="exampleBasicPagination">
+      <p>
+        Default pagination:
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            [collectionSize]="70"
+            [(page)]="page"
+            aria-label="Default pagination"
+          ></ngb-pagination>
+        </div>
+      </div>
+      <div class="separator separator-dashed my-6"></div>
+
+      <p>
+        No direction links:
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            [collectionSize]="70"
+            [(page)]="page"
+            [directionLinks]="false"
+          ></ngb-pagination>
+        </div>
+      </div>
+      <div class="separator separator-dashed my-6"></div>
+
+      <p>
+        With boundary links:
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            [collectionSize]="70"
+            [(page)]="page"
+            [boundaryLinks]="true"
+          ></ngb-pagination>
+        </div>
+      </div>
+      <div class="separator separator-dashed my-6"></div>
+
+      <div>
+        <p>Current page: {{ page }}</p>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleAdvancedPagination">
+      <p>
+        Restricted size, no rotation:
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            [collectionSize]="120"
+            [(page)]="page2"
+            [maxSize]="5"
+            [boundaryLinks]="true"
+          ></ngb-pagination>
+        </div>
+      </div>
+      <div class="separator separator-dashed my-6"></div>
+      <p>
+        Restricted size with rotation:
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            [collectionSize]="120"
+            [(page)]="page2"
+            [maxSize]="5"
+            [rotate]="true"
+            [boundaryLinks]="true"
+          ></ngb-pagination>
+        </div>
+      </div>
+      <div class="separator separator-dashed my-6"></div>
+      <p>
+        Restricted size with rotation and no ellipses:
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            [collectionSize]="120"
+            [(page)]="page2"
+            [maxSize]="5"
+            [rotate]="true"
+            [ellipses]="false"
+            [boundaryLinks]="true"
+          ></ngb-pagination>
+        </div>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <p>Current page: {{ page2 }}</p>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="examplePaginationSize">
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            [collectionSize]="50"
+            [(page)]="currentPage"
+            size="lg"
+          ></ngb-pagination>
+          <ngb-pagination
+            [collectionSize]="50"
+            [(page)]="currentPage"
+          ></ngb-pagination>
+          <ngb-pagination
+            [collectionSize]="50"
+            [(page)]="currentPage"
+            size="sm"
+          ></ngb-pagination>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+  <div class="col-xl-6">
+    <app-code-preview [viewItem]="examplePaginationAlignment">
+      <p>
+        Change the alignment of pagination components with flexbox utilities
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            class="d-flex justify-content-start"
+            [collectionSize]="70"
+            [(page)]="page3"
+          ></ngb-pagination>
+          <ngb-pagination
+            class="d-flex justify-content-center"
+            [collectionSize]="70"
+            [(page)]="page3"
+          ></ngb-pagination>
+          <ngb-pagination
+            class="d-flex justify-content-end"
+            [collectionSize]="70"
+            [(page)]="page3"
+          ></ngb-pagination>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleDisabledPagination">
+      <p>
+        Pagination control can be disabled:
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            [collectionSize]="70"
+            [(page)]="page4"
+            [disabled]="isDisabled"
+          ></ngb-pagination>
+        </div>
+        <div class="separator separator-dashed my-6"></div>
+        <div>
+          <button class="btn btn-sm btn-primary" (click)="toggleDisabled()">
+            Toggle disabled
+          </button>
+        </div>
+      </div>
+    </app-code-preview>
+
+    <app-code-preview [viewItem]="exampleGlobalConfiguration">
+      <p>
+        This pagination uses custom default values
+      </p>
+      <div class="example-preview">
+        <div>
+          <ngb-pagination
+            [collectionSize]="70"
+            [(page)]="page5"
+            [size]="'sm'"
+            [boundaryLinks]="'true'"
+          ></ngb-pagination>
+        </div>
+      </div>
+    </app-code-preview>
+  </div>
+</div>

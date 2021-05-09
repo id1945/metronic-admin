@@ -1,0 +1,46 @@
+<div class="card card-custom card-stretch card-stretch-half gutter-b">
+  <!-- Body -->
+  <div class="card-body d-flex flex-column p-0">
+    <div
+      class="d-flex align-items-center justify-content-between card-spacer flex-grow-1"
+    >
+      <span class="symbol symbol-50 symbol-light-primary mr-2">
+        <span class="symbol-label">
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Communication/Group.svg'"
+            class="svg-icon svg-icon-xl svg-icon-primary"
+          ></span>
+        </span>
+      </span>
+      <div class="d-flex flex-column text-right">
+        <span class="text-dark-75 font-weight-bolder font-size-h3">+6,5K</span>
+        <span class="text-muted font-weight-bold mt-2">New Users</span>
+      </div>
+    </div>
+    <!--begin::Chart-->
+    <div
+      id="kt_stats_widget_12_chart"
+      class="card-rounded-bottom"
+      [style.height]="'150px'"
+    >
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [yaxis]="chartOptions.yaxis"
+        [dataLabels]="chartOptions.dataLabels"
+        [stroke]="chartOptions.stroke"
+        [legend]="chartOptions.legend"
+        [fill]="chartOptions.fill"
+        [states]="chartOptions.states"
+        [tooltip]="chartOptions.tooltip"
+        [colors]="chartOptions.colors"
+        [markers]="chartOptions.markers"
+        [plotOptions]="chartOptions.plotOptions"
+      >
+      </apx-chart>
+    </div>
+    <!--end::Chart-->
+    <!--end::Stats-->
+  </div>
+</div>

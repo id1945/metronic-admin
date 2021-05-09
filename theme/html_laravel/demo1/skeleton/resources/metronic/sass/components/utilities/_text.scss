@@ -1,0 +1,154 @@
+//
+// Text
+//
+
+
+// Theme Colors
+@each $name, $color in $theme-text-colors {
+    // Base color
+    .text-#{$name} {
+        color: $color !important;
+    }
+
+    // Inverse color
+    .text-inverse-#{$name} {
+        color: theme-inverse-color($name) !important;
+    }
+
+    // Light colors
+    .text-light-#{$name} {
+        color: theme-light-color($name) !important;
+    }
+
+    // Text hover
+    a.text-hover-#{$name},
+    .text-hover-#{$name} {
+        transition: $transition-link;
+
+        &:hover {
+            transition:$transition-link;
+            color: $color !important;
+
+            i {
+				color: $color !important;
+			}
+
+			.svg-icon {
+				@include svg-icon-color($color);
+			}
+        }
+    }
+
+    // Parent hover
+    .hoverable {
+        &:hover {
+            a.text-hover-#{$name},
+            .text-hover-#{$name} {
+                transition:$transition-link;
+                color: $color !important;
+
+                i {
+    				color: $color !important;
+    			}
+
+    			.svg-icon {
+    				@include svg-icon-color($color, true);
+    			}
+            }
+        }
+    }
+}
+
+// Font sizes
+.font-size-base {
+    font-size:  $font-size-base;
+}
+
+.font-size-sm {
+    font-size:  $font-size-sm;
+}
+
+.font-size-xs {
+    font-size:  $font-size-xs;
+}
+
+.font-size-lg {
+    font-size:  $font-size-lg;
+}
+
+// Responsive font sizes
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $name, $value in $font-sizes {
+            .#{$name}#{$infix} {
+                font-size: $value !important;
+            }
+        }
+    }
+}
+
+// Boldest font
+.font-weight-boldest {
+    font-weight: $font-weight-boldest;
+}
+
+// Line heights
+.line-height-0 {
+    line-height: 0 !important;
+}
+
+.line-height-xs {
+    line-height: 0.75 !important;
+}
+
+.line-height-sm {
+    line-height: 1 !important;
+}
+
+.line-height-md {
+    line-height: 1.25 !important;
+}
+
+.line-height-lg {
+    line-height: 1.5 !important;
+}
+
+.line-height-xl {
+    line-height: 1.75 !important;
+}
+
+// Text transparent
+.text-transparent{
+    color: transparent;
+}
+
+// Text stroke
+.text-stroke{
+    -webkit-text-stroke-width: 0.35rem;
+    -moz-text-stroke-width: 0.35rem;
+    text-stroke-width: 0.35rem;
+    -webkit-text-stroke-color: $white;
+    -moz-text-stroke-color: $white;
+    text-stroke-color: $white;
+}
+
+// Cursor pointer
+.cursor-pointer {
+    cursor: pointer;
+}
+
+// Cursor move
+.cursor-move {
+    cursor: move;
+}
+
+// Link transition
+a {
+    transition:$transition-link;
+
+    &:hover {
+        transition:$transition-link;
+    }
+}

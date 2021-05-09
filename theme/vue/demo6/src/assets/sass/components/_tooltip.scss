@@ -1,0 +1,53 @@
+//
+//  Tooltip
+//
+
+
+// Base
+.tooltip {
+    .tooltip-inner {
+        box-shadow: $tooltip-box-shadow;
+    }
+
+    &.bs-tooltip-left .arrow,
+    &.bs-tooltip-auto[x-placement^="left"] .arrow {
+    	/*rtl:raw:
+        left: auto;
+        right: 0;
+        */
+
+        &:before {
+        /*rtl:raw:
+        border-width: 0.4rem 0 0.4rem 0.4rem;
+        border-left-color: #fff;
+        */
+        }
+    }
+
+    &.bs-tooltip-right .arrow,
+    &.bs-tooltip-auto[x-placement^="right"] .arrow {
+        /*rtl:raw:
+        right: auto;
+        left: 0;
+        */
+
+    	&:before {
+        /*rtl:raw:
+        border-width: 0.4rem 0.4rem 0.4rem 0;
+        border-right-color: #fff;
+        */
+    	}
+    }
+
+    &.tooltop-auto-width {
+       	.tooltip-inner {
+       		white-space:nowrap;
+  			max-width:none;
+        }
+    }
+
+    // Dark Theme
+    &.tooltip-dark {
+        @include tooltip-theme($white, $dark);
+    }
+}
