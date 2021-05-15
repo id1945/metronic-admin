@@ -1,0 +1,101 @@
+//
+// Main Styles
+//
+
+////////////////////////////////////////////////////////////////
+///////////// DO NOT MODIFY BELOW INCLUDE ORDER ////////////////
+////////////////////////////////////////////////////////////////
+
+// 1: Initialize
+@import "init";
+
+// 2: Bootstrap/Material framework includes
+@import "~bootstrap/scss/bootstrap";
+@import "vendors/react/material-ui/general";
+
+//
+// Main Style
+//
+
+
+////////////////////////////////////////////////////////////////
+///////////// DO NOT MODIFY BELOW INCLUDE ORDER ////////////////
+////////////////////////////////////////////////////////////////
+
+// 1: Initialize
+@import "init";
+
+// 2: Bootstrap framework includes
+@import "~bootstrap/scss/bootstrap";
+
+
+// 3: Components
+@import
+    "components/utilities",
+    "components/burger-icon",
+    "components/card",
+    "components/wizard",
+    "components/type",
+    "components/breadcrumb",
+    "components/nav",
+    "components/alert",
+    "components/buttons",
+    "components/code",
+    "components/dropdown",
+    "components/forms",
+    "components/grid",
+    "components/modal",
+    "components/progress",
+    "components/table",
+    "components/popover",
+    "components/tooltip",
+    "components/accordion",
+    "components/datatable",
+    "components/checkbox",
+    "components/radio",
+    "components/switch",
+    "components/option",
+    "components/dialog",
+    "components/strikethrough",
+    "components/separator",
+    "components/image-input",
+    "components/label",
+    "components/loader",
+    "components/symbol",
+    "components/pulse",
+    "components/page-loader",
+    "components/quick-search",
+    "components/scrolltop",
+    "components/spinner",
+    "components/sticky-toolbar",
+    "components/svg-icon",
+    "components/svg",
+    "components/timeline",
+    "components/timeline-2",
+    "components/timeline-3",
+    "components/timeline-4",
+    "components/timeline-5",
+    "components/timeline-6",
+    "components/overlay",
+    "components/wave",
+    "components/list",
+    "components/bullet",
+    "components/navi",
+    "components/ribbon",
+    "components/offcanvas",
+    "components/toggle";
+
+// 4: Plugins
+@import
+    "vendors/plugins/formvalidation",
+    "vendors/plugins/dropzone",
+    "vendors/plugins/perfect-scrollbar",
+    "vendors/plugins/prismjs",
+    "vendors/plugins/apexcharts";
+
+// 5: Layout
+@import "layout/init";
+
+////////////////////////////////////////////////////////////////
+///////////// DO NOT MODIFY ABOVE INCLUDE ORDER ////////////////
+////////////////////////////////////////////////////////////////

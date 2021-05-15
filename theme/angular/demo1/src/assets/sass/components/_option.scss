@@ -1,0 +1,79 @@
+
+//
+// Option
+//
+
+
+// Base
+.option {
+    display: flex;
+    padding: 1.4em;
+    border: 1px solid $gray-200;
+    @include border-radius($border-radius);
+
+    .option-control {
+    	width: 2.7rem;
+        padding-top: 0.1rem;
+
+    	.kt-radio {
+    		display: block;
+    	}
+    }
+
+    .option-label {
+        width: 100%;
+
+    	.option-head {
+    		display: flex;
+            justify-content: space-between;
+
+    		.option-title {
+    			font-size: 1.1rem;
+                font-weight: 500;
+                color: $dark-75;
+    		}
+
+    		.option-focus {
+    			font-size: 1.1rem;
+				font-weight: 600;
+                color: $dark;
+    		}
+    	}
+
+    	.option-body {
+    		display: block;
+    		padding-top: 0.7rem;
+    		font-size: 0.9rem;
+            color: $text-muted;
+    	}
+    }
+
+    &.option-plain {
+        border: 0;
+        padding: 0;
+        margin-top: -0.2rem;
+        margin-bottom: 2rem;
+        align-items: center;
+
+        .option-control {
+            vertical-align: middle;
+            width: 2.7rem;
+
+            .radio {
+                margin-bottom: 1.6rem;
+            }
+        }
+
+        .option-label {
+            .option-head {
+                .option-title {
+
+                }
+            }
+
+            .option-body {
+                padding-top: 0.2rem;
+            }
+        }
+    }
+}

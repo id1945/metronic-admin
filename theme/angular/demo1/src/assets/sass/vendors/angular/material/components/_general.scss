@@ -1,0 +1,96 @@
+// Form controls
+.mat-column-select {
+    overflow: initial;
+}
+.mat-column-checkbox {
+    flex: 0 0 70px;
+}
+
+.mat-column-vinCode {
+    flex: 1 0 60px;
+}
+
+.example-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+  
+.example-radio-button {
+    margin: 5px;
+}
+
+// Tabs
+.demo-tab-group {
+    border: 1px solid #e8e8e8;
+  }
+  
+.demo-tab-content {
+    padding: 16px;
+}
+
+// Panels
+.example-panel-Suspended {
+    .mat-select-content {
+        background: rgba(255, 0, 0, 0.5);
+    }
+}
+  
+.example-panel-Active {
+    .mat-select-content {
+        background:  rgba(0, 255, 0, 0.5);
+    }
+}
+
+.material-icons {
+    font-size: 18px !important;
+}
+
+// Form fields
+.mat-form-field-fluid {
+    display: block !important;
+}
+
+// Tabs
+.mat-tab-body-content {
+    overflow: visible !important;
+    padding-top: 20px !important;
+}
+
+.mat-tab-label-icon {
+	margin-right: 5px;
+}
+
+.mat-form-field-infix {
+	    input:-webkit-autofill,
+	    input:-webkit-autofill:hover,
+	    input:-webkit-autofill:focus,
+	    input:-webkit-autofill:active {
+		-webkit-text-fill-color: #000 !important;
+	}
+}
+
+.example-ripple-container {
+	cursor: pointer;
+	text-align: center;
+  
+	width: 300px;
+	height: 300px;
+	line-height: 300px;
+  
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+  
+	-webkit-user-drag: none;
+	-webkit-tap-highlight-color: transparent;
+}
+  
+/** Styles to make the demo look better. */
+.example-ripple-checkbox {
+	margin: 6px 12px 6px 0;
+}
+  
+.example-ripple-form-field {
+	margin: 0 12px 0 0;
+}

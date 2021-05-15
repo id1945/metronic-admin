@@ -1,0 +1,200 @@
+// Portlets
+.kt-portlet {
+	// Angular source code previewer
+    &.kt-portlet--ngviewer {
+        .kt-portlet__body {
+            padding: 0;
+
+            .kt-portlet__code {
+                display: none;
+
+                &.kt-portlet__code--show {
+                    display: block;
+                }
+            }
+                
+            .kt-portlet__preview {
+                padding: kt-get($kt-portlet, space, desktop) kt-get($kt-portlet, space, desktop);
+            }
+        }    
+
+        .kt-portlet__code-copy {
+        	position: absolute;
+        	right: 0;
+        	top: 10px;
+        	
+        	i {
+        		font-size: 2rem;
+        	}
+
+        	&:hover {
+        		i {
+        			text-decoration: none;
+        		}
+        	}
+        }  
+    }  
+
+    // Portlet progress bar
+    .kt-portlet__progress-bar__wrapper {
+        height: 5px;
+    }
+
+    .kt-portlet__progress-bar {
+        height: 5px;
+    }
+
+    // Tools
+    .kt-portlet__head-tools {
+        button {
+            margin-left: 5px;
+        }
+    }
+}
+
+.kt-form--alert {
+	margin-top: 30px;
+}
+
+.kt-portlet-mx-0 {
+	margin: -1.1rem -2.2rem 0;
+	overflow-x: hidden;
+}
+
+.kt-portlet {
+	.kt-portlet__body .kt-portlet__body-progress {
+		display: none;
+	}
+
+	.kt-form.kt-form--fit > .kt-portlet__body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	&.kt-portlet--body-progress .kt-portlet__body {
+		position: relative;
+		-webkit-animation: m-animate-fade-out 0.3s;
+		animation: m-animate-fade-out 0.3s;
+		.kt-portlet__body-progress {
+			background-color: #fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 5;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			-webkit-box-flex: 1;
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+		}
+	}
+
+	// TODO
+	&__head__custom {
+		.kt-portlet__head-label {
+			display: flex;
+			align-items: center;
+		}
+		.kt-portlet__head-title {
+			margin-bottom: 0;
+		}
+	}
+	// TODO
+}
+
+
+// remove ng-boostrap dropdown arrow
+[ngbdropdowntoggle]::after {
+	display: none !important;
+}
+
+.kt-portlet__code-copy {
+    position: absolute;
+    right: 0;
+	top: 10px;
+	i {
+		font-size: 2rem;
+	}
+}
+
+.kt-pl-13 {
+	padding-left: 13px !important;
+}
+
+.mat-table__bottom--padding {
+	padding-right: 8px;
+}
+
+.mat-table__empty {
+	position: relative;
+	.mat-table__message--loading {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		content: "";
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(255, 255, 255, 1);
+	}
+}
+
+.kt-portlet {
+	.kt-portlet__head {
+		.kt-portlet__head-caption {
+			display: flex;
+			align-items: center;
+			align-content: flex-start;
+			.kt-portlet__head-title {
+				display: flex;
+				align-items: center;
+				.kt-portlet__head-text {
+					display: flex;
+					align-items: center;
+					font-size: 1.3rem;
+					font-weight: 500;
+					font-family: Roboto;
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+}
+
+.kt-form .kt-form__heading .kt-form__heading-title {
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #575962;
+}
+
+.kt-portlet .kt-portlet__foot {
+	padding: 0!important;
+}
+
+.kt-form .kt-form__group {
+    margin-bottom: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+button.close { height: 100%; }
+
+.mat-button-mt-4 {
+	.mat-icon {margin-top: 4px;}
+}
+
+.display-none {
+	display: none !important;
+}

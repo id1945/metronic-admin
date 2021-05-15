@@ -1,0 +1,220 @@
+
+.role-timeline-3 .role-timeline-3-inner {
+	.role-timeline-3-item {
+		min-height: 30px;
+		border-left: 3px solid #586bd8;
+		padding-left: 15px;
+
+		&::before {
+			display: none;
+		}
+
+		.role-timeline-3-item-time {
+			padding-top: 0;
+			position: static;
+		}
+	}
+
+	.role-timeline-3-item-child {
+		margin-left: 27px;
+		.mat-checkbox:not(.mat-checkbox-disabled).mat-accent
+			.mat-checkbox-ripple
+			.mat-ripple-element {
+			background-color: rgba(54, 163, 247, 0.26);
+		}
+	}
+}
+
+
+
+// timeline
+.role-list-timeline {
+	.role-list-timeline-items {
+		position: relative;
+		padding: 0;
+		margin: 0;
+		&:before {
+			position: absolute;
+			display: block;
+			content: "";
+			width: 1px;
+			height: 100%;
+			top: 0;
+			bottom: 0;
+			left: 3px;
+			background-color: #ebedf2;
+		}
+		.role-list-timeline-item {
+			position: relative;
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+			padding: 6px 0;
+			margin: 5px 0;
+			&:first-child {
+				padding-top: 0;
+				margin-top: 0;
+			}
+			.role-list-timeline-badge {
+				text-align: left;
+				vertical-align: middle;
+				display: table-cell;
+				position: relative;
+				width: 20px;
+				&:before {
+					position: absolute;
+					display: block;
+					content: "";
+					width: 7px;
+					height: 7px;
+					left: 0;
+					top: 50%;
+					margin-top: -3.5px;
+					border-radius: 100%;
+					background-color: #ebedf2;
+				}
+				&-success:before {
+					background-color: #34bfa3;
+				}
+				&-metal:before {
+					background-color: #c4c5d6;
+				}
+				&-danger:before {
+					background-color: #f4516c;
+				}
+			}
+			&:first-child:before {
+				display: block;
+				content: "";
+				width: 1px;
+				height: 50%;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 3px;
+				background-color: #fff !important;
+			}
+			&:last-child:before {
+				display: block;
+				content: "";
+				width: 1px;
+				height: 50%;
+				position: absolute;
+				top: 50%;
+				bottom: 0;
+				left: 3px;
+				background-color: #fff !important;
+			}
+			.role-list-timeline-text {
+				display: table-cell;
+				text-align: left;
+				vertical-align: middle;
+				width: 100%;
+				padding: 0 5px 0 0;
+				font-size: 1rem;
+				.badge {
+					font-size: 0.8rem;
+					line-height: 20px;
+					min-height: 20px;
+					min-width: 20px;
+					width: auto;
+					height: auto;
+					vertical-align: middle;
+					text-align: center;
+					display: inline-block;
+					padding: 0 7px;
+					border-radius: 0.75rem;
+				}
+			}
+		}
+	}
+	&-user-role {
+		.role-list-timeline-items {
+			&:before {
+				background-color: transparent;
+			}
+		}
+	}
+}
+
+
+
+
+// badge
+.role-badge {
+	background: #eaeaea;
+	color: #444;
+	font-size: 0.8rem;
+	line-height: 20px;
+	min-height: 20px;
+	min-width: 20px;
+	vertical-align: middle;
+	text-align: center;
+	display: inline-block;
+	padding: 0 3px;
+	border-radius: 0.75rem;
+	&-wide {
+		letter-spacing: 0.6px;
+		padding: 1px 10px;
+		border-radius: 0.75rem;
+	}
+	&-success {
+		background-color: #34bfa3;
+		color: #fff;
+	}
+	&-metal {
+		background-color: #c4c5d6;
+		color: #fff;
+	}
+	&-danger {
+		background-color: #f4516c;
+		color: #fff;
+	}
+}
+
+.role-list-timeline-badge-primary:before {
+	background-color: #5867dd !important;
+	color: #fff;
+}
+
+
+
+
+.form.form-group-seperator-dashed .form-group {
+	border-bottom: 1px dashed #ebedf2;
+}
+
+.role-timeline-3 .role-timeline-3-items .role-timeline-3-item {
+	display: table;
+	position: relative;
+	margin-bottom: 1.75rem;
+}
+
+
+
+// Role permissions
+.role-timeline-3 {
+	.role-timeline-3-items-rolePermissions {
+		.role-timeline-3-item {
+			display: block !important;
+			border-left: 0;
+			margin-bottom: 0 !important;
+			&-child {
+				border-left: 0;
+			}
+			.role-timeline-3-item-time {
+				position: static !important;
+			}
+		}
+	}
+}
+.role-bg-grey {
+	background-color: #f7f8fa;
+}
+.role-border-bottom-grey {
+	border-bottom: 1px solid #eceff5;
+}
+.role-py-15 {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}

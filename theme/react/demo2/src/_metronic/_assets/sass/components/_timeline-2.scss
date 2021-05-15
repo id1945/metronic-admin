@@ -1,0 +1,50 @@
+//
+// Timeline 2
+//
+
+.timeline.timeline-2 {
+    position: relative;
+    padding: 0;
+    margin: 0;
+
+    .timeline-bar {
+        background-color: $border-color;
+        position: absolute;
+        display: block;
+        content: '';
+        width: 1px;
+        top: 5px;
+        bottom: 5px;
+        left: 4px;
+        z-index: 0;
+        margin: 0.5rem 0;
+    }
+
+    .timeline-item {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0;
+
+        .timeline-badge {
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: 9px;
+            height: 9px;
+            border-radius: 100%;
+            background-color: $gray-300;
+            flex-shrink: 0;
+            margin-right: 1.5rem;
+
+            @each $name, $color in $theme-colors {
+                &.timeline-badge-#{$name} {
+                    background-color: $color;
+                }
+            }
+        }
+
+        .timeline-content {
+            flex-grow: 1;
+        }
+    }
+}

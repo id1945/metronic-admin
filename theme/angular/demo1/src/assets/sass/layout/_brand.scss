@@ -1,0 +1,78 @@
+//
+// Brand
+//
+
+.brand {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	padding: 0 get($page-padding, desktop);
+	height: get($header-config, desktop, default, height);
+
+	// Logo
+	.brand-logo {
+		display: flex;
+		justify-content: flex-begin;
+
+		// Minimized Aside Mode
+		.aside-minimize:not(.aside-minimize-hover) & {
+			img {
+				display: none;
+			}
+		}
+	}
+
+	// Toggle Icon
+	.brand-toggle {
+		.svg-icon {
+			svg {
+				transition: $transition;
+			}
+		}
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.brand {
+		// Fixed Header & Static Aside Mode
+		.header-fixed.aside-static & {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: get($aside-config, base, width);
+			z-index: get($header-config, desktop, fixed, zindex);
+		}
+
+		// Fixed Header & Aside Minimize Modes
+		.aside-minimize:not(.aside-minimize-hover) & {
+			justify-content: center;
+
+			// Toggle Icon
+			.brand-toggle {
+				.svg-icon {
+					svg {
+						transition: $transition;
+						transform: rotate(180deg);
+						/*rtl:begin:*/
+						//transform: rotate(-180deg);
+						/*rtl:end:*/
+					}
+				}
+			}
+		}
+
+		// Aside Minimize & Fixed Header & Static Aside Mode
+		.header-fixed.aside-static.aside-minimize:not(.aside-minimize-hover) & {
+			width: get($aside-config, base, width);
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.brand {
+		display: none;
+	}
+}

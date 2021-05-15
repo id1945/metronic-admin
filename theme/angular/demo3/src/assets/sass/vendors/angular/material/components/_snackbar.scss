@@ -1,0 +1,36 @@
+.mat-snackbar {
+	display: flex;
+    //flex-wrap: wrap;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+
+	.mat-snackbar-message {
+		display: flex;
+        align-items: center;
+	}
+
+	.mat-snackbar-btn {
+		padding: 0 0 0 15px;
+		display: flex;
+        align-items: center;
+	}
+
+	.mat-snackbar-close {
+		padding: 0 0 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .material-icons {
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            color: #fff;
+
+            &:hover {
+            	transition: all 0.3s ease;
+            	opacity: 1;
+            }
+        }
+	}
+}

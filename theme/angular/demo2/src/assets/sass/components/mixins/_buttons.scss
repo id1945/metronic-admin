@@ -1,0 +1,205 @@
+//
+// Custom button variation
+//
+
+
+@mixin button-custom-variant(
+    $background, $border, $color, $icon, $box-shadow,
+    $hover-background, $hover-border, $hover-color, $hover-icon, $hover-box-shadow,
+    $active-background, $active-border, $active-color, $active-icon, $active-box-shadow) {
+
+    // Initial state
+    @if ($color != null) {
+        color: $color;
+    }
+
+    @if ($icon != null) {
+        i {
+    		color: $icon;
+    	}
+
+    	.svg-icon {
+    		@include svg-icon-color($icon);
+    	}
+
+        &.dropdown-toggle:after {
+            color: $icon;
+        }
+    }
+
+    @if ($background != null) {
+        background-color: $background;
+    }
+
+    @if ($border != null) {
+        border-color: $border;
+    }
+
+    // Hover & focus state
+    @if ($hover-color != null or $hover-border != null or $hover-icon != null or $hover-background != null) {
+        &:hover:not(.btn-text):not(:disabled):not(.disabled),
+        &:focus:not(.btn-text),
+        &.focus:not(.btn-text) {
+            @if ($hover-color != null) {
+                color: $hover-color;
+            }
+
+            @if ($hover-icon != null) {
+                i {
+            		color: $hover-icon;
+            	}
+
+            	.svg-icon {
+            		@include svg-icon-color($hover-icon);
+            	}
+
+                &.dropdown-toggle:after {
+                    color: $hover-icon;
+                }
+            }
+
+            @if ($hover-background != null) {
+                background-color: $hover-background;
+            }
+
+            @if ($hover-border != null) {
+                border-color: $hover-border;
+            }
+        }
+    }
+
+    // Disabled state
+    @if ($color != null or $icon != null or $border != null or $background != null) {
+        // Disabled comes first so active can properly restyle
+        &.disabled,
+        &:disabled {
+            @if ($color != null) {
+                color: $color;
+            }
+
+            @if ($icon != null) {
+                i {
+            		color: $icon;
+            	}
+
+            	.svg-icon {
+            		@include svg-icon-color($icon);
+            	}
+
+                &.dropdown-toggle:after {
+                    color: $icon;
+                }
+            }
+
+            @if ($background != null) {
+                background-color: $background;
+            }
+
+            @if ($border != null) {
+                border-color: $border;
+            }
+        }
+    }
+
+    // Active state
+    @if ($active-color != null or $active-icon != null or $active-border != null or $active-background != null) {
+        &:not(:disabled):not(.disabled):active:not(.btn-text),
+        &:not(:disabled):not(.disabled).active,
+        .show > &.dropdown-toggle,
+        .show &.btn-dropdown {
+            @if ($active-color != null) {
+                color: $active-color;
+            }
+
+            @if ($active-icon != null) {
+                i {
+            		color: $active-icon;
+            	}
+
+            	.svg-icon {
+            		@include svg-icon-color($active-icon);
+            	}
+
+                &.dropdown-toggle:after {
+                    color: $active-icon;
+                }
+            }
+
+            @if ($active-background != null) {
+                background-color: $active-background;
+            }
+
+            @if ($active-border != null) {
+                border-color: $active-border;
+            }
+
+            // Focus state
+            &:focus {
+
+            }
+        }
+    }
+
+    // Box shadow
+    @if ($box-shadow != null) {
+        box-shadow: $box-shadow;
+    }
+
+    @if ($hover-box-shadow != null) {
+        &:hover:not(.btn-text):not(:disabled):not(.disabled),
+        &:focus:not(.btn-text),
+        &.focus:not(.btn-text) {
+            box-shadow: $hover-box-shadow;
+        }
+    }
+
+    @if ($active-box-shadow != null) {
+        &:not(:disabled):not(.disabled):active:not(.btn-text),
+        &:not(:disabled):not(.disabled).active,
+        .show > &.dropdown-toggle {
+            box-shadow: $active-box-shadow;
+        }
+    }
+}
+
+
+@mixin button-custom-transition($transition) {
+    // Initial state
+    transition: $transition;
+
+    i {
+        transition: $transition;
+    }
+
+    // Hover & focus state
+    &:hover:not(.btn-text),
+    &:focus:not(.btn-text),
+    &.focus {
+        transition: $transition;
+
+        i {
+            transition: $transition;
+        }
+    }
+
+    // Disabled state
+    &.disabled,
+    &:disabled {
+        transition: $transition;
+
+        i {
+            transition: $transition;
+        }
+    }
+
+    // Active state
+    &:not(:disabled):not(.disabled):active:not(.btn-text),
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+        transition: $transition;
+
+        i {
+            transition: $transition;
+        }
+    }
+}

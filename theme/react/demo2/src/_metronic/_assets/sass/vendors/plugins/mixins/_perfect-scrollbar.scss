@@ -1,0 +1,114 @@
+//
+// Scroll Mixins
+//
+
+// Theme
+@mixin perfect-scrollbar-theme($color) {
+    &.ps {
+        > .ps__rail-x {
+            background-color: transparent;
+
+            &:hover,
+            &:focus {
+                opacity: 1;
+                background-color: transparent;
+
+                > .ps__thumb-x {
+                    opacity: 1;
+                }
+            }
+
+            > .ps__thumb-x {
+                background-color: $color;
+                opacity: 1;
+
+                &:hover,
+                &:focus {
+                    opacity: 1;
+                    background-color: $color;
+                }
+            }
+        }
+
+        > .ps__rail-y {
+            background-color: transparent;
+
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                opacity: 1;
+
+                > .ps__thumb-y {
+                    opacity: 1;
+                }
+            }
+
+            > .ps__thumb-y {
+                background: $color;
+                opacity: 1;
+
+                &:hover,
+                &:focus {
+                    opacity: 1;
+                    background: $color;
+                }
+            }
+        }
+    }
+}
+
+@mixin perfect-scrollbar-ver-size($size) {
+    &.ps {
+        > .ps__rail-y {
+            width: $size;
+
+            &:hover,
+            &:focus {
+                width: $size;
+            }
+
+            > .ps__thumb-y {
+                width: $size;
+                @include border-radius($border-radius !important);
+
+                &:hover,
+                &:focus {
+                    width: $size;
+                }
+            }
+        }
+    }
+}
+
+@mixin perfect-scrollbar-hor-size($size) {
+    &.ps {
+        > .ps__rail-x {
+            height: $size;
+
+            &:hover,
+            &:focus {
+                height: $size;
+            }
+
+            > .ps__thumb-x {
+                top: 0;
+                height: $size;
+                @include border-radius($border-radius !important);
+
+                &:hover,
+                &:focus {
+                    top: 0;
+                    height: $size;
+                }
+            }
+        }
+    }
+}
+
+@mixin perfect-scrollbar-ver-offset($offset) {
+    &.ps {
+        > .ps__rail-y {
+            right: $offset;
+        }
+    }
+}

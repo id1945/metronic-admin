@@ -1,0 +1,66 @@
+//
+// Base
+//
+
+// Body
+body {
+	background: $page-bg;
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Wrapper
+	.wrapper {
+		transition: get($aside-config, base, transition);
+
+		// Secondary Aside Enabled Mode
+		.aside-secondary-enabled.aside-fixed & {
+			padding-left: get($aside-config, base, primary-width) + get($aside-config, base, secondary-width);
+		}
+
+		// Secondary Aside Disabled Mode
+		.aside-secondary-disabled.aside-fixed & {
+			padding-left: get($aside-config, base, primary-width);
+		}
+
+		// Fixed Aside & Minimized Modes
+		.aside-fixed.aside-minimize & {
+			padding-left: get($aside-config, base, primary-width);
+			transition: get($aside-config, base, transition);
+		}
+
+		// Fixed Subheader Mode
+		.subheader-fixed.subheader-enabled & {
+			padding-top: get($subheader-config, fixed, height);
+		}
+
+		// Footer Fixed Mode
+		.footer-fixed & {
+			padding-bottom: get($footer-config, fixed, height);
+		}
+	}
+
+	// Containers
+	.container,
+	.container-fluid {
+		padding: 0 get($page-padding, desktop);
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Wrapper
+	.wrapper {
+		// Fixed Header
+		.header-mobile-fixed & {
+			padding-top: get($header-config, tablet-and-mobile, fixed, height);
+		}
+	}
+
+	// Containers
+	.container,
+	.container-fluid {
+		max-width: none;
+		padding: 0 get($page-padding, tablet-and-mobile);
+	}
+}

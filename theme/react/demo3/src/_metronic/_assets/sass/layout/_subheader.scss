@@ -1,0 +1,96 @@
+//
+// Subheader
+//
+
+.subheader {
+	display: flex;
+	align-items: center;
+
+	// Subheader Separaor
+	.subheader-separator {
+		display: block;
+	    width: 12px;
+	    height: 4px;
+	    border-radius: 2px;
+
+		// Subheader Separaor Vertical Mode
+		&.subheader-separator-ver {
+			width: 1px;
+    		height: 22px;
+		}
+	}
+
+	// Subheader Solid Background
+	&.subheader-solid {
+		background-color: get($subheader-config, default, bg-color);
+	}	
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.subheader {
+		// Fixed Subheader Mode
+		.subheader-fixed & {
+			position: fixed;
+			height: get($subheader-config, fixed, height);
+			top: 0;
+			left: 0;
+			right: 0;
+			transition: get($aside-config, base, transition);
+			z-index: get($subheader-config, fixed, zindex);
+			background-color: get($subheader-config, default,  bg-color);
+			box-shadow: get($subheader-config, fixed, shadow);
+			border-top: 1px solid get($subheader-config, default, border-color);
+			margin: 0;
+
+			// Subheader Title
+			.subheader-title {
+				font-size: 1.25rem;
+			}
+		}
+
+		// Fixed Aside & Fixed Subheader Modes
+		.aside-fixed.subheader-fixed & {
+			left: get($aside-config, base, primary-width);
+		}
+
+		// Fixed Aside, Aside Secondary Panel Enabled & Fixed Subheader Modes
+		.aside-fixed.aside-secondary-enabled.subheader-fixed & {
+			left: get($aside-config, base, primary-width) +  get($aside-config, base, secondary-width);
+		}
+
+		// Fixed Aside, Minimized Aside & Fixed Subheader Modes
+		.aside-minimize.aside-fixed.subheader-fixed & {
+			transition: get($aside-config, base, transition);
+			left: get($aside-config, base, primary-width);
+		}
+	}
+
+    // Static Subheader Mode
+	.subheader-enabled:not(.subheader-fixed) {
+		.content {
+			padding-top: 0;
+		}
+
+		// Subheader Solid Background Mode
+		.subheader.subheader-solid {
+			margin-bottom: get($page-padding, desktop);
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+    // Subheader Enabled Mode
+	.subheader-enabled {
+		// Content
+		.content {
+			padding-top: 0;
+		}
+
+		// Subheader Solid Background Mode
+		.subheader.subheader-solid {
+			margin-bottom: get($page-padding, tablet-and-mobile);
+		}
+	}
+}

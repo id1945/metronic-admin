@@ -1,0 +1,61 @@
+//
+// Page loader
+//
+
+// CSS3 Transitions only after page load(.kt-page-loading class added to body tag and remove with JS on page load)
+.page-loading * {
+    transition: none !important;
+}
+
+// Base
+.page-loader {
+	background: #fff;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+   	display: none;
+
+   	.page-loading & {
+		display: flex;
+		justify-content: center;
+   		align-items: center;
+	}
+
+	&.page-loader-non-block {
+		background: transparent;
+		display: none;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		right: auto;
+		bottom: auto;
+		width: auto;
+
+		.page-loading-non-block & {
+			display: inline-block;
+		}
+	}
+
+	&.page-loader-logo {
+		flex-direction: column;
+		align-items: center;
+
+		img {
+			display: block;
+		}
+
+		.spinner {
+			margin-top: 3rem;
+
+			&:before {
+		    	width: 26px;
+		    	height: 26px;
+		    	margin-top: -13px;
+		    	margin-left: -13px;
+			}
+		}
+	}
+}

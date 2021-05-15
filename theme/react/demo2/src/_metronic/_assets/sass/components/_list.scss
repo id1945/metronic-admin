@@ -1,0 +1,71 @@
+//
+// List
+//
+
+.list {
+    // Item hover
+    .list-item {
+        .list-title {
+            transition: $transition;
+        }
+
+        .list-hidden {
+            opacity: 0;
+            transition: $transition;
+        }
+
+        &.active,
+        &:hover {
+            .list-title {
+                transition: $transition;
+                color: $primary !important;
+            }
+
+            .list-hidden {
+                opacity: 1;
+                transition: $transition;
+            }
+        }
+    }
+
+    // Border Style
+    &.list-border {
+        .list-item {
+            border-bottom: 1px solid $border-color;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    // Dashed Style
+    &.list-dashed {
+        .list-item {
+            border-bottom: 1px dashed $border-color;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    // Hover Style
+    &.list-hover {
+        .list-item {
+            cursor: pointer;
+            @include border-radius($border-radius);
+
+            &:hover {
+                transition: $transition;
+                background-color: $hover-bg;
+                cursor: pointer;
+            }
+
+            &.active {
+                transition: $transition;
+                background-color: $active-bg;
+            }
+        }
+    }
+}

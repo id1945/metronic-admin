@@ -1,0 +1,17 @@
+// Buttons
+.mat-fab,
+.mat-mini-fab,
+.mat-button,
+.mat-raised-button,
+.mat-stroked-button,
+.mat-icon-button {
+    outline: none !important;
+}
+
+mat-radio-button {
+	padding-right: 16px;
+}
+
+mat-radio-button {
+	.mat-radio-label { margin-bottom: 4px; }
+}

@@ -1,0 +1,27 @@
+//
+// Content
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.content {
+		padding: get($page-padding, desktop) 0;
+
+		// Fixed Footer Mode
+		.footer-fixed & {
+			padding-bottom: get($footer-config, fixed, height);
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.content {
+		padding: get($page-padding, tablet-and-mobile) 0;
+
+		// Subheader Enabled & Subheader Transparent Modes
+		.subheader-enabled.subheader-transparent & {
+			padding-top: 0;
+		}
+	}
+}

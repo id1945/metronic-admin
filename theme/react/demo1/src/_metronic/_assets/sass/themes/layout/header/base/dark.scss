@@ -1,0 +1,148 @@
+//
+// Header dark theme
+//
+
+// Initialization of global variables, mixins and functions
+@import "../../../../init";
+
+// Variables
+$header-bg: get($layout-themes, dark);
+$header-shadow: 0px 0px 40px 0px rgba(82,63,105, 0.1);
+
+$menu-link-bg-hover: #282f48;
+$menu-link-bg-active: $menu-link-bg-hover;
+$menu-link-color: #6e7899;
+$menu-link-color-hover: #ffffff;
+$menu-link-color-active: #ffffff;
+
+$topbar-icon-color: $menu-link-color;
+$topbar-icon-color-hover: #ffffff;
+$topbar-icon-bg-hover: $menu-link-bg-hover;
+
+$topbar-border-mobile: 1px solid #2e3448;
+$topbar-shadow-mobile: 0px 0px 40px 0px rgba(82,63,105, 0.1);
+
+// Topbar
+.topbar {
+	// Button
+	.btn.btn-icon {
+		i {
+			color: $topbar-icon-color;
+		}
+
+		.svg-icon {
+			@include svg-icon-color($topbar-icon-color);
+		}
+	}
+
+	// Button States
+	.btn.btn-icon:active,
+	.btn.btn-icon.active,
+	.btn.btn-icon:hover,
+	.btn.btn-icon:focus,
+	.show .btn.btn-icon.btn-dropdown {
+		background-color: $topbar-icon-bg-hover !important;
+
+		i {
+			color: $topbar-icon-color-hover !important;
+		}
+
+		.svg-icon {
+			@include svg-icon-color($topbar-icon-color-hover, true);
+		}
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.header {
+		background-color: $header-bg;
+
+		// Fixed header
+		.header-fixed & {
+			box-shadow: $header-shadow;
+		}
+
+		// Menu
+		.header-menu {
+			.menu-nav {
+				> .menu-item {
+					> .menu-link {
+						@include border-radius(4px);
+
+						.menu-text {
+							color: $menu-link-color;
+							font-weight: 500;
+						}
+
+						.menu-arrow {
+							color: $menu-link-color;
+						}
+
+						.menu-icon {
+							color: $menu-link-color;
+						}
+
+						@include svg-icon-color($menu-link-color);
+					}
+
+					&.menu-item-here,
+					&.menu-item-active {
+						> .menu-link {
+							background-color: $menu-link-bg-active;
+
+							.menu-text {
+								color: $menu-link-color-active;
+							}
+
+							.menu-arrow {
+								color: $menu-link-color-active;
+							}
+
+							.menu-icon {
+								color: $menu-link-color-active;
+							}
+
+							@include svg-icon-color($menu-link-color-active);
+						}
+					}
+
+					&:hover:not(.menu-item-here):not(.menu-item-active),
+					&.menu-item-hover:not(.menu-item-here):not(.menu-item-active) {
+						> .menu-link {
+							background-color: $menu-link-bg-hover;
+
+							.menu-text {
+								color: $menu-link-color-hover;
+							}
+
+							.menu-arrow {
+								color: $menu-link-color-hover;
+							}
+
+							.menu-icon {
+								color: $menu-link-color-hover;
+							}
+
+							@include svg-icon-color($menu-link-color-hover);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Topbar
+	.topbar {
+		background-color: $header-bg;
+		box-shadow: none;
+
+		.topbar-mobile-on & {
+			box-shadow: $topbar-shadow-mobile;
+			border-top: $topbar-border-mobile;
+		}
+	}
+}

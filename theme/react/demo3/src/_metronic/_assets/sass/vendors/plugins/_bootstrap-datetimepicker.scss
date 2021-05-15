@@ -1,0 +1,172 @@
+//
+// Bootstrap Datetimepicker
+//
+
+
+// Base
+.datetimepicker {
+    width: 265px;
+    padding: 10px;
+    left: auto;
+    @include border-radius($border-radius);
+
+    &.datetimepicker-orient-top {
+        margin-top: 8px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td,
+    th {
+        font-size: 1rem;
+        width: 33px;
+        height: 33px;
+        font-weight: regular;
+        @include border-radius($border-radius);
+    }
+
+    thead {
+        th {
+            i {
+                font-size: 1.2rem;
+            }
+
+            &.prev,
+            &.switch,
+            &.next {
+                color: $dark-75;
+                font-weight: 500;
+                display: table-cell;
+
+                .glyphicon {
+                    color: $dark-50;
+                }
+
+                &:hover {
+                    background: $gray-100 !important;
+                }
+            }
+
+            &.dow {
+                font-weight: 500;
+                color: $dark-75;
+            }
+
+            &.next {
+                > span {
+                    &:before {
+                        @include ki(get($ki-types, arrowNext));
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+
+            &.prev {
+                >span {
+                    &:before {
+                        @include ki(get($ki-types, arrowBack));
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr>td {
+            span {
+                color: $dark-50;
+                font-weight: 400;
+            }
+
+            &.day {
+                color: $dark-50;
+
+                &:hover {
+                    background: $gray-100;
+                }
+
+                &.old {
+                    color: $dark-50;
+                }
+
+                &.new {
+                    color: $dark-75;
+                }
+
+                &.selected,
+                &.active {
+                    background: $primary;
+                    color: $white;
+                }
+
+                &.today {
+                    position: relative;
+                    background: rgba($primary, 0.12) !important;
+                    color: $primary !important;
+
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        border: solid transparent;
+                        border-width: 0 0 7px 7px;
+                        border-bottom-color: #ffffff;
+                        border-top-color: $gray-200;
+                        position: absolute;
+                        bottom: 4px;
+                        right: 4px;
+                    }
+                }
+
+                &.range {
+                    background: $gray-100;
+                }
+            }
+
+            span.year,
+            span.hour,
+            span.minute,
+            span.month {
+                color: $dark-50;
+
+                &.focused,
+                &:hover {
+                    background: $gray-100;
+                }
+
+                &.active:hover,
+                &.active {
+                    background: $primary;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    tfoot {
+        tr>th {
+            &.today,
+            &.clear {
+                @include border-radius($border-radius);
+
+                font-weight: 500;
+
+                &:hover {
+                    background-color: $gray-100;
+                }
+            }
+        }
+    }
+
+    &.datetimepicker-inline {
+        border: 1px solid $gray-100;
+    }
+}
+
+.input-daterange {
+    .input-group-addon {
+        min-width: 44px;
+    }
+}

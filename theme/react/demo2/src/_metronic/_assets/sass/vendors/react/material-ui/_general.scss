@@ -1,0 +1,120 @@
+// React root container
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+// Global link cursor
+a {
+    cursor: pointer;
+}
+
+// Auth form
+.MuiInput-underline:focus:not(.Mui-focused):before,
+.MuiInput-underline:active:not(.Mui-focused):before,
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+  border-bottom: 1px solid #5867dd !important;
+}
+
+// builder
+.builder-tabs {
+  .MuiTabs-flexContainer {
+    button {
+      margin-right: 20px;
+      padding: 18px 0;
+      min-width: auto;
+      text-transform: none;
+      font-size: 1rem;
+    }
+  }
+
+  .PrivateTabIndicator-colorSecondary-64 {
+    background-color: #5867dd;
+  }
+}
+
+.MuiFormControl-marginNormal { width: 100%; }
+
+.MuiSwitch-colorSecondary.Mui-checked {
+  color: #5867dd !important;
+
+  &:hover {
+    background-color: rgba(88, 103, 221, 0.08) !important;
+  }
+
+  & + .MuiSwitch-track {
+    background-color: #5867dd !important;
+  }
+}
+
+// Partials
+// notice
+.notice__paragraph {
+    font-weight: 400;
+    font-size: 17px;
+}
+
+// animated-loading
+.header-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+// quick-actions-panel
+.MuiBackdrop-root {
+  background: rgba(0,0,0,.05) !important;
+}
+
+// Demos examples toolbar
+.kt-comming-soon {
+  .kt-demo-panel__item-preview-overlay {
+    opacity: 1 !important;
+  }
+}
+
+// user-notifications
+.tab-content {
+  background-color: #fff;
+}
+
+// Material UI
+// For Select component
+.react-select {
+  .MuiInputBase-input {
+    display: flex;
+
+    .css-1okebmr-indicatorSeparator {
+      margin: 0;
+    }
+
+    & > div:first-child {
+      flex: 1;
+      .MuiTypography-colorTextSecondary {
+        left: 2px;
+        bottom: 6px;
+        position: absolute;
+        font-size: 16px;
+      }
+      input {
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 400;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+    }
+  }
+  .MuiInputBase-root {
+    font-size: 1.4rem;
+  }
+}
+.select_input-h {
+  .MuiSelect-select { height: 41px; box-sizing: border-box;}
+}
+
+.MuiPaper-elevation1 {
+  box-shadow: 0 0 50px 0 rgba(82,63,105,.15) !important;
+}

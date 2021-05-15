@@ -1,0 +1,100 @@
+//
+// Material Angular Config
+//
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$mat-primary: (
+  100: lighten($primary, 8%),
+  500: $primary,
+  700: darken($primary, 8%),
+  contrast: (
+    100: $dark-primary-text,
+    500: $light-primary-text,
+    700: $light-primary-text
+  )
+);
+
+$mat-accent: (
+	100: lighten($success, 8%),
+	500: $success,
+	700: darken($success, 8%),
+	contrast: (
+		100: $dark-primary-text,
+		500: $light-primary-text,
+		700: $light-primary-text
+	)
+);
+
+$mat-warn: (
+	100: lighten($danger, 8%),
+	500: $danger,
+	700: darken($danger, 8%),
+	contrast: (
+		100: $dark-primary-text,
+		500: $light-primary-text,
+		700: $light-primary-text
+	)
+);
+
+
+//mat-palette($base-palette, $default: 500, $lighter: 100, $darker: 700)
+
+$angular-app-primary: mat-palette($mat-primary, 500, 100, 700);
+$angular-app-accent: mat-palette($mat-accent, 500, 100, 700);
+$angular-app-warn: mat-palette($mat-warn, 500, 100, 700); // The warn palette is optional (defaults to red).
+
+// Create the theme object (a Sass map containing all of the palettes).
+$angular-app-theme: (
+	primary: $angular-app-primary,
+	accent: $angular-app-accent,
+	warn: $angular-app-warn,
+	is-dark: false,
+	foreground: (
+		base: black,
+		divider: $gray-200,
+		dividers: $dark-dividers,
+		disabled: $dark-disabled-text,
+		disabled-button: rgba(black, 0.26),
+		disabled-text: $dark-disabled-text,
+		hint-text: $dark-disabled-text,
+		secondary-text: $dark-secondary-text,
+		icon: rgba(black, 0.54),
+		icons: rgba(black, 0.54),
+		text: rgba(black, 0.87),
+		slider-min: rgba(black, 0.87),
+		slider-off: rgba(black, 0.26),
+		slider-off-active: rgba(black, 0.38),
+	),
+	background: (
+		status-bar: map-get($mat-grey, 300),
+		app-bar: map-get($mat-grey, 100),
+		background: map-get($mat-grey, 50),
+		hover: rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+		card: white,
+		dialog: white,
+		disabled-button: rgba(black, 0.12),
+		raised-button: white,
+		focused-button: $dark-focused,
+		selected-button: map-get($mat-grey, 300),
+		selected-disabled-button: map-get($mat-grey, 400),
+		disabled-button-toggle: map-get($mat-grey, 200),
+		unselected-chip: map-get($mat-grey, 300),
+		disabled-list-option: map-get($mat-grey, 200),
+	)
+);
+
+//mat-light-theme($angular-app-primary, $angular-app-accent, $angular-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($angular-app-theme);

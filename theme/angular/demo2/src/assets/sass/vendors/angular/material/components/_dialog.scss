@@ -1,0 +1,61 @@
+// Dialog
+.mat-dialog-container-wrapper {
+	.mat-dialog-container {
+	   	padding: 0;
+	   	overflow-x: hidden;
+
+	   	.card {
+	       	margin-bottom: 0;
+	    	
+	       	.card-body {
+	       		overflow: auto;
+	       		max-height: 60vh;
+	       	}
+	   	}
+	}
+}
+
+.mat-dialog-container-wrapper .mat-dialog-container {
+	padding: 0;
+	overflow-x: hidden;
+
+	.portlet {
+		margin-bottom: 0;
+	}
+
+	.alert {
+		border-radius: 0 !important;
+		width: 1032px;
+	}
+}
+
+.mat-dialog-actions {
+	margin-bottom: 0 !important;
+}
+
+// @include tablet-and-mobile {
+// 	// Dialog
+// 	.mat-dialog-container-wrapper {
+// 		max-width: 90%;
+		
+// 		.mat-dialog-container {
+// 		   	.card {
+// 		       	.card-body {
+// 		       		overflow: auto;
+// 		       		max-height: 60vh; 
+// 		       	}
+// 		   	}
+// 		}
+// 	}
+// }
+
+
+.modal2-container {
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+
+.modal3-container {
+	padding-top: 24px;
+	padding-bottom: 24px;
+}

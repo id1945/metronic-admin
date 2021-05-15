@@ -1,0 +1,85 @@
+//
+// Header
+//
+
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Base
+	.header {
+		display: flex;
+		justify-content: space-between;
+		height: get($header-config, desktop, default, height);
+		background-color: get($header-config, desktop, default, bg-color);
+		box-shadow: get($header-config, desktop, default, shadow);
+		position: relative;
+		z-index: 2;
+		border-bottom: 1px solid rgba($white, 0.1);
+
+		// Header Logo
+		.header-logo {
+			padding: 0;
+			display: flex;
+			align-items: center;
+			margin-right: 25px;
+
+			// Logos
+			.logo-default {
+				display: inline-block;
+			}
+
+			.logo-sticky {
+				display: none;
+			}
+		}
+
+		// Fixed and Scroll Header Modes
+		.header-fixed[data-header-scroll="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, desktop, fixed, zindex);
+			background-color: get($header-config, desktop, fixed, bg-color);
+			box-shadow: get($header-config, desktop, fixed, shadow);
+			height: get($header-config, desktop, fixed, height);
+			animation: header-minimize-animation .5s ease 1;
+
+			// Logos
+			.logo-default {
+				display: none;
+			}
+
+			.logo-sticky {
+				display: inline-block;
+			}
+		}
+
+		// Fixed header & subheader
+		.header-fixed.subheader-fixed & {
+			box-shadow: none !important;
+		}
+	}
+}
+
+@keyframes header-minimize-animation {
+    from   { top: -(get($header-config, desktop, fixed, height)); }
+    to { top: 0; }
+}
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	// Base
+	.header {
+		// Container
+		.container,
+		.container-fluid {
+			padding: 0;
+		}
+
+		// Logo
+		.header-logo {
+			display: none;
+		}
+	}
+}

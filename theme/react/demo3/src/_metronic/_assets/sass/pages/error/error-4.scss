@@ -1,0 +1,26 @@
+//
+// Error 4
+//
+
+// Initialization of global variables, mixins and functions
+@import "../../init";
+
+.error.error-4 {
+	.error-title {
+		font-size: 8.7rem !important;
+	}
+	.error-subtitle {
+		font-size: 4.5rem !important;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.error.error-4 {
+		.error-title {
+			font-size: 15.7rem !important;
+		}
+		.error-subtitle {
+			font-size: 9.5rem !important;
+		}
+	}
+}

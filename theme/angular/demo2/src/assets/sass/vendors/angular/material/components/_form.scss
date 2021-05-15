@@ -1,0 +1,54 @@
+
+.ml-auto {
+	margin-left: auto;
+}
+
+.example-full-width {
+	width: 100%;
+}
+
+.form-group .timeline-3 {
+	&::before {
+		background-color: transparent;
+	}
+}
+
+
+// form
+.form {
+	.form-filtration,
+	.form-group-action {
+		margin: 0 0 30px;
+	}
+	.form-actions.form-actions-sm {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+	.form-actions {
+		padding: 30px;
+		&.form-actions-solid {
+			padding: 30px;
+			background-color: #f7f8fa;
+			border-color: #f7f8fa;
+		}
+	}
+}
+
+.margin {
+	&-top-20 {
+		margin-top: 20px;
+	}
+	&-bottom-20 {
+		margin-bottom: 20px;
+	}
+}
+
+.padding-0 {
+	padding: 0;
+}
+
+.form.form-group-seperator .form-group,
+.form.form-group-seperator-dashed .form-group {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}

@@ -1,0 +1,200 @@
+// Portlets
+.card {
+	// Angular source code previewer
+    &.card-ngviewer {
+        .card-body {
+            padding: 0;
+
+            .card-code {
+                display: none;
+
+                &.card-code-show {
+                    display: block;
+                }
+            }
+                
+            .card-preview {
+                padding: 10px;
+            }
+        }    
+
+        .card-code-copy {
+        	position: absolute;
+        	right: 0;
+        	top: 10px;
+        	
+        	i {
+        		font-size: 2rem;
+        	}
+
+        	&:hover {
+        		i {
+        			text-decoration: none;
+        		}
+        	}
+        }  
+    }  
+
+    // Portlet progress bar
+    .card-progress-bar-wrapper {
+        height: 5px;
+    }
+
+    .card-progress-bar {
+        height: 5px;
+    }
+
+    // Tools
+    .card-head-tools {
+        button {
+            margin-left: 5px;
+        }
+    }
+}
+
+.form-alert {
+	margin-top: 30px;
+}
+
+.card-mx-0 {
+	margin: -1.1rem -2.2rem 0;
+	overflow-x: hidden;
+}
+
+.card {
+	.card-body .card-body-progress {
+		display: none;
+	}
+
+	.form.form-fit > .card-body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	&.card-body-progress .card-body {
+		position: relative;
+		-webkit-animation: m-animate-fade-out 0.3s;
+		animation: m-animate-fade-out 0.3s;
+		.card-body-progress {
+			background-color: #fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 5;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			-webkit-box-flex: 1;
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+		}
+	}
+
+	// TODO
+	&-head-custom {
+		.cardhead-label {
+			display: flex;
+			align-items: center;
+		}
+		.card-head-title {
+			margin-bottom: 0;
+		}
+	}
+	// TODO
+}
+
+
+// remove ng-boostrap dropdown arrow
+[ngbdropdowntoggle]::after {
+	display: none !important;
+}
+
+.card-code-copy {
+    position: absolute;
+    right: 0;
+	top: 10px;
+	i {
+		font-size: 2rem;
+	}
+}
+
+.pl-13 {
+	padding-left: 13px !important;
+}
+
+.mat-table-bottom-padding {
+	padding-right: 8px;
+}
+
+.mat-table-empty {
+	position: relative;
+	.mat-table-message-loading {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		content: "";
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(255, 255, 255, 1);
+	}
+}
+
+.card {
+	.card-head {
+		.card-head-caption {
+			display: flex;
+			align-items: center;
+			align-content: flex-start;
+			.card-head-title {
+				display: flex;
+				align-items: center;
+				.card-head-text {
+					display: flex;
+					align-items: center;
+					font-size: 1.3rem;
+					font-weight: 500;
+					font-family: Roboto;
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+}
+
+.form .form-heading .form-heading-title {
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #575962;
+}
+
+.card .card-foot {
+	padding: 0!important;
+}
+
+.form .form-group {
+    margin-bottom: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+button.close { height: 100%; }
+
+.mat-button-mt-4 {
+	.mat-icon {margin-top: 4px;}
+}
+
+.display-none {
+	display: none !important;
+}

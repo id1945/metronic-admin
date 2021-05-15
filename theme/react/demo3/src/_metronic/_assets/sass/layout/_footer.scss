@@ -1,0 +1,31 @@
+//
+// Content
+//
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	.footer {
+		// Fixed Footer Mode
+		.footer-fixed & {
+			position: fixed;
+			transition: get($aside-config, base, transition);
+			box-shadow: get($footer-config, fixed, shadow);
+			height: get($footer-config, fixed, height);
+			z-index: get($footer-config, fixed, zindex);
+			bottom: 0;
+			right: 0;
+			left: get($aside-config, base, primary-width);
+		}
+
+		// Fixed Aside, Aside Secondary Enabled & Fixed Footer Modes
+		.aside-fixed.aside-secondary-enabled.footer-fixed & {
+			left: get($aside-config, base, primary-width) +  get($aside-config, base, secondary-width);
+		}
+
+		// Aside Minimized & Aside Fixed & Footer Fixed Modes
+		.aside-minimize.aside-fixed.footer-fixed & {
+			transition: get($aside-config, base, transition);
+			left: get($aside-config, base, primary-width);
+		}
+	}
+}

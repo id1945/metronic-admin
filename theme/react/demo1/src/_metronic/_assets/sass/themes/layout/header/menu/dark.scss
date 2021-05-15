@@ -1,0 +1,25 @@
+//
+// Header menu dark theme
+//
+
+// Initialization of global variables, mixins and functions
+@import "../../../../init";
+
+// Variables
+$menu-scroll-color: #637099;
+
+// Build Desktop Header Menu Theme
+@include menu-hor-build-theme(get($header-menu-config, desktop), dark);
+
+// Build Mobile Header Menu Theme
+@include menu-ver-build-theme(get($header-menu-config, tablet-and-mobile), dark);
+
+// Tablet & Mobile Modes
+@include media-breakpoint-down(md) {
+	.header-menu-wrapper {
+        background-color: get($layout-themes, dark);
+
+    	// Scrollbar
+    	@include perfect-scrollbar-theme($menu-scroll-color);
+	}
+}

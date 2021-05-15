@@ -1,0 +1,62 @@
+//
+// Checkbox
+//
+
+
+@mixin checkbox-solid-theme($bg-color, $checked-bg-color, $checked-tick-color) {
+	// Default state
+    > span {
+        background-color: $bg-color;
+        border: 1px solid transparent;
+    }
+
+	// Focus state
+    > input:focus ~ span {
+        border: 1px solid transparent;
+    }
+
+	// Checked state
+    > input:checked ~ span {
+        background-color: $checked-bg-color;
+
+		&:after {
+            border-color: $checked-tick-color;
+        }
+    }
+}
+
+@mixin checkbox-outline-theme($outline-color, $checked-outline-color, $checked-tick-color) {
+	// Default state
+	> span {
+		background-color: transparent;
+        border-color: $outline-color;
+    }
+
+	// Focus state
+	> input:focus ~ span {
+		background-color: transparent;
+        border-color: $outline-color;
+    }
+
+	// Checked state
+    > input:checked ~ span {
+		background-color: transparent;
+        border-color: $checked-outline-color;
+
+		&:after {
+            border-color: $checked-tick-color;
+        }
+    }
+}
+
+@mixin checkbox-size($base, $tick) {
+	> span {
+        height: $base;
+        width: $base;
+
+		&:after {
+            width: $tick / 2;
+            height: $tick;
+		}
+	}
+}

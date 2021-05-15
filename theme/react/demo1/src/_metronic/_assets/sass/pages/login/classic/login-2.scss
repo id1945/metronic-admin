@@ -1,0 +1,105 @@
+//
+// Login 2
+// Pages SASS files are compiled into separate css files
+//
+
+
+// Initialization of global variables, mixins and functions
+@import "../../../init";
+
+.login.login-2 {
+    // Form modes
+    .login-signin,
+    .login-signup,
+    .login-forgot {
+        display: none;
+    }
+
+    &.login-signin-on {
+        .login-signup {
+            display: none;
+        }
+
+        .login-signin {
+            display: block;
+        }
+
+        .login-forgot {
+            display: none;
+        }
+    }
+
+    &.login-signup-on {
+        .login-signup {
+            display: block;
+        }
+
+        .login-signin {
+            display: none;
+        }
+
+        .login-forgot {
+            display: none;
+        }
+    }
+
+    &.login-forgot-on {
+        .login-signup {
+            display: none;
+        }
+
+        .login-signin {
+            display: none;
+        }
+
+        .login-forgot {
+            display: block;
+        }
+    }
+}
+
+// Desktop view
+@include media-breakpoint-up(lg) {
+    .login.login-2 {
+        .login-aside {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .login-form {
+            width: 100%;
+            max-width: 450px;
+        }
+    }
+}
+
+// Tablet and Mobile mode
+@include media-breakpoint-between(lg, xl) {
+    .login.login-2 {
+        .login-aside {
+            width: 100%;
+            max-width: 450px;
+        }
+    }
+}
+
+// Tablet mode
+@include media-breakpoint-down(md) {
+    .login.login-2 {
+        .login-form {
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+}
+
+// Mobile mode
+@include media-breakpoint-down(xs) {
+    .login.login-2 {
+
+        .login-form {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}

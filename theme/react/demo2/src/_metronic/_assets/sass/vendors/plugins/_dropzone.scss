@@ -1,0 +1,157 @@
+//
+// Dropzone
+//
+
+
+// Base
+.dropzone {
+    min-height: auto;
+}
+
+.dropzone.dropzone-default {
+    padding: 20px;
+	text-align: center;
+	cursor: pointer;
+    border: 2px dashed $gray-200;
+    @include border-radius($border-radius);
+
+    .dropzone-msg-title {
+		color:  $dark-75;
+		margin: 0 0 5px 0;
+		padding: 0;
+		font-weight: 500;
+		font-size: 1.2rem;
+	}
+
+    .dropzone-msg-desc {
+        color:  $text-muted;
+        font-weight: 400;
+		font-size: 1rem;
+	}
+
+    .dz-preview {
+		.dz-image {
+			@include border-radius($border-radius);
+		}
+    }
+
+    .dz-error-message {
+        top: 145px;
+    }
+
+    .dz-remove {
+        color: $dark-50;
+        font-size: 0.9rem;
+        font-weight: 500;
+        font-weight: 500;
+        transition: $transition-link;
+
+        &:hover {
+            transition: $transition-link;
+            color: $primary;
+        }
+    }
+
+	// State colors
+	@each $name, $color in $theme-colors {
+		&.dropzone-#{$name} {
+			border-color: $color;
+		}
+	}
+}
+
+// Multipe upload
+.dropzone.dropzone-multi {
+    border: 0;
+    padding: 0;
+
+    .dz-message{
+        display: none;
+    }
+
+    .dropzone-panel {
+        .dropzone-upload,
+        .dropzone-remove-all{
+            display: none;
+        }
+    }
+
+    .dropzone-item {
+        display: flex;
+        align-items: center;
+        margin-top: 0.75rem;
+        @include border-radius($border-radius);
+        padding: 0.5rem 1rem;
+        background-color: $gray-100;
+
+        .dropzone-file {
+            flex-grow: 1;
+
+            .dropzone-filename {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: $gray-600;
+                text-overflow: ellipsis;
+                margin-right: 0.5rem;
+
+                b {
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    color: $text-muted;
+                }
+            }
+
+            .dropzone-error {
+                margin-top: 0.25rem;
+                font-size: 0.9rem;
+                font-weight: 400;
+                color: $danger;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .dropzone-progress {
+            width: 15%;
+
+            .progress {
+                height: 5px;
+                @include transition;
+            }
+        }
+
+        .dropzone-toolbar {
+            margin-left: 1rem;
+            display: flex;
+            flex-wrap: nowrap;
+
+            .dropzone-start,
+            .dropzone-cancel,
+            .dropzone-delete {
+                height: 25px;
+                width: 25px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: $transition-link;
+
+                i {
+                    transition: $transition-link;
+                    font-size: 0.8rem;
+                    color: $gray-600;
+                }
+
+                &:hover {
+                    transition: $transition-link;
+                    i {
+                        color: $primary;
+                    }
+                }
+            }
+
+            .dropzone-start{
+                transition: $transition-link;
+            }
+        }
+    }
+}

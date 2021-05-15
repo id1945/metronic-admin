@@ -1,0 +1,393 @@
+//
+// Uppy
+//
+
+
+
+
+// Base
+.uppy {
+	.uppy-Root {
+		font-family: $font-family-base;
+
+		&.uppy-DragDrop--is-dragdrop-supported {
+			border: 2px dashed $gray-200;
+		}
+	}
+
+	.uppy-Dashboard-inner {
+		background-color: $gray-100;
+		border: 1px solid $gray-200;
+
+		.uppy-DashboardContent-bar,
+		.uppy-Dashboard-AddFilesPanel,
+		.uppy-DashboardContent-panel,
+		.uppy-DashboardItem-progress,
+		.uppy-DashboardItem-action,
+		.uppy-DashboardItem-previewLink{
+			z-index: 1;
+		}
+
+		.uppy-DashboardContent-title {
+			color: $dark-75;
+			font-size: 1rem;
+			font-weight: 500;
+		}
+
+		.uppy-DashboardContent-addMoreCaption {
+			font-size: 0.9rem;
+		}
+
+		.uppy-DashboardTabs {
+			.uppy-Dashboard-dropFilesTitle {
+				color: $dark-75;
+				font-size: 1.3rem;
+				font-weight: 500;
+			}
+
+			.uppy-DashboardTab-name{
+				color: $dark-75;
+			}
+		}
+
+		.uppy-DashboardItem.is-complete .progress{
+			stroke: $success;
+			fill: $success;
+		}
+
+		.uppy-StatusBar-statusSecondary {
+			overflow: visible;
+		}
+	}
+
+	.uppy-DragDrop-container {
+		&:focus {
+			box-shadow: none !important;
+			border-color: $primary !important;
+		}
+	}
+
+	.uppy-DashboardAddFiles-info {
+		bottom: 20px !important;
+	}
+
+	.uppy-Dashboard-note {
+		color: $dark-75;
+		font-size: 0.9rem;
+		font-weight: 400;
+	}
+
+	.uppy-btn-primary {
+		font-size: 1rem;
+		font-weight: 400;
+		background: $primary;
+		color: $white;
+		outline: none !important;
+
+		&:focus,
+		&:hover {
+			background-color: darken($primary, 6%);
+		}
+	}
+
+	.uppy-DashboardContent-back {
+		font-size: 1rem;
+		font-weight: 500;
+		color: $primary;
+		outline: none !important;
+		&:focus,
+		&:hover {
+			color: darken($primary, 6%);
+		}
+	}
+
+	.uppy-Dashboard-browse {
+		color: $primary;
+
+		&:focus,
+		&:hover {
+			color: darken($primary, 6%);
+		}
+	}
+
+	.uppy-DashboardContent-addMore {
+		svg {
+			stroke: $primary;
+			fill: $primary;
+		}
+	}
+
+	.uppy-ProgressBar{
+		z-index: 1;
+		.uppy-ProgressBar-inner {
+			background-color: $primary;
+			box-shadow: none;
+		}
+
+		.uppy-ProgressBar-percentage {
+			color: $dark-75;
+			font-size: 0.9rem;
+			font-weight: 400;
+		}
+	}
+
+	.uppy-DragDrop-label {
+		font-size: 1rem;
+		font-weight: 500;
+		color: $dark-75;
+
+		.uppy-DragDrop-dragText {
+			color: $primary;
+			&:focus,
+			&:hover {
+				color: darken($primary, 6%);
+			}
+		}
+	}
+
+	.uppy-StatusBar{
+		z-index: 1;
+
+		.uppy-StatusBar-status{
+			overflow-x: visible;
+			display: none;
+		}
+
+		.uppy-StatusBar-progress{
+			background-color: $primary;
+		}
+
+		.uppy-StatusBar-content {
+			.uppy-StatusBar-statusPrimary {
+				font-size: 0.9rem;
+				font-weight: 400;
+				color: $dark-75;
+			}
+
+			.uppy-StatusBar-spinner {
+				svg {
+					fill: $primary;
+				}
+			}
+		}
+
+		.uppy-StatusBar-actions {
+			.uppy-StatusBar-actionCircleBtn {
+				.UppyIcon {
+					circle {
+						transition: all 0.3s ease;
+						fill: $gray-200;
+					}
+
+					path {
+						transition: all 0.3s ease;
+						fill: $dark-75;
+					}
+
+					&:hover {
+						circle {
+							transition: all 0.3s ease;
+							fill: $primary;
+						}
+
+						path {
+							transition: all 0.3s ease;
+							fill: $white;
+						}
+					}
+				}
+			}
+		}
+
+		&.is-complete{
+			.uppy-StatusBar-progress{
+				background-color: $success;
+			}
+		}
+
+		&.uppy-Root {
+			.uppy-StatusBar-content {
+				padding-left: 0 !important;
+			}
+
+			.uppy-StatusBar-actions {
+				right: 0 !important;
+			}
+		}
+	}
+
+	.uppy.uppy-Informer {
+		p {
+			background-color: rgba($danger, 0.1);
+			color: $danger;
+			@include border-radius($border-radius);
+		}
+	}
+
+	.uppy-progress{
+		position: relative;
+		display:flex;
+		align-items: center;
+	}
+
+	.uppy-status{
+		transition: $transition-link;
+
+		&.uppy-status-ongoing{
+			height: 40px;
+			opacity: 1;
+		}
+
+		&.uppy-status-hidden{
+			display: none;
+		}
+	}
+
+	.uppy-btn{
+		margin-top: 10px;
+	}
+
+	.uppy-thumbnails{
+		display: flex;
+		position: relative;
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		.uppy-thumbnail-container{
+			width: calc(50% - 5px);
+			margin: 10px 5px 0;
+			position: relative;
+			display: flex;
+			align-items: center;
+			height: 50px;
+			background-color: $gray-100;
+			@include border-radius($border-radius);
+			overflow: hidden;
+
+			.uppy-thumbnail{
+				width: 60px;
+				height: 50px;
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+
+				img{
+					height: 100%;
+					width: auto;
+				}
+			}
+
+			.uppy-thumbnail-label{
+				font-weight: 400;
+				color: $dark-75;
+				margin-left: 10px;
+				padding-right: 10px;
+			}
+
+			.uppy-remove-thumbnail{
+				margin: auto 10px auto auto;
+				cursor: pointer;
+
+				i {
+					font-size: 0.7rem;
+					color: $dark-50;
+					transition: $transition-link;
+				}
+
+				&:hover {
+					i {
+						color: $primary;
+						transition: $transition-link;
+					}
+				}
+			}
+
+			&:nth-child(odd){
+				margin-left: 0;
+			}
+
+			&:nth-child(even){
+				margin-right: 0;
+			}
+
+			@include media-breakpoint-down(lg) {
+				width: 100%;
+				margin: 10px 0 0;
+			}
+		}
+	}
+
+	.uppy-list{
+		.uppy-list-item{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0.5rem 1rem;
+			background-color: $gray-100;
+			margin-top: 0.75rem;
+			@include border-radius($border-radius);
+
+			&:last-child {
+				margin-bottom: 0.75rem;
+			}
+
+			.uppy-list-label{
+				font-weight: 500;
+				color: $dark-50;
+			}
+
+			.uppy-list-remove{
+				cursor: pointer;
+				margin-left: 1rem;
+
+				i {
+					transition: $transition-link;
+					font-size: 0.7rem;
+					color: $dark-50;
+				}
+
+				&:hover {
+					i {
+						transition: $transition-link;
+						color: $primary;
+					}
+				}
+			}
+		}
+	}
+
+	.uppy-wrapper {
+		.uppy-FileInput-container {
+			margin-bottom: 0rem;
+		}
+	}
+
+	.uppy-input-control {
+		position: relative;
+		z-index: 1;
+		height: 0;
+		width: 0;
+		opacity: 0;
+	}
+
+	.uppy-informer-min {
+		.uppy-Informer {
+			position: static !important;
+			top: auto;
+			bottom: auto;
+
+			&[aria-hidden="true"] {
+				display: none;
+			}
+
+			transform: none;
+			z-index: 0;
+
+			p {
+				display: block;
+				max-width: none;
+			}
+		}
+	}
+}

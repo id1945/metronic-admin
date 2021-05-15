@@ -1,0 +1,153 @@
+//
+// Summernote
+//
+
+
+.note-popover {
+    display: none;
+}
+
+.note-editor {
+    position: static;
+    @include border-radius($border-radius);
+
+    &.note-frame {
+        border: 1px solid $input-border-color;
+
+        .panel-heading.note-toolbar {
+            background: $gray-100;
+        }
+
+        .note-statusbar {
+            background: $gray-100;
+        }
+    }
+
+    .note-toolbar {
+        position: static;
+        padding: 0.5rem 0.5rem;
+        @include border-radius($border-radius);
+
+        .note-btn-group {
+            margin-top: 0;
+
+            .btn {
+                background: white;
+                border: 1px solid $gray-200;
+
+                i {
+                    font-size: 1rem;
+                    line-height: 0;
+                    padding-right: 0;
+                    color: $dark-50;
+                }
+
+                &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                    background: transparent;
+                    color: $primary;
+
+                    i {
+                        color: $primary;
+                    }
+                }
+            }
+
+            &.note-color {
+                .dropdown-toggle {
+                    &:after {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .modal {
+        .modal-header {
+            align-items: center;
+
+            .close {
+                position: absolute;
+                right: 25px;
+                top: 20px;
+                font-size: 0;
+            }
+        }
+
+        &.note-modal {
+            .modal-dialog {
+                box-shadow: $modal-content-box-shadow;
+            }
+        }
+    }
+
+    .panel-heading.note-toolbar {
+        padding: 0.5rem 0.74rem 0.74rem 0.74rem;
+        @include border-top-left-radius($border-radius);
+        @include border-top-right-radius($border-radius);
+
+        .btn {
+            outline: none !important;
+        }
+
+        .dropdown-menu {
+            min-width: 185px;
+        }
+
+        .note-color .dropdown-menu {
+            min-width: 350px;
+            padding: 10px;
+
+            > li {
+                display: table;
+                table-layout: fixed;
+
+                > .btn-group {
+                    display: table-cell !important;
+
+                    &:first-child {
+                        padding-right: 10px;
+                    }
+
+                    .note-color-reset {
+                        margin: 5px 0 10px 0;
+                    }
+
+                    .note-palette-title {
+                        margin: 5px 0;
+                        text-align: left;
+                        border: 0;
+                    }
+                }
+            }
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+    }
+
+    .note-editable {
+        .table.table-bordered {
+            th,td {
+                border: 1px solid $gray-200;
+            }
+        }
+    }
+
+    // Validation
+    .is-valid {
+        .note-editor {
+            border-color: $success;
+        }
+    }
+
+    .is-invalid {
+        .note-editor {
+            border-color: $danger;
+        }
+    }
+}
