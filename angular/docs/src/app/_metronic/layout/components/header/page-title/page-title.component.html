@@ -1,0 +1,42 @@
+<ng-container *ngIf="title$ | async as title">
+  <!-- begin::Title -->
+  <h1 class="d-flex align-items-center text-dark my-1 fs-4">
+    Documentation
+    <a
+      class="
+        badge badge-success
+        bg-hover-danger
+        text-hover-white
+        fw-bold
+        fs-9
+        px-2
+        ms-2
+      "
+      >{{ angularVersion }}
+    </a>
+  </h1>
+  <!-- end::Title -->
+
+  <ng-container *ngIf="bc$ | async as _bc">
+    <span
+      class="d-none d-lg-block bullet h-20px w-1px bg-secondary mx-4"
+    ></span>
+
+    <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-6 my-1">
+      <ng-container *ngIf="_bc.length > 0">
+        <li *ngFor="let bc of _bc" class="breadcrumb-item text-gray-60">
+          <ng-container *ngIf="!bc.isSeparator">
+            <a class="text-gray-600" [routerLink]="bc.path">
+              {{ bc.title }}
+            </a>
+          </ng-container>
+          <ng-container *ngIf="bc.isSeparator">
+            <span class="bullet bg-gray-200 w-5px h-2px"></span>
+          </ng-container>
+        </li>
+      </ng-container>
+
+      <li class="breadcrumb-item text-dark">{{ title }}</li>
+    </ul>
+  </ng-container>
+</ng-container>

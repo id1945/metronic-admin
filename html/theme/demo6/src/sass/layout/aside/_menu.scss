@@ -1,0 +1,55 @@
+//
+// Menu
+//
+
+// Aside menu
+.aside-menu {
+    .hover-scroll-overlay-y {
+        --scrollbar-space: 0.4rem;
+        @include scrollbar-color(#3b3b64, lighten(#3b3b64, 3%));
+    }
+
+    // Basic
+    .menu {
+        // Link padding x
+        @include menu-link-padding-x(get($aside-config, padding-x));
+
+        // Menu indention
+        @include menu-link-indention(get($aside-config, menu-indention), get($aside-config, padding-x));
+
+        .menu-section {
+            color: #4c4e6f !important;
+        }
+
+        > .menu-item {
+			> .menu-link {
+				width: 74px;
+                height: 74px;
+                margin: 0 auto; 
+                flex-direction: column;
+                display: flex;     
+                @include border-radius($border-radius);     
+
+				.menu-icon {					
+					justify-content: center;
+                    width: 0; 
+                    margin-bottom: 0.5rem;                  
+                    
+                    i {                        
+                        font-size: 22px !important;				
+                    }					
+				} 
+
+                .menu-title {					
+					flex-grow: 0;                 
+				}   
+			}             
+
+            //$title-color, $icon-color, $bullet-color, $arrow-color, $bg-color, $all-links
+            @include menu-link-default-state( #9899ac, #3A3A5D, #3A3A5D, #3A3A5D, null, false);
+            @include menu-link-hover-state( $white, $primary, $primary, $primary, null, false);
+            @include menu-link-show-state( $white, $primary, $primary, $primary, null, false);
+            @include menu-link-active-state( $white, $primary, $primary, $primary, #1b1b28 , false);
+		}
+    }     
+}

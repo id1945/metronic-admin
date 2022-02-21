@@ -1,0 +1,184 @@
+//
+// Quill
+//
+
+// Base
+.ql-toolbar {
+  font-family: $font-family-sans-serif;
+
+  &.ql-snow {
+    border: 1px solid $border-color;
+    @include border-top-radius($border-radius);
+
+    .ql-picker,
+    button {
+      .ql-fill,
+      .ql-stroke {
+        stroke: $gray-500;
+      }
+
+      .ql-fill {
+        fill: $gray-500;
+      }
+
+      &.ql-expanded,
+      &.ql-active,
+      &:focus,
+      &:hover {
+        .ql-fill,
+        .ql-stroke {
+          stroke: $primary;
+        }
+
+        .ql-fill {
+          fill: $primary;
+        }
+      }
+    }
+  }
+}
+
+.ql-editor {
+  color: $input-color;
+
+  &.ql-blank {
+    &:before {
+      left: auto !important;
+      right: auto !important;
+      color: $text-muted !important;
+      font-style: normal !important;
+    }
+  }
+}
+
+.ql-container {
+  &.ql-snow {
+    border: 1px solid $gray-200;
+    border-top: 0;
+    @include border-bottom-radius($border-radius);
+  }
+}
+
+.ql-snow {
+  .ql-picker {
+    .ql-picker-label {
+      color: $gray-500;
+
+      &.ql-active,
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    &.ql-expanded {
+      outline: none !important;
+      border-color: transparent !important;
+
+      .ql-picker-label {
+        border-color: transparent !important;
+        color: $primary;
+        outline: none !important;
+
+        &.ql-active,
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      .ql-picker-options {
+        border: 0;
+        padding: 0.5rem 1rem;
+        box-shadow: $dropdown-box-shadow;
+        background-color: $body-bg;
+        @include border-radius($border-radius);
+
+        .ql-picker-item {
+          color: $gray-600;
+          outline: none;
+
+          &.ql-selected,
+          &.ql-active,
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  .ql-tooltip {
+    border: 0;
+    padding: 0.5rem 1rem;
+    box-shadow: $dropdown-box-shadow;
+    @include border-radius($border-radius);
+
+    input[type='text'] {
+      @include input-reset();
+      border: 1px solid $border-color;
+      color: $input-plaintext-color;
+      outline: none !important;
+      @include border-radius($border-radius);
+
+      &:active,
+      &:focus {
+        border-color: $input-focus-border-color !important;
+      }
+    }
+
+    .ql-preview {
+      color: $gray-600;
+    }
+
+    .ql-action {
+      transition: color 0.3s ease;
+      color: $gray-600;
+
+      &:hover {
+        transition: color 0.3s ease;
+        color: $primary;
+      }
+    }
+
+    // Tooltip adjustment in modal
+    .modal & {
+      &.ql-editing {
+        left: 20px !important;
+      }
+    }
+  }
+
+  .ql-editor {
+    pre.ql-syntax {
+      background-color: $gray-900;
+      color: $text-muted;
+      overflow: visible;
+      @include border-radius($border-radius);
+    }
+  }
+}
+
+// Plain Style
+.ql-quil.ql-quil-plain {
+  .ql-toolbar {
+    padding: 0;
+    margin: 0;
+    border: 0;
+
+    &:after {
+      display: none;
+    }
+
+    .ql-picker-label {
+      padding-left: 0;
+    }
+  }
+
+  .ql-container {
+    border: 0;
+  }
+
+  .ql-editor {
+    border: 0;
+    padding: 0;
+  }
+}

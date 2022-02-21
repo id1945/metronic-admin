@@ -1,0 +1,14 @@
+//
+// Required Label
+//
+
+.required {
+  &:after {
+    content: '*';
+    position: relative;
+    font-size: inherit;
+    color: $danger;
+    padding-left: 0.25rem;
+    font-weight: bold;
+  }
+}

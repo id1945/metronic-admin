@@ -1,0 +1,34 @@
+//
+// Loading
+//
+
+.feedback {
+    display: none;
+}
+
+.feedback-popup {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: fixed;
+    z-index: get($feedback, popup, z-index);
+    box-shadow: get($feedback, popup, box-shadow);
+    background-color: get($feedback, popup, background-color);
+    border-radius: get($feedback, popup, border-radius);
+    padding: get($feedback, popup, padding);
+}
+
+// Placement
+.feedback-top-center {
+    display: flex;
+    transition: top get($feedback, popup, transition-speed) ease;
+    left: 50%;
+    transform: translateX(-50%);
+    @include border-top-start-radius(0);
+    @include border-top-end-radius(0);
+    
+    &.feedback-shown {
+        top: 0px;
+        transition: top get($feedback, popup, transition-speed) ease;
+    }
+}

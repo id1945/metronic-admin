@@ -1,0 +1,58 @@
+//
+// Slider
+//
+
+.tns {
+  position: relative;
+  overflow: hidden;
+
+  [data-tns='true'] {
+    display: none;
+  }
+
+  .tns-item {
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  &.tns-initiazlied {
+    [data-tns='true'] {
+      display: flex;
+    }
+
+    .tns-item {
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+  }
+
+  // Default
+  &.tns-default {
+    position: relative;
+
+    // Navs
+    [data-controls='prev'],
+    [data-controls='next'] {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    [data-controls='prev'] {
+      left: 0;
+    }
+
+    [data-controls='next'] {
+      right: 0;
+    }
+
+    .tns-outer {
+      margin: 0 4rem;
+
+      // Tablet mode
+      @include media-breakpoint-down(md) {
+        margin: 0 2rem;
+      }
+    }
+  }
+}

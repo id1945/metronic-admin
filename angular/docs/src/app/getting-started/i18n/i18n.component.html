@@ -1,0 +1,100 @@
+<div class="pb-10">
+  <h1 class="anchor fw-bolder mb-5" id="i18n">
+    <a href="#i18n"></a>Internationalization (i18n)
+  </h1>
+  <div class="py-5">
+    <h4>Overview</h4>
+    <p>
+      The internationalization (i18n) library for Angular by
+      <code>ngx-translate</code>. Check on the example;
+      <a href="http://www.ngx-translate.com" target="_blank"
+        >http://www.ngx-translate.com</a
+      >
+      and
+      <a href="https://github.com/ngx-translate/core" target="_blank"
+        >https://github.com/ngx-translate/core</a
+      >
+    </p>
+  </div>
+
+  <div class="py-5">
+    <h4>How to add a new language</h4>
+    <p>Check on these files to register a new language</p>
+    <ol>
+      <li>
+        <code
+          >/src/app/_metronic/partials/layout/extras/dropdown-inner/user-inner/user-inner.component.ts</code
+        >
+      </li>
+      <li><code>/src/app/modules/i18n/vocabs/*.ts</code></li>
+      <li><code>/src/app/app.component.ts</code></li>
+    </ol>
+    <p>
+      Add a new language here for the language selector to apppear;
+      <code>user-inner.component.ts</code>
+    </p>
+    <p>
+      Duplicate <code>en.ts</code> file and create a new language file in
+      <code>/src/app/modules/i18n/vocabs/*.ts</code>. The new file name and the
+      language code inside must be matched.
+    </p>
+    <p>
+      Register the language by importing the language file to
+      <code>/src/app/app.component.ts</code> and load all the language files to
+      <code>TranslationService</code>.
+    </p>
+    <app-code-block
+      language="typescript"
+      code="import { locale as enLang } from './modules/i18n/vocabs/en';"
+    ></app-code-block>
+    <app-code-block
+      language="typescript"
+      code="this.translationService.loadTranslations(enLang, chLang, esLang, jpLang, deLang, frLang);"
+    ></app-code-block>
+  </div>
+
+  <div class="py-5">
+    <h4>How to use</h4>
+    <p>
+      In the sample Angular application demo, the core parts like
+      <code>left side menu</code>, <code>topbar horizontal menu</code>, etc. are
+      already implemented with the translation.
+    </p>
+    <p>
+      The translator understands nested JSON objects as defined in
+      <code>/src/app/app.component.ts</code>.
+    </p>
+    <p>
+      <b>Examples of usage:</b>
+    </p>
+    <ol>
+      <li>
+        Vocabulary example:
+        <app-code-block language="typescript" [code]="code1"></app-code-block>
+      </li>
+      <li>
+        View example <code>*.html</code> (you can then access the value by using
+        the dot notation, in this case <code>HOME.HELLO</code>):
+        <app-code-block language="html" [code]="code2"></app-code-block>
+      </li>
+      <li>
+        Code behind example <code>*.ts</code>:
+        <app-code-block language="typescript" [code]="code3"></app-code-block>
+      </li>
+    </ol>
+  </div>
+
+  <div class="d-flex align-items-center rounded py-5 px-5 bg-light-danger">
+    <span
+      class="svg-icon svg-icon-3x svg-icon-danger me-5"
+      [inlineSVG]="'./assets/media/icons/duotune/general/gen044.svg'"
+    ></span>
+    <div class="text-gray-700 fw-bold fs-6">
+      For more detailed information, visit
+      <a href="https://github.com/ngx-translate/core" target="_blank"
+        >the official NGX Translate</a
+      >
+      documentation website.
+    </div>
+  </div>
+</div>

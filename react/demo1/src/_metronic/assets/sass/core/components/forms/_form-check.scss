@@ -1,0 +1,134 @@
+//
+// Form Check
+//
+
+.form-check {
+  // Label
+  .form-check-label {
+    cursor: pointer;
+  }
+
+  // Input
+  .form-check-input {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  // Custom
+  &.form-check-custom {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    margin: 0;
+
+    .form-check-input {
+      margin: 0;
+      float: none;
+      flex-shrink: 0;
+    }
+
+    .form-check-label {
+      margin-left: 0.55rem;
+    }
+  }
+
+  &:not(.form-switch) {
+    .form-check-input {
+      &[type='checkbox'] {
+        background-size: $form-check-input-bg-size;
+      }
+    }
+  }
+
+  // Solid
+  &.form-check-solid {
+    .form-check-input {
+      border: 0;
+      background-color: $form-check-input-bg-solid;
+
+      &:active,
+      &:focus {
+        filter: none;
+        background-color: $form-check-input-bg-solid;
+      }
+
+      &:checked {
+        background-color: $form-check-input-checked-bg-color;
+      }
+    }
+  }
+
+  // Success state
+  &.form-check-success {
+    .form-check-input {
+      &:checked {
+        background-color: $success;
+      }
+    }
+  }
+
+  // Danger state
+  &.form-check-danger {
+    .form-check-input {
+      &:checked {
+        background-color: $danger;
+      }
+    }
+  }
+
+  // Warning state
+  &.form-check-warning {
+    .form-check-input {
+      &:checked {
+        background-color: $warning;
+      }
+    }
+  }
+}
+
+// Sizing
+.form-check.form-check-custom {
+  &.form-check-sm {
+    .form-check-input {
+      height: $form-check-input-width-sm;
+      width: $form-check-input-width-sm;
+    }
+  }
+
+  &.form-check-lg {
+    .form-check-input {
+      height: $form-check-input-width-lg;
+      width: $form-check-input-width-lg;
+    }
+  }
+}
+
+// Form switch
+.form-switch.form-check-solid {
+  .form-check-input {
+    height: $form-switch-height;
+    background-image: escape-svg($form-switch-bg-image-solid);
+    border-radius: $form-switch-border-radius;
+
+    &:checked {
+      filter: none;
+      background-image: escape-svg($form-switch-checked-bg-image);
+    }
+  }
+
+  &.form-switch-sm {
+    .form-check-input {
+      height: $form-switch-height-sm;
+      width: $form-switch-width-sm;
+    }
+  }
+
+  &.form-switch-lg {
+    .form-check-input {
+      height: $form-switch-height-lg;
+      width: $form-switch-width-lg;
+    }
+  }
+}

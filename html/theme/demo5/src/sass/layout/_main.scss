@@ -1,0 +1,41 @@
+//
+// Main
+//
+
+
+// Body
+body {
+	background-color: $page-bg;
+}
+
+// Font color from Content background color
+.text-page-bg {
+	color: $page-bg;
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Fixed header mode
+	body.header-fixed  {
+		padding-top: get($header-config, height, desktop);
+	}
+
+	// Wrapper
+	.wrapper {
+		transition: padding-left get($aside-config, transition-speed) ease,  margin-right get($aside-config, transition-speed) ease;
+
+		// Aside default enabled and aside fixed modes
+		.aside-enabled[data-kt-sticky-aside-sticky="on"] & {
+			transition: padding-left get($aside-config, transition-speed) ease;
+			padding-left: get($aside-config, width);
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {	
+	// Fixed header mode
+	body.header-tablet-and-mobile-fixed {
+		padding-top: get($header-config, height, tablet-and-mobile);
+	}
+}

@@ -1,0 +1,54 @@
+//
+// Main
+//
+
+
+// Body
+body {
+	background-color: $page-bg;
+}
+
+// Font color from Content background color
+.text-page-bg {
+	color: $page-bg;
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Containers
+	.container,
+	.container-fluid {
+		padding: 0 get($content-spacing, desktop);
+	}
+
+	// Wrapper
+	.wrapper {
+		transition: padding-left get($aside-config, transition-speed) ease;
+		padding-top: get($header-config, height, desktop);
+		padding-left: get($aside-config, width);
+
+		// Aside default enabled, aside fixed and aside minimize modes
+		[data-kt-aside-minimize="on"] & {
+			transition: padding-left get($aside-config, transition-speed) ease;
+			padding-left: 0;
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	// Containers
+	.container,
+	.container-fluid {
+		max-width: none;
+		padding: 0 get($content-spacing, tablet-and-mobile);
+	}
+
+	// Wrapper
+	.wrapper {
+		// Fixed header mode
+		.header-tablet-and-mobile-fixed & {
+			padding-top: get($header-config, height, tablet-and-mobile);
+		}
+	}
+}

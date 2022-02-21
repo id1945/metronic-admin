@@ -1,0 +1,90 @@
+//
+// Header
+//
+
+// General
+.header {
+	.header-brand {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: get($aside-config, bg-color);
+	}
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		align-items: center;
+		position: fixed;
+		height: get($header-config, height, desktop);
+		transition: left get($aside-config, transition-speed) ease;
+		z-index: get($header-config, z-index);
+		box-shadow: get($header-config, box-shadow);
+		background-color: get($header-config, bg-color);
+		border-bottom: get($header-config, border-bottom);
+		top: 0;
+		right: 0;
+		left: 0;
+
+		// Brand
+		.header-brand {			
+			height: get($header-config, height, desktop);
+			padding: 0 get($aside-config, padding-x);
+			width: get($aside-config, width);
+			border-bottom: get($header-config, border-bottom);
+			flex-shrink: 0;
+		}
+
+		// Aside toggle
+		.aside-minimize {
+			.minimize-active {
+				display: none;
+			}
+
+			&.active {
+				.minimize-default {
+					display: none;
+				}
+
+				.minimize-active {
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.header {
+		flex-direction: column;
+	}
+
+	.header-brand {				
+		padding: 0 get($content-spacing, tablet-and-mobile);
+		background-color: get($aside-config, bg-color);
+		display: flex;
+		align-items: center;
+		height: get($header-config, height, tablet-and-mobile);
+		position: relative;
+		z-index: 3;
+		width: 100%;
+
+		// Aside toggle
+		.aside-minimize {
+			display: none;
+		}
+
+		// Fixed header and header sticky modes
+		.header-tablet-and-mobile-fixed & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, z-index);
+			height: get($header-config, height, tablet-and-mobile);
+		}		
+	}	
+}

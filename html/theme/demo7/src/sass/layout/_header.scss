@@ -1,0 +1,77 @@
+//
+// Header
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+		position: relative;
+		z-index: 2;
+		height: get($header-config, desktop, default, height);
+		transition: left get($aside-config, transition-speed) ease;
+
+		// Fixed header & sticky header modes
+		.header-fixed[data-kt-sticky-header="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, desktop, fixed, z-index);
+			background-color: get($header-config, desktop, fixed, bg-color);
+			box-shadow: get($header-config, desktop, fixed, box-shadow);
+			height: get($header-config, desktop, fixed, height);
+			padding: 0;
+		}
+
+		// Aside fixed, aside secondary enabled and header sticky modes
+		.aside-fixed.aside-secondary-enabled[data-kt-sticky-header="on"] & {
+			left: get($aside-config, width, desktop);
+			transition: left get($aside-config, transition-speed) ease;
+		}
+
+		// Aside fixed, aside secondary enabled and header sticky modes
+		.aside-fixed.aside-secondary-disabled[data-kt-sticky-header="on"] & {
+			left: get($aside-config, primary-width, desktop);
+			transition: left get($aside-config, transition-speed) ease;
+		}
+
+		// Aside fixed, aside secondary enabled,header sticky & aside minimize modes
+		.aside-fixed.aside-secondary-enabled[data-kt-sticky-header="on"][data-kt-aside-minimize="on"] & {
+			left: get($aside-config, primary-width, desktop);
+			transition: left get($aside-config, transition-speed) ease;
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+		height: get($header-config, tablet-and-mobile, default, height);
+		position: relative;
+		z-index: 3;
+
+		// Fixed header and header sticky modes
+		.header-tablet-and-mobile-fixed[data-kt-sticky-header="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, tablet-and-mobile, fixed, z-index);
+			height: get($header-config, tablet-and-mobile, fixed, height);
+			min-height: get($header-config, tablet-and-mobile, fixed, height);
+			background-color: get($header-config, tablet-and-mobile, fixed, bg-color);
+			box-shadow: get($header-config, tablet-and-mobile, fixed, box-shadow);
+		}
+
+		// Page title
+		.page-title {
+			display: none !important;
+		}
+	}
+}

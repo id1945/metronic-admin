@@ -1,0 +1,24 @@
+<div class="card-body my-3">
+  <a
+    href="#"
+    class="card-title fw-bolder fs-5 mb-3 d-block"
+    [ngClass]="'text-' + color"
+  >
+    {{ description }}
+  </a>
+
+  <div class="py-1">
+    <span class="text-dark fs-1 fw-bolder me-2">{{ progress }}</span>
+
+    <span class="fw-bold text-muted fs-7">{{ title }}</span>
+  </div>
+
+  <div class="`progress h-7px bg-opacity-50 mt-7" [ngClass]="'bg-' + color">
+    <div
+      class="progress-bar"
+      [ngClass]="' bg-' + color"
+      [style.width]="progress"
+      role="progressbar"
+    ></div>
+  </div>
+</div>

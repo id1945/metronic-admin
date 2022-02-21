@@ -1,0 +1,40 @@
+<div class="pb-10">
+  <h1 class="anchor fw-bolder mb-5" id="page">
+    <a href="#page"></a>How to create a custom page
+  </h1>
+  <div class="py-5">
+    <p>
+      Here is the example on how to create your own page and add it to the left
+      side menu and breadcrumbs.
+    </p>
+  </div>
+  <div class="py-5">
+    <h4>1. Create a custom Page</h4>
+    <p>Run this Angular CLI command for generate new component:</p>
+    <app-code-block language="bash" code="cd .\src\app\pages\"></app-code-block>
+    <app-code-block
+      language="bash"
+      code="ng g c my-page
+"
+    ></app-code-block>
+  </div>
+  <div class="py-5">
+    <h4>2. Register new component in the theme routing</h4>
+    <p>
+      Register new component in the
+      <code>/src/app/pages/routing.ts</code> file:
+    </p>
+    <app-code-block language="typescript" [code]="code1"></app-code-block>
+  </div>
+  <div class="py-5">
+    <h4>3. Add page to the left static menu</h4>
+    <p>
+      Add page to the left menu in
+      <code
+        >/src/app/_metronic/layout/components/aside/aside-menu/aside-menu.component.html</code
+      >
+      file:
+    </p>
+    <app-code-block language="html" [code]="code2"></app-code-block>
+  </div>
+</div>

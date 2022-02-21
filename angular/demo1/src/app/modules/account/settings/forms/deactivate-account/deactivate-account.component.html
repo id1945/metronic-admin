@@ -1,0 +1,72 @@
+<div class="card">
+  <div
+    class="card-header border-0 cursor-pointer"
+    role="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#kt_account_deactivate"
+    aria-expanded="true"
+    aria-controls="kt_account_deactivate"
+  >
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0">Deactivate Account</h3>
+    </div>
+  </div>
+  <div id="kt_account_deactivate" class="collapse show">
+    <form id="kt_account_deactivate_form" class="form">
+      <div class="card-body border-top p-9">
+        <div
+          class="
+            notice
+            d-flex
+            bg-light-warning
+            rounded
+            border-warning border border-dashed
+            mb-9
+            p-6
+          "
+        >
+          <div class="d-flex flex-stack flex-grow-1">
+            <div class="fw-bold">
+              <h4 class="text-gray-800 fw-bolder">
+                You Are Deactivating Your Account
+              </h4>
+              <div class="fs-6 text-gray-600">
+                For extra security, this requires you to confirm your email or
+                phone number when you reset yousignr password.<br /><a
+                  class="fw-bolder"
+                  href="#"
+                  >Learn more</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-check form-check-solid fv-row">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="confirm"
+            value="false"
+          /><label class="form-check-label fw-bold ps-2 fs-6" for="deactivate"
+            >I confirm my account deactivation</label
+          >
+        </div>
+        <div class="fv-plugins-message-container">
+          <div class="fv-help-block">
+            Please check the box to deactivate your account
+          </div>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button
+          id="kt_account_deactivate_account_submit"
+          type="button"
+          class="btn btn-danger fw-bold"
+          (click)="saveSettings()"
+        >
+          Deactivate Account
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

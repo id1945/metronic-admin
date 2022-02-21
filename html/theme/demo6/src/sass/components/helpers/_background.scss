@@ -1,0 +1,215 @@
+//
+// Custom background helpers
+//
+
+// Background theme light colors
+@each $color, $value in $theme-colors {
+	@if (theme-light-color($color)) {
+		.bg-light-#{$color} {
+			background-color: theme-light-color($color) !important;
+
+			&.hoverable:hover {
+				background-color: darken(theme-light-color($color), 6%) !important;
+			}
+		}
+	}
+
+    .bg-#{$color} {
+		--bg-color: #{red($value)}, #{green($value)}, #{blue($value)};
+
+        &.hoverable:hover {
+		   background-color: theme-active-color($color) !important;
+       }
+	}
+
+	@if (theme-light-color($color)) {
+		.bg-hover-light-#{$color} {
+			cursor: pointer;
+
+			&:hover {
+				background-color: theme-light-color($color) !important;
+			}
+		}
+
+		.bg-state-light-#{$color} {
+			cursor: pointer;
+
+			&.active,
+			&:hover {				
+				background-color: theme-light-color($color) !important;
+			}
+		}
+	}
+
+	.bg-hover-#{$color} {
+		cursor: pointer;
+
+		&:hover {
+			--bg-color: #{red($value)}, #{green($value)}, #{blue($value)};
+			background-color: $value !important;
+		}
+	}
+
+	.bg-active-#{$color} {
+		&.active {
+			--bg-color: #{red($value)}, #{green($value)}, #{blue($value)};
+			background-color: $value !important;
+		}
+	}
+
+	.bg-state-#{$color} {
+		cursor: pointer;
+
+		&.active,
+		&:hover {				
+			--bg-color: #{red($value)}, #{green($value)}, #{blue($value)};
+			background-color: $value !important;
+		}
+	}
+}
+
+// Opacity
+@each $name, $value in $opacity-values {
+	.bg-opacity-#{$name} {
+		background-color: rgba(var(--bg-color), #{$value}) !important;
+	}
+
+	.bg-hover-opacity-#{$name}:hover {
+		background-color: rgba(var(--bg-color), #{$value}) !important;
+	}
+
+	.bg-active-opacity-#{$name}.active {
+		background-color: rgba(var(--bg-color), #{$value}) !important;
+	}
+
+	.bg-state-opacity-#{$name} {
+		.active,
+		&:hover {
+			background-color: rgba(var(--bg-color), #{$value}) !important;
+		}		
+	}
+}
+
+// Background black color
+.bg-black {
+	background-color: $black !important;
+}
+
+// Background body color
+.bg-body {
+	--bg-color: #{red($body-bg)}, #{green($body-bg)}, #{blue($body-bg)};
+	background-color: $body-bg !important;
+}
+
+// Lighten bg states
+.bg-lighten {
+	background-color: $lighten !important;
+}
+
+.bg-hover-lighten {
+	cursor: pointer;
+
+	&:hover {
+		background-color: $lighten !important;
+	}
+}
+
+.bg-active-lighten {
+	&.active {
+		background-color: $lighten !important;
+	}
+}
+
+.bg-state-lighten {
+	cursor: pointer;
+
+	&.active,
+	&:hover {				
+		background-color: $lighten !important;
+	}
+}
+
+// Hoverable
+.hoverable {
+	cursor: pointer;
+    transition: $transition-base;
+
+    &:hover {
+        transition: $transition-base;
+    }
+}
+
+// Background image helpers
+// Background repeat
+.bgi-no-repeat {
+	background-repeat: no-repeat;
+}
+
+// Background positions
+.bgi-position-y-top {
+	background-position-y: top;
+}
+
+.bgi-position-y-bottom {
+	background-position-y: bottom;
+}
+
+.bgi-position-y-center {
+	background-position-y: center;
+}
+
+.bgi-position-x-start {
+	background-position-x: left;
+}
+
+.bgi-position-x-end {
+	background-position-x: right;
+}
+
+.bgi-position-x-center {
+	background-position-x: center;
+}
+
+.bgi-position-top {
+	background-position: 0 top;
+}
+
+.bgi-position-bottom {
+	background-position: 0 bottom;
+}
+
+.bgi-position-center {
+	background-position: center;
+}
+
+// Responsive helpers
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+		
+		// Background sizes
+		.bgi-size#{$infix}-auto {
+			background-size: auto;
+		}
+
+		.bgi-size#{$infix}-cover {
+			background-size: cover;
+		}
+
+		.bgi-size#{$infix}-contain {
+			background-size: contain;
+		}	
+
+		// Background attachment
+		.bgi-attachment#{$infix}-fixed {
+			background-attachment: fixed;
+		}
+
+		.bgi-attachment#{$infix}-auto {
+			background-attachment: auto;
+		}
+	}
+}
+
+
+

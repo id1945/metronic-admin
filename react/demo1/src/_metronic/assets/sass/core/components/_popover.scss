@@ -1,0 +1,48 @@
+//
+// Popover
+//
+
+// Base
+.popover {
+  .popover-header {
+    font-size: $popover-header-font-size;
+    font-weight: $popover-header-font-weight;
+    border-bottom: 1px solid $popover-header-border-color;
+  }
+
+  .popover-dismiss {
+    position: absolute;
+    top: $popover-dissmis-btn-top;
+    right: $popover-dissmis-btn-end;
+    height: $popover-dissmis-btn-height;
+    width: $popover-dissmis-btn-height;
+
+    i {
+      color: $gray-500;
+    }
+
+    &:hover {
+      i {
+        color: $primary;
+      }
+    }
+
+    & + .popover-header {
+      padding-right: $popover-body-padding-x + $popover-dissmis-btn-height;
+    }
+  }
+}
+
+// Dark Mode
+.popover-dark {
+  @include popover-theme(
+    $gray-900,
+    $gray-800,
+    $gray-900,
+    $gray-200,
+    $gray-400,
+    $gray-100,
+    $gray-900
+  );
+  // $bg-color, $border-color, $header-bg-color, $header-color, $body-color, $arrow-outer-color, $arrow-color
+}

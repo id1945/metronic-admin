@@ -1,0 +1,60 @@
+//
+// To make future updates easier consider overriding the global variables from _variables.bootstrap.scss and _variables.custom.scss for current demo in this file.
+// Note that this file is included first and variables defined in _variables.bootstrap.scss and _variables.custom.scss
+// are not accessible in this file but you can override any global variable as shown below:
+//
+
+// Theme colors
+// Primary
+$primary: #009ef7;
+$primary-active: #0095e8;
+$primary-light: #ecf8ff;
+$primary-inverse: #ffffff;
+
+// Success
+$success: #50cd89;
+$success-active: #47be7d;
+$success-light: #e8fff3;
+$success-inverse: #ffffff;
+
+// Info
+$info: #7239ea;
+$info-active: #5014d0;
+$info-light: #f8f5ff;
+$info-inverse: #ffffff;
+
+// Danger
+$danger: #f1416c;
+$danger-active: #d9214e;
+$danger-light: #fff5f8;
+$danger-inverse: #ffffff;
+
+// Warning
+$warning: #ffc700;
+$warning-active: #f1bc00;
+$warning-light: #fff8dd;
+$warning-inverse: #ffffff;
+
+// Card Box Shadow
+$card-box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02);
+
+// Forms
+//$form-label-font-weight:                          600;
+//$form-label-font-size:                            1.05rem;
+
+//$input-btn-font-weight                            500;
+//$input-btn-font-size:                             1rem;
+//$input-btn-font-size-sm:                          0.95rem;
+//$input-btn-font-size-lg:                          1.1rem;
+
+// Buttons
+//$btn-font-weight:                                 $input-btn-font-weight;
+//$btn-font-size:                                   $input-btn-font-size;
+//$btn-font-size-sm:                                $input-btn-font-size-sm;
+//$btn-font-size-lg:                                $input-btn-font-size-lg;
+
+// Inputs
+//$input-font-weight:                               $input-btn-font-weight;
+//$input-font-size:                                 $input-btn-font-size;
+//$input-font-size-sm:                              $input-btn-font-size-sm;
+//$input-font-size-lg:                              $input-btn-font-size-lg;

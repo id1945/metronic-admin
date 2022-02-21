@@ -1,0 +1,27 @@
+//
+// Content
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+  .content {
+    padding: get($content-spacing, desktop) 0;
+
+    // Toolbar enabled and toolbar not fixed mode
+    .toolbar-enabled:not(.toolbar-fixed) & {
+      padding-top: 0;
+    }
+  }
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+  .content {
+    padding: get($content-spacing, tablet-and-mobile) 0;
+
+    // Toolbar enabled mode and toolbar not fixed mode
+    .toolbar-enabled:not(.toolbar-tablet-and-mobile-fixed) & {
+      padding-top: 0;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+//
+// Root CSS Variables
+//
+
+:root {
+    // Theme colors
+    @each $name, $value in $theme-colors {
+        @if ( theme-light-color($name) ) {
+            --#{$variable-prefix}light-#{$name}:#{theme-light-color($name)};
+            --#{$variable-prefix}active-#{$name}:#{theme-active-color($name)};
+        }
+    }
+
+    // Gray colors
+    @each $name, $value in $grays {
+        --#{$variable-prefix}gray-#{$name}:#{$value};
+    }
+
+    // Breakpoints
+    @each $breakpoint, $value in $grid-breakpoints {
+        --#{$variable-prefix}#{$breakpoint}:#{$value};
+    }
+}

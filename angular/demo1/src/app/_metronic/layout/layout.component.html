@@ -1,0 +1,55 @@
+<div class="d-flex flex-column flex-root">
+  <div class="page d-flex flex-row flex-column-fluid">
+    <app-aside
+      id="kt_aside"
+      data-kt-drawer="true"
+      data-kt-drawer-name="aside"
+      data-kt-drawer-activate="{default: true, lg: false}"
+      data-kt-drawer-overlay="true"
+      data-kt-drawer-width="{default:'200px', '300px': '250px'}"
+      data-kt-drawer-direction="start"
+      data-kt-drawer-toggle="#kt_aside_mobile_toggle"
+      class="aside"
+      [ngClass]="asideCSSClasses"
+    ></app-aside>
+    <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+      <app-header
+        id="kt_header"
+        [ngClass]="headerCSSClasses"
+        class="header align-items-stretch"
+        #ktHeader
+      ></app-header>
+      <div id="kt_content" class="content d-flex flex-column flex-column-fluid">
+        <ng-container *ngIf="toolbarDisplay">
+          <app-toolbar class="toolbar" id="kt_toolbar"></app-toolbar>
+        </ng-container>
+
+        <div class="post d-flex flex-column-fluid" id="kt_post">
+          <app-content
+            id="kt_content_container"
+            [ngClass]="contentContainerClasses"
+          ></app-content>
+        </div>
+      </div>
+      <app-footer
+        class="footer py-4 d-flex flex-lg-column"
+        id="kt_footer"
+      ></app-footer>
+    </div>
+  </div>
+</div>
+
+<app-scripts-init></app-scripts-init>
+<app-scroll-top></app-scroll-top>
+
+<!-- begin:: Drawers -->
+<app-activity-drawer></app-activity-drawer>
+<app-explore-main-drawer></app-explore-main-drawer>
+<app-messenger-drawer></app-messenger-drawer>
+<!-- end:: Drawers -->
+
+<!-- begin:: Modals -->
+<app-main-modal></app-main-modal>
+<app-invite-users-modal></app-invite-users-modal>
+<app-upgrade-plan-modal></app-upgrade-plan-modal>
+<!-- end:: Modals -->

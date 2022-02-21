@@ -1,0 +1,156 @@
+<div class="pb-10'">
+  <h1 class="anchor fw-bolder mb-5" id="quick-start-env">
+    <a href="#quick-start-env"></a>Set up the Development Environment:
+  </h1>
+  <div class="py-5">
+    <ol>
+      <li>
+        <h4>
+          Install
+          <a href="https://nodejs.org/en/download/">Node.js® and npm</a> if they
+          are not already on your machine.
+        </h4>
+      </li>
+      <li>
+        <h4>
+          Angular CLI is a command line interface for the latest Angular.
+          Install it before start with the Angular app:
+        </h4>
+        <app-code-block
+          language="bash"
+          code="npm install --global @angular/cli@latest
+"
+        ></app-code-block>
+        <div
+          class="d-flex align-items-center rounded py-5 px-5 bg-light-danger"
+        >
+          <span
+            class="svg-icon svg-icon-3x svg-icon-danger me-5"
+            [inlineSVG]="'./assets/media/icons/duotune/general/gen044.svg'"
+          ></span>
+          <div class="text-gray-700 fw-bold fs-6">
+            Warning: If you have Angular CLI installed previously, update it to
+            the latest Angular CLI. Remove the older version and re-install it.
+          </div>
+        </div>
+        <app-code-block
+          language="bash"
+          code="npm uninstall --global @angular/cli"
+        ></app-code-block>
+        <app-code-block
+          language="bash"
+          code="npm install --global @angular/cli@latest
+"
+        ></app-code-block>
+      </li>
+    </ol>
+  </div>
+</div>
+<div class="pb-10'">
+  <h1 class="anchor fw-bolder mb-5" id="quick-start-env">
+    <a href="#quick-start-angular"></a>Angular Quick Start:
+  </h1>
+  <div class="py-5">
+    <ol>
+      <li>
+        <h4>
+          To start the Angular, change the directory to
+          <code>[metronic]/angular/[demo]/</code>:
+        </h4>
+        <app-code-block
+          language="bash"
+          code="cd angular/demo1"
+        ></app-code-block>
+      </li>
+      <li>
+        <div>
+          <h4>
+            Install the Angular local project dependencies by executing
+            following commands:
+          </h4>
+          <p>
+            a. <code>npm clear cache --force</code> This command will clear your
+            old cached node_modules.
+          </p>
+          <p>
+            b. <code>npm install</code> This command will install the
+            dependencies in the local node_modules folder. By default,
+            <code>npm install</code> will install all modules listed as
+            dependencies in <code>package.json</code>.
+          </p>
+          <p>
+            c. <code>ng serve</code> This command launches the server, watches
+            your files, and rebuilds the app as you make changes to those files.
+            Using the <code>--open</code> (or use <code>-o</code>) option will
+            automatically open your browser on
+            <a href="http://localhost:4200/" target="_blank"
+              >http://localhost:4200/</a
+            >.
+            <span
+              >* This command will take some time to finsh. Please wait for it
+              to complete.</span
+            >
+          </p>
+        </div>
+      </li>
+    </ol>
+    <p>
+      For more detailed information to install the Angular application, visit
+      this official Angular
+      <a href="https://angular.io/guide/quickstart" target="_blank"
+        >documentation website</a
+      >.
+    </p>
+  </div>
+</div>
+
+<div class="pb-10'">
+  <h1 class="anchor fw-bolder mb-5" id="quick-start-polyfills">
+    <a href="#quick-start-polyfills"></a>Polyfills:
+  </h1>
+  <div class="py-5">
+    <p>
+      Angular is built on the latest standards of the web platform. Targeting
+      such a wide range of browsers is challenging because they do not support
+      all features of modern browsers. A particular browser may require at least
+      one polyfill to run any Angular application. You may need additional
+      polyfills for specific features.
+    </p>
+    <p>
+      To support Angular in IE, open this file
+      <code>[metronic]/theme/angular/[demo]/src/polyfills.ts</code>. Uncomment
+      all the imports under Browser Polyfills list and classlist.js
+    </p>
+    <p>
+      Read more about browser support here
+      <a href="https://angular.io/guide/browser-support" target="_blank"
+        >https://angular.io/guide/browser-support</a
+      >
+    </p>
+    <div class="d-flex align-items-center rounded py-5 px-5 bg-light-danger">
+      <span
+        class="svg-icon svg-icon-3x svg-icon-danger me-5"
+        [inlineSVG]="'./assets/media/icons/duotune/general/gen044.svg'"
+      ></span>
+      <div class="text-gray-700 fw-bold fs-6">
+        Internet Explorer workarounds:
+        <a
+          href="https://github.com/angular/angular-cli/issues/14455#issuecomment-493739768"
+          >https://github.com/angular/angular-cli/issues/14455#issuecomment-493739768</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex align-items-center rounded py-5 px-5 bg-light-danger">
+  <span
+    class="svg-icon svg-icon-3x svg-icon-danger me-5"
+    [inlineSVG]="'./assets/media/icons/duotune/general/gen044.svg'"
+  ></span>
+  <div class="text-gray-700 fw-bold fs-6">
+    Warning: Use <b>LTS</b> version of <b>NodeJS</b>.
+  </div>
+</div>
+<!-- <app-code-block language="bash" code="yarn install"></app-code-block> -->
+<!-- <app-code-block language="bash" code="npm install"></app-code-block> -->

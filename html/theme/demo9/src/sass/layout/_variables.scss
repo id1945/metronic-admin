@@ -1,0 +1,75 @@
+//
+// Layout Config
+//
+
+// Root font Sizes
+$root-font-size:                                    13px; // Root font size for desktop mode
+$root-font-size-lg:                             	13px; // Root font size for tablet mode
+$root-font-size-md:                             	12px; // Root font size for mobile mode 
+
+// Page background Color
+$page-bg: 											if(isDarkMode(), #151521, #F9FAFB) !default;
+
+// Content Spacing
+$content-spacing: (
+	desktop: 30px, // Padding for desktop mode
+	tablet-and-mobile: 15px // Padding for tablet and mobile modes
+) !default;
+
+
+// Header
+$header-config: (
+	general: (		
+		offset: 70px,
+		height: (
+			default: 240px,
+			sticky: 80px
+		),
+		z-index: 100,
+		bg-color: if(isDarkMode(), darken($page-bg, 3%), #2C294B),
+		box-shadow: if(isDarkMode(), none, 0px 10px 30px 0px rgba(82,63,105,0.05))
+	),
+
+	search: (
+		icon-color: $white,
+		bg-color: if(isDarkMode(), lighten($page-bg, 6%), #403E5D),
+		placeholder-color: if(isDarkMode(), lighten($page-bg, 30%), #7E8299),
+		font-color: if(isDarkMode(), lighten($page-bg, 40%), lighten(#7E8299, 3%)),
+	),
+
+	button: (
+		icon-color: $white,
+		bg-color: if(isDarkMode(), lighten($page-bg, 6%), #403E5E),
+		icon-color-active: $primary,
+	),
+
+	mobile: (		
+		bg-color: $body-bg,
+	)
+) !default;
+
+
+// Aside
+$aside-config: (
+	bg-color: $body-bg,
+	width: (
+		desktop: 140px, 
+		tablet-and-mobile: 100px
+	),
+	z-index: 98, // Aside's z-index property
+	box-shadow: if(isDarkMode(), none, 0px 0px 80px 50px rgba(206, 213, 225, 0.12)),
+	menu-icon: (
+		width:  58px,
+		size: (
+			svg: 28px,
+			font: 22px
+		),
+		border-radius: 22px,
+		bg-color: if(isDarkMode(), $gray-100, rgba(245, 248, 250, 0.8)),
+		bg-color-active: $primary,
+
+		icon-color: if(isDarkMode(), $gray-700, $gray-500),
+		icon-color-active: $white,
+		icon-color-hover: $primary
+	)
+) !default;

@@ -1,0 +1,24 @@
+//
+// List
+//
+
+    
+
+// Hover Style
+.custom-list {        
+    cursor: pointer;        
+    @include border-radius($border-radius);
+
+    &:hover {            
+        background-color: $gray-100;
+        
+        .symbol-label {
+            background-color: $white;
+        }
+
+        .custom-list-title {
+            color: $primary !important;
+        }
+    }        
+}
+ 

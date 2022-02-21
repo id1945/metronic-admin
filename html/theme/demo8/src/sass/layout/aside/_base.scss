@@ -1,0 +1,127 @@
+//
+// Aside Default
+//
+
+// General mode(all devices)
+.aside {
+	display: flex;
+	flex-direction: column;
+	box-shadow: get($aside-config, box-shadow);
+	background-color: get($aside-config, bg-color);
+	padding: 0;
+
+	// Aside toolbar
+	.aside-toolbar {
+		// Separator
+		.aside-user {
+			@if (isDefaultMode()) {
+				border-top: 1px solid #2D2D43;
+			}
+			padding: 0 get($aside-config, padding-x);
+		}
+
+		// Aside search
+		.aside-search {			 
+			border-top: 1px solid #2D2D43;
+			border-bottom: 1px solid #2D2D43;
+			padding: 0 get($aside-config, padding-x);
+
+			.search-icon {
+				@include svg-icon-color(#DADADA);
+			}
+
+			.form-control {
+				background-color: #2C2C41;
+				border-color: #2C2C41;
+				@include placeholder(#7E8299);
+				color: lighten(#7E8299, 3%);
+			}		
+		}
+	}
+
+	// Aside footer
+	.aside-footer {
+		padding: 0 get($aside-config, footer-padding-x);
+
+		// Custom button
+		.btn-custom {
+			display: flex;
+			align-items: center;
+			justify-content: center;		
+			padding-left: 0;
+			padding-right: 0;
+
+			//$color, $icon-color, $border-color, $bg-color, $color-active, $icon-color-active, $border-color-active, $bg-color-active
+			@include button-custom-variant(#B5B5C3, null, null, rgba(63, 66, 84, 0.35), #B5B5C3, null, null, rgba(63, 66, 84, 0.35));
+
+			.btn-label {
+				transition: opacity get($aside-config, transition-speed) ease;
+				display: inline-block;
+				white-space: nowrap;
+				overflow: hidden;		
+				opacity: 1;	
+			}	
+
+			.btn-icon {
+				display: inline-block;
+				transition: opacity get($aside-config, transition-speed) ease;
+				overflow: hidden;		
+				opacity: 0;	
+				margin: 0;
+				width: 0;
+
+				color: #B5B5C3;
+				@include svg-icon-color(#B5B5C3);
+			}
+		}
+	}
+
+	// Scrollbar
+	.hover-scroll-overlay-y {
+        --scrollbar-space: 0.4rem;
+        
+        @include scrollbar-color(get($aside-config, scrollbar-color), get($aside-config, scrollbar-hover-color));
+    }
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.aside {
+		position: fixed;
+		top: get($header-config, height, desktop);		
+		left: 0;
+		bottom: 0;
+		z-index: get($aside-config, z-index);
+		overflow: hidden;
+		width: get($aside-config, width);
+		transition: left get($aside-config, transition-speed) ease;
+
+		// Aside menu
+		.aside-menu {
+			width: get($aside-config, width); 
+		}
+
+		// Minimize aside mode
+		[data-kt-aside-minimize="on"] & {
+			left: -(get($aside-config, width));
+			transition: left get($aside-config, transition-speed) ease;
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.aside {
+		display: none;
+
+		// Logo
+		.aside-logo {
+			display: none;
+		}
+	}
+}
+
+
+
+
+ 

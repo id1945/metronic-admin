@@ -1,0 +1,7 @@
+//
+// Custom Placeholder
+//
+
+.placeholder-white-opacity-75 {
+  @include placeholder(rgba($white, 0.75));
+}

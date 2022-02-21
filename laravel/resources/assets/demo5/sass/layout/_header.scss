@@ -1,0 +1,96 @@
+//
+// Header
+//
+
+// General mode
+.header {
+	background-color: get($header-config, bg-color);
+
+	// Header menu
+	.header-menu {
+		display: flex;
+
+		.menu {
+			> .menu-item {
+				> .menu-link {
+					> .menu-title {
+						font-weight: $font-weight-bolder;
+						font-size: 1.15rem;
+					}
+				}
+
+				// Customize menu link default state       
+				@include menu-link-default-state( $title-color: $gray-800, $icon-color:$gray-600, $bullet-color:$gray-600, $arrow-color:$gray-600, $bg-color: none, $all-links: true);
+
+				// Customize menu link hover state       
+				@include menu-link-hover-state( $title-color: $primary, $icon-color:$primary, $bullet-color: $primary, $arrow-color: $primary, $bg-color: rgba($gray-200, 0.4), $all-links: true);
+
+				// Customize menu link show state       
+				@include menu-link-show-state( $title-color: $primary, $icon-color:$primary, $bullet-color:$primary, $arrow-color:$primary, $bg-color: rgba($gray-200, 0.4), $all-links: true);
+
+				// Customize menu link active state       
+				@include menu-link-active-state( $title-color: $primary, $icon-color: $primary, $bullet-color: $primary, $arrow-color: $primary, $bg-color: rgba($gray-200, 0.4), $all-links: true);
+			}
+		}
+	}
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		z-index: 2;
+		height: get($header-config, height, desktop);
+		transition: height get($header-config, transition-speed) ease;
+		border-bottom: 1px solid get($header-config, border-color);
+
+		// Fixed header & sticky header modes
+		.header-fixed & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, z-index);
+			background-color: get($header-config, bg-color);
+			height: get($header-config, height, desktop);
+			padding: 0;
+			box-shadow: get($header-config, box-shadow);
+			transition: height get($header-config, transition-speed) ease;
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: get($header-config, height, tablet-and-mobile);
+		border-bottom: 1px solid get($header-config, border-color);
+		transition: height get($header-config, transition-speed) ease;
+		position: relative;
+		z-index: 3;
+
+		// Fixed header and header sticky modes
+		.header-tablet-and-mobile-fixed & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, z-index);
+			height: get($header-config, height, tablet-and-mobile);
+			background-color: get($header-config, bg-color);
+			transition: height get($header-config, transition-speed) ease;
+		}
+
+		// Header menu
+		.header-menu {
+			display: none;
+			z-index: get($header-config, z-index) - 1;
+		}
+	}
+}

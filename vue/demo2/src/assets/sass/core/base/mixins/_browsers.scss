@@ -1,0 +1,10 @@
+//
+// Browsers
+//
+
+@mixin for-edge {
+    // Microsoft Edge
+	@supports (-ms-ime-align:auto) {
+		@content;
+	}
+}

@@ -1,0 +1,96 @@
+<!-- begin::Brand -->
+<div class="aside-logo flex-column-auto" id="kt_aside_logo">
+  <!-- begin::Logo -->
+  <ng-container *ngIf="asideTheme === 'dark'">
+    <a routerLink="/dashboard">
+      <img
+        alt="Logo"
+        class="h-25px logo"
+        src="./assets/media/logos/logo-1-dark.svg"
+      />
+    </a>
+  </ng-container>
+
+  <ng-container *ngIf="asideTheme === 'light'">
+    <a routerLink="/dashboard">
+      <img
+        alt="Logo"
+        class="h-25px logo"
+        src="./assets//media/logos/logo-1.svg"
+      />
+    </a>
+  </ng-container>
+
+  <!-- end::Logo -->
+
+  <!-- begin::Aside toggle -->
+  <ng-container *ngIf="asideMinimize">
+    <div
+      id="kt_aside_toggle"
+      class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
+      data-kt-toggle="true"
+      data-kt-toggle-state="active"
+      data-kt-toggle-target="body"
+      data-kt-toggle-name="aside-minimize"
+    >
+      <span
+        [inlineSVG]="'./assets/media/icons/duotune/arrows/arr079.svg'"
+        class="svg-icon svg-icon-1 rotate-180"
+      ></span>
+    </div>
+  </ng-container>
+  <!-- end::Aside toggler -->
+</div>
+<!-- end::Brand  -->
+
+<!-- begin::Aside menu -->
+<div class="aside-menu flex-column-fluid">
+  <div
+    #ktAsideScroll
+    id="kt_aside_menu_wrapper"
+    class="hover-scroll-overlay-y my-5 my-lg-5"
+    data-kt-scroll="true"
+    data-kt-scroll-activate="{default: false, lg: true}"
+    data-kt-scroll-height="auto"
+    data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
+    data-kt-scroll-wrappers="#kt_aside_menu"
+    data-kt-scroll-offset="0"
+  >
+    <div
+      id="#kt_aside_menu"
+      data-kt-menu="true"
+      class="
+        menu
+        menu-column
+        menu-title-gray-800
+        menu-state-title-primary
+        menu-state-icon-primary
+        menu-state-bullet-primary
+        menu-arrow-gray-500
+      "
+    >
+      <app-aside-menu id="asideMenu"></app-aside-menu>
+    </div>
+  </div>
+</div>
+<!-- end::Aside menu -->
+
+<!-- begin::Footer -->
+<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
+  <a
+    target="_blank"
+    class="btn btn-custom btn-primary w-100"
+    [href]="appPreviewDocsUrl"
+    data-bs-toggle="tooltip"
+    data-bs-trigger="hover"
+    data-bs-dismiss-="click"
+    ngbDropdown="Check out the complete documentation with over 100 components"
+  >
+    <span class="btn-label">Docs & Components</span>
+    <span
+      [inlineSVG]="'./assets/media/icons/duotune/general/gen005.svg'"
+      class="svg-icon btn-icon svg-icon-2"
+    ></span>
+  </a>
+</div>
+<!-- end::Footer -->

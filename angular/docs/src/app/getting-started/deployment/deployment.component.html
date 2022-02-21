@@ -1,0 +1,102 @@
+<div class="pb-10">
+  <h1 class="anchor fw-bolder mb-5" id="deployment">
+    <a href="#deployment"></a>Deployment
+  </h1>
+  <div class="py-5">
+    <h4>Angular for production</h4>
+    <p>
+      Run this command line in the Angular demo directory. This build process
+      will use method of ahead-of-time (AOT) compilation. The ahead-of-time
+      (AOT) compiler can catch template errors early and improve performance by
+      compiling at build time.
+      <br />
+      The compiled Angular app will be in the folder
+      <code>[metronic]/angular/[demo]/</code>.
+    </p>
+    <p>
+      With AOT, the browser downloads a pre-compiled version of the application.
+      The browser loads executable code so it can render the application
+      immediately, without waiting to compile the app first.
+    </p>
+    <app-code-block language="bash" code="ng build --prod"></app-code-block>
+    <p>
+      If you copy the files into a server sub-folder, append the build flag,
+      <code>--base-href</code> and set the
+      <code>&lt;base href&gt;</code> appropriately. For example, if the
+      <code>index.html</code> is on the server at
+      <code>/my/app/index.html</code>, set the base href to
+      <code>&lt;base href="/my/app/"&gt;</code> like this.
+    </p>
+    <p>
+      If you're serving the app out of a subfolder, edit a version of index.html
+      to set the base href appropriately. For example, if the URL to
+      <code>index.html</code> is <code>www.mysite.com/my/app/index.html</code>,
+      set the base href to:
+    </p>
+    <app-code-block
+      language="html"
+      code="<base href='/my/app/'>"
+    ></app-code-block>
+    <p>
+      Learn more about the role of <code>&lt;base href&gt;</code>
+      <a href="https://angular.io/guide/deployment#base-tag">below</a>.
+    </p>
+    <p>
+      You also can set the base href right in the <code>ng build</code> command
+    </p>
+    <app-code-block
+      language="bash"
+      code="ng build --prod --base-href='/my/app/'"
+    ></app-code-block>
+    <p>
+      For more detailed information, visit this official Angular
+      <a href="https://angular.io/guide/deployment">documentation website</a>.
+    </p>
+  </div>
+  <div class="py-5">
+    <h4>Ahead-of-time (AOT) vs just-in-time (JIT)</h4>
+    <p>
+      There is actually only one Angular compiler. The difference between AOT
+      and JIT is a matter of timing and tooling. With AOT, the compiler runs
+      once at build time using one set of libraries; with JIT it runs every time
+      for every user at runtime using a different set of libraries. To use JIT
+      build, run this command line to build.
+    </p>
+    <app-code-block
+      language="bash"
+      code="ng build --prod --aot=false"
+    ></app-code-block>
+  </div>
+  <div class="py-5">
+    <h4>Possible issues with Angular build</h4>
+    <br />
+    <div class="d-flex align-items-center rounded py-5 px-5 bg-light-danger">
+      <span
+        class="svg-icon svg-icon-3x svg-icon-danger me-5"
+        [inlineSVG]="'./assets/media/icons/duotune/general/gen044.svg'"
+      ></span>
+      <div class="text-gray-700 fw-bold fs-6">
+        AOT build process can be failed due to
+        <code>JavaScript heap out of memory</code> error. This is a known
+        <a
+          target="_blank"
+          href="https://github.com/angular/angular-cli/issues/5618"
+          >issue</a
+        >
+        of Angular-cli. For the the temporary solution of this issue, you can
+        use this workaround to increase allowed memory for node process.
+      </div>
+    </div>
+    <br />
+    <p>For Windows users:</p>
+    <app-code-block
+      language="bash"
+      code="node --max_old_space_size=8192 'node_modules\@angular\cli\bin\ng' build --prod"
+    ></app-code-block>
+    <p>For Linux and Mac users:</p>
+    <app-code-block
+      language="bash"
+      code="node --max_old_space_size=8192 ./node_modules/.bin/ng build --prod"
+    ></app-code-block>
+  </div>
+</div>

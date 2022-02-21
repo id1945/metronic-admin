@@ -1,0 +1,32 @@
+//
+// Topbar
+//
+
+.topbar {
+    .topbar-item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        i {
+            color: #6E6C85;
+        }
+
+        .svg-icon {
+            @include svg-icon-color(#787691, true);
+        } 
+    }
+
+    // Active, hover and show states
+    .show > .topbar-item,
+    .topbar-item:hover,
+    .topbar-item.show {
+        i {
+            color: $white;
+        }
+
+        .svg-icon {
+            @include svg-icon-color($white, true);
+        }
+    }
+}

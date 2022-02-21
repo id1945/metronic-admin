@@ -1,0 +1,59 @@
+//
+// Aside
+//
+
+// General mode(all devices)
+.aside {
+	flex-shrink: 0;
+
+	.menu {
+		.menu-item {
+			> .menu-content {
+				margin-left: 3px;
+			}
+
+			> .menu-link {
+				@include border-radius(4px);
+				border-left: 3px solid transparent;
+
+				> .menu-title {
+					color: if(isDarkMode(), $gray-700, $gray-800);
+					font-weight: $font-weight-bold;
+				}
+
+				> .menu-badge {
+					color: $text-muted;
+					font-weight: $font-weight-bold;
+					font-size: 0.9rem;
+				}
+
+				&.active {
+					> .menu-title {
+						font-weight: $font-weight-bolder;
+					}
+
+					> .menu-badge {
+						font-weight: $font-weight-bolder;
+					}
+
+					border-left: 3px solid $primary;
+				}
+			}
+		}
+	}
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.aside {
+		display: flex;
+		width: get($aside-config, width);
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.aside {
+		display: none;
+	}
+}

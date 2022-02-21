@@ -1,0 +1,66 @@
+//
+// Scrolltop
+//
+
+.scrolltop {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: get($scrolltop, size, desktop);
+    height: get($scrolltop, size, desktop);
+    position: fixed;
+    bottom: get($scrolltop, bottom, desktop);
+    right: get($scrolltop, right, desktop);
+    cursor: pointer;
+    z-index: 100;
+    background-color: $primary;
+    box-shadow: $box-shadow;
+    opacity: 0;
+    transition: $transition-link;
+    @include border-radius($border-radius);
+
+    .svg-icon {
+        @include svg-icon-size(24px);
+        @include svg-icon-color($white);
+    }
+
+    > i {
+        font-size: 1.3rem;
+        color: $white;
+    }
+
+    &:hover {
+        > i {
+            color: $white;
+        }
+
+        .svg-icon {
+            @include svg-icon-color($white);
+        }
+    }
+
+    [data-kt-scrolltop="on"] & {
+        opacity: 0.3;
+        animation: animation-scrolltop .4s ease-out 1;
+        display: flex;
+
+        &:hover {
+            transition: $transition-link;
+            opacity: 1;
+        }
+    }
+
+    // Tablet & Mobile Modess
+    @include media-breakpoint-down(lg) {
+        bottom: get($scrolltop, bottom, tablet-and-mobile);
+        right: get($scrolltop, right, tablet-and-mobile);
+        width: get($scrolltop, size, tablet-and-mobile);
+        height: get($scrolltop, size, tablet-and-mobile);
+    }
+}
+
+// Animations
+@keyframes animation-scrolltop {
+    from   { margin-bottom: -15px }
+    to {     margin-bottom: 0; }
+}

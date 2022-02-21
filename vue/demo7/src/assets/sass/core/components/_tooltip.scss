@@ -1,0 +1,23 @@
+//
+//  Tooltip
+//
+
+
+// Base
+.tooltip {
+    .tooltip-inner {
+        box-shadow: $tooltip-box-shadow;
+    }
+
+    &.tooltop-auto-width {
+       	.tooltip-inner {
+       		white-space: nowrap;
+  			max-width: none;
+        }
+    }
+
+    // Dark Theme
+    &.tooltip-dark {
+        @include tooltip-theme($dark, $dark-inverse, $dark);
+    }
+}

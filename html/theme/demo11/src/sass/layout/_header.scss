@@ -1,0 +1,115 @@
+//
+// Header
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		flex-direction: column;
+		z-index: 2;
+		height: get($header-config, desktop, default, height);
+		transition: left get($aside-config, transition-speed) ease;
+		border-bottom: get($header-config, desktop, default, border);		
+		background-color: get($header-config, desktop, default, bg-color);
+
+		// Header Logo
+		.header-logo {
+			padding: 0;
+			display: flex;
+			align-items: center;		 
+
+			// Logos
+			.logo-default {
+				display: inline-block;
+			}
+
+			.logo-sticky {
+				display: none;
+			}
+		}		
+		
+		// Header menu
+		.header-menu {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+		}		
+
+		// Header menu container
+		.separator {
+			width: 100%;
+		}
+
+		// Fixed header & sticky header modes
+		.header-fixed[data-kt-sticky-header="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, desktop, fixed, z-index);
+			box-shadow: get($header-config, desktop, fixed, box-shadow);
+			height: get($header-config, desktop, fixed, height);			
+			padding: 0;			
+
+			.separator,
+			.header-menu-container {
+				display: none !important;
+			}
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+		height: get($header-config, tablet-and-mobile, default, height);
+		position: relative;
+		z-index: 3;
+		border-bottom: get($header-config, tablet-and-mobile, default, border);
+		background-color: get($header-config, tablet-and-mobile, default, bg-color);	
+	
+		.separator,
+		.header-menu-container {
+			display: none !important;
+		}
+
+		// Fixed header and header sticky modes
+		.header-tablet-and-mobile-fixed[data-kt-sticky-header="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, tablet-and-mobile, fixed, z-index);
+			height: get($header-config, tablet-and-mobile, fixed, height);
+			min-height: get($header-config, tablet-and-mobile, fixed, height);
+			box-shadow: get($header-config, tablet-and-mobile, fixed, box-shadow);
+			border-bottom: get($header-config, tablet-and-mobile, fixed, border);
+
+			// Header Logo
+			.header-logo {
+				// Logos
+				.logo-default {
+					display: none;
+				}
+
+				.logo-sticky {
+					display: inline-block;
+				}
+			}	
+		}		 	
+
+		// Header menu
+		.header-menu {
+			display: none;
+			z-index: get($header-config, tablet-and-mobile, fixed, z-index) - 1;
+		}
+	}
+}

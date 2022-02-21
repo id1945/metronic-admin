@@ -1,0 +1,156 @@
+//
+// Tagify
+//
+
+// Base
+.tagify {
+    --tagify-dd-bg-color        : #{$body-bg};
+    --tags-border-color         : #{$input-border-color};
+    --tags-hover-border-color   : #{$input-border-color};
+    --tags-focus-border-color   : #{$input-focus-border-color};
+    --tag-bg                    : #{$gray-200};
+    --tag-hover                 : #{$gray-200};
+    --tag-text-color            : #{$gray-700};
+    --tag-text-color--edit      : #{$gray-700};
+    --tag-pad                   : 0 0.5rem;
+    --tag-inset-shadow-size     : 1rem;
+    --tag-invalid-color         : #{$danger};
+    --tag-invalid-bg            : #{$danger-light};
+    --tag-remove-bg             : #{$gray-200};
+    --tag-remove-btn-color      : transparent;
+    --tag-remove-btn-bg         : transparent;
+    --tag-remove-btn-bg--hover  : transparent;
+    --input-color               : #{$gray-700};
+    --placeholder-color         : #{$gray-400};
+    --placeholder-color-focus   : #{$gray-500};
+    --loader-size               : .8rem;
+    
+    .tagify__tag {
+        background-color: var(--tag-bg);
+        
+        div {
+            border-radius: inherit;
+        }
+
+        .tagify__tag__removeBtn {
+            border-radius: 0;
+            content: " ";
+            @include svg-bg-icon(close, $gray-500);
+
+            &:after {
+                display: none;
+            }
+
+            &:hover {
+                @include svg-bg-icon(close, $primary);
+            }
+        }
+
+        // Not allowed
+        &.tagify--notAllowed {
+            div {
+                .tagify__tag-text {
+                    color: $danger;
+                    opacity: .5;
+                }
+            }
+
+            .tagify__tag__removeBtn {
+                opacity: .5;
+                @include svg-bg-icon(close, $danger);
+                
+                &:hover {
+                    background: transparent;
+                    opacity: .75;
+                }
+            }
+        }
+    }
+
+    .tagify__input {
+        &:before {
+            font-size: inherit;
+            line-height: inherit;
+            font-weight: inherit;
+        }
+    }
+
+    // Sizes
+    &:not(.form-control-sm):not(.form-control-lg) {
+        // $input-padding-y, $input-height-border, $tag-font-size, $tag-border-radius, $tag-padding-y, $tag-padding-x, $tag-margin-y, $tag-margin-x, $remove-size, $remove-margin
+        @include tagify-size($input-padding-y, $input-height-border, 0.9rem, $input-border-radius, 0.2rem, 0.4rem, 0.2rem, 0.4rem, 0.6rem, 0.5rem);
+    }
+
+    &.form-control-lg {
+        @include tagify-size($input-padding-y-lg, $input-height-border, 1rem, $input-border-radius-lg, 0.2rem, 0.4rem, 0.2rem, 0.4rem, 0.6rem, 0.5rem);
+    }
+
+    &.form-control-sm {
+        @include tagify-size($input-padding-y-sm, $input-height-border, 0.8rem, $input-border-radius-sm, 0.15rem, 0.4rem, 0.15rem, 0.4rem, 0.5rem, 0.5rem);
+    }
+}
+
+// Dropdown
+.tagify__dropdown {
+    box-shadow: $dropdown-box-shadow;
+    border: 0 !important;
+    outline: none !important;
+    padding: 0.75rem 0;
+    z-index: $zindex-dropdown;
+    background-color: $body-bg;
+    @include border-radius($border-radius);
+
+    // Wrapper
+    ._wrapper {
+        max-height: none;
+        @include border-radius($border-radius);
+    }
+
+    // In modal
+    .modal-open & {
+        z-index: $zindex-modal + 1;
+    }
+
+    .tagify__dropdown__wrapper {
+        background-color: $body-bg;
+        border: 0 !important;
+        outline: none !important;
+        box-shadow: none;
+    }
+
+    .tagify__dropdown__item {
+        color: $gray-700;
+        border-radius: 0;
+        padding: 0.75rem 1.5rem;
+        margin: 0;
+        box-shadow: none;
+        font-weight: $font-weight-bold;
+
+        &:hover,
+        &.tagify__dropdown__item--active {
+            background-color: $component-hover-bg;
+            color: $component-hover-color;
+        }
+    }
+
+    // Suggestions
+    &.tagify__inline__suggestions {    
+        padding: $input-padding-y $input-padding-x;
+
+        .tagify__dropdown__item {
+            display: inline-block;
+            font-size: $font-size-sm;
+            padding: 0.35rem 0.5rem;
+            margin: 0.25rem 0.5rem 0.25rem 0;  
+            background-color: $gray-200;
+            color: $gray-700;
+            @include border-radius($border-radius);
+
+            &:hover,
+            &.tagify__dropdown__item--active {
+                background-color: $component-hover-bg;
+                color: $component-hover-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+//
+// Content
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.content {
+		// Aside enabled mode
+		.aside-enabled & {
+			padding-left: get($content-spacing, desktop);
+			border-left: 1px solid $gray-200;
+		}
+	}
+}

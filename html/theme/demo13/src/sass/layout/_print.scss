@@ -1,0 +1,33 @@
+//
+// Print Mode
+//
+
+@media print {
+    .print-content-only {
+        padding: 0 !important;
+        background: none !important;
+
+        .wrapper,
+        .page,
+        .content,
+        .container,
+        .container-xxl,
+        .container-fluid {
+            background: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .aside,
+        .sidebar,
+        .sticky-toolbar,
+        .scrolltop,
+        .header,
+        .footer,
+        .toolbar,
+        .offcanvas,
+        .btn {
+            display: none !important;
+        }
+    }
+}

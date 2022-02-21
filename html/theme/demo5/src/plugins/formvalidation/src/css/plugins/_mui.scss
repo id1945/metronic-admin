@@ -1,0 +1,32 @@
+.fv-plugins-mui {
+    .fv-plugins-icon {
+        height: 32px; /* Same as height of input */
+        line-height: 32px;
+        width: 32px;
+        top: 15px;
+        right: 4px;
+    }
+
+    .fv-plugins-icon-check {
+        top: -6px;
+        right: -10px;
+    }
+
+    .fv-plugins-message-container {
+        margin: 8px 0;
+    }
+
+    .fv-invalid-row {
+        .fv-help-block,
+        .fv-plugins-icon {
+            color: #f44336;
+        }
+    }
+
+    .fv-valid-row {
+        .fv-help-block,
+        .fv-plugins-icon {
+            color: #4caf50;
+        }
+    }
+}

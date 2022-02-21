@@ -1,0 +1,69 @@
+//
+// Main
+//
+
+
+body {
+	background-color: $page-bg;
+}
+
+// Font color from Content background color
+.text-page-bg {
+	color: $page-bg;
+}
+
+// Above Xxl
+@include media-breakpoint-up(xxl) {
+	// Wrapper
+	.wrapper {
+		// Sidebar enabled mode
+		.sidebar-enabled & {
+			padding-right: get($sidebar-config, width);
+		}
+	}
+
+	// Explore Toggle
+	.sidebar-enabled .explore-toggle {
+		right: get($sidebar-config, width) !important;
+	}
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Containers
+	.container,
+	.container-xxl,
+	.container-fluid {
+		padding: 0 get($content-spacing, desktop) !important;
+	}
+
+	// Wrapper
+	.wrapper {
+		padding-top: get($content-spacing, desktop);
+		padding-left: get($aside-config, width) + get($content-spacing, desktop);
+
+		// Fixed header mode
+		.header-fixed[data-kt-sticky-header="on"] & {
+			padding-top: get($content-spacing, desktop) + get($header-config, desktop, default, height);
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	// Containers
+	.container,
+	.container-xxl,
+	.container-fluid {
+		max-width: none;
+		padding: 0 get($content-spacing, tablet-and-mobile) !important;
+	}
+
+	// Wrapper
+	.wrapper {
+		// Fixed header mode
+		.header-tablet-and-mobile-fixed[data-kt-sticky-header="on"] & {
+			padding-top: get($header-config, tablet-and-mobile, fixed, height);
+		}
+	}
+}

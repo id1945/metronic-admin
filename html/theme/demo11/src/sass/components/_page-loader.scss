@@ -1,0 +1,26 @@
+//
+// Page loader
+//
+
+// CSS3 Transitions only after page load(.page-loading class added to body tag and remove with JS on page load)
+.page-loading * {
+    transition: none !important;
+}
+
+// Base
+.page-loader {
+	background: #fff;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+   	display: none;
+
+   	.page-loading & {
+		display: flex;
+		justify-content: center;
+   		align-items: center;
+	}
+}

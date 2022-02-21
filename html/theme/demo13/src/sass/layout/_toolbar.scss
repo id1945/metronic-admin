@@ -1,0 +1,82 @@
+//
+// toolbar
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+    .toolbar {
+        display: flex;
+        align-items: center;
+        
+        // Fixed toolbar
+        .toolbar-fixed & {
+			height: var(--kt-toolbar-height);
+      	    position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($toolbar-config, fixed, z-index);			
+			background-color: get($toolbar-config, fixed, bg-color);
+            box-shadow: get($toolbar-config, fixed, box-shadow);
+        }
+
+		// toolbar enabled & toolbar not fixed modes
+		.toolbar-enabled:not(.toolbar-fixed) & {
+			padding-bottom: get($content-spacing-toolbar, desktop);
+		}
+
+        // Fixed header & fixed toolbar modes
+        .header-fixed.toolbar-fixed & {
+            top: get($header-config, fixed, height, desktop);
+            border-top: get($toolbar-config, fixed, border-top);
+        }
+
+        // Aside default enabled, aside fixed & header sticky modes
+		.aside-enabled.aside-fixed.toolbar-fixed & {
+			left: get($aside-config, width);
+			transition: left get($aside-config, transition-speed) ease;
+		}
+
+		// Aside default enabled, aside fixed, header sticky & aside minimize modes
+		.aside-enabled.aside-fixed.toolbar-fixed[data-kt-aside-minimize="on"] & {
+			left: get($aside-config, minimized-width);
+			transition: left get($aside-config, transition-speed) ease;
+		}
+    }
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+    .toolbar {
+        display: flex;
+        align-items: center;
+        
+        // Fixed toolbar mode
+        .toolbar-tablet-and-mobile-fixed & {
+			height: var(--kt-toolbar-height-tablet-and-mobile);
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: get($toolbar-config, fixed, z-index);
+            background-color: get($toolbar-config, fixed, bg-color);
+            box-shadow: get($toolbar-config, fixed, box-shadow);
+        }
+
+        // Toolbar enabled & toolbar not fixed modes
+		.toolbar-enabled:not(.toolbar-tablet-and-mobile-fixed) & {
+			padding-bottom: get($content-spacing-toolbar, tablet-and-mobile);
+		}
+
+        // Fixed header & fixed toolbar modes
+        .header-tablet-and-mobile-fixed.toolbar-tablet-and-mobile-fixed & {
+			top: get($header-config, default, height, tablet-and-mobile);
+            border-top: get($toolbar-config, fixed, border-top);
+        }
+
+        // Page title
+		.page-title[data-kt-swapper="true"] {
+			display: none !important;
+		}
+    }
+}

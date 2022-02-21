@@ -1,0 +1,49 @@
+<div
+  id="kt_toolbar_container"
+  [ngClass]="toolbarContainerCssClasses"
+  class="d-flex flex-stack"
+>
+  <app-page-title
+    #ktPageTitle
+    class="page-title d-flex"
+    [ngClass]="pageTitleCssClasses"
+  ></app-page-title>
+  <!-- begin::Actions  -->
+  <div class="d-flex align-items-center py-1">
+    <!-- begin::Wrapper  -->
+    <div class="me-4">
+      <!-- begin::Menu  -->
+      <a
+        class="
+          btn btn-sm btn-flex btn-light btn-active-primary
+          fw-bolder
+          cursor-pointer
+        "
+        data-kt-menu-trigger="click"
+        data-kt-menu-placement="bottom-end"
+        data-kt-menu-flip="top-end"
+      >
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/general/gen031.svg'"
+          class="svg-icon svg-icon-5 svg-icon-gray-500 me-1"
+        ></span>
+        Filter
+      </a>
+
+      <!-- end::Menu  -->
+    </div>
+    <!-- end::Wrapper  -->
+
+    <!-- begin::Button  -->
+    <a
+      class="btn btn-sm btn-primary cursor-pointer"
+      data-bs-toggle="modal"
+      data-bs-target="#kt_modal_create_app"
+      id="kt_toolbar_primary_button"
+    >
+      Create
+    </a>
+    <!-- end::Button  -->
+  </div>
+  <!-- end::Actions  -->
+</div>

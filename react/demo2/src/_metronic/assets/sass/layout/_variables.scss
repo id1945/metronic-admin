@@ -1,0 +1,83 @@
+//
+// Layout Config
+//
+
+// Root font Sizes
+$root-font-size:                                    13px; // Root font size for desktop mode
+$root-font-size-lg:                             	13px; // Root font size for tablet mode
+$root-font-size-md:                             	12px; // Root font size for mobile mode
+
+// Page  background Color
+$page-bg: 											if(isDarkMode(), #151521, $gray-100) !default;
+
+// Page background image height
+$page-bg-image-height: (
+	desktop: 350px,
+	tablet-and-mobile: 200px
+) !default;
+
+$page-bg-image-height-lg: (
+	desktop: 530px,
+	tablet-and-mobile: 450px
+) !default;
+
+// Content Spacing
+$content-spacing: (
+	desktop: 30px, // Padding for desktop mode
+	tablet-and-mobile: 15px // Padding for tablet and mobile modes
+) !default;
+
+// Header
+$header-config: (
+	// Desktop Mode
+	desktop: (
+		// Default Mode
+		default: (
+			height: 80px,
+			border: if(isDarkMode(), 1px solid rgba(255, 255, 255, 0.08), 1px solid rgba($white, 0.1)), 
+		),
+
+		// Fixed Mode
+		fixed: (
+			height: 65px,
+			z-index: 97,
+			bg-color: $body-bg,
+			box-shadow: if(isDarkMode(), none, 0px 10px 30px 0px rgba(82,63,105,0.08)),
+			border: 0
+		)
+	),
+
+	// Tablet & Mobile Modes
+	tablet-and-mobile: (
+		// Default Mode
+		default: (
+			height: 65px,
+			border: if(isDarkMode(), 1px solid rgba(255, 255, 255, 0.08), 1px solid rgba($white, 0.1)), 
+		),
+
+		// Fixed Mode
+		fixed: (
+			z-index: 97,
+			height: 65px,
+			bg-color: $body-bg,
+			box-shadow: if(isDarkMode(), none, 0px 10px 30px 0px rgba(82,63,105,0.08)),
+			border: 0
+		)
+	)
+) !default;
+
+// Toolbar
+$toolbar-config: (
+	height: (
+		desktop: 75px,
+		tablet-and-mobile: 60px
+	)
+) !default;
+
+// Aside
+$aside-config: (
+	z-index: 101,
+	padding-x: 25px,
+	menu-indention: 0.75rem,
+	width: 265px
+) !default;

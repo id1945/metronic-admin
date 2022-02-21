@@ -1,0 +1,150 @@
+//
+// Sidebar
+//
+
+// General mode(all devices)
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	background-color: get($sidebar-config, bg-color);
+	padding: 0;
+
+	// Navs
+	.sidebar-nav {
+		$nav-btn-height: 85px;
+		$nav-btn-width: 70px;
+		$nav-btn-height-sm: 75px;
+		$nav-btn-width-sm: 60px;
+		$nav-btn-transition: all 0.3s ease;
+
+		flex-wrap: nowrap;
+		padding: 0;
+		margin: 9;
+		width: 100%;
+		border: 0;
+		justify-content: space-between;
+		align-items: center;
+
+		.nav-item {
+			padding: 0;
+			margin: 0;
+			height: $nav-btn-height;
+			width: $nav-btn-width;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.nav-link {
+			padding: 0;
+			margin: 0;
+			height: $nav-btn-height-sm;
+			width: $nav-btn-width-sm;
+			transition: $nav-btn-transition;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: get($sidebar-config, tabs, link-bg-color, default);
+			border: 0;
+			@include border-radius($border-radius);
+
+			.svg-icon {
+				transition: $nav-btn-transition;
+				@include svg-icon-size(2.25rem, true);
+				@include svg-icon-color(get($sidebar-config, tabs, link-icon-color, default));
+
+				.svg {
+					transition: $nav-btn-transition;
+				}
+			}
+
+			&.active {
+				height: $nav-btn-height;
+				width: $nav-btn-width;
+				padding: 0;
+				transition: $nav-btn-transition;
+				background-color: get($sidebar-config, tabs, link-bg-color, active);
+
+				.svg-icon {					
+					@include svg-icon-size(2.75rem, true);
+					@include svg-icon-color(get($sidebar-config, tabs, link-icon-color, active));
+
+					.svg {
+						transition: $nav-btn-transition;
+					}
+				}
+			}
+		}
+	}
+
+	// Border
+	.sidebar-border-dashed {
+		border: 1px dashed get($sidebar-config, dashed-border-color);
+	}
+
+	// Border
+	.sidebar-text-muted {
+		color: get($sidebar-config, muted-color);
+	}
+
+	.sidebar-bg-muted {
+		background-color: get($sidebar-config, muted-bg-color);
+	}
+}
+
+// Desktop mode
+@include media-breakpoint-up(xxl) {
+	.sidebar {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		z-index: get($sidebar-config, z-index);
+		width: get($sidebar-config, width);		
+		overflow: hidden;
+	}
+}
+
+// Below Xxl
+@include media-breakpoint-down(xxl) {
+	.sidebar {
+		display: none;
+	}
+}
+
+// Tablet and mobile modes
+@include media-breakpoint-down(lg) {
+	.sidebar {
+		display: none;
+
+		// Navs
+		.sidebar-nav {
+			$nav-btn-height: 65px;
+			$nav-btn-width: 50px;
+			$nav-btn-height-sm: 45px;
+			$nav-btn-width-sm: 40px;
+
+			.nav-item {
+				height: $nav-btn-height;
+				width: $nav-btn-width;
+			}
+
+			.nav-link {
+				height: $nav-btn-height-sm;
+				width: $nav-btn-width-sm;
+
+				.svg-icon {
+					@include svg-icon-size(1.75rem, true);
+				}
+
+				&.active {
+					height: $nav-btn-height;
+					width: $nav-btn-width;
+					.svg-icon {					
+						@include svg-icon-size(2.25rem, true);
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+//
+// Content
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.content {
+		padding: 0 0 get($content-spacing, desktop) 0;	
+		margin-top: -(get($header-config, general, offset));
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.content {
+		padding: get($content-spacing, tablet-and-mobile) 0;
+	}
+}

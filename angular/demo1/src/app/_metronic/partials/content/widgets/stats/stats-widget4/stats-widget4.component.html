@@ -1,0 +1,44 @@
+<div class="card-body p-0">
+  <div class="d-flex flex-stack card-p flex-grow-1">
+    <span
+      class="symbol symbol-50px"
+      [ngClass]="'symbol-light-' + color + ' me-2'"
+    >
+      <span class="symbol-label">
+        <span
+          [inlineSVG]="svgIcon"
+          class="svg-icon svg-icon-2x"
+          [ngClass]="'svg-icon-' + color"
+        ></span>
+      </span>
+    </span>
+
+    <div class="d-flex flex-column text-end">
+      <span class="text-dark fw-bolder fs-2">{{ change }}</span>
+
+      <span class="text-muted fw-bold mt-1">{{ description }}</span>
+    </div>
+  </div>
+
+  <div
+    #chartRef
+    class="statistics-widget-3-chart card-rounded-bottom"
+    [style.height]="'150px'"
+  >
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis"
+      [dataLabels]="chartOptions.dataLabels"
+      [stroke]="chartOptions.stroke"
+      [legend]="chartOptions.legend"
+      [fill]="chartOptions.fill"
+      [states]="chartOptions.states"
+      [tooltip]="chartOptions.tooltip"
+      [colors]="chartOptions.colors"
+      [markers]="chartOptions.markers"
+      [plotOptions]="chartOptions.plotOptions"
+    ></apx-chart>
+  </div>
+</div>

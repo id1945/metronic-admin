@@ -1,0 +1,37 @@
+<ng-container *ngIf="title$ | async as title">
+  <ng-container *ngIf="showTitle">
+    <!-- begin::Title -->
+    <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">
+      {{ title }}
+    </h1>
+    <!-- end::Title -->
+  </ng-container>
+
+  <ng-container *ngIf="showBC">
+    <ng-container *ngIf="bc$ | async as _bc">
+      <ng-container *ngIf="_bc.length > 0">
+        <ng-container *ngIf="pageTitleDirection === 'row'">
+          <span class="h-20px border-gray-200 border-start mx-4"></span>
+        </ng-container>
+        <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
+          <li
+            *ngFor="let bc of _bc"
+            class="breadcrumb-item"
+            [ngClass]="!bc.isSeparator && bc.isActive ? 'text-dark' : ''"
+            [ngClass]="!bc.isSeparator && !bc.isActive ? 'text-muted' : ''"
+          >
+            <ng-container *ngIf="!bc.isSeparator">
+              <a class="text-muted text-hover-primary" [routerLink]="bc.path">
+                {{ bc.title }}
+              </a>
+            </ng-container>
+            <ng-container *ngIf="bc.isSeparator">
+              <span class="bullet bg-gray-200 w-5px h-2px"></span>
+            </ng-container>
+          </li>
+          <li class="breadcrumb-item text-dark">{{ title }}</li>
+        </ul>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-container>

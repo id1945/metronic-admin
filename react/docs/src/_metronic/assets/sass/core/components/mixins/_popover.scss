@@ -1,0 +1,82 @@
+//
+// Popover Mixin
+//
+
+@mixin popover-theme(
+  $bg-color,
+  $border-color,
+  $header-bg-color,
+  $header-color,
+  $body-color,
+  $arrow-outer-color,
+  $arrow-color
+) {
+  background-color: $bg-color;
+  border: 0;
+
+  // Header
+  .popover-header {
+    background-color: $header-bg-color;
+    color: $header-color;
+    border-bottom-color: $border-color;
+  }
+
+  // Body
+  .popover-body {
+    color: $body-color;
+  }
+
+  // Arrows
+  &.bs-popover-top {
+    > .popover-arrow {
+      &::before {
+        border-top-color: $arrow-outer-color;
+      }
+
+      &::after {
+        border-top-color: $arrow-color;
+      }
+    }
+  }
+
+  &.bs-popover-end {
+    > .popover-arrow {
+      &::before {
+        border-right-color: $arrow-outer-color;
+      }
+
+      &::after {
+        border-right-color: $arrow-color;
+      }
+    }
+  }
+
+  &.bs-popover-bottom {
+    > .popover-arrow {
+      &::before {
+        border-bottom-color: $arrow-outer-color;
+      }
+
+      &::after {
+        border-bottom-color: $arrow-color;
+      }
+    }
+
+    // This will remove the popover-header's border just below the arrow
+    .popover-header::before {
+      border-bottom-color: $header-bg-color;
+    }
+  }
+
+  &.bs-popover-start {
+    > .popover-arrow {
+      &::before {
+        border-left-color: $arrow-outer-color;
+      }
+
+      &::after {
+        border-left-color: $arrow-color;
+      }
+    }
+  }
+}

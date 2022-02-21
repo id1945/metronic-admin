@@ -1,0 +1,49 @@
+//
+// Menu
+//
+
+// Aside menu
+.aside-menu {
+    .menu {
+        // Link padding x
+        @include menu-link-padding-x(get($aside-config, menu-padding-x));
+
+        // Menu indention
+        @include menu-link-indention(get($aside-config, menu-indention), get($aside-config, menu-padding-x));
+
+        // Item
+        .menu-item {
+			@include menu-link-default-state( $title-color: #B6B9C8, $icon-color: #4A4B68, $bullet-color: #4A4B68, $arrow-color: #4A4B68, $bg-color: null, $all-links: true);
+			@include menu-link-hover-state( $title-color: $white, $icon-color: $white, $bullet-color: $white, $arrow-color: $white, $bg-color: transparent, $all-links: true);
+			@include menu-link-show-state( $title-color: $white, $icon-color: $white, $bullet-color: $white, $arrow-color: $white, $bg-color: transparent, $all-links: true);
+			@include menu-link-active-state( $title-color: $white, $icon-color: $white, $bullet-color: $white, $arrow-color: $white, $bg-color: $primary, $all-links: true);
+		}
+
+        // Separator
+		.separator {
+			border-bottom: 1px dashed #2D2D43;
+		}
+
+        // Item
+        > .menu-item {
+            padding: 0 0.6rem;               
+        }   
+    }
+
+    // Item
+    .menu-item {
+        padding: 0;                
+
+        // Menu Link
+        .menu-link {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-radius: $border-radius;
+        }
+
+        // Icon
+        .menu-icon {
+            justify-content: flex-start;
+        }
+    }          
+}

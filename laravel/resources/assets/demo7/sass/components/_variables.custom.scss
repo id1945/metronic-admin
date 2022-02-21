@@ -1,0 +1,44 @@
+//
+// To make future updates easier consider overriding the global variables from _variables.bootstrap.scss and _variables.custom.scss for current demo in this file.
+// Note that this file is included first and variables defined in _variables.bootstrap.scss and _variables.custom.scss
+// are not accessible in this file but you can override any global variable as shown below:
+//
+
+// Theme colors
+// Primary
+$primary:       									if(isDarkMode(), #0BB783, #04C8C8);
+$primary-active:    								if(isDarkMode(), #04AA77, #00AFAF);
+$primary-light:    									if(isDarkMode(), #1C3238, #DCFDFD);
+$primary-inverse:  									#FFFFFF;
+
+// Success
+$success:       									if(isDarkMode(), #3699FF, #009EF7);
+$success-active:    								if(isDarkMode(), #187DE4, #0095E8);
+$success-light:    								    if(isDarkMode(), #212E48, #F1FAFF);
+$success-inverse:  									#FFFFFF;
+
+// Info
+$info:       									    if(isDarkMode(), #8950FC, #7239EA);
+$info-active:    									if(isDarkMode(), #7337EE, #5014D0);
+$info-light:    									if(isDarkMode(), #2F264F, #F8F5FF);
+$info-inverse:  									#FFFFFF;
+
+// Danger
+$danger:       									    if(isDarkMode(), #F64E60, #F1416C);
+$danger-active:    									if(isDarkMode(), #EE2D41, #D9214E);
+$danger-light:    									if(isDarkMode(), #3A2434, #FFF5F8);
+$danger-inverse:  									#FFFFFF;
+
+// Warning
+$warning:       									if(isDarkMode(), #FFA800, #FFC700);
+$warning-active:    								if(isDarkMode(), #EE9D01, #F1BC00);
+$warning-light:    									if(isDarkMode(), #392F28, #FFF8DD);
+$warning-inverse:  									#FFFFFF;
+
+// Card Box Shadow                                  
+$card-box-shadow:                                   if(isDarkMode(), none, 0px 10px 35px 0px rgba(56,71,109,0.075));
+$card-border-radius:                                0.85rem;
+
+// Font family
+$font-family-sans-serif:                            'Roboto', sans-serif;
+

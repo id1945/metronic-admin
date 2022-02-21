@@ -1,0 +1,1 @@
+export default function t(t){let e=t;if(/^SK[1-9][0-9][(2-4)|(6-9)][0-9]{7}$/.test(e)){e=e.substr(2)}if(!/^[1-9][0-9][(2-4)|(6-9)][0-9]{7}$/.test(e)){return{meta:{},valid:false}}return{meta:{},valid:parseInt(e,10)%11===0}}

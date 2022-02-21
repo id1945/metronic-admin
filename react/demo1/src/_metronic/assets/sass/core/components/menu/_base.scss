@@ -1,0 +1,288 @@
+//
+// Menu Base
+//
+
+// Menu group
+.menu-group {
+  display: flex;
+}
+
+// Menu & wrapper
+.menu,
+.menu-wrapper {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+// Sub menu
+.menu-sub {
+  display: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-direction: column;
+}
+
+// Menu item
+.menu-item {
+  display: block;
+  padding: 0;
+
+  // Menu Link
+  .menu-link {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex: 0 0 100%;
+    padding: get($menu, link, self, padding-y) get($menu, link, self, padding-x);
+    transition: none;
+    outline: none !important;
+
+    // Menu Icon
+    .menu-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: get($menu, link, icon, width);
+      margin-right: get($menu, link, icon, space);
+
+      .svg-icon {
+        line-height: 1;
+      }
+    }
+
+    // Menu Icon
+    .menu-bullet {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: get($menu, link, bullet, width);
+      margin-right: get($menu, link, bullet, space);
+    }
+
+    // Menu Label
+    .menu-title {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    // Menu Label
+    .menu-badge {
+      flex-shrink: 0;
+      margin-left: get($menu, link, badge, space);
+    }
+
+    // Menu Arrow
+    .menu-arrow {
+      display: flex;
+      align-items: stretch;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-left: get($menu, link, arrow, space);
+      width: get($menu, link, arrow, width);
+      height: get($menu, link, arrow, height);
+
+      &:after {
+        display: block;
+        width: 100%;
+        content: ' ';
+        @include svg-bg-icon(arrow-start, $text-muted);
+        /*rtl:begin:remove*/
+        @include svg-bg-icon(arrow-end, $text-muted);
+        /*rtl:end:remove*/
+      }
+    }
+  }
+
+  // Menu Content
+  .menu-content {
+    padding: get($menu, link, self, padding-y) get($menu, link, self, padding-x);
+  }
+}
+
+// Accordion arrows
+.menu-item {
+  &.show {
+    .menu-link {
+      .menu-arrow:after {
+        -webkit-backface-visibility: hidden;
+        transition: get($menu, accordion, arrow-transition);
+      }
+    }
+  }
+}
+
+// Center alignment
+.menu-center {
+  justify-content: center;
+}
+
+// Responsive
+@each $direction in (up, down) {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @if $infix and $direction == down {
+      $infix: $infix + '-' + $direction;
+    }
+
+    @include media-breakpoint-direction($direction, $breakpoint) {
+      // Accordion arrow
+      .menu-item.menu#{$infix}-accordion {
+        &.showing:not(.menu-dropdown),
+        &.show:not(.hiding):not(.menu-dropdown) {
+          > .menu-link {
+            .menu-arrow:after {
+              @include menu-link-arrow-rotate(90deg, -90deg);
+            }
+          }
+        }
+      }
+
+      // Sub dropdown
+      .menu-sub#{$infix}-dropdown {
+        display: none;
+        border-radius: get($menu, dropdown, border-radius);
+        background-color: get($menu, dropdown, background-color);
+        box-shadow: get($menu, dropdown, box-shadow);
+        z-index: get($menu, dropdown, z-index);
+
+        // Dropdown show
+        .show.menu-dropdown > &,
+        &.menu.show,
+        &.show[data-popper-placement] {
+          display: flex;
+
+          // Animation
+          @if (get($menu, dropdown, animation) == true) {
+            // Move up
+            animation: menu-sub-dropdown-animation-fade-in
+                #{get($menu, dropdown, animation-speed)}
+                ease
+                1,
+              menu-sub-dropdown-animation-move-up #{get($menu, dropdown, animation-speed)} ease 1;
+
+            // Move down
+            &[data-popper-placement='top'],
+            &[data-popper-placement='top-start'],
+            &[data-popper-placement='top-end'] {
+              animation: menu-sub-dropdown-animation-fade-in
+                  #{get($menu, dropdown, animation-speed)}
+                  ease
+                  1,
+                menu-sub-dropdown-animation-move-down
+                  #{get($menu, dropdown, animation-speed)}
+                  ease
+                  1;
+            }
+          }
+        }
+      }
+
+      // Sub accordion
+      .menu-sub#{$infix}-accordion {
+        display: none;
+
+        .show:not(.menu-dropdown) > &,
+        &.show {
+          display: flex;
+        }
+      }
+
+      // Inline
+      .menu#{$infix}-inline {
+        display: flex;
+      }
+
+      // Reset link left & right paddings of level 1 menu links
+      .menu#{$infix}-fit {
+        > .menu-item {
+          > .menu-content,
+          > .menu-link {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+        }
+      }
+
+      .menu#{$infix}-column {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .menu#{$infix}-row {
+        flex-direction: row;
+
+        > .menu-item {
+          display: flex;
+          align-items: center;
+
+          > .menu-link {
+            .menu-arrow:after {
+              @include menu-link-arrow-rotate(90deg, -90deg);
+            }
+          }
+        }
+      }
+
+      // Border radiuses
+      .menu#{$infix}-rounded {
+        .menu-link {
+          @include border-radius($border-radius);
+        }
+      }
+
+      // Border radiuses
+      .menu#{$infix}-pill {
+        .menu-link {
+          border-radius: 50px;
+        }
+      }
+
+      // Reset border radiuses
+      .menu#{$infix}-rounded-0 {
+        .menu-link {
+          border-radius: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+// Menu indention
+@include menu-link-indention(get($menu, accordion, indention), get($menu, link, self, padding-x));
+
+// Menu animations
+@keyframes menu-sub-dropdown-animation-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menu-sub-dropdown-animation-move-up {
+  from {
+    margin-top: #{get($menu, dropdown, animation-move-offset)};
+  }
+  to {
+    margin-top: 0;
+  }
+}
+
+@keyframes menu-sub-dropdown-animation-move-down {
+  from {
+    margin-bottom: #{get($menu, dropdown, animation-move-offset)};
+  }
+  to {
+    margin-bottom: 0;
+  }
+}

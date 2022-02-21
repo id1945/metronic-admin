@@ -1,0 +1,91 @@
+//
+// Prismjs
+//
+
+$base-color: if(isDarkMode(), #1b1b29, #1e1e3f);
+$scrollbar-color: if(isDarkMode(), lighten(#1b1b29, 6%), lighten(#1e1e3f, 12%));
+$btn-bg: lighten($base-color, 9%);
+$btn-hover-bg: lighten($base-color, 12%);
+$btn-color: rgba($white, 0.75);
+$btn-hover-color: $primary;
+
+// highlight
+.highlight {
+    position: relative;
+    background: $base-color;
+    border-radius: $border-radius;
+    padding: 1.75rem 1.5rem 1.75rem 1.5rem;
+
+    // Tabs
+    .nav {
+        border-bottom: 1px solid rgba(#ffffff, 0.1);
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        margin-top: -0.25rem;
+
+        .nav-item {
+            margin-right: 0.75rem;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.35rem 1rem;
+            border-radius: $border-radius;
+            color: $btn-color;
+            transition: $transition-base;
+            background-color: transparent;
+
+            &:focus,
+            &.active {
+                transition: $transition-base;
+                background-color: $btn-bg;
+                color: $btn-color;
+            }
+        }
+    }
+
+    .highlight-copy {
+        display: none;
+        position: absolute;
+        right: 1.75rem;
+        top: 1.5rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 0.35rem 1rem !important;
+        transition: $transition-base;
+        background-color: $btn-bg;
+        color: $btn-color;
+
+        &:focus,
+        &:hover {
+            transition: $transition-base;
+            background-color: $btn-hover-bg;
+            color: $btn-hover-color;
+        }
+    }
+
+    &:hover {
+        .highlight-copy {
+            display: flex;
+        }
+    }
+
+    // Code
+    .highlight-code {
+        pre {
+            background-color: transparent;
+            overflow: auto;
+            padding: 0;
+            margin: 0;
+
+            @include scrollbar-color($scrollbar-color);
+
+            code[class*="language-"] {
+                padding: 0;
+                margin: 0;
+                font-size: 1rem !important;
+            }
+        }
+    }
+}

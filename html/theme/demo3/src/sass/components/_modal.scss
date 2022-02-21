@@ -1,0 +1,71 @@
+//
+// Modal
+//
+
+// Base
+.modal {
+    // Mobile header
+    .modal-header {
+        align-items: center;
+        justify-content: space-between;
+
+        // Headings
+        h1,h2,h3,h4,h5,h6 {
+            margin-bottom: 0;
+        }
+    }
+
+    // Mobile dialog
+    .modal-dialog {
+        outline: none !important;
+    }
+}
+
+// Sticky
+.modal.modal-sticky {
+    &.modal-sticky-bottom-end {
+        $sticky-width: 500px;
+        $sticky-width-lg: 600px;
+
+        padding: 0 !important;
+        max-width: $sticky-width;
+        height: auto;
+        position: fixed;
+        left: auto;
+        top: auto;
+        bottom: 25px;
+        right: 25px;
+        margin: 0;
+        box-shadow: 0px 0px 60px -15px rgba(0, 0, 0, 0.2);
+        @include border-radius($border-radius);
+
+        .modal-dialog {
+            position: static;
+            max-width: $sticky-width;
+            width: auto;
+            margin: 0;
+            @include border-radius($border-radius);
+
+            .modal-content {
+                border: 0;
+                @include border-radius($border-radius);
+            }
+        }
+
+        &.modal-sticky-lg {
+            max-width: $sticky-width-lg;
+
+            .modal-dialog {
+                max-width: $sticky-width-lg;
+            }
+        }
+
+        // Tablet & Mobile Modess
+        @include media-breakpoint-down(md) {
+            bottom: 10px;
+            right: 10px;
+            left: 10px;
+            width: auto;
+        }
+    }
+}

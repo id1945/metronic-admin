@@ -1,0 +1,534 @@
+<div class="card mb-10">
+  <div class="card-body d-flex align-items-center py-8">
+    <!-- begin::Icon -->
+    <div
+      class="d-flex h-80px w-80px flex-shrink-0 flex-center position-relative"
+    >
+      <span
+        class="svg-icon svg-icon-primary position-absolute opacity-15"
+        [inlineSVG]="'./assets/media/icons/duotune/abstract/abs051.svg'"
+        [setSVGAttributes]="{ class: 'h-80px w-80px' }"
+      ></span>
+      <span
+        [inlineSVG]="'./assets/media/icons/duotune/coding/cod009.svg'"
+        class="svg-icon svg-icon-3x svg-icon-primary position-absolute"
+      ></span>
+    </div>
+    <!-- end::Icon  -->
+
+    <!-- begin::Description  -->
+    <div class="ms-6">
+      <p class="list-unstyled text-gray-600 fw-bold fs-6 p-0 m-0">
+        The layout builder is to assist your set and configure your preferred
+        project layout specifications and preview it in real-time and export the
+        HTML template with its includable partials of this demo. The downloaded
+        version does not include the assets folder since the layout builder's
+        main purpose is to help to generate the final HTML code without hassle.
+        Layout builder changes don't affect pages with layout wrappers.
+      </p>
+    </div>
+    <!-- end::Description  -->
+  </div>
+</div>
+
+<div class="card card-custom">
+  <!-- begin::Header -->
+  <div class="card-header card-header-stretch overflow-auto">
+    <ul
+      class="
+        nav nav-stretch nav-line-tabs
+        fw-bold
+        border-transparent
+        flex-nowrap
+      "
+      role="tablist"
+    >
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          [ngClass]="{ active: activeTab === 'Header' }"
+          (click)="setActiveTab('Header')"
+          role="tab"
+        >
+          Header
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          [ngClass]="{ active: activeTab === 'Toolbar' }"
+          (click)="setActiveTab('Toolbar')"
+          role="tab"
+        >
+          Toolbar
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          [ngClass]="{ active: activeTab === 'PageTitle' }"
+          (click)="setActiveTab('PageTitle')"
+          role="tab"
+        >
+          Page Title
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          [ngClass]="{ active: activeTab === 'Aside' }"
+          (click)="setActiveTab('Aside')"
+          role="tab"
+        >
+          Aside
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          [ngClass]="{ active: activeTab === 'Content' }"
+          (click)="setActiveTab('Content')"
+          role="tab"
+        >
+          Content
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link cursor-pointer"
+          [ngClass]="{ active: activeTab === 'Footer' }"
+          (click)="setActiveTab('Footer')"
+          role="tab"
+        >
+          Footer
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- end::Header -->
+  <!-- begin::Form -->
+  <form class="form" novalidate #form="ngForm" (ngSubmit)="submitPreview()">
+    <!-- begin::Body -->
+    <div class="card-body">
+      <div class="tab-content pt-3">
+        <!-- begin::Header -->
+        <div class="tab-pane" [ngClass]="{ active: activeTab === 'Header' }">
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end"
+              >Fixed Header:</label
+            >
+            <div class="col-lg-9 col-xl-4">
+              <label
+                class="
+                  form-check form-check-custom form-check-solid form-switch
+                  mb-5
+                "
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="model.header.fixed.desktop"
+                  [(ngModel)]="model.header.fixed.desktop"
+                />
+                <span class="form-check-label text-muted">Desktop</span>
+              </label>
+              <label
+                class="
+                  form-check form-check-custom form-check-solid form-switch
+                  mb-3
+                "
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="model.header.fixed.tabletAndMobile"
+                  [(ngModel)]="model.header.fixed.tabletAndMobile"
+                />
+                <span class="form-check-label text-muted">Tablet & Mobile</span>
+              </label>
+              <div class="form-text text-muted">Enable fixed header</div>
+            </div>
+          </div>
+
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end"
+              >Left Content:</label
+            >
+            <div class="col-lg-9 col-xl-4">
+              <select
+                class="form-select form-select-solid"
+                name="model.header.left"
+                [(ngModel)]="model.header.left"
+              >
+                <option value="menu">Menu</option>
+                <option value="page-title">Page title</option>
+              </select>
+              <div class="form-text text-muted">
+                Select header left content type.
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Width:</label>
+            <div class="col-lg-9 col-xl-4">
+              <select
+                class="form-select form-select-solid"
+                name="model.header.width"
+                [(ngModel)]="model.header.width"
+              >
+                <option value="fluid">Fluid</option>
+                <option value="fixed">Fixed</option>
+              </select>
+              <div class="form-text text-muted">Select header width type.</div>
+            </div>
+          </div>
+        </div>
+        <!-- end::Header -->
+        <!-- begin::Header -->
+        <div class="tab-pane" [ngClass]="{ active: activeTab === 'Toolbar' }">
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Display:</label>
+            <div class="col-lg-9 col-xl-4">
+              <div
+                class="
+                  form-check form-check-custom form-check-solid form-switch
+                  mb-2
+                "
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="model.toolbar.display"
+                  [(ngModel)]="model.toolbar.display"
+                />
+              </div>
+              <div class="form-text text-muted">Display toolbar</div>
+            </div>
+          </div>
+
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end"
+              >Fixed Toolbar:</label
+            >
+            <div class="col-lg-9 col-xl-4">
+              <label
+                class="
+                  form-check form-check-custom form-check-solid form-switch
+                  mb-5
+                "
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="model.toolbar.fixed.desktop"
+                  [(ngModel)]="model.toolbar.fixed.desktop"
+                />
+                <span class="form-check-label text-muted">Desktop</span>
+              </label>
+
+              <label
+                class="
+                  form-check form-check-custom form-check-solid form-switch
+                  mb-3
+                "
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="model.toolbar.fixed.tabletAndMobileMode"
+                  [(ngModel)]="model.toolbar.fixed.tabletAndMobileMode"
+                />
+                <span class="form-check-label text-muted">Tablet & Mobile</span>
+              </label>
+              <div class="form-text text-muted">Enable fixed toolbar</div>
+            </div>
+          </div>
+
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Width:</label>
+            <div class="col-lg-9 col-xl-4">
+              <select
+                class="form-select form-select-solid"
+                name="model.toolbar.width"
+                [(ngModel)]="model.toolbar.width"
+              >
+                <option value="fluid">Fluid</option>
+                <option value="fixed">Fixed</option>
+              </select>
+              <div class="form-text text-muted">Select layout width type.</div>
+            </div>
+          </div>
+        </div>
+        <!-- end::Toolbar -->
+
+        <!-- begin::Page Title -->
+        <div class="tab-pane" [ngClass]="{ active: activeTab === 'PageTitle' }">
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Display:</label>
+            <div class="col-lg-9 col-xl-4">
+              <div
+                class="
+                  form-check form-check-custom form-check-solid form-switch
+                  mb-2
+                "
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="model.pageTitle.display"
+                  [(ngModel)]="model.pageTitle.display"
+                />
+              </div>
+              <div class="form-text text-muted">Display page title</div>
+            </div>
+          </div>
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end"
+              >Breadcrumb:</label
+            >
+            <div class="col-lg-9 col-xl-4">
+              <div
+                class="
+                  form-check form-check-custom form-check-solid form-switch
+                  mb-2
+                "
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="model.pageTitle.breadCrumbs"
+                  [(ngModel)]="model.pageTitle.breadCrumbs"
+                />
+              </div>
+              <div class="form-text text-muted">Display page title</div>
+            </div>
+          </div>
+        </div>
+        <!-- end::Page Title -->
+
+        <!-- begin::Content -->
+        <div class="tab-pane" [ngClass]="{ active: activeTab === 'Content' }">
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Width:</label>
+            <div class="col-lg-9 col-xl-4">
+              <select
+                class="form-select form-select-solid"
+                name="model.content.width"
+                [(ngModel)]="model.content.width"
+              >
+                <option value="fluid">Fluid</option>
+                <option value="fixed">Fixed</option>
+              </select>
+              <div class="form-text text-muted">Select layout width type.</div>
+            </div>
+          </div>
+        </div>
+        <!-- end::Content -->
+
+        <!-- begin::Aside -->
+        <div class="tab-pane" [ngClass]="{ active: activeTab === 'Aside' }">
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Display:</label>
+            <div class="col-lg-9 col-xl-4">
+              <div class="switch switch-icon">
+                <div
+                  class="
+                    form-check form-check-custom form-check-solid form-switch
+                    mb-2
+                  "
+                >
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="model.aside.display"
+                    [(ngModel)]="model.aside.display"
+                  />
+                </div>
+              </div>
+              <div class="form-text text-muted">Display Aside</div>
+            </div>
+          </div>
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Theme:</label>
+            <div class="col-lg-9 col-xl-4">
+              <select
+                class="form-select form-select-solid"
+                name="model.aside.theme"
+                [(ngModel)]="model.aside.theme"
+              >
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+              </select>
+              <div class="form-text text-muted">
+                Select header left content type.
+              </div>
+            </div>
+          </div>
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Fixed:</label>
+            <div class="col-lg-9 col-xl-4">
+              <div class="switch switch-icon">
+                <div
+                  class="
+                    form-check form-check-custom form-check-solid form-switch
+                    mb-2
+                  "
+                >
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="model.aside.fixed"
+                    [(ngModel)]="model.aside.fixed"
+                  />
+                </div>
+              </div>
+              <div class="form-text text-muted">Enable fixed aside</div>
+            </div>
+          </div>
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Minimize:</label>
+            <div class="col-lg-9 col-xl-4">
+              <div class="switch switch-icon">
+                <div
+                  class="
+                    form-check form-check-custom form-check-solid form-switch
+                    mb-2
+                  "
+                >
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="model.aside.minimize"
+                    [(ngModel)]="model.aside.minimize"
+                  />
+                </div>
+              </div>
+              <div class="form-text text-muted">Enable aside minimization</div>
+            </div>
+          </div>
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end"
+              >Minimized:</label
+            >
+            <div class="col-lg-9 col-xl-4">
+              <div class="switch switch-icon">
+                <div
+                  class="
+                    form-check form-check-custom form-check-solid form-switch
+                    mb-2
+                  "
+                >
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="model.aside.minimized"
+                    [(ngModel)]="model.aside.minimized"
+                  />
+                </div>
+              </div>
+              <div class="form-text text-muted">Default minimized aside</div>
+            </div>
+          </div>
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end"
+              >Hoverable:</label
+            >
+            <div class="col-lg-9 col-xl-4">
+              <div class="switch switch-icon">
+                <div
+                  class="
+                    form-check form-check-custom form-check-solid form-switch
+                    mb-2
+                  "
+                >
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="model.aside.hoverable"
+                    [(ngModel)]="model.aside.hoverable"
+                  />
+                </div>
+              </div>
+              <div class="form-text text-muted">
+                Enable hoverable minimized aside
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end::Aside -->
+        <!-- begin::Footer -->
+        <div class="tab-pane" [ngClass]="{ active: activeTab === 'Footer' }">
+          <div class="row mb-10">
+            <label class="col-lg-3 col-form-label text-lg-end">Width:</label>
+            <div class="col-lg-9 col-xl-4">
+              <select
+                class="form-select form-select-solid"
+                name="model.footer.width"
+                [(ngModel)]="model.footer.width"
+              >
+                <option value="fluid">Fluid</option>
+                <option value="fixed">Fixed</option>
+              </select>
+              <div class="form-text text-muted">Select layout width type.</div>
+            </div>
+          </div>
+        </div>
+        <!-- end::Footer -->
+      </div>
+    </div>
+    <!-- end::Body -->
+
+    <!-- begin::Footer -->
+    <div class="card-footer py-6">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-9">
+          <button
+            type="button"
+            (click)="submitPreview()"
+            class="btn btn-primary me-2"
+            [disabled]="configLoading || resetLoading"
+          >
+            <ng-container *ngIf="!configLoading">
+              <span class="indicator-label">Preview</span>
+            </ng-container>
+
+            <ng-container *ngIf="configLoading">
+              <span class="indicator-progress" [style.display]="'block'">
+                Please wait...{{ " " }}
+                <span
+                  class="spinner-border spinner-border-sm align-middle ms-2"
+                ></span>
+              </span>
+            </ng-container>
+          </button>
+
+          <button
+            type="button"
+            id="kt_layout_builder_reset"
+            class="btn btn-active-light btn-color-muted"
+            (click)="resetPreview()"
+            [disabled]="configLoading || resetLoading"
+          >
+            <ng-container *ngIf="!resetLoading">
+              <span class="indicator-label">Reset</span>
+            </ng-container>
+
+            <ng-container *ngIf="resetLoading">
+              <span class="indicator-progress" [style.display]="'block'">
+                Please wait...{{ " " }}
+                <span
+                  class="spinner-border spinner-border-sm align-middle ms-2"
+                ></span>
+              </span>
+            </ng-container>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- end::Footer -->
+  </form>
+  <!-- end::Form -->
+</div>

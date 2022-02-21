@@ -1,0 +1,28 @@
+//
+// Item Hover Custom
+//
+
+.item-border-hover {
+  border: 1px solid #fff;
+  border-radius: 6px;
+
+  &:hover {
+    border: 1px solid #eff2f5;
+    cursor: pointer;
+    transition: $transition-link;
+    background-color: rgba(245, 248, 250, 0.3);
+
+    .label {
+      background-color: #00a3ff !important;
+      transition: $transition-link;
+      color: #fff;
+    }
+  }
+
+  .label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+  }
+}

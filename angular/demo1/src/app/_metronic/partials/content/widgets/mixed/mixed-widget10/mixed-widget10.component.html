@@ -1,0 +1,39 @@
+<div class="card-body d-flex flex-column p-0">
+  <div class="flex-grow-1 card-p pb-0">
+    <div class="d-flex flex-stack flex-wrap">
+      <div class="me-2">
+        <a href="#" class="text-dark text-hover-primary fw-bolder fs-3">
+          Generate Reports
+        </a>
+
+        <div class="text-muted fs-7 fw-bold">
+          Finance and accounting reports
+        </div>
+      </div>
+
+      <div class="fw-bolder fs-3" [ngClass]="'text-' + chartColor">$24,500</div>
+    </div>
+  </div>
+
+  <div
+    #chartRef
+    class="mixed-widget-7-chart card-rounded-bottom"
+    [style.height]="chartHeight"
+  >
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis"
+      [dataLabels]="chartOptions.dataLabels"
+      [stroke]="chartOptions.stroke"
+      [legend]="chartOptions.legend"
+      [fill]="chartOptions.fill"
+      [states]="chartOptions.states"
+      [tooltip]="chartOptions.tooltip"
+      [colors]="chartOptions.colors"
+      [markers]="chartOptions.markers"
+      [plotOptions]="chartOptions.plotOptions"
+    ></apx-chart>
+  </div>
+</div>

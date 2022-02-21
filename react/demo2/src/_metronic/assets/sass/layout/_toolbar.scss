@@ -1,0 +1,28 @@
+//
+// Toolbar
+//
+
+// General
+.toolbar {
+    display: flex;
+    align-items: center;
+
+    // Custom button
+    .btn.btn-custom  {       
+        background-color: rgba($white, 0.1);         
+    }
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+    .toolbar {
+        
+    }
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+    .toolbar {
+        
+    }
+}

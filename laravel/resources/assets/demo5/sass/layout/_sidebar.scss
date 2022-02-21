@@ -1,0 +1,25 @@
+//
+// Aside
+//
+
+// General mode(all devices)
+.sidebar {
+	display: flex;
+	flex-shrink: 0;
+	flex-direction: column;
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.sidebar {
+		width: get($sidebar-config, width);
+		margin-left: get($content-spacing, desktop);
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.sidebar {
+		display: none;
+	}
+}

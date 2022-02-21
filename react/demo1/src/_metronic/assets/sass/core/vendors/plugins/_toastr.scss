@@ -1,0 +1,90 @@
+//
+// Toastr
+//
+
+// Base
+.toast {
+  transition: $transition-base;
+  background-position: 1.5rem center #{'/*rtl:calc(100% - 1.5rem) center*/'} !important;
+  box-shadow: $dropdown-box-shadow !important;
+  border-radius: $dropdown-border-radius !important;
+  border: 0 !important;
+  background-color: $gray-100;
+  color: $gray-700;
+  opacity: 0.75 !important;
+  padding: 1.25rem 1.25rem 1.25rem 4.5rem !important;
+
+  &:hover {
+    transition: $transition-base;
+    opacity: 1 !important;
+  }
+
+  .toast-close-button {
+    outline: none !important;
+    font-size: 0;
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+
+  // Title
+  .toast-title {
+    font-size: 1.15rem;
+    font-weight: $font-weight-bold;
+
+    & + .toast-message {
+      margin-top: 0.25rem;
+    }
+  }
+
+  // Message
+  .toast-message {
+    font-size: 1rem;
+    font-weight: $font-weight-normal;
+  }
+
+  // States
+  &.toast-success {
+    background-color: $success;
+    color: $success-inverse;
+
+    .toast-close-button {
+      @include svg-bg-icon(close, $success-inverse);
+    }
+  }
+
+  &.toast-info {
+    background-color: $info;
+    color: $info-inverse;
+
+    .toast-close-button {
+      @include svg-bg-icon(close, $info-inverse);
+    }
+  }
+
+  &.toast-warning {
+    background-color: $warning;
+    color: $warning-inverse;
+
+    .toast-close-button {
+      @include svg-bg-icon(close, $warning-inverse);
+    }
+  }
+
+  &.toast-error {
+    background-color: $danger;
+    color: $danger-inverse;
+
+    .toast-close-button {
+      @include svg-bg-icon(close, $danger-inverse);
+    }
+  }
+}
+
+// Placements
+.toast-top-center {
+  top: 12px;
+}
+
+.toast-bottom-center {
+  bottom: 12px;
+}

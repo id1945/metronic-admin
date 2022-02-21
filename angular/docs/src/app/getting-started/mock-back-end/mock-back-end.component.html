@@ -1,0 +1,56 @@
+<div class="pb-10">
+  <h1 class="anchor fw-bolder mb-5" id="mock">
+    <a href="#mock"></a>Mock Back-end
+  </h1>
+  <div class="py-5">
+    <h4>Overview</h4>
+    <p>
+      Metronic Angular use a mock back-end for demo purpose. It's called
+      <code>in-memory web api</code> for Angular demos and tests that emulates
+      CRUD operations over a RESTy API.
+    </p>
+    <p>
+      It intercepts Angular <code>Http</code> and
+      <code>HttpClient</code> requests that would otherwise go to the remote
+      server and redirects them to an in-memory data store that you control.
+    </p>
+    <p>
+      For more info on the library:
+      <a href="https://github.com/angular/in-memory-web-api"
+        >https://github.com/angular/in-memory-web-api</a
+      >
+    </p>
+  </div>
+  <div class="py-5">
+    <h4>How switching to the Real REST API</h4>
+    <p>
+      You have to disable the mock back-end for the built Angular's
+      <code>Http</code> and <code>HttpClient</code> requests to work normally.
+      Check in the files <code>/src/app/_fake/</code> which contains all the
+      dummy data for the mock back-end.
+    </p>
+    <p>
+      When your Real back-end is done, follow the next two steps for switching
+      to the real REST API:
+    </p>
+    <ol>
+      <li>
+        <p>
+          Change the configuration line in your
+          <code>/src/environments/environment.ts</code> file:
+          <app-code-block language="typescript" [code]="code1"></app-code-block>
+        </p>
+      </li>
+      <li>
+        <p>
+          Switch paths to services in
+          <code>/src/app/modules/services/auth-http/index.ts</code> file:
+        </p>
+        <p>From:</p>
+        <app-code-block language="typescript" [code]="code2"></app-code-block>
+        <p>To:</p>
+        <app-code-block language="typescript" [code]="code3"></app-code-block>
+      </li>
+    </ol>
+  </div>
+</div>

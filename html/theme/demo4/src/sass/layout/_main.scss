@@ -1,0 +1,52 @@
+//
+// Main
+//
+
+
+body {
+	background-color: $page-bg;
+}
+
+// Font color from Content background color
+.text-page-bg {
+	color: $page-bg;
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Containers
+	.container,
+	.container-xxl,
+	.container-fluid {
+		padding: 0 get($content-spacing, desktop);
+	}
+
+	// Wrapper
+	.wrapper {
+		padding-left: get($aside-config, width, desktop);	
+
+		// Fixed header mode
+		.header-fixed & {
+			padding-top: get($header-config, default, height, desktop);
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	// Containers
+	.container,
+	.container-xxl,
+	.container-fluid {
+		max-width: none;
+		padding: 0 get($content-spacing, tablet-and-mobile);
+	}
+
+	// Wrapper
+	.wrapper {
+		// Fixed header mode
+		.header-tablet-and-mobile-fixed & {
+			padding-top: get($header-config, fixed, height, tablet-and-mobile);
+		}
+	}
+}

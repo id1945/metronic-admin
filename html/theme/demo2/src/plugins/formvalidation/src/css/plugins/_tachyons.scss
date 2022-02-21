@@ -1,0 +1,22 @@
+.fv-plugins-tachyons {
+    .fv-plugins-icon {
+        height: 36px;
+        line-height: 36px;
+        width: 36px;
+    }
+
+    .fv-plugins-icon-check {
+        top: -7px;
+    }
+
+    // Stacked form
+    &.fv-stacked-form {
+        .fv-plugins-icon {
+            top: 34px;
+        }
+
+        .fv-plugins-icon-check {
+            top: 24px;
+        }
+    }
+}

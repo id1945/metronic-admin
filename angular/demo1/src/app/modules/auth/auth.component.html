@@ -1,0 +1,36 @@
+<div
+  class="
+    d-flex
+    flex-column flex-column-fluid
+    bgi-position-y-bottom
+    position-x-center
+    bgi-no-repeat bgi-size-contain bgi-attachment-fixed
+  "
+  style="background-image: url('./assets/media/illustrations/sketchy-1/14.png')"
+>
+  <!--begin::Content-->
+  <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+    <a routerLink="/" class="mb-12"
+      ><img alt="Logo" src="./assets/media/logos/logo-1.svg" class="h-45px"
+    /></a>
+
+    <!--begin::Content body-->
+    <div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
+      <router-outlet></router-outlet>
+    </div>
+    <!--end::Content body-->
+  </div>
+  <!--end::Content-->
+
+  <!-- begin::Footer -->
+  <div class="d-flex flex-center flex-column-auto p-10">
+    <div class="d-flex align-items-center fw-bold fs-6">
+      <a class="text-muted text-hover-primary px-2 cursor-pointer">About</a
+      ><a class="text-muted text-hover-primary px-2 cursor-pointer">Contact</a
+      ><a class="text-muted text-hover-primary px-2 cursor-pointer"
+        >Contact Us</a
+      >
+    </div>
+  </div>
+  <!-- end::Footer -->
+</div>

@@ -1,0 +1,178 @@
+<div class="d-flex flex-wrap flex-stack mb-6">
+  <h3 class="fw-bolder my-2">
+    My Contacts
+    <span class="fs-6 text-gray-400 fw-bold ms-1">(59)</span>
+  </h3>
+
+  <div class="d-flex my-2">
+    <select
+      name="status"
+      data-control="select2"
+      data-hide-search="true"
+      class="form-select form-select-white form-select-sm w-125px"
+    >
+      <option value="Online" selected>Online</option>
+      <option value="Pending">Pending</option>
+      <option value="Declined">Declined</option>
+      <option value="Accepted">Accepted</option>
+    </select>
+  </div>
+</div>
+
+<div class="row g-6 g-xl-9">
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      avatar="./assets/media/avatars/150-1.jpg"
+      name="Emma Smith"
+      job="Art Director"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      color="danger"
+      name="Melody Macy"
+      job="Marketing Analytic"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+      [online]="true"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      avatar="./assets/media/avatars/150-2.jpg"
+      name="Max Smith"
+      job="Software Enginer"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      avatar="./assets/media/avatars/150-4.jpg"
+      name="Sean Bean"
+      job="Web Developer"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      avatar="./assets/media/avatars/150-15.jpg"
+      name="Brian Cox"
+      job="UI/UX Designer"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      color="warning"
+      name="Mikaela Collins"
+      job="Head Of Marketing"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+      [online]="true"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      avatar="./assets/media/avatars/150-8.jpg"
+      name="Francis Mitcham"
+      job="Software Arcitect"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      color="danger"
+      name="Olivia Wild"
+      job="System Admin"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+      [online]="true"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      color="primary"
+      name="Neil Owen"
+      job="Account Manager"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+      [online]="true"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      avatar="./assets/media/avatars/150-6.jpg"
+      name="Dan Wilson"
+      job="Web Desinger"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      color="danger"
+      name="Emma Bold"
+      job="Corporate Finance"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+      [online]="true"
+    ></app-card3>
+  </div>
+  <div class="col-md-6 col-xxl-4">
+    <app-card3
+      avatar="./assets/media/avatars/150-7.jpg"
+      name="Ana Crown"
+      job="Customer Relationship"
+      avgEarnings="$14,560"
+      totalEarnings="$236,400"
+    ></app-card3>
+  </div>
+</div>
+
+<div class="d-flex flex-stack flex-wrap pt-10">
+  <div class="fs-6 fw-bold text-gray-700">Showing 1 to 10 of 50 entries</div>
+
+  <ul class="pagination">
+    <li class="page-item previous">
+      <a class="page-link cursor-pointer">
+        <i class="previous"></i>
+      </a>
+    </li>
+
+    <li class="page-item active">
+      <a class="page-link cursor-pointer"> 1 </a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link cursor-pointer"> 2 </a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link cursor-pointer"> 3 </a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link cursor-pointer"> 4 </a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link cursor-pointer"> 5 </a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link cursor-pointer"> 6 </a>
+    </li>
+
+    <li class="page-item next">
+      <a class="page-link cursor-pointer">
+        <i class="next"></i>
+      </a>
+    </li>
+  </ul>
+</div>

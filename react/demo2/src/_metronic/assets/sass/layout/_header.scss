@@ -1,0 +1,144 @@
+//
+// Header
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+		position: relative;
+		z-index: 2;
+		height: get($header-config, desktop, default, height);
+		transition: left get($aside-config, transition-speed) ease;
+		border-bottom: get($header-config, desktop, default, border);
+
+		// Header Logo
+		.header-logo {
+			padding: 0;
+			display: flex;
+			align-items: center;		 
+
+			// Logos
+			.logo-default {
+				display: inline-block;
+			}
+
+			.logo-sticky {
+				display: none;
+			}
+		}		
+		
+		// Header menu
+		.header-menu {
+			display: flex;
+		}		
+
+		// Fixed header & sticky header modes
+		.header-fixed[data-kt-sticky-header="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, desktop, fixed, z-index);
+			background-color: get($header-config, desktop, fixed, bg-color);
+			box-shadow: get($header-config, desktop, fixed, box-shadow);
+			height: get($header-config, desktop, fixed, height);
+			border-bottom: get($header-config, desktop, fixed, border);
+			padding: 0;
+
+			// Header Logo
+			.header-logo {
+				// Logos
+				.logo-default {
+					display: none;
+				}
+
+				.logo-sticky {
+					display: inline-block;
+				}
+			}				
+		}
+
+		// Fixed header & NON sticky header modes
+		body:not([data-kt-sticky-header="on"]) & {
+			// Header menu
+			.header-menu {
+				.menu {
+					// Root links
+					& > .menu-item {
+						// Customize menu link default state       
+						@include menu-link-default-state( $title-color:#fff, $icon-color:#4A4B68, $bullet-color:#9899ac, $arrow-color:#494B69, $bg-color: null, $all-links: false);
+
+						// Customize menu link hover state       
+						@include menu-link-hover-state( $title-color:$white, $icon-color:$white, $bullet-color: $white, $arrow-color: $white, $bg-color: rgba($white, 0.1), $all-links: false);
+
+						// Customize menu link show state       
+						@include menu-link-show-state( $title-color:$white, $icon-color:$white, $bullet-color:$white, $arrow-color:$white, $bg-color: rgba($white, 0.1), $all-links: false);
+
+						// Customize menu link active state       
+						@include menu-link-active-state( $title-color: $white, $icon-color: $danger, $bullet-color: $danger, $arrow-color: $white, $bg-color: rgba($white, 0.1), $all-links: false);
+					}
+				}
+			}			
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+		height: get($header-config, tablet-and-mobile, default, height);
+		position: relative;
+		z-index: 3;
+		border-bottom: get($header-config, tablet-and-mobile, default, border);
+
+		// Header Logo
+		.header-logo {
+			// Logos
+			.logo-default {
+				display: inline-block;
+			}
+
+			.logo-sticky {
+				display: none;
+			}
+		}		
+
+		// Fixed header and header sticky modes
+		.header-tablet-and-mobile-fixed[data-kt-sticky-header="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, tablet-and-mobile, fixed, z-index);
+			height: get($header-config, tablet-and-mobile, fixed, height);
+			min-height: get($header-config, tablet-and-mobile, fixed, height);
+			background-color: get($header-config, tablet-and-mobile, fixed, bg-color);
+			box-shadow: get($header-config, tablet-and-mobile, fixed, box-shadow);
+			border-bottom: get($header-config, tablet-and-mobile, fixed, border);
+
+			// Header Logo
+			.header-logo {
+				// Logos
+				.logo-default {
+					display: none;
+				}
+
+				.logo-sticky {
+					display: inline-block;
+				}
+			}	
+		}		 	
+
+		// Header menu
+		.header-menu {
+			display: none;
+			z-index: get($header-config, tablet-and-mobile, fixed, z-index) - 1;
+		}
+	}
+}

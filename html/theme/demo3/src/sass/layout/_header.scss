@@ -1,0 +1,70 @@
+//
+// Header
+//
+
+// Above Xxl
+@include media-breakpoint-up(xxl) {
+	.header {
+		// Sidebar enabled and header sticky modes
+		.sidebar-enabled[data-kt-sticky-header="on"] & {
+			right: get($sidebar-config, width);
+		}
+	}
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		z-index: 2;
+		height: get($header-config, desktop, default, height);
+
+		// Fixed header & sticky header modes
+		.header-fixed[data-kt-sticky-header="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: get($aside-config, width) + get($content-spacing, desktop);
+			z-index: get($header-config, desktop, fixed, z-index);
+			background-color: get($header-config, desktop, fixed, bg-color);
+			box-shadow: get($header-config, desktop, fixed, box-shadow);
+			height: get($header-config, desktop, fixed, height);
+			padding: 0;
+			@include border-bottom-radius($border-radius);
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: get($header-config, tablet-and-mobile, default, height);
+		position: relative;
+		z-index: 3;
+
+		// Fixed header and header sticky modes
+		.header-tablet-and-mobile-fixed[data-kt-sticky-header="on"] & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, tablet-and-mobile, fixed, z-index);
+			height: get($header-config, tablet-and-mobile, fixed, height);
+			min-height: get($header-config, tablet-and-mobile, fixed, height);
+			background-color: get($header-config, tablet-and-mobile, fixed, bg-color);
+			box-shadow: get($header-config, tablet-and-mobile, fixed, box-shadow);
+			@include border-bottom-radius($border-radius);
+		}
+
+		// Page title
+		.page-title {
+			display: none !important;
+		}
+	}
+}

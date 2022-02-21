@@ -1,0 +1,65 @@
+//
+// Aside Default
+//
+
+// General mode(all devices)
+.aside {
+	display: flex;
+	flex-direction: column;
+	box-shadow: get($aside-config, box-shadow);
+	background-color: get($aside-config, bg-color);
+	padding: 0;	
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.aside {
+		width: get($aside-config, width, desktop);
+
+		// Logo
+		.aside-logo {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: get($aside-config, logo-bg-color);
+			height: get($aside-config, logo-height);
+			padding: 0 get($aside-config, padding-x);
+			flex-shrink: 0;
+		}
+
+		// Aside footer
+		.aside-footer {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		// Fixed aside mode
+		.aside-fixed & {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			z-index: get($aside-config, z-index);
+		}
+
+		// Static aside mode
+		.aside-static & {
+			position: relative;
+			z-index: 1;
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.aside {
+		display: none;
+		width: get($aside-config, width, tablet-and-mobile);
+
+		// Logo
+		.aside-logo {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+//
+// Theme style(coming soon)
+//
+
+// Mode
+$mode: dark;
+
+// Initialize
+@import 'init';
+
+// Components
+@import './core/components/components';
+@import 'components/components';
+
+// Layout
+@import 'layout/layout';
+@import './core/layout/docs/layout';

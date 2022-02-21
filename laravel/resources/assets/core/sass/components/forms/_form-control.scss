@@ -1,0 +1,75 @@
+//
+// Form Control
+//
+
+
+// Form control
+.form-control {
+	box-shadow: none !important;
+
+	// Dropdown shown state
+	.dropdown.show > & {
+		color: $input-focus-color;
+		background-color: $input-focus-bg;
+  	    border-color: $input-focus-border-color;
+	}
+
+	// Readonly state
+	&[readonly] {
+		background-color: $input-readonly-bg;
+	}
+
+	// Solid style
+	&.form-control-solid {
+		background-color: $input-solid-bg;
+		border-color: $input-solid-bg;
+		@include placeholder($input-solid-placeholder-color);
+		color: $input-solid-color;
+		transition: $transition-input;
+
+		.dropdown.show > &,
+		&:active,
+		&.active,
+		&:focus,
+		&.focus {
+			background-color: $input-solid-bg-focus;
+			border-color: $input-solid-bg-focus;
+			color: $input-solid-color;
+			transition: $transition-input;
+		}
+	}
+
+	// White style
+	&.form-control-white {
+		background-color: $body-bg;
+		border-color: $body-bg;
+
+		.dropdown.show > &,
+		&:active,
+		&.active,
+		&:focus,
+		&.focus {
+			background-color: $body-bg;
+			border-color: $body-bg;
+		}
+	}
+
+	// Flush
+	&.form-control-flush {
+		@include input-reset();
+	}
+}
+
+// Placeholder colors
+.placeholder-gray-500 {
+	@include placeholder($gray-500);
+}
+
+.placeholder-white {
+	@include placeholder($white);
+}
+
+// Textarea reset resize
+.resize-none {
+	resize: none;
+}

@@ -1,0 +1,48 @@
+.fv-plugins-milligram {
+    .fv-plugins-icon {
+        height: 38px; /* Same as height of input */
+        line-height: 38px;
+        width: 38px;
+    }
+
+    .column {
+        position: relative;
+
+        .fv-plugins-icon {
+            right: 10px;
+        }
+    }
+
+    .fv-plugins-icon-check {
+        top: -6px;
+    }
+
+    .fv-plugins-message-container {
+        margin-bottom: 15px;
+    }
+
+    // Stacked form
+    &.fv-stacked-form {
+        .fv-plugins-icon {
+            top: 30px;
+        }
+
+        .fv-plugins-icon-check {
+            top: 24px;
+        }
+    }
+
+    .fv-invalid-row {
+        .fv-help-block,
+        .fv-plugins-icon {
+            color: red;
+        }
+    }
+
+    .fv-valid-row {
+        .fv-help-block,
+        .fv-plugins-icon {
+            color: green;
+        }
+    }
+}

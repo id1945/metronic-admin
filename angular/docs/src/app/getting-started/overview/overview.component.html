@@ -1,0 +1,192 @@
+<div class="pb-10">
+  <h1 class="anchor fw-bolder mb-5" id="overview">
+    <a href="#overview"></a>Overview
+  </h1>
+  <div class="py-5">
+    Angular is a structural framework for dynamic web apps. It lets you use HTML
+    as your template language and lets you extend HTML's syntax to express your
+    application's components clearly. Angular's data binding and dependency
+    injection eliminate much of the code you would otherwise have to write. And
+    it all happens within the browser.
+  </div>
+  <div class="d-flex align-items-center rounded py-5 px-5 bg-light-danger">
+    <span
+      class="svg-icon svg-icon-3x svg-icon-danger me-5"
+      [inlineSVG]="'./assets/media/icons/duotune/general/gen044.svg'"
+    ></span>
+    <div class="text-gray-700 fw-bold fs-6">
+      The <code>html</code> version theme has static CSS only components. Those
+      components are by default available in the <code>angular</code> version as
+      well. You can copy and paste the html and use it in angular components.
+    </div>
+  </div>
+</div>
+
+<div class="pt-10">
+  <h1 class="anchor fw-bolder mb-5" id="files-structure">
+    <a href="#files-structure"></a>Files Structure
+  </h1>
+  <div class="py-5">
+    <table
+      class="table table-hover table-rounded table-striped border gy-7 gs-7"
+    >
+      <thead>
+        <tr>
+          <th>Path</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>/<strong>dist</strong></td>
+          <td>
+            The built output. Run command <code>ng build</code> to build it.
+          </td>
+        </tr>
+        <tr>
+          <td>/<strong>node_modules</strong></td>
+          <td>
+            The <code>package.json</code> file in the app root defines what
+            libraries will be installed into <code>node_modules/</code> when you
+            run <code>yarn install</code>.
+          </td>
+        </tr>
+
+        <tr>
+          <td>/<strong>src</strong></td>
+          <td>Your app lives in the src folder.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>assets</strong></td>
+          <td>
+            Contains the Metornic common parts: media(SVGs and PNGs),
+            sass(common style structure).
+          </td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app</strong></td>
+          <td>
+            All Angular components, styles and anything else your app needs go
+            here.
+          </td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/_fake</strong></td>
+          <td>Fake mock data and the REST server imitation.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/_metronic</strong></td>
+          <td>Metronic theme folder.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/_metronic/kt</strong></td>
+          <td>Custom Metronic components.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/_metronic/layout</strong></td>
+          <td>
+            Main layout with components (Header, Footer, Aside, Toolbar...).
+          </td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/_metronic/partials</strong></td>
+          <td>Shared layout and content components and widgets.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/modules</strong></td>
+          <td>You can add your custom modules into this folder.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/modules/account</strong></td>
+          <td>User account templates module.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/modules/apps/chat</strong></td>
+          <td>Chats examples module.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/modules/auth</strong></td>
+          <td>
+            Authorization (Sign in/Sign out/Registration/Forgot Password
+            components) examples module.
+          </td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/modules/errors</strong></td>
+          <td>404, 500 Errors examples module.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/modules/i18n</strong></td>
+          <td>Translations module.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/modules/profile</strong></td>
+          <td>User profile templates module.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/modules/widgets-examples</strong></td>
+          <td>Widgets examples templates module.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/modules/wizards</strong></td>
+          <td>Wizards examples module.</td>
+        </tr>
+        <tr>
+          <td>/src/<strong>app/pages</strong></td>
+          <td>Add your pages into this folder.</td>
+        </tr>
+        <tr>
+          <td>.editorconfig</td>
+          <td>Editor configuration, see http://editorconfig.org.</td>
+        </tr>
+        <tr>
+          <td>.gitignore</td>
+          <td>
+            Git uses it to determine which files and directories to ignore,
+            before you make a commit.
+          </td>
+        </tr>
+        <tr>
+          <td>angular.json</td>
+          <td>
+            Configuration for Angular CLI. In this file you can set several
+            defaults and also configure what files are included when your
+            project is built. Check out the official documentation if you want
+            to know more.
+          </td>
+        </tr>
+        <tr>
+          <td>package.json</td>
+          <td>
+            A package.json file contains meta data about app or module. Most
+            importantly, it includes the list of dependencies to install from
+            npm when running npm install.
+          </td>
+        </tr>
+        <tr>
+          <td>tsconfig.json</td>
+          <td>
+            <code>tsconfig.json</code> file in a directory indicates that the
+            directory is the root of a TypeScript project. The tsconfig.json
+            file specifies the root files and the compiler options required to
+            compile the project.
+          </td>
+        </tr>
+        <tr>
+          <td>tslint.json</td>
+          <td>
+            Linting configuration for
+            <a href="https://palantir.github.io/tslint/">TSLint</a> together
+            with <a href="http://codelyzer.com/">Codelyzer</a>, used when
+            running <code>ng lint</code>. Linting helps keep your code style
+            consistent.
+          </td>
+        </tr>
+        <tr>
+          <td>ngcc.config.js</td>
+          <td>IVY renderer compatibility settings file.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

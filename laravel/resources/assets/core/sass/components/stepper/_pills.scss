@@ -1,0 +1,172 @@
+//
+// Stepper Pills
+//
+
+// Base
+.stepper.stepper-pills {
+    $pills-size: 40px;
+
+    // Nav
+    .stepper-nav {
+        display: flex;
+    }
+
+    // Item
+    .stepper-item {
+        display: flex;
+        align-items: center;
+        transition: $transition-link;            
+
+        // Icon
+        .stepper-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: $transition-link;
+            width: $pills-size;
+            height: $pills-size;
+            border-radius: $border-radius;
+            background-color: $primary-light;
+            margin-right: 1.5rem;
+
+            .stepper-check {
+                display: none;
+                font-size: 1rem;
+            }
+
+            .stepper-number {
+                font-weight: $font-weight-bolder;
+                color: $primary !important;
+                font-size: 1.25rem;
+            }
+        }
+
+        // Label
+        .stepper-label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .stepper-title {
+                color: $gray-800;
+                font-weight: 600;
+                font-size: 1.25rem;
+                margin-bottom: .3rem;
+            }
+
+            .stepper-desc {
+                color: $text-muted;
+            }
+        }
+
+        // Current
+        &.current {
+            transition: $transition-link;
+
+            .stepper-icon {
+                transition: $transition-link;
+                background-color: $primary;
+
+                .stepper-check {
+                    color: $primary;
+                    display: none;
+                }
+
+                .stepper-number {
+                    color: $white !important;
+                    font-size: 1.35rem;
+                }
+            }
+
+            .stepper-label {
+                .stepper-title {
+                    color: $gray-600;
+                }
+
+                .stepper-desc {
+                    color: $gray-400;
+                }
+            }
+        }
+
+        // Completed
+        &.current:last-child,
+        &.completed {
+            .stepper-icon {
+                transition: $transition-link;
+                background-color: $primary-light;
+
+                .stepper-check {
+                    color: $primary !important;
+                    display: inline-block;
+                }
+
+                .stepper-number {
+                    display: none;
+                }
+            }
+
+            .stepper-label {
+                .stepper-title {
+                    color: $text-muted;
+                }
+
+                .stepper-desc {
+                    color: $gray-400;
+                }
+            }
+        }
+    }
+
+    // Column
+    &.stepper-column {
+        // Nav
+        .stepper-nav {
+            flex-direction: column;
+        }
+
+        // Item
+        .stepper-item {
+            position: relative;
+            padding: 0;
+		    margin: 0;
+            padding-bottom: 2.5rem;
+        }
+
+        // Icon
+        .stepper-icon {
+            z-index: 1;
+        }
+
+        // Line
+        .stepper-line {
+            display: block;
+            content: " ";
+            justify-content: center;     
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            top:0;
+            bottom: 0;
+            width: $pills-size;
+            transform: translate(50%);
+            border-left-width: 1px;
+            border-left-style: dashed;
+            border-left-color: $gray-300; 
+        }
+
+        // First item
+        .stepper-item:first-child {
+            .stepper-line {
+                top: 50%;
+            }
+        }
+
+        // Last item
+        .stepper-item:last-child {
+            .stepper-line {
+                bottom: 50%;
+            }
+        }
+    }    
+}

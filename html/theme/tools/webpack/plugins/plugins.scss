@@ -1,0 +1,54 @@
+//
+// 3rd-Party Plugins Stylesheet Includes
+//
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+///  Optional Plugins Includes(you can remove or add)  ///////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+// Apexcharts - modern charting library that helps developers to create beautiful and interactive visualizations for web pages: https://apexcharts.com/
+@import "~apexcharts/dist/apexcharts.css";
+
+// FormValidation - Best premium validation library for JavaScript. Zero dependencies. Learn more: https://formvalidation.io/
+@import "~@/src/plugins/formvalidation/dist/css/formValidation.css";
+
+// Bootstrap Daterangepicker
+@import "~bootstrap-daterangepicker/daterangepicker.css";
+
+// select2 - Select2 is a jQuery based replacement for select boxes: https://select2.org/
+@import "~select2/dist/css/select2.css";
+
+// noUiSlider - is a lightweight range slider with multi-touch support and a ton of features. It supports non-linear ranges, requires no external dependencies: https://refreshless.com/nouislider/
+@import "~nouislider/dist/nouislider.css";
+
+// DropzoneJS -  is an open source library that provides drag'n'drop file uploads with image previews: https://www.dropzonejs.com/
+@import "~dropzone/dist/dropzone.css";
+
+// Quill - is a free, open source WYSIWYG editor built for the modern web. Completely customize it for any need with its modular architecture and expressive API: https://quilljs.com/
+@import "~quill/dist/quill.snow.css";
+
+// Tagify - Transforms an input field or a textarea into a Tags component, in an easy, customizable way, with great performance and small code footprint, exploded with features: https://github.com/yairEO/tagify
+@import "~@yaireo/tagify/dist/tagify.css";
+
+// Toastr - is a Javascript library for non-blocking notifications. jQuery is required. The goal is to create a simple core library that can be customized and extended: https://github.com/CodeSeven/toastr
+@import "~toastr/build/toastr.css";
+
+// Sweetalert2 - a beautiful, responsive, customizable and accessible (WAI-ARIA) replacement for JavaScript's popup boxes: https://sweetalert2.github.io/
+@import "~sweetalert2/dist/sweetalert2.css";
+
+// LineAwesome - Replace Font Awesome with modern line icons with a single line of code: https://icons8.com/line-awesome
+@import "~line-awesome/dist/line-awesome/css/line-awesome.css";
+
+// bootstrap-icons
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+// Fort Awesome. Build and manage icons and typefaces in a single place, then serve them with a single line of code: https://fortawesome.com/
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+// Flatpickr - is a lightweight and powerful datetime picker
+@import "~flatpickr/dist/flatpickr.min.css";
+
+// Tiny slider - for all purposes, inspired by Owl Carousel.
+@import "~tiny-slider/dist/tiny-slider.css";

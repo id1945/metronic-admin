@@ -1,0 +1,190 @@
+<div class="card mb-5 mb-xl-10">
+  <div
+    class="card-header border-0 cursor-pointer"
+    role="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#kt_account_notifications"
+    aria-expanded="true"
+    aria-controls="kt_account_notifications"
+  >
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0">Notifications</h3>
+    </div>
+  </div>
+  <div id="kt_account_notifications" class="collapse show">
+    <form class="form">
+      <div class="card-body border-top px-9 pt-3 pb-4">
+        <div class="table-responsive">
+          <table
+            class="table table-row-dashed border-gray-300 align-middle gy-6"
+          >
+            <tbody class="fs-6 fw-bold">
+              <tr>
+                <td class="min-w-250px fs-4 fw-bolder">Notifications</td>
+                <td class="w-125px">
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="kt_settings_notification_email"
+                      value=""
+                      checked=""
+                    /><label
+                      class="form-check-label ps-2"
+                      for="kt_settings_notification_email"
+                      >Email</label
+                    >
+                  </div>
+                </td>
+                <td class="w-125px">
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="kt_settings_notification_phone"
+                      value=""
+                      checked=""
+                    /><label
+                      class="form-check-label ps-2"
+                      for="kt_settings_notification_phone"
+                      >Phone</label
+                    >
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Billing Updates</td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="billing1"
+                      value="1"
+                      checked=""
+                    /><label
+                      class="form-check-label ps-2"
+                      for="billing1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="billing2"
+                      value=""
+                      checked=""
+                    /><label
+                      class="form-check-label ps-2"
+                      for="billing2"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>New Team Members</td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="team1"
+                      value=""
+                      checked=""
+                    /><label class="form-check-label ps-2" for="team1"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="team2"
+                      value=""
+                    /><label class="form-check-label ps-2" for="team2"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Completed Projects</td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="project1"
+                      value=""
+                    /><label
+                      class="form-check-label ps-2"
+                      for="project1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="project2"
+                      value=""
+                      checked=""
+                    /><label
+                      class="form-check-label ps-2"
+                      for="project2"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="border-bottom-0">Newsletters</td>
+                <td class="border-bottom-0">
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="newsletter1"
+                      value=""
+                    /><label
+                      class="form-check-label ps-2"
+                      for="newsletter1"
+                    ></label>
+                  </div>
+                </td>
+                <td class="border-bottom-0">
+                  <div class="form-check form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="newsletter2"
+                      value=""
+                    /><label
+                      class="form-check-label ps-2"
+                      for="newsletter2"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button class="btn btn-white btn-active-light-primary me-2">
+          Discard</button
+        ><button type="button" class="btn btn-primary" (click)="saveSettings()">
+          <ng-container *ngIf="!isLoading">Save Changes</ng-container>
+          <ng-container *ngIf="isLoading">
+            <span class="indicator-progress" [style.display]="'block'">
+              Please wait...{{ " " }}
+              <span
+                class="spinner-border spinner-border-sm align-middle ms-2"
+              ></span>
+            </span>
+          </ng-container>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

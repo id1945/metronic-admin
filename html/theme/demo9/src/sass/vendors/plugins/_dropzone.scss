@@ -1,0 +1,177 @@
+//
+// Dropzone plugin customization:  https://www.dropzonejs.com
+//
+
+// Basic
+.dropzone {
+    min-height: auto;
+    padding: 1.5rem 1.75rem;
+	text-align: center;
+	cursor: pointer;
+    border: 1px dashed $primary;
+    background-color: $primary-light;
+    border-radius: $border-radius !important;
+
+    .dz-message{
+        margin: 0;
+        display: flex;
+        text-align: left;
+    }
+
+    .dz-preview {
+        border-radius: $border-radius !important;
+        margin: 0.75rem;
+
+		.dz-image {
+			border-radius: $border-radius !important;
+            z-index: 1;
+		}
+
+        &.dz-file-preview {
+            .dz-image {
+                background: $gray-200;
+            }
+        }
+    }
+
+    .dz-success-mark,
+    .dz-error-mark {
+        $size: 40px;
+
+        margin-left: -(divide($size, 2)) !important;
+        margin-top: -(divide($size, 2)) !important;
+        
+        svg {
+            height: $size !important;
+            width: $size !important;
+        }
+    }
+
+    .dz-remove {
+        $size: 1.65rem;
+
+        display:flex;
+		justify-content: center;
+		align-items: center;
+		height: $size;
+		width: $size;
+		font-size: 1rem;
+        text-indent: -9999px;
+        white-space: nowrap;  
+        position: absolute;
+        z-index: 2;
+        background-size: 40%;
+        background-color: $white !important;
+        box-shadow: $box-shadow-sm;        
+		border-radius: 100%;
+        top: -(divide($size,2));
+        right: -(divide($size,2));
+
+        @include svg-bg-icon(close, $gray-500);
+
+        &:hover {
+            @include svg-bg-icon(close, $primary);
+        }
+    }
+
+    .dz-error-message {
+        color: $danger-inverse;
+        background: $danger;
+    }
+}
+
+// Queue upload
+.dropzone.dropzone-queue {
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    text-align: left;
+
+    .dz-message{
+        display: none;
+    }
+
+    .dropzone-panel {
+        .dropzone-upload,
+        .dropzone-remove-all{
+            display: none;
+        }
+    }
+
+    .dropzone-item {
+        display: flex;
+        align-items: center;
+        margin-top: 0.75rem;
+        @include border-radius($border-radius);
+        padding: 0.5rem 1rem;
+        background-color: $gray-100;
+
+        .dropzone-file {
+            flex-grow: 1;
+
+            .dropzone-filename {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: $gray-600;
+                text-overflow: ellipsis;
+                margin-right: 0.5rem;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+
+            .dropzone-error {
+                margin-top: 0.25rem;
+                font-size: 0.9rem;
+                font-weight: 400;
+                color: $danger;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .dropzone-progress {
+            width: 15%;
+
+            .progress {
+                height: 5px;
+                @include transition;
+            }
+        }
+
+        .dropzone-toolbar {
+            margin-left: 1rem;
+            display: flex;
+            flex-wrap: nowrap;
+
+            .dropzone-start,
+            .dropzone-cancel,
+            .dropzone-delete {
+                height: 25px;
+                width: 25px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: $transition-link;
+
+                i {
+                    transition: $transition-link;
+                    font-size: 0.8rem;
+                    color: $gray-600;
+                }
+
+                &:hover {
+                    transition: $transition-link;
+                    i {
+                        color: $primary;
+                    }
+                }
+            }
+
+            .dropzone-start{
+                transition: $transition-link;
+            }
+        }
+    }
+}

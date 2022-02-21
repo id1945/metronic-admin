@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="d-flex align-items-stretch justify-content-between py-3 h-75px">
+    <!-- begin::Aside mobile toggle -->
+    <div
+      class="
+        d-flex
+        align-items-center
+        d-lg-none
+        me-3d-flex
+        align-items-center
+        d-lg-none
+        me-3
+      "
+      title="Show aside menu"
+    >
+      <div
+        class="btn btn-icon btn-flex btn-active-color-primary"
+        id="kt_docs_aside_toggle"
+      >
+        <!-- /media/icons/duotune/abstract/abs015.svg -->
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/abstract/abs015.svg'"
+          class="svg-icon svg-icon-2x mt-1"
+        ></span>
+      </div>
+    </div>
+    <!-- end::Aside mobile toggle -->
+
+    <!-- begin::Logo -->
+    <div
+      class="
+        d-flex d-lg-none
+        align-items-center
+        flex-grow-1 flex-lg-grow-0
+        me-lg-15
+      "
+    >
+      <a routerLink="/dashboard">
+        <img src="./assets/media/logos/logo-2.svg" class="h-25px logo" />
+      </a>
+    </div>
+    <!-- end::Logo -->
+
+    <!-- begin::Wrapper -->
+    <div
+      class="d-flex align-items-center justify-content-between flex-lg-grow-1"
+    >
+      <div class="d-flex align-items-center" id="kt_docs_header_title">
+        <app-page-title
+          #ktPageTitle
+          class="
+            docs-page-title
+            d-flex
+            flex-column flex-lg-row
+            align-items-lg-center
+            py-5
+            mb-lg-0
+          "
+          data-kt-swapper="true"
+          data-kt-swapper-mode="prepend"
+          data-kt-swapper-parent="{default: '#kt_docs_content_container', 'lg': '#kt_docs_header_title'}"
+          [ngClass]="pageTitleCssClasses"
+        ></app-page-title>
+      </div>
+      <!-- begin::Navbar -->
+
+      <div class="d-flex align-items-center">
+        <a
+          class="
+            btn btn-bg-white btn-color-gray-700 btn-active-primary
+            fw-bolder
+            me-4
+          "
+          [href]="appPreviewAngularUrl"
+          target="_blank"
+          >Preview</a
+        ><a
+          class="btn btn-primary fw-bolder"
+          [href]="appPurchaseUrl"
+          target="_blank"
+          >Purchase</a
+        >
+      </div>
+    </div>
+    <!-- end::Wrapper -->
+  </div>
+  <div class="border-gray-300 border-bottom border-bottom-dashed"></div>
+</div>

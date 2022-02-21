@@ -1,0 +1,66 @@
+//
+// Breadcrumb
+//
+
+// Breadcrumb
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;    
+
+    // Item breadcrumb
+    .breadcrumb-item {
+        display: flex;
+        align-items: center;
+        padding-left: 0;
+        padding-right: $breadcrumb-item-padding-x;
+
+        &:last-child {
+            padding-right: 0;
+        }
+
+        &:after {
+            content: "/";
+            padding-left: $breadcrumb-item-padding-x;
+        }
+
+        &:before {
+            display: none;
+        }
+
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+// Breadcrumb line style
+.breadcrumb-line {
+    .breadcrumb-item {
+        &:after {
+            content: "-";
+        }
+    }
+}
+
+// Breadcrumb dot style
+.breadcrumb-dot {
+    .breadcrumb-item {
+        &:after {
+            content: "\2022";
+        }
+    }
+}
+
+// Breadcrumb separatorless style
+.breadcrumb-separatorless {
+    .breadcrumb-item {
+        &:after {
+            display:none;
+        }
+    }
+}

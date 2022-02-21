@@ -1,0 +1,28 @@
+//
+// Topbar
+//
+
+// Base
+.topbar { 
+    // Fixed header & NON sticky header modes
+	body:not([data-kt-sticky-header="on"]) & {
+        // Buttons
+        .btn.btn-icon {
+            @include button-custom-variant($color: null, $icon-color: #fff, $border-color: null, $bg-color: null, $color-active: null, $icon-color-active: #fff, $border-color-active: null, $bg-color-active: rgba($white, 0.1));
+        }
+        
+        // Fixed header & NON sticky search modes
+        .active.show > .btn.btn-icon {
+            color: $white;
+            background-color: rgba($white, 0.1);
+
+            i {
+                color: $white;
+            }
+
+            .svg-icon {
+                @include svg-icon-color($white);
+            }
+        }   
+    }
+}  

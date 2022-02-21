@@ -1,0 +1,18 @@
+:host {
+  height: 100%;
+  margin: 0;
+
+  .flex-root {
+    height: 100%;
+  }
+
+  #root {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+}
+
+#root {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}

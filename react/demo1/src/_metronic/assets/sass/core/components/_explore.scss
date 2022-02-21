@@ -1,0 +1,109 @@
+//
+// Explore(used for demo product demo)
+//
+
+$explore-primary: #00b2ff;
+$explore-primary-light: #f1faff;
+$explore-primary-active: #0098da;
+$explore-primary-inverse: $white;
+
+$explore-success: #50cd89;
+$explore-success-light: #e8fff3;
+$explore-success-active: #47be7d;
+$explore-success-inverse: $white;
+
+$explore-warning: #ffc700;
+$explore-warning-inverse: $white;
+
+$explore-danger: #f1416c;
+$explore-warning-inverse: $white;
+
+.explore-btn-toggle {
+  color: $gray-600;
+  background-color: $white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $explore-primary-inverse;
+    background-color: $explore-primary;
+  }
+}
+
+.explore-btn-dismiss {
+  border: 0;
+
+  &:hover {
+    i {
+      color: $explore-primary;
+    }
+
+    .svg-icon {
+      @include svg-icon-color($explore-primary);
+    }
+  }
+}
+
+.explore-btn-primary {
+  border: 0;
+  color: $explore-primary-inverse;
+  background-color: $explore-primary;
+
+  &:hover {
+    color: $explore-primary-inverse;
+    background-color: $explore-primary-active;
+  }
+}
+
+.explore-btn-secondary {
+  border: 0;
+  color: $gray-600;
+  background-color: $gray-100;
+
+  &:hover {
+    color: $gray-800;
+    background-color: $gray-200;
+  }
+}
+
+.explore-btn-outline {
+  border: 1px dashed $gray-300 !important;
+
+  &:hover,
+  &.active {
+    border: 1px dashed $explore-success !important;
+    background-color: $explore-success-light;
+  }
+}
+
+.explore-link {
+  color: $explore-primary;
+
+  &:hover {
+    color: $explore-primary-active;
+  }
+}
+
+.explore-link-hover:hover {
+  color: $explore-primary !important;
+}
+
+.explore-icon-success {
+  color: $explore-success;
+  @include svg-icon-color($explore-success);
+}
+
+.explore-icon-danger {
+  color: $explore-danger;
+  @include svg-icon-color($explore-danger);
+}
+
+.explore-label-free {
+  color: $explore-warning-inverse;
+  background-color: $explore-warning;
+}
+
+.explore-label-pro {
+  color: $explore-success-inverse;
+  background-color: $explore-success;
+}

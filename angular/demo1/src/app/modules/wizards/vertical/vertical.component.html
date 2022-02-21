@@ -1,0 +1,213 @@
+<div
+  class="
+    stepper stepper-pills stepper-column
+    d-flex
+    flex-column flex-xl-row flex-row-fluid
+  "
+  id="kt_create_account_stepper"
+>
+  <div
+    class="
+      d-flex
+      justify-content-center
+      bg-white
+      rounded
+      justify-content-xl-start
+      flex-row-auto
+      w-100 w-xl-300px w-xxl-400px
+      me-9
+    "
+  >
+    <div class="px-6 px-lg-10 px-xxl-15 py-20">
+      <div class="stepper-nav">
+        <div
+          class="stepper-item"
+          [ngClass]="{
+            current: currentStep$.value === 1,
+            completed: currentStep$.value > 1
+          }"
+        >
+          <div class="stepper-line w-40px"></div>
+
+          <div class="stepper-icon w-40px h-40px">
+            <i class="stepper-check fas fa-check"></i>
+            <span class="stepper-number">1</span>
+          </div>
+
+          <div class="stepper-label">
+            <h3 class="stepper-title">Account Type</h3>
+
+            <div class="stepper-desc fw-bold">Setup Your Account Details</div>
+          </div>
+        </div>
+
+        <div
+          class="stepper-item"
+          [ngClass]="{
+            current: currentStep$.value === 2,
+            completed: currentStep$.value > 2
+          }"
+        >
+          <div class="stepper-line w-40px"></div>
+
+          <div class="stepper-icon w-40px h-40px">
+            <i class="stepper-check fas fa-check"></i>
+            <span class="stepper-number">2</span>
+          </div>
+
+          <div class="stepper-label">
+            <h3 class="stepper-title">Account Settings</h3>
+            <div class="stepper-desc fw-bold">Setup Your Account Settings</div>
+          </div>
+        </div>
+
+        <div
+          class="stepper-item"
+          [ngClass]="{
+            current: currentStep$.value === 3,
+            completed: currentStep$.value > 3
+          }"
+        >
+          <div class="stepper-line w-40px"></div>
+
+          <div class="stepper-icon w-40px h-40px">
+            <i class="stepper-check fas fa-check"></i>
+            <span class="stepper-number">3</span>
+          </div>
+
+          <div class="stepper-label">
+            <h3 class="stepper-title">Business Info</h3>
+            <div class="stepper-desc fw-bold">Your Business Related Info</div>
+          </div>
+        </div>
+
+        <div
+          class="stepper-item"
+          [ngClass]="{
+            current: currentStep$.value === 4,
+            completed: currentStep$.value > 4
+          }"
+        >
+          <div class="stepper-line w-40px"></div>
+
+          <div class="stepper-icon w-40px h-40px">
+            <i class="stepper-check fas fa-check"></i>
+            <span class="stepper-number">4</span>
+          </div>
+
+          <div class="stepper-label">
+            <h3 class="stepper-title">Billing Details</h3>
+            <div class="stepper-desc fw-bold">Set Your Payment Methods</div>
+          </div>
+        </div>
+
+        <div
+          class="stepper-item"
+          [ngClass]="{ current: currentStep$.value === 5 }"
+        >
+          <div class="stepper-line w-40px"></div>
+
+          <div class="stepper-icon w-40px h-40px">
+            <i class="stepper-check fas fa-check"></i>
+            <span class="stepper-number">5</span>
+          </div>
+
+          <div class="stepper-label">
+            <h3 class="stepper-title">Completed</h3>
+            <div class="stepper-desc fw-bold">Woah, we are here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex flex-row-fluid flex-center bg-white rounded">
+    <form
+      class="py-20 w-100 w-xl-700px px-9"
+      noValidate
+      id="kt_create_account_form"
+    >
+      <div class="current">
+        <ng-container *ngIf="currentStep$.value === 1">
+          <app-step1
+            class="w-100"
+            [updateParentModel]="updateAccount"
+            [defaultValues]="account$.value"
+          ></app-step1>
+        </ng-container>
+
+        <ng-container *ngIf="currentStep$.value === 2">
+          <app-step2
+            class="w-100"
+            [updateParentModel]="updateAccount"
+            [defaultValues]="account$.value"
+          ></app-step2>
+        </ng-container>
+
+        <ng-container *ngIf="currentStep$.value === 3">
+          <app-step3
+            class="w-100"
+            [updateParentModel]="updateAccount"
+            [defaultValues]="account$.value"
+          ></app-step3>
+        </ng-container>
+
+        <ng-container *ngIf="currentStep$.value === 4">
+          <app-step4
+            class="w-100"
+            [updateParentModel]="updateAccount"
+            [defaultValues]="account$.value"
+          ></app-step4>
+        </ng-container>
+
+        <ng-container *ngIf="currentStep$.value === 5">
+          <app-step5 class="w-100"></app-step5>
+        </ng-container>
+      </div>
+
+      <div class="d-flex flex-stack pt-10">
+        <div class="mr-2">
+          <ng-container *ngIf="currentStep$.value !== 1">
+            <button
+              type="button"
+              class="btn btn-lg btn-light-primary me-3"
+              (click)="prevStep()"
+            >
+              <span
+                [inlineSVG]="'./assets/media/icons/duotune/arrows/arr063.svg'"
+                class="svg-icon svg-icon-4 me-1"
+              ></span>
+              Back
+            </button>
+          </ng-container>
+        </div>
+
+        <ng-container *ngIf="currentStep$.value !== formsCount">
+          <div>
+            <button
+              type="button"
+              class="btn btn-lg btn-primary me-3"
+              [disabled]="!isCurrentFormValid$.value"
+              (click)="nextStep()"
+            >
+              <span class="indicator-label">
+                <ng-container *ngIf="currentStep$.value < formsCount - 1">
+                  Continue {{ " " }}
+                  <span
+                    [inlineSVG]="
+                      './assets/media/icons/duotune/arrows/arr064.svg'
+                    "
+                    class="svg-icon svg-icon-3 ms-2 me-0"
+                  ></span>
+                </ng-container>
+                <ng-container *ngIf="currentStep$.value === formsCount - 1">
+                  Submit
+                </ng-container>
+              </span>
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </form>
+  </div>
+</div>

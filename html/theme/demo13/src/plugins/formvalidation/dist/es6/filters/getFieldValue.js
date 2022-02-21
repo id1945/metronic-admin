@@ -1,0 +1,1 @@
+export default function e(e,t,r,n){const o=(r.getAttribute("type")||"").toLowerCase();const c=r.tagName.toLowerCase();if(c==="textarea"){return r.value}if(c==="select"){const e=r;const t=e.selectedIndex;return t>=0?e.options.item(t).value:""}if(c==="input"){if("radio"===o||"checkbox"===o){const e=n.filter(e=>e.checked).length;return e===0?"":e+""}else{return r.value}}return""}

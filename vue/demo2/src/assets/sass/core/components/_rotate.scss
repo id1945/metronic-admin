@@ -1,0 +1,47 @@
+//
+// Rotate
+// 
+
+
+$rotate-transition: transform 0.3s ease;
+
+.rotate {
+    display: inline-flex;
+    align-items: center;
+}
+
+@each $value in (90, 180, 270) {
+    .rotate-#{$value} {
+        transition: $rotate-transition;
+        -webkit-backface-visibility: hidden;
+
+        .collapsible:not(.collapsed)> & ,
+        .active > & {
+
+            transform: rotateZ(#{$value}deg);
+            transition: $rotate-transition;
+
+            [direction="rtl"] & {
+
+                transform: rotateZ(-#{$value}deg);
+            }
+        }
+    }
+
+    .rotate-n#{$value} {
+        transition: $rotate-transition;
+        -webkit-backface-visibility: hidden;
+
+        .collapsible:not(.collapsed)> &,
+        .active > & {
+
+            transform: rotateZ(-#{$value}deg);
+            transition: $rotate-transition;
+
+            [direction="rtl"] & {
+
+                transform: rotateZ(#{$value}deg);
+            }
+        }
+    }
+}

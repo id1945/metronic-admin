@@ -1,0 +1,1 @@
+export default function t(t){let e=t;if(/^ATU[0-9]{8}$/.test(e)){e=e.substr(2)}if(!/^U[0-9]{8}$/.test(e)){return{meta:{},valid:false}}e=e.substr(1);const r=[1,2,1,2,1,2,1];let s=0;let a=0;for(let t=0;t<7;t++){a=parseInt(e.charAt(t),10)*r[t];if(a>9){a=Math.floor(a/10)+a%10}s+=a}s=10-(s+4)%10;if(s===10){s=0}return{meta:{},valid:`${s}`===e.substr(7,1)}}

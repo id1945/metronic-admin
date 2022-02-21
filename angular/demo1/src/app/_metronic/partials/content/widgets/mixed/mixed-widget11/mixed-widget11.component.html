@@ -1,0 +1,40 @@
+<div
+  class="
+    card-body
+    p-0
+    d-flex
+    justify-content-between
+    flex-column
+    overflow-hidden
+  "
+>
+  <div class="d-flex flex-stack flex-wrap flex-grow-1 px-9 pt-9 pb-3">
+    <div class="me-2">
+      <span class="fw-bolder text-gray-800 d-block fs-3">Sales</span>
+
+      <span class="text-gray-400 fw-bold">Oct 8 - Oct 26 2021</span>
+    </div>
+
+    <div class="fw-bolder fs-3" [ngClass]="'fs-3 text-' + chartColor">
+      $15,300
+    </div>
+  </div>
+
+  <div #chartRef class="mixed-widget-10-chart" [style.height]="chartHeight">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis"
+      [dataLabels]="chartOptions.dataLabels"
+      [stroke]="chartOptions.stroke"
+      [legend]="chartOptions.legend"
+      [fill]="chartOptions.fill"
+      [states]="chartOptions.states"
+      [tooltip]="chartOptions.tooltip"
+      [colors]="chartOptions.colors"
+      [markers]="chartOptions.markers"
+      [plotOptions]="chartOptions.plotOptions"
+    ></apx-chart>
+  </div>
+</div>

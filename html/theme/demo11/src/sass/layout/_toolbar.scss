@@ -1,0 +1,17 @@
+//
+// Toolbar
+//
+
+// General
+.toolbar {
+    display: flex;
+    align-items: center;
+    background-color: get($toolbar-config, bg-color);
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+    .toolbar {
+        margin-bottom: get($content-spacing, desktop);
+    }
+}

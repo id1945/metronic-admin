@@ -1,0 +1,109 @@
+//
+// Aside extended
+//
+
+// General mode(all devices)
+.aside {
+	display: flex;
+	flex-direction: column;
+	width: get($aside-config, width, desktop);
+	
+	// Root links
+	.menu {
+		align-items: stretch;
+		justify-content: center;
+
+		> .menu-item {
+			> .menu-link {
+				padding: 0;
+
+				.menu-icon {
+					flex-shrink: 0;
+					width: 45px;
+					height: 45px;
+					@include border-radius($border-radius);
+
+					i {
+						color: $white !important;
+					}
+
+					.svg-icon {
+						@include svg-icon-color($white, true);
+					}
+				}
+
+				&:hover {
+					.menu-icon {
+						background-color: rgba($white, 0.1);
+
+						i {
+							color: $white !important;
+						}
+
+						.svg-icon {
+							@include svg-icon-color($white, true);
+						}
+					}
+				}
+
+				&.active {
+					.menu-icon {
+						background-color: $white;
+
+						i {
+							color: $primary !important;
+						}
+
+						.svg-icon {
+							@include svg-icon-color($primary, true);
+						}
+					}
+				}
+			}
+
+			&.show > .menu-link {
+				.menu-icon {
+					background-color: rgba($white, 0.1);
+
+					i {
+						color: $white !important;
+					}
+
+					.svg-icon {
+						@include svg-icon-color($white, true);
+					}
+				}
+			}
+		}	
+	}
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.aside {
+		width: get($aside-config, width, desktop);
+
+		// Fixed aside mode
+		.aside-fixed & {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			z-index: get($aside-config, z-index);
+		}
+
+		// Static aside mode
+		.aside-static & {
+			position: relative;
+			z-index: 1;
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.aside {
+		display: none;
+		width: get($aside-config, width, tablet-and-mobile);
+	}
+}

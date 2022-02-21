@@ -1,0 +1,86 @@
+//
+// Main
+//
+
+// Body
+body {
+	background-color: $page-bg;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 100% get($page-bg-image-height, desktop);
+
+	&.page-bg-image-lg {
+		background-size: 100% get($page-bg-image-height-lg, desktop);
+	}
+}
+
+// Font color from Content background color
+.text-page-bg {
+	color: $page-bg;
+}
+
+// Nav custom
+.nav-custom {
+    .nav-link {
+        color: $white !important;
+        opacity: 0.7;
+
+        &.active {
+            opacity: 1;
+            border-bottom: 2px solid $white !important;
+        }
+
+		&:hover {
+            opacity: 1;
+            border-bottom-color: transparent !important;
+        }        
+    }
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Containers
+	.container,
+	.container-xxl,
+	.container-fluid {
+		padding: 0 get($content-spacing, desktop);
+	}
+
+	// Wrapper
+	.wrapper {
+		transition: padding-left get($aside-config, transition-speed) ease,  margin-right get($aside-config, transition-speed) ease;
+
+		// Fixed header mode
+		.header-fixed[data-kt-sticky-header="on"] & {
+			padding-top: get($header-config, desktop, default, height);
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	// Body
+	body {
+		background-size: 100% get($page-bg-image-height, tablet-and-mobile);
+
+		&.page-bg-image-lg {
+			background-size: 100% get($page-bg-image-height-lg, tablet-and-mobile);
+		}
+	}
+
+	// Containers
+	.container,
+	.container-xxl,
+	.container-fluid {
+		max-width: none;
+		padding: 0 get($content-spacing, tablet-and-mobile);
+	}
+
+	// Wrapper
+	.wrapper {
+		// Fixed header mode
+		.header-tablet-and-mobile-fixed[data-kt-sticky-header="on"] & {
+			padding-top: get($header-config, tablet-and-mobile, default, height);
+		}
+	}
+}

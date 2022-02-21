@@ -1,0 +1,47 @@
+<!-- begin::Brand -->
+<div class="docs-aside-logo flex-column-auto h-75px" id="kt_docs_aside_logo">
+  <!-- begin::Logo -->
+
+  <a routerLink="/dashboard">
+    <img
+      alt="Logo"
+      class="h-25px logo"
+      src="./assets//media/logos/logo-1.svg"
+    />
+  </a>
+  <!-- end::Logo -->
+</div>
+<!-- end::Brand  -->
+
+<!-- begin::Aside menu -->
+<div class="docs-aside-menu flex-column-fluid">
+  <div
+    #ktAsideScroll
+    id="kt_docs_aside_menu_wrapper"
+    class="hover-scroll-overlay-y mt-5 mb-5 mt-lg-0 mb-lg-5 pe-lg-n2 me-lg-2"
+    data-kt-scroll="true"
+    data-kt-scroll-activate="{default: false, lg: true}"
+    data-kt-scroll-height="auto"
+    data-kt-scroll-dependencies="#kt_docs_aside_logo"
+    data-kt-scroll-wrappers="#kt_docs_aside_menu"
+    data-kt-scroll-offset="10px"
+    style="height: 450px"
+  >
+    <div
+      id="#kt_docs_aside_menu"
+      data-kt-menu="true"
+      class="
+        menu
+        menu-column
+        menu-title-gray-800
+        menu-state-title-primary
+        menu-state-icon-primary
+        menu-state-bullet-primary
+        menu-arrow-gray-500
+      "
+    >
+      <app-aside-menu id="asideMenu"></app-aside-menu>
+    </div>
+  </div>
+</div>
+<!-- end::Aside menu -->

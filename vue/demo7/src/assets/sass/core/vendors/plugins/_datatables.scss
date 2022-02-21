@@ -1,0 +1,101 @@
+//
+// DataTables
+//
+
+// Base
+table.dataTable {
+    width: 100% !important;
+}
+
+// Toolbar
+div.dataTables_wrapper div.dataTables_length {
+    padding: 0.5rem 0;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    padding: 0.5rem 0;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    font-weight: $font-weight-bold;
+    color: $gray-700;
+    padding: 0.5rem 0;
+}
+
+div.dataTables_length + div.dataTables_info {
+    margin-left: 1rem;
+}
+
+
+// Pagination
+div.dataTables_wrapper div.dataTables_paginate  {
+    padding: 0.5rem 0;
+    margin-left: 0.5rem;
+
+    .pagination {
+        margin: 0;
+    }
+}
+
+// Head
+table.dataTable>thead>tr>td:not(.sorting_disabled), 
+table.dataTable>thead>tr>th:not(.sorting_disabled) {
+    padding-right: 30px;
+}
+
+// Sorting
+table.dataTable > thead {
+    .sorting,
+    .sorting_asc,
+    .sorting_desc {
+        vertical-align: middle;
+        
+        &:before,
+        &:after {
+            opacity: 0;
+            display: inline-block;
+            width: 0.75rem;
+            height: 0.75rem;
+            content: " ";
+            top: 50%;
+            bottom: auto;
+            right: auto;
+            left: auto;
+            margin-left: 1rem;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &:before {
+            display: none !important;
+        }
+    }
+}
+
+table.dataTable > thead .sorting_asc:after {
+    opacity: 1;
+    @include svg-bg-icon(arrow-top, $text-muted);
+}
+
+table.dataTable > thead .sorting_desc:after {
+    opacity: 1;
+    @include svg-bg-icon(arrow-bottom, $text-muted);
+}
+
+// Processing
+div.dataTables_wrapper {
+    .table-responsive {
+        position: relative;
+    }
+
+    div.dataTables_processing {
+        @include border-radius($border-radius);
+        box-shadow: $dropdown-box-shadow;
+        background-color: $tooltip-bg;
+        color: if(isDarkMode(), $gray-700, $gray-600);
+        font-weight: $font-weight-bold;
+        margin: 0 !important;
+        width: auto;
+        padding: 1rem 2rem !important;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}

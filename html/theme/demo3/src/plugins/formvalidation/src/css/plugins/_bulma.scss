@@ -1,0 +1,33 @@
+.fv-plugins-bulma {
+    /* Support add ons inside field */
+    .field.has-addons {
+        flex-wrap: wrap;
+
+        &::after {
+            content: '';
+            width: 100%;
+        }
+
+        .fv-plugins-message-container {
+            order: 1;
+        }
+    }
+
+    .icon.fv-plugins-icon-check {
+        top: -4px;
+    }
+
+    .fv-has-error {
+        .input,
+        .textarea {
+            border: 1px solid #ff3860; /* Same as .input.is-danger */
+        }
+    }
+
+    .fv-has-success {
+        .input,
+        .textarea {
+            border: 1px solid #23d160; /* Same as .input.is-success */
+        }
+    }
+}

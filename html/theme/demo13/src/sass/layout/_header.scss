@@ -1,0 +1,112 @@
+//
+// Header
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		z-index: 2;
+		height: get($header-config, default, height, desktop);
+		transition: left get($aside-config, transition-speed) ease;
+
+		// Fixed header & sticky header modes
+		.header-fixed & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, fixed, z-index);
+			background-color: get($header-config, fixed, bg-color);
+			box-shadow: get($header-config, fixed, box-shadow);
+			height: get($header-config, fixed, height, desktop);
+			padding: 0;
+		}
+
+		// Fixed header and fixed toolbar modes
+		.header-fixed.toolbar-fixed & {
+			box-shadow: none;
+		}
+
+		// Aside default enabled, aside fixed & header sticky modes
+		.aside-enabled.aside-fixed.header-fixed & {
+			left: get($aside-config, width);
+			transition: left get($aside-config, transition-speed) ease;
+		}
+
+		// Aside default enabled, aside fixed, header sticky & aside minimize modes
+		.aside-enabled.aside-fixed.header-fixed[data-kt-aside-minimize="on"] & {
+			left: get($aside-config, minimized-width);
+			transition: left get($aside-config, transition-speed) ease;
+		}
+
+		// Header menu
+		.header-menu {
+			display: flex;
+
+			.menu {
+				$menu-item-hover-bg: get($aside-config, logo-bg-color);
+
+				& >.menu-item {
+					align-items: stretch;
+
+					// Customize menu link default state       
+					@include menu-link-default-state( $title-color:#888C9F, $icon-color:#4A4B68, $bullet-color:#9899ac, $arrow-color:#494B69, $bg-color: null, $all-links: false);
+
+					// Customize menu link hover state       
+					@include menu-link-hover-state( $title-color:$white, $icon-color:$white, $bullet-color: $white, $arrow-color: $white, $bg-color: $menu-item-hover-bg, $all-links: false);
+
+					// Customize menu link show state       
+					@include menu-link-show-state( $title-color:$white, $icon-color:$white, $bullet-color:$white, $arrow-color:$white, $bg-color: $menu-item-hover-bg, $all-links: false);
+
+					// Customize menu link active state       
+					@include menu-link-active-state( $title-color: $white, $icon-color: $danger, $bullet-color: $danger, $arrow-color: $white, $bg-color: $menu-item-hover-bg, $all-links: false);
+				}
+			}
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: get($header-config, default, height, tablet-and-mobile);
+		position: relative;
+		z-index: 3;
+
+		// Fixed header and header sticky modes
+		.header-tablet-and-mobile-fixed & {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: get($header-config, fixed, z-index);
+			height: get($header-config, fixed, height, tablet-and-mobile);
+			min-height: get($header-config, fixed, height, tablet-and-mobile);
+			background-color: get($header-config, fixed, bg-color);
+			box-shadow: get($header-config, fixed, box-shadow);
+		}
+
+		// Fixed header and fixed toolbar modes
+		.header-tablet-and-mobile-fixed.toolbar-tablet-and-mobile-fixed & {
+			box-shadow: none;
+		}
+
+		// Header menu
+		.header-menu {
+			display: none;
+			z-index: get($header-config, fixed, z-index) - 1;
+		}
+
+		// Page title
+		.page-title {
+			display: none !important;
+		}
+	}
+}

@@ -1,0 +1,27 @@
+//
+// Draggable plugin customization: https://shopify.github.io/draggable
+//
+
+.draggable {
+  transition: opacity 0.3s ease;
+  outline: none !important;
+
+  &.draggable-mirror {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    border: 2px dashed $gray-300 !important;
+  }
+
+  &.draggable--original {
+    opacity: 0 !important;
+  }
+
+  &.draggable-source--is-dragging.draggable--over {
+    opacity: 0 !important;
+  }
+
+  // Handle
+  .draggable-handle {
+    cursor: move;
+  }
+}

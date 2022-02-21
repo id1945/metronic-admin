@@ -1,0 +1,93 @@
+//
+// Menu
+//
+
+// Aside menu
+.aside-menu {
+    .menu {
+        // Link padding x
+        @include menu-link-padding-x(get($aside-config, padding-x));
+
+        // Menu indention
+        @include menu-link-indention(get($aside-config, menu-indention), get($aside-config, padding-x));
+    }
+
+    // Item
+    .menu-item {
+        padding: 0;      
+
+        // Icon
+        .menu-icon {
+            justify-content: flex-start;
+        }
+
+        // Menu Link
+        .menu-link {
+            padding-top: 0.95rem;
+            padding-bottom: 0.95rem;              
+            
+            // Menu Active
+            &.active {
+                position: relative;
+
+                // Arrow
+                &:after {                   
+                    width: 0;
+                    height: 0;
+                    border: 10px solid transparent;
+                    top: 0; 
+                    bottom: 0; 
+                    margin: auto;
+                    right: 0;               
+                    border-right-color: $page-bg;
+                    border-top-width: 22px;
+                    border-bottom-width: 22px;
+                     
+                    content: " ";
+                    position: absolute;                                    
+                }              
+            }
+        }
+
+        //$title-color:#888C9F, $icon-color:#4A4B68, $bullet-color:#9899ac, $arrow-color:#494B69, $bg-color: null, $all-links: false
+
+        // Customize menu link default state          
+        @include menu-link-default-state( #888C9F, #4A4C5B, #4A4C5B, #4A4C5B, null);
+
+        // Customize menu link hover state   
+        @include menu-link-hover-state( $white, $white, $white, $white, #1b1b28);
+
+        // Customize menu link show state   
+        @include menu-link-show-state( $white, $white, $white, $white, #1b1b28);
+
+        // Customize menu link active state   
+        @include menu-link-active-state( $white, $white, $white, $white, #DB1430);
+
+        // Exclusive badge
+        .badge-exclusive {
+            background-color: rgba($white, 0.1);
+            color: $danger;
+        }
+    }
+
+    // Section
+    .menu-section {
+        color: #545574 !important;
+    }
+}
+
+// Desktop mode
+@include media-breakpoint-down(lg) {
+    // Menu Link
+    .menu-link {       
+        // Menu Active
+        &.active {
+            position: relative;
+
+            // Arrow
+            &:after {
+                display: none;                                       
+            }              
+        }
+    }
+}    

@@ -1,0 +1,65 @@
+<div class="pb-10">
+  <h1 class="anchor fw-bolder mb-5" id="html">
+    <a href="#html"></a>HTML Integration
+  </h1>
+  <div class="py-5">
+    <p>
+      All styles (SASS files) from the <code>Metronic HTML</code> version are
+      imported into the Angular version too.
+    </p>
+    <p>
+      It means you can easily use <code>HTML/CSS classes</code> structure from
+      the <code>Metronic HTML</code> version in your Angular code.
+    </p>
+    <p>
+      For example, you need to use a basic flex layout from
+      <a [href]="htmlVersionLink" target="_blank"
+        >Metronic HTML documentations</a
+      >, you can grab examples from the
+      <a><code>Metronic HTML Documentations page</code></a> and copy them into
+      your Angular component:
+    </p>
+
+    <div class="d-flex flex-row h-300px">
+      <div class="d-flex flex-column flex-row-auto w-200px">
+        <div class="d-flex flex-column-auto h-50px bg-primary">
+          <span class="text-white">Fixed Height</span>
+        </div>
+
+        <div class="d-flex flex-column-fluid bg-success flex-center">
+          <span class="text-white">Fluid Height</span>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-row-fluid">
+        <div class="d-flex flex-column-auto h-70px bg-info flex-center">
+          <span class="text-white">Fixed Height</span>
+        </div>
+
+        <div class="d-flex flex-row flex-column-fluid">
+          <div class="d-flex flex-row-fluid bg-dark flex-center">
+            <span class="text-white">Fluid Width</span>
+          </div>
+
+          <div class="d-flex flex-row-auto w-200px bg-warning flex-center">
+            <span class="text-white">Fixed Width</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-code-block language="html" [code]="code1"></app-code-block>
+
+    <div class="d-flex align-items-center rounded py-5 px-5 bg-light-danger">
+      <span
+        class="svg-icon svg-icon-3x svg-icon-danger me-5"
+        [inlineSVG]="'./assets/media/icons/duotune/general/gen044.svg'"
+      ></span>
+      <div class="text-gray-700 fw-bold fs-6">
+        We don't use jQuery in our SPA applications (including Angular). It
+        means jQuery-based code from the Metronic HTML version can't be copied
+        into our Angular application.
+      </div>
+    </div>
+  </div>
+</div>

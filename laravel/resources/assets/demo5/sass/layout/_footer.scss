@@ -1,0 +1,13 @@
+//
+// Footer
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.footer {
+		// Aside enabled mode
+		.aside-enabled & {
+			padding-left: get($content-spacing, desktop);
+		}
+	}
+}

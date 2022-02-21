@@ -1,0 +1,43 @@
+//
+// BlockUI
+//
+
+
+.blockui  {
+    position: relative;
+
+    .blockui-overlay {
+        transition: all 0.3s ease;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: get($blockui, overlay-bg);
+
+        .spinner-border {
+            height: 1.35rem;
+            width: 1.35rem;
+        }
+    }
+
+    .blockui-message {
+        display: flex;
+        align-items: center;
+        @include border-radius($border-radius);
+        box-shadow: $dropdown-box-shadow;
+        background-color: $tooltip-bg;
+        color: if(isDarkMode(), $gray-700, $gray-600);
+        font-weight: $font-weight-bold;
+        margin: 0 !important;
+        width: auto;
+        padding: 0.85rem 1.75rem !important;
+
+        .spinner-border {
+            margin-right: 0.65rem;
+        }
+    }
+}

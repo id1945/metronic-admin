@@ -1,0 +1,83 @@
+//
+// Layout Config
+//
+
+// Root font Sizes
+$root-font-size:                                    13px; // Root font size for desktop mode
+$root-font-size-lg:                             	13px; // Root font size for tablet mode
+$root-font-size-md:                             	12px; // Root font size for mobile mode 
+
+// Page bg
+$page-bg: 											if(isDarkMode(), #151521, #F9FAFB) !default;
+
+// Content Spacing
+$content-spacing: (
+	desktop: 50px, // Padding for desktop mode
+	tablet-and-mobile: 20px // Padding for tablet and mobile modes
+) !default;
+
+
+// Header
+$header-config: (
+	// Desktop Mode
+	desktop: (
+		// Default Mode
+		default: (
+			height: 80px
+		),
+
+		// Fixed Mode
+		fixed: (
+			height: 65px,
+			z-index: 97,
+			bg-color: $body-bg,
+			box-shadow: if(isDarkMode(), none, 0px 10px 30px 0px rgba(82,63,105,0.08))
+		)
+	),
+
+	// Tablet & Mobile Modes
+	tablet-and-mobile: (
+		// Default Mode
+		default: (
+			height: 60px,
+		),
+
+		// Fixed Mode
+		fixed: (
+			z-index: 97,
+			height: 55px,
+			bg-color: $body-bg,
+			box-shadow: if(isDarkMode(), none, 0px 10px 30px 0px rgba(82,63,105,0.08))
+		)
+	)
+) !default;
+
+
+// Aside
+$aside-config: (
+	z-index: 100, // Aside's z-index property
+	menu-indention: 0.75rem,
+	bg-color: if(isDarkMode(), #1E1E2D, #F2F3F5),
+	width: 300px, // Aside width for desktop mode
+	border-radius: 2rem
+) !default;
+
+// Sidebar
+$sidebar-config: (
+	z-index: 101,
+	width: 400px,	
+	bg-color: if(isDarkMode(), #1E1E2D, #192440),
+	tabs: (
+		link-bg-color: (
+			default: if(isDarkMode(), darken(#1E1E2D, 4%), #0E172E),
+			active: if(isDarkMode(), darken(#1E1E2D, 6%), #07122D)
+		),
+		link-icon-color: (
+			default: #5E6278,
+			active: $white
+		),
+	),
+	dashed-border-color: if(isDarkMode(), $gray-200, #3E4A69),
+	muted-color: if(isDarkMode(),$text-muted, #546182),
+	muted-bg-color: if(isDarkMode(), darken(#1E1E2D, 2%), #0E172E)
+) !default;

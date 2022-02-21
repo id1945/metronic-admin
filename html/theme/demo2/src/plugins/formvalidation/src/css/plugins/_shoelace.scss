@@ -1,0 +1,41 @@
+.fv-plugins-shoelace {
+    .input-group {
+        margin-bottom: 0;
+    }
+
+    .fv-plugins-icon {
+        height: 32px;
+        line-height: 32px; /* Same as height of input */
+        width: 32px;
+        top: 28px; /* Same as height of label */
+    }
+
+    // Support horizontal form
+    .row .fv-plugins-icon {
+        right: 16px;
+        top: 0;
+    }
+
+    .fv-plugins-icon-check {
+        top: 24px;
+    }
+
+    .fv-sr-only ~ .fv-plugins-icon,
+    .fv-sr-only ~ div .fv-plugins-icon {
+        top: -4px;
+    }
+
+    .input-valid {
+        .fv-help-block,
+        .fv-plugins-icon {
+            color: #2ecc40;
+        }
+    }
+
+    .input-invalid {
+        .fv-help-block,
+        .fv-plugins-icon {
+            color: #ff4136;
+        }
+    }
+}

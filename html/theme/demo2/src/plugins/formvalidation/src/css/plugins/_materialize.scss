@@ -1,0 +1,25 @@
+.fv-plugins-materialize {
+    .fv-plugins-icon {
+        height: 42px; /* Same as height of input */
+        line-height: 42px;
+        width: 42px;
+    }
+
+    .fv-plugins-icon-check {
+        top: -10px;
+    }
+
+    .fv-invalid-row {
+        .helper-text,
+        .fv-plugins-icon {
+            color: #f44336;
+        }
+    }
+
+    .fv-valid-row {
+        .helper-text,
+        .fv-plugins-icon {
+            color: #4caf50;
+        }
+    }
+}

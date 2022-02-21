@@ -1,0 +1,13 @@
+//
+// Notice
+//
+
+.notice {
+  @if (isDarkMode()) {
+    @each $color, $value in $theme-colors {
+      &.border-#{$color} {
+        border-color: rgba($value, 0.5) !important;
+      }
+    }
+  }
+}

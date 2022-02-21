@@ -1,0 +1,71 @@
+//
+// Rating
+//
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating-input {
+    position: absolute !important;
+    left: -9999px !important;
+
+    &[disabled] {
+        display: none;
+    }
+}
+
+.rating-label {
+    padding: 0;
+    margin: 0;
+
+    & > i {
+        line-height: 1;
+        color: get($rating, color, default);
+    }
+
+    & > .svg-icon {
+        line-height: 1;
+        @include svg-icon-color(get($rating, color, default));
+    }
+}
+
+label.rating-label {
+    cursor: pointer;
+}
+
+div.rating-label.checked,
+label.rating-label {
+    & > i {
+        color: get($rating, color, active);
+    }
+
+    & > .svg-icon {
+        @include svg-icon-color(get($rating, color, active));
+    }
+}
+
+.rating-input:checked ~ .rating-label > i {
+    color: get($rating, color, default);
+}
+
+.rating-input:checked ~ .rating-label > .svg-icon {
+    @include svg-icon-color(get($rating, color, default));
+}
+
+.rating:hover label.rating-label > i {
+    color: get($rating, color, active);
+}
+
+.rating:hover label.rating-label > .svg-icon {
+    @include svg-icon-color(get($rating, color, active));
+}
+
+label.rating-label:hover ~ .rating-label > i {
+    color: get($rating, color, default);
+}
+
+label.rating-label:hover ~ .rating-label > .svg-icon {
+    @include svg-icon-color(get($rating, color, default));
+}
