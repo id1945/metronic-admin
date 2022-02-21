@@ -1,1 +1,0 @@
-export default function a(){return{validate(a){return{valid:a.value===""||/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$/.test(a.value)}}}}

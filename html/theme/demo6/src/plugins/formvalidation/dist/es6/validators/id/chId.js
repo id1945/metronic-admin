@@ -1,1 +1,0 @@
-export default function t(t){if(!/^756[.]{0,1}[0-9]{4}[.]{0,1}[0-9]{4}[.]{0,1}[0-9]{2}$/.test(t)){return{meta:{},valid:false}}const e=t.replace(/\D/g,"").substr(3);const r=e.length;const a=r===8?[3,1]:[1,3];let n=0;for(let t=0;t<r-1;t++){n+=parseInt(e.charAt(t),10)*a[t%2]}n=10-n%10;return{meta:{},valid:`${n}`===e.charAt(r-1)}}
