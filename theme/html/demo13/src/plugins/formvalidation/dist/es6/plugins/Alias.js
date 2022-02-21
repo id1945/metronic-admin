@@ -1,1 +1,0 @@
-import t from"../core/Plugin";export default class e extends t{constructor(t){super(t);this.opts=t||{};this.validatorNameFilter=this.getValidatorName.bind(this)}install(){this.core.registerFilter("validator-name",this.validatorNameFilter)}uninstall(){this.core.deregisterFilter("validator-name",this.validatorNameFilter)}getValidatorName(t,e){return this.opts[t]||t}}

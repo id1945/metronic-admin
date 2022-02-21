@@ -1,1 +1,0 @@
-export default function t(t){let e=t;if(/^RO[1-9][0-9]{1,9}$/.test(e)){e=e.substr(2)}if(!/^[1-9][0-9]{1,9}$/.test(e)){return{meta:{},valid:false}}const s=e.length;const r=[7,5,3,2,1,7,5,3,2].slice(10-s);let l=0;for(let t=0;t<s-1;t++){l+=parseInt(e.charAt(t),10)*r[t]}l=10*l%11%10;return{meta:{},valid:`${l}`===e.substr(s-1,1)}}

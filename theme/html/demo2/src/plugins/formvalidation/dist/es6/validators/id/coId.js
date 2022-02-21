@@ -1,1 +1,0 @@
-export default function t(t){const e=t.replace(/\./g,"").replace("-","");if(!/^\d{8,16}$/.test(e)){return{meta:{},valid:false}}const r=e.length;const a=[3,7,13,17,19,23,29,37,41,43,47,53,59,67,71];let l=0;for(let t=r-2;t>=0;t--){l+=parseInt(e.charAt(t),10)*a[t]}l=l%11;if(l>=2){l=11-l}return{meta:{},valid:`${l}`===e.substr(r-1)}}

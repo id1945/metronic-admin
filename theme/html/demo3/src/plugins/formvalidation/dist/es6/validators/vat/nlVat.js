@@ -1,1 +1,0 @@
-import t from"../../algorithms/mod97And10";import r from"../id/nlId";export default function e(e){let i=e;if(/^NL[0-9]{9}B[0-9]{2}$/.test(i)){i=i.substr(2)}if(!/^[0-9]{9}B[0-9]{2}$/.test(i)){return{meta:{},valid:false}}const o=i.substr(0,9);return{meta:{},valid:r(o).valid||t(`NL${i}`)}}
