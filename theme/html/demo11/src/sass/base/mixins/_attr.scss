@@ -1,9 +1,0 @@
-//
-// Attr
-//
-
-@mixin attr($attr, $value, $important: '') {
-    @if  $value != null  {
-        #{$attr}: #{$value} #{$important};
-    }
-}

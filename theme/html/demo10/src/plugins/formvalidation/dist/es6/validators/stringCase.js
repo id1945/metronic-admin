@@ -1,1 +1,0 @@
-export default function e(){return{validate(e){if(e.value===""){return{valid:true}}const a=Object.assign({},{case:"lower"},e.options);const s=(a.case||"lower").toLowerCase();return{message:a.message||(e.l10n?"upper"===s?e.l10n.stringCase.upper:e.l10n.stringCase.default:a.message),valid:"upper"===s?e.value===e.value.toUpperCase():e.value===e.value.toLowerCase()}}}}

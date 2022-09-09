@@ -1,1 +1,0 @@
-export default function t(t){const e=t.match(/^(SI)?([1-9][0-9]{7})$/);if(!e){return{meta:{},valid:false}}const r=e[1]?t.substr(2):t;const a=[8,7,6,5,4,3,2];let s=0;for(let t=0;t<7;t++){s+=parseInt(r.charAt(t),10)*a[t]}s=11-s%11;if(s===10){s=0}return{meta:{},valid:`${s}`===r.substr(7,1)}}

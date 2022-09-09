@@ -1,1 +1,0 @@
-import t from"../../algorithms/mod11And10";export default function e(e){let r=e;if(/^DE[0-9]{9}$/.test(r)){r=r.substr(2)}if(!/^[0-9]{9}$/.test(r)){return{meta:{},valid:false}}return{meta:{},valid:t(r)}}

@@ -1,1 +1,0 @@
-export default function t(t){let e=t;if(/^MT[0-9]{8}$/.test(e)){e=e.substr(2)}if(!/^[0-9]{8}$/.test(e)){return{meta:{},valid:false}}const r=[3,4,6,7,8,9,10,1];let a=0;for(let t=0;t<8;t++){a+=parseInt(e.charAt(t),10)*r[t]}return{meta:{},valid:a%37===0}}

@@ -1,1 +1,0 @@
-export default function t(t){let e=t;if(/^LU[0-9]{8}$/.test(e)){e=e.substr(2)}if(!/^[0-9]{8}$/.test(e)){return{meta:{},valid:false}}return{meta:{},valid:`${parseInt(e.substr(0,6),10)%89}`===e.substr(6,2)}}

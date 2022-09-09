@@ -1,8 +1,0 @@
-//
-// Burger Icon
-//
-
-.burger-icon {
-    @include  burger-icon-build($burger-icon-config);
-    @include  burger-icon-theme(get($burger-icon-config, theme, default), get($burger-icon-config, theme, hover), get($burger-icon-config, theme, active));
-}

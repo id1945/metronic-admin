@@ -1,1 +1,0 @@
-export default function t(t){let e=t;if(/^(GR|EL)[0-9]{9}$/.test(e)){e=e.substr(2)}if(!/^[0-9]{9}$/.test(e)){return{meta:{},valid:false}}if(e.length===8){e=`0${e}`}const r=[256,128,64,32,16,8,4,2];let s=0;for(let t=0;t<8;t++){s+=parseInt(e.charAt(t),10)*r[t]}s=s%11%10;return{meta:{},valid:`${s}`===e.substr(8,1)}}
