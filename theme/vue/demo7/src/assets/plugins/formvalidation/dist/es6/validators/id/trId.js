@@ -1,1 +1,0 @@
-export default function t(t){if(t.length!==11){return{meta:{},valid:false}}let e=0;for(let a=0;a<10;a++){e+=parseInt(t.charAt(a),10)}return{meta:{},valid:e%10===parseInt(t.charAt(10),10)}}

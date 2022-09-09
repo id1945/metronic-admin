@@ -1,1 +1,0 @@
-export default function e(){return{validate(e){if(e.value===""){return{valid:true}}const t=e.value.length;let l=0;let r;for(let a=0;a<t;a++){r=parseInt(e.value.charAt(a),10);if(a%2===0){r=r*2;if(r>9){r-=9}}l+=r}return{valid:l%10===0}}}}

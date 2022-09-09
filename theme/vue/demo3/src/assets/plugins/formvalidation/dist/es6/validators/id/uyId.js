@@ -1,1 +1,0 @@
-export default function t(t){if(!/^\d{8}$/.test(t)){return{meta:{},valid:false}}const e=[2,9,8,7,6,3,4];let a=0;for(let r=0;r<7;r++){a+=parseInt(t.charAt(r),10)*e[r]}a=a%10;if(a>0){a=10-a}return{meta:{},valid:`${a}`===t.charAt(7)}}
