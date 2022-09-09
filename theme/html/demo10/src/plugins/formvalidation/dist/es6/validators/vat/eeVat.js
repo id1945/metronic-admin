@@ -1,1 +1,0 @@
-export default function t(t){let e=t;if(/^EE[0-9]{9}$/.test(e)){e=e.substr(2)}if(!/^[0-9]{9}$/.test(e)){return{meta:{},valid:false}}let r=0;const a=[3,7,1,3,7,1,3,7,1];for(let t=0;t<9;t++){r+=parseInt(e.charAt(t),10)*a[t]}return{meta:{},valid:r%10===0}}

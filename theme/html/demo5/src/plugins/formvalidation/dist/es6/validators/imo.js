@@ -1,1 +1,0 @@
-export default function e(){return{validate(e){if(e.value===""){return{valid:true}}if(!/^IMO \d{7}$/i.test(e.value)){return{valid:false}}const t=e.value.replace(/^.*(\d{7})$/,"$1");let r=0;for(let e=6;e>=1;e--){r+=parseInt(t.slice(6-e,-e),10)*(e+1)}return{valid:r%10===parseInt(t.charAt(6),10)}}}}

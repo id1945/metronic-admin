@@ -1,1 +1,0 @@
-export default function t(t){let e=t;if(/^BE[0]?[0-9]{9}$/.test(e)){e=e.substr(2)}if(!/^[0]?[0-9]{9}$/.test(e)){return{meta:{},valid:false}}if(e.length===9){e=`0${e}`}if(e.substr(1,1)==="0"){return{meta:{},valid:false}}const s=parseInt(e.substr(0,8),10)+parseInt(e.substr(8,2),10);return{meta:{},valid:s%97===0}}
