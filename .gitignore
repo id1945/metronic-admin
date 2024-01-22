@@ -1,6 +1,6 @@
-/vue
-/html
-/design
-/angular
-/laravel
-
+./angular
+./design
+./html
+./laravel
+./vue
+./docs
